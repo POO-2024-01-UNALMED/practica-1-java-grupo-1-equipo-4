@@ -7,6 +7,7 @@ public class Servicio
     private Animal animal;
     private Persona persona;
     private int tipoServicio;
+    private int costoServicio;
     private Empleado empleado;
 
     //CONSTRUCTOR
@@ -14,6 +15,7 @@ public class Servicio
     {
     }
 
+    //METODO
     public boolean verificarUsuario(long identificacion)
     {
     }
