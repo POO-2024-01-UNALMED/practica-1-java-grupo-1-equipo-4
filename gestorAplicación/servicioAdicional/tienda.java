@@ -22,7 +22,7 @@ public class Tienda {
         public void agregarEmpleado(Empleado empleado){
             this.empleados.add(empleado);
         }
-        public void empleadosTienda(){
+        public void empleadosTienda(){ //muestra todos los empleados de la tienda 
             for (int i = 0; i<empleados.size(); i++){
                 System.out.println(empleados.get(i));
             }
