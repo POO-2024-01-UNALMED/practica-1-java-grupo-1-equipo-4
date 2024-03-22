@@ -51,6 +51,11 @@ public class Producto {
     public int getCantidadUnidades(){
         return this.cantidadUnidades;
     }
+
+    //método to String
+    public String toString(){
+        return "Producto: "+getNombre()+"\n"+"Precio: "+getPrecio()+"\n"+"Dirijido a: "+getTipoAnimal()+"\n"+ "Cantidad unidades: "+getCantidadUnidades();        
+    }
     
 
 }
