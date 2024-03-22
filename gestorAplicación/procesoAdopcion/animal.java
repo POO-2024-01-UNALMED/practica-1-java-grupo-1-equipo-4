@@ -1,5 +1,5 @@
 package gestorAplicación.procesoAdopcion;
 
-public class animal {
+public class Animal {
 
 }

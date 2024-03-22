@@ -1,5 +1,5 @@
 package gestorAplicación.procesoAdopcion;
 
-public class adopcion {
+public class Adopcion {
     
 }

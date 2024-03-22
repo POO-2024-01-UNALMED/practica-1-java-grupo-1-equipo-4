@@ -1,5 +1,5 @@
 package gestorAplicación.servicioAdicional;
 
-public class tienda {
+public class Tienda {
     
 }
