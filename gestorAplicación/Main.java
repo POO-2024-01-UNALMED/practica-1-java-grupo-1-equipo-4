@@ -42,7 +42,10 @@ public class Main
        //PRUEBA CLASE EMPLEADO C FUNCIONA
        String respuesta = "None";
        int e = 1;
-       
+       // prueba con una tienda 
+       Tienda tienda1 = new Tienda(); 
+
+
        Scanner scanner = new Scanner(System.in);
        while (!respuesta.equals("NO")) 
        {
@@ -64,14 +67,22 @@ public class Main
 
         System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
         
+        //Agregar empleado a tienda
+        tienda1.agregarEmpleado(empleado0);
+
         // CONDICIONAL CICLO
         System.out.println("¿Desea agregar un nuevo empleado? ");
         respuesta = scanner.next();
-
+        
        }
        scanner.close();
        //NOTA: TODAVIA FALTA HACER CODIGO PARA QUE EL NUMBRE DE LOS OBJETOS SE VAYAN CAMBIANDO
        //AUTOMATICAMENTE Y QUE LOS NUEVOS OBJETOS SE VAYAN AGREGANDO A LA LISTA DE EMPLEADOS.
-
+       tienda1.empleadosTienda();
+       Producto p1 = new Producto("Shampoo", 80000, "Perros", 30);
+       tienda1.agregarProducto(p1);
+       tienda1.inventario();
+       tienda1.empleadosTienda();
+       
     }  
 }

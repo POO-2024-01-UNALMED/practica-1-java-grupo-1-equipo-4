@@ -30,6 +30,8 @@ public class Tienda {
 
         public void agregarProducto(Producto producto){ //se agrega un producto si hay un empleado que lo agregue
             if(empleados!=null){
+                String nombre = empleados.get(0).getNombre();
+                System.out.println(nombre+" agregó: "+producto.getNombre());
                 productos.add(producto);
             }
             else{
@@ -49,6 +51,7 @@ public class Tienda {
                 System.out.println("No hay empleado para hacer inventario");
             }
         }
+
 
 
 }
