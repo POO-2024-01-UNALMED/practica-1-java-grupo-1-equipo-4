@@ -37,7 +37,7 @@ public class Empleado
         return this.nombre;
     }
 
-    public void setCedula(long cedula)
+    public void setCedula(int cedula)
     {
         this.cedula = cedula;
     }
