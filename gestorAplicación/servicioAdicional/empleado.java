@@ -1,35 +1,30 @@
 package gestorAplicación.servicioAdicional;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Empleado 
 {
-    private static ArrayList <Empleado> empleado;
+    //private static ArrayList <Empleado> empleado;
     private String nombre;
-    private long cedula;
-    private Rol profesion;
+    private int cedula;
+    private String profesion;
     private ArrayList <Cita> horario;
     //CONTADOR NUMERO DE EMPLEADOS
     private int cEmpleados = 0;
 
     //CONSTRUCTOR
-    public Empleado(String nombre, long cedula, Rol profesion, ArrayList<Cita> horario)
+    public Empleado(String nombre, int cedula)
     {
-        //Scaner SI o NO crear empleado
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("¿Desea agregar un nuevo empleado? ");
-        String r = scanner.nextLine();
-        scanner.close();
+        this.nombre = nombre;
+        this.cedula = cedula;
 
-        System.out.println(r);
 
     }
 
     //toString
-    public String toString()
-    {
-    }
+    
+    //{
+    //}
 
     //SET Y GET
     public void setNombre(String nombre)
@@ -47,8 +42,14 @@ public class Empleado
         this.cedula = cedula;
     }
 
-    public long getCedula()
+    public int getCedula()
     {
         return this.cedula;
     }
+
+    public String getProfesion()
+    {
+        return this.profesion;
+    }
 }
+
