@@ -35,17 +35,17 @@ public class Adopcion {
 	
 	public LocalDate getFechaAdopcion() {
 		return fechaAdopcion;
-	}
-	
-	//toString
-	
-	public String toString() {
-		return "Mascota: " + getAnimal() + "\nAdoptante: " + getAdoptante() + "\nFecha de adopcion: " + getFechaAdopcion();
-	}
+	}	
 	
 	//VERIFICAR
 	public boolean encuesta() {
 		return true;
 	}
 	//VERIFICAR
+	
+	//toString
+	
+	public String toString() {
+		return "Mascota: " + getAnimal() + "\nAdoptante: " + getAdoptante() + "\nFecha de adopcion: " + getFechaAdopcion();
+	}
 }

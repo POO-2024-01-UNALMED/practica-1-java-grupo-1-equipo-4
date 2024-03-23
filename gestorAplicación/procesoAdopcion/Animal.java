@@ -1,5 +1,7 @@
 package gestorAplicación.procesoAdopcion;
 
+import gestorAplicación.servicioAdicional.EstadoSalud;
+
 public class Animal {
 	
 	private String nombre;
