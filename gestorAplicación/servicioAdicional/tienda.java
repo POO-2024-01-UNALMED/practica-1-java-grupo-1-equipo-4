@@ -3,12 +3,12 @@ import gestorAplicación.procesoAdopcion.Persona;
 import java.util.ArrayList;
 
 public class Tienda {
-        //Atributos 
+        //Atributos//
         private ArrayList<Producto> productos = new ArrayList<> ();
         private ArrayList<Empleado> empleados = new ArrayList<> ();
         private ArrayList<Persona> voluntario = new ArrayList<> ();
         
-        //constructor 
+        //constructores//
         public Tienda(Empleado empleado){
             this.empleados.add(empleado); //Tienda con un empleado 
         }
@@ -18,7 +18,7 @@ public class Tienda {
         }
 
 
-        //métodos 
+        //métodos//
         public void agregarEmpleado(Empleado empleado){
             this.empleados.add(empleado);
         }
@@ -39,6 +39,8 @@ public class Tienda {
 
         public void inventario(){ //inventario se hace si hay un empleado
             if(empleados!=null){
+                String nombre = empleados.get(0).getNombre();
+                System.out.println(nombre+" hizo inventario y encontró: ");
                 for (int i = 0; i<productos.size(); i++){
                     System.out.println(productos.get(i));
                 }
