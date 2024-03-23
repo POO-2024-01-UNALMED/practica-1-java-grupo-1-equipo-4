@@ -10,7 +10,6 @@ public class Empleado
     private String profesion;
     private ArrayList <Cita> horario;
     //CONTADOR NUMERO DE EMPLEADOS
-    private int cEmpleados = 0;
 
     //CONSTRUCTOR
     public Empleado(String nombre, long cedula, String profesion)
