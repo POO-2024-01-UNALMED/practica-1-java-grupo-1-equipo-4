@@ -83,6 +83,7 @@ public class Main
        tienda1.agregarProducto(p1);
        tienda1.inventario();
        tienda1.empleadosTienda();
+       tienda1.agregarVoluntario();
        
     }  
 }

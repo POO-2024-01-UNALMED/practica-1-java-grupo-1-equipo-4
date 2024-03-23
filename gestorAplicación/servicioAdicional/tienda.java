@@ -1,12 +1,13 @@
 package gestorAplicación.servicioAdicional;
 import gestorAplicación.procesoAdopcion.Persona;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Tienda {
         //Atributos//
         private ArrayList<Producto> productos = new ArrayList<> ();
         private ArrayList<Empleado> empleados = new ArrayList<> ();
-        private ArrayList<Persona> voluntario = new ArrayList<> ();
+        private ArrayList<Persona> voluntarios = new ArrayList<> ();
         
         //constructores//
         public Tienda(Empleado empleado){
@@ -52,6 +53,59 @@ public class Tienda {
             }
         }
 
+        public void agregarVoluntario(){
+            System.out.println("Encuesta para unirse a los voluntarios: \n");
+            int contador = 0; // se va sumando el puntaje en la variable contador 
+           
+            try (Scanner scanner = new Scanner(System.in)) {
+                // preguntas para agragar voluntarios 
+                System.out.println("1- ¿Eres mayor de 18 años?");
+                String respuesta1 = scanner.next();
+                if(respuesta1.equals("SI")){
+                    contador+=1;
+                }
+            } 
+            System.out.println("2- ¿Dispones de más de 8 horas libres en la semana?");
+            String respuesta2 = System.console().readLine();
+            if(respuesta2.equals("SI")){
+                contador+=1;
+            } 
+                // trabajo en progreso // work in progress
 
 
-}
+
+            //una vez finalizado el formulario de voluntario, si obtuvo un puntaje especifico, se crea una persona 
+            // y se añade a la lista de voluntarios
+            if (contador>1){
+                System.out.println("Comienza el registro: ");
+
+                System.out.println("Ingresa tu nombre: ");
+                String nombre = System.console().readLine();
+
+                System.out.println("Ingresa tu edad: ");
+                int edad = Integer.parseInt(System.console().readLine());
+
+                System.out.println("Ingresa tu cédula: ");
+                long cedula = Long.parseLong(System.console().readLine());
+
+                System.out.println("Ingresa tu dirección: ");
+                String direccion = System.console().readLine();
+
+                System.out.println("Ingresa tu teléfono: ");
+                long tel = Long.parseLong(System.console().readLine());
+
+                //creamos persona y añadimos a la lista de voluntarios 
+                Persona voluntario = new Persona(nombre, edad, cedula, direccion, tel);
+                voluntarios.add(voluntario);
+            }
+            else{
+                System.out.println("No has cumplido con los requisitos para pertenecer a los voluntarios");
+            }
+        }
+
+
+
+    }
+
+
+
