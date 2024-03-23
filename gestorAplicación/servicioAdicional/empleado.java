@@ -6,17 +6,18 @@ public class Empleado
 {
     //private static ArrayList <Empleado> empleado;
     private String nombre;
-    private int cedula;
+    private long cedula;
     private String profesion;
     private ArrayList <Cita> horario;
     //CONTADOR NUMERO DE EMPLEADOS
     private int cEmpleados = 0;
 
     //CONSTRUCTOR
-    public Empleado(String nombre, int cedula)
+    public Empleado(String nombre, long cedula, String profesion)
     {
         this.nombre = nombre;
         this.cedula = cedula;
+        this.profesion = profesion;
 
 
     }
@@ -37,19 +38,26 @@ public class Empleado
         return this.nombre;
     }
 
-    public void setCedula(int cedula)
+    public void setCedula(long cedula)
     {
         this.cedula = cedula;
     }
 
-    public int getCedula()
+    public long getCedula()
     {
         return this.cedula;
     }
 
-    public String getProfesion()
+    public void setProfesion(String profesion)
+    {
+        this.profesion = profesion;
+    }
+
+    public String getprofesion()
     {
         return this.profesion;
     }
+
+    
 }
 
