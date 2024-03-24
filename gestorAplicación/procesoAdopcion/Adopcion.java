@@ -43,9 +43,5 @@ public class Adopcion {
 		return "Mascota: " + getAnimal() + "\nAdoptante: " + getAdoptante() + "\nFecha de adopcion: " + getFechaAdopcion();
 	}
 	
-	//VERIFICAR
-	public boolean encuesta() {
-		return true;
-	}
-	//VERIFICAR
+	//FALTA ENCUESTA
 }
