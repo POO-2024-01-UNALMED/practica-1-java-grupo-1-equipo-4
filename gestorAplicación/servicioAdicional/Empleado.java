@@ -9,7 +9,7 @@ public class Empleado
     private long cedula;
     private String profesion;
     private ArrayList <Cita> horario;
-    //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION
+    //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION(CONVIENE ENUM O SWITCH?)
 
     //CONSTRUCTOR
     public Empleado(String nombre, long cedula, String profesion)

@@ -8,23 +8,49 @@ import java.util.Scanner;
 
 public class Main 
 {
-    public static void main(String[] args){
-
-        //MENU
+    public static void main(String[] args)
+    {
+         
+        //MENU FUNCIONA. AGREGAR SUBMENUS Y LOS MENUS DE REGISTRO ANIMAL, PERSONA, EMPLEADO.
         System.out.println("Bienvenido usuario!");
-
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("¿Que deseas hacer el día de hoy?");
-        String funcionalidad = scanner.next();
 
+        for(Funcionalidad funcionalidad : Funcionalidad.values())
+        {
+            System.out.println(funcionalidad.ordinal() + ". " + funcionalidad);
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el número de la funcionalidad a la que desea acceder:");
+        int fNum = scanner.nextInt();
 
-        switch(funcionalidad)
+        switch(Funcionalidad.values()[fNum])
         {
             case AGENDAR_SERVICIO:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case SISTEMA_FINANZAS:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case ADOPTAR_ANIMAL:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case TIENDA_DE_MASCOTAS:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case ONG:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            default:
+            System.out.println("Número invalido.");
 
         }
-
+        scanner.close();
+     
         //----------------------------------------------------------------
        //PRUEBA CLASE EMPLEADO C FUNCIONA
        String respuesta = "None";
@@ -110,7 +136,79 @@ public class Main
        
        
        scanner.close();
+       
+    
+    System.out.println("¿Que deseas hacer el día de hoy?");
 
+        for(Funcionalidad funcionalidad : Funcionalidad.values())
+        {
+            System.out.println(funcionalidad.ordinal() + ". " + funcionalidad);
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el número de la funcionalidad a la que desea acceder:");
+        int fNum = scanner.nextInt();
 
+        switch(Funcionalidad.values()[fNum])
+        {
+            case AGENDAR_SERVICIO:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case SISTEMA_FINANZAS:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case ADOPTAR_ANIMAL:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case TIENDA_DE_MASCOTAS:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            case ONG:
+            System.out.println("Has seleccionado"+ " " + Funcionalidad.values()[fNum] + ".");
+            break;
+
+            default:
+            System.out.println("Número invalido.");
+
+        }
+        scanner.close(); 
+    
+    //------------------------------------------------------------
+
+    //SELECCION SERVICIO FUNCIONA
+
+    System.out.println("Lista de servicios que ofrecemos: ");
+
+        for(TipoServicio servic : TipoServicio.values())
+        {
+            System.out.println(servic.ordinal() + ". " + servic);
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el número del servicio que desea seleccionar:");
+        int sNum = scanner.nextInt();
+
+        switch(TipoServicio.values()[sNum])
+        {
+            case VETERINARIA:
+            System.out.println("Has seleccionado"+ " " + TipoServicio.values()[sNum] + ".");
+            break;
+
+            case PELUQUERIA:
+            System.out.println("Has seleccionado"+ " " + TipoServicio.values()[sNum] + ".");
+            break;
+
+            case GUARDERIA:
+            System.out.println("Has seleccionado"+ " " + TipoServicio.values()[sNum] + ".");
+            break;
+
+            default:
+            System.out.println("Número invalido.");
+
+        }
+        scanner.close();
     }  
 }
+
