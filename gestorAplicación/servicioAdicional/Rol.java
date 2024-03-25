@@ -2,7 +2,10 @@ package gestorAplicación.servicioAdicional;
 
 public enum Rol
 {
-    VETERINARIO("Veterinario"), PELUQUERO("Peluquero"), CUIDADOR("Cuidador"), TENDERO("Tendero");
+    VETERINARIO("Veterinario"), 
+    PELUQUERO("Peluquero"), 
+    CUIDADOR("Cuidador"), 
+    TENDERO("Tendero");
 
     private String rol;
 

@@ -10,11 +10,33 @@ public class Main
 {
     public static void main(String[] args){
 
-        //PRUEBA DE CODIGO EMPLEADO A FUNCIONA
-        /*Empleado empleado1 = new Empleado("Juan", 10, "Veterinario");
-        System.out.println(empleado1.getNombre() + empleado1.getCedula() + empleado1.getprofesion());
+        //MENU
+        System.out.println("Bienvenido usuario!");
 
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("¿Que deseas hacer el día de hoy?");
+        String funcionalidad = scanner.next();
+
+        scanner.close();
+
+        switch(funcionalidad)
+        {
+            case AGENDAR_SERVICIO:
+
+        }
+
+        //----------------------------------------------------------------
+       //PRUEBA CLASE EMPLEADO C FUNCIONA
+       String respuesta = "None";
+       
+       Scanner scanner = new Scanner(System.in);
+       while (!respuesta.equals("NO")) 
+       {
+        
+    
+
+        //CONSTRUCTOR NUEVO EMPLEADO
         System.out.println("Ingrese su nombre: ");
         String nombre = scanner.next();
 
@@ -23,25 +45,30 @@ public class Main
 
         System.out.println("Ingrese su profesión: ");
         String profesion = scanner.next();
-        scanner.close();
 
-       Empleado empleado2 = new Empleado(nombre, cedula, profesion);
-       System.out.println(empleado2.getNombre() + " " + empleado2.getCedula() + " " + empleado2.getprofesion());*/
-       
-       //PRUEBA CLASE EMPLEADO B FUNCIONA
-       /*String respuesta = "None";
-       int e = 0;
-       Scanner scanner = new Scanner(System.in);
-       while (!respuesta.equals("NO")) 
-       {
+
+        Empleado empleado0 = new Empleado(nombre, cedula, profesion);
+
+        //DOS FORMAS DE IMPRIMIR EMPLEADO, POR MEDIO DEL TOSTRING DE LA CLASE
+        //O REFERENCIANDO CADA ATRIBUTO DEL OBJETO
+
+        System.out.println(empleado0);
+        //System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
+        
+
+        // CONDICIONAL CICLO
         System.out.println("¿Desea agregar un nuevo empleado? ");
         respuesta = scanner.next();
+        
        }
-       scanner.close();*/
+       scanner.close();
+       //NOTA: TODAVIA FALTA HACER CODIGO PARA QUE EL NUMBRE DE LOS OBJETOS SE VAYAN CAMBIANDO
+       //AUTOMATICAMENTE Y QUE LOS NUEVOS OBJETOS SE VAYAN AGREGANDO A LA LISTA DE EMPLEADOS.
+       
+       //------------------------------------------------------------------
 
-       //PRUEBA CLASE EMPLEADO C FUNCIONA
+       //PRUEBAS TIENDA
        String respuesta = "None";
-       int e = 1;
        // prueba con una tienda 
        Tienda tienda1 = new Tienda(); 
 
@@ -65,9 +92,10 @@ public class Main
 
         Empleado empleado0 = new Empleado(nombre, cedula, profesion);
 
-        System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
+        System.out.println(empleado0);
+        //System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
         
-        //Agregar empleado a tienda
+        Agregar empleado a tienda
         tienda1.agregarEmpleado(empleado0);
 
         // CONDICIONAL CICLO
@@ -76,8 +104,7 @@ public class Main
         
        }
        scanner.close();
-       //NOTA: TODAVIA FALTA HACER CODIGO PARA QUE EL NUMBRE DE LOS OBJETOS SE VAYAN CAMBIANDO
-       //AUTOMATICAMENTE Y QUE LOS NUEVOS OBJETOS SE VAYAN AGREGANDO A LA LISTA DE EMPLEADOS.
+    
        tienda1.empleadosTienda();
        Producto p1 = new Producto("Shampoo", 80000, "Perros", 30);
        tienda1.agregarProducto(p1);

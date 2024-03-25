@@ -9,7 +9,7 @@ public class Empleado
     private long cedula;
     private String profesion;
     private ArrayList <Cita> horario;
-    //CONTADOR NUMERO DE EMPLEADOS
+    //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION
 
     //CONSTRUCTOR
     public Empleado(String nombre, long cedula, String profesion)
@@ -21,12 +21,12 @@ public class Empleado
 
     }
 
-    //toString
-    
-    //{
-    //}
+    @Override
+    public String toString()
+    {
+        return "Empleado [Nombre: "+ this.nombre + ", Cedula: "+ this.cedula + ", Profesión: "+ this.profesion + "]";
+    }
 
-    //SET Y GET
     public void setNombre(String nombre)
     {
         this.nombre = nombre;
