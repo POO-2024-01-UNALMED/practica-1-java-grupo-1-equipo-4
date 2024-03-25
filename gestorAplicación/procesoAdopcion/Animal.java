@@ -1,7 +1,5 @@
 package gestorAplicación.procesoAdopcion;
 
-import gestorAplicación.servicioAdicional.EstadoSalud;
-
 public class Animal {
 	
 	private String nombre;
@@ -11,6 +9,12 @@ public class Animal {
 	private EstadoSalud estadoSalud;
 	private Sede sede;
 	private int id;
+	
+	public static enum EstadoSalud {
+		SANO, ENFERMO, ENTRATAMIENTO
+		
+		//VERIFICAR
+	}
 	
 	//constructor
 	
