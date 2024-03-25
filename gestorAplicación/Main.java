@@ -75,7 +75,7 @@ public class Main
         respuesta = scanner.next();
         
        }
-       scanner.close();
+
        //NOTA: TODAVIA FALTA HACER CODIGO PARA QUE EL NUMBRE DE LOS OBJETOS SE VAYAN CAMBIANDO
        //AUTOMATICAMENTE Y QUE LOS NUEVOS OBJETOS SE VAYAN AGREGANDO A LA LISTA DE EMPLEADOS.
        tienda1.empleadosTienda();
@@ -83,6 +83,13 @@ public class Main
        tienda1.agregarProducto(p1);
        tienda1.inventario();
        tienda1.empleadosTienda();
+       tienda1.agregarVoluntario();
+       tienda1.agregarVoluntario();
+       
+       /* si se cierra el scanner antes, no permite la lectura de más datos por consola
+       lo mismo dentro del método agregarVoluntario, no se puede CERRAR EL SCANNER porque cuando 
+       volvemos a llamar a agregar voluntario, se nos cierra el scanner y no podemos ingresar nada más*/
 
+       scanner.close(); 
     }  
 }

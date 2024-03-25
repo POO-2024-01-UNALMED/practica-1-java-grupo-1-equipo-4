@@ -103,7 +103,7 @@ public class Tienda {
                 System.out.println("No has cumplido con los requisitos para pertenecer a los voluntarios.");
             }
 
-            scanner.close(); //cerrar scanner
+           // scanner.close(); // por favor, NO ESTE CERRAR EL SCANNER
         }
 
         public void mostrarVoluntarios(){
