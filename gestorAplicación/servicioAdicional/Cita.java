@@ -1,6 +1,5 @@
 package gestorAplicación.servicioAdicional;
-
-public class cita {
+public class Cita {
     private String hora;
     private String fecha;
     private boolean disponibilidad;
