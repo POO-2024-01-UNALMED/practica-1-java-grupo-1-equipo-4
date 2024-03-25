@@ -1,60 +1,69 @@
 package gestorAplicación.servicioAdicional;
-public class finanza{
-    private enum clasificacion{
+
+public class Finanza {
+    private enum clasificacion {
         NOMINA, SERVICIO, IMPUESTO
     };
+
     private long salidas;
     private long ingresos;
-    private long patrimonio=1000000;
+    private long patrimonio = 1000000;
     private long donacion;
     private clasificacion Clasificacion;
+    private int sueldoVet = 15000;
+    private int sueldoPel = 7000;
+    private int sueldoGua = 6500;
+    private int sueldoAsi = 5500;
 
-public void pagoAdministracion (clasificacion Clasificacion, int cantidad){
-    if (Clasificacion==clasificacion.NOMINA) {
+    // Duda, como ingresar horas, y de acuerdo a que empleado...
+    public void pagoAdministracion(clasificacion Clasificacion, int cantidad) {
+        if (Clasificacion == clasificacion.SERVICIO || Clasificacion == clasificacion.IMPUESTO) {
+            patrimonio -= cantidad;
+            salidas += cantidad;
+        }
+        if (Clasificacion == clasificacion.NOMINA) {
+
+        }
 
     }
-}
-public String ventaNueva (Producto producto, int cantidad){
 
-}
-// Getter & Setter
-public long getSalidas() {
-    return salidas;
-}
+    // duda si no tiene su propia clase...
+    public String ventaNueva(Producto producto, int cantidad) {
 
-public void setSalidas(long salidas) {
-    this.salidas = salidas;
-}
+        return null;
 
-public long getIngresos() {
-    return ingresos;
-}
+    }
 
-public void setIngresos(long ingresos) {
-    this.ingresos = ingresos;
-}
+    // Getter & Setter
+    public long getSalidas() {
+        return salidas;
+    }
 
-public long getPatrimonio() {
-    return patrimonio;
-}
+    public void setSalidas(long salidas) {
+        this.salidas = salidas;
+    }
 
-public void setPatrimonio(long patrimonio) {
-    this.patrimonio = patrimonio;
-}
+    public long getIngresos() {
+        return ingresos;
+    }
 
-public long getDonacion() {
-    return donacion;
-}
+    public void setIngresos(long ingresos) {
+        this.ingresos = ingresos;
+    }
 
-public void setDonacion(long donacion) {
-    this.donacion = donacion;
-}
+    public long getPatrimonio() {
+        return patrimonio;
+    }
 
-public clasificacion getClasificacion() {
-    return Clasificacion;
-}
+    public void setPatrimonio(long patrimonio) {
+        this.patrimonio = patrimonio;
+    }
 
-public void setClasificacion(clasificacion clasificacion) {
-    Clasificacion = clasificacion;
-}
+    public long getDonacion() {
+        return donacion;
+    }
+
+    public void setDonacion(long donacion) {
+        this.donacion = donacion;
+    }
 }
