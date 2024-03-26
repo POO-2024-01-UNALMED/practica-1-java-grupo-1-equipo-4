@@ -93,8 +93,6 @@ public class Main
 
        //PRUEBAS TIENDA
        respuesta = "None";
-       // prueba con una tienda 
-       Tienda tienda1 = new Tienda(); 
 
 
        while (!respuesta.equals("NO")) 
@@ -118,8 +116,6 @@ public class Main
         System.out.println(empleado0);
         //System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
         
-       // Agregar empleado a tienda
-        tienda1.agregarEmpleado(empleado0);
 
         // CONDICIONAL CICLO
         System.out.println("¿Desea agregar un nuevo empleado? ");
@@ -127,12 +123,6 @@ public class Main
         
        }
 
-    
-       tienda1.empleadosTienda();
-       Producto p1 = new Producto("Shampoo", 80000, "Perros", 30);
-       tienda1.agregarProducto(p1);
-       tienda1.inventario();
-       tienda1.empleadosTienda();
        
        
        scanner.close();
