@@ -16,9 +16,13 @@ public class Tienda {
             this.centroAdopcion = centroAdopcion;
         }
 
-        public Tienda(CentroAdopcion centroAdopcion){
-            this.centroAdopcion = centroAdopcion;
+        public Tienda(Empleado empleado){
+            this.empleados.add(empleado);
             //tienda definida solo con su centro de adopcion
+        }
+
+        public Tienda(){
+            //constructor vacío
         }
 
         //setter y getter//
@@ -60,8 +64,47 @@ public class Tienda {
             return voluntarios;
         }
 
+        public String compra(int indice){
+            if (empleados!=null){
+                indice -= 1;
+                int cantidad = productos.get(indice).getCantidadUnidades();
+
+                if (cantidad!=0){// si la cantidad unidades es diferente de 0, hace la compra
+                    cantidad-=1;
+                    productos.get(indice).setCantidadUnidades(cantidad); 
+                    return "Se compró una unidad de: "+productos.get(indice).getNombre();
+                }
+                else{
+                    return "No hay unidades suficientes.";
+                }
+            }else{
+                return "No hay un empleado para atenderlo.";
+            }
+        }
+
+        public String compra(int indice, int unidades){
+            if (empleados!=null){
+                indice -= 1;
+                int cantidad = productos.get(indice).getCantidadUnidades();
+
+                if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 
+                    // y mayor o igual a las unidades que se van a comprar
+                    cantidad-=unidades;
+                    productos.get(indice).setCantidadUnidades(cantidad); 
+                    return "Se compró "+unidades+" unidades de: "+productos.get(indice).getNombre();
+                }
+                else{
+                    return "No hay unidades suficientes.";
+                }
+            }else{
+                return "No hay un empleado para atenderlo.";
+            }
+        }
 
 
+        public String toString(){
+            return "Tienda con empleados: "+empleadosTienda();
+        }
     }
 
 
