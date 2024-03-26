@@ -1,22 +1,43 @@
 package gestorAplicación.servicioAdicional;
 
+import  gestorAplicación.procesoAdopcion.Persona;
+
 import java.util.ArrayList;
 
-public class Empleado 
-{
-    //private static ArrayList <Empleado> empleado;
-    private String nombre;
-    private long cedula;
-    private String profesion;
+public class Empleado extends Persona {
+	
+    private static ArrayList <Empleado> empleado = new ArrayList<>();
+    private Rol profesion;
     private ArrayList <Cita> horario;
+    
+    public static enum Rol {
+
+        VETERINARIO("Veterinario"), 
+        PELUQUERO("Peluquero"), 
+        CUIDADOR("Cuidador"), 
+        TENDERO("Tendero");
+
+        private String rol;
+
+        Rol(String rol)
+        {
+            this.rol = rol;
+        }
+
+        @Override
+        public String toString()
+        {
+            return rol;
+        }
+    }
     //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION(CONVIENE ENUM O SWITCH?)
 
     //CONSTRUCTOR
-    public Empleado(String nombre, long cedula, String profesion)
+    public Empleado(String nombre,int edad, long cedula, String direccion, long telefono, Rol profesion, ArrayList <Cita> horario)
     {
-        this.nombre = nombre;
-        this.cedula = cedula;
+     super (nombre,edad,cedula,direccion, telefono);
         this.profesion = profesion;
+        this.horario = horario;
 
 
     }
@@ -24,38 +45,11 @@ public class Empleado
     @Override
     public String toString()
     {
-        return "Empleado [Nombre: "+ this.nombre + ", Cedula: "+ this.cedula + ", Profesión: "+ this.profesion + "]";
+        return "Empleado [Nombre: "+ getNombre() + ", Cedula: "+ getCedula() + ", Profesión: "+ this.profesion + "]";
     }
 
-    public void setNombre(String nombre)
-    {
-        this.nombre = nombre;
-    }
+  
 
-    public String getNombre()
-    {
-        return this.nombre;
-    }
-
-    public void setCedula(long cedula)
-    {
-        this.cedula = cedula;
-    }
-
-    public long getCedula()
-    {
-        return this.cedula;
-    }
-
-    public void setProfesion(String profesion)
-    {
-        this.profesion = profesion;
-    }
-
-    public String getprofesion()
-    {
-        return this.profesion;
-    }
 
     
 }
