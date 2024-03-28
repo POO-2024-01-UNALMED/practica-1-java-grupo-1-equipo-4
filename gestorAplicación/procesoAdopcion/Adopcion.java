@@ -37,11 +37,11 @@ public class Adopcion {
 		return fechaAdopcion;
 	}	
 	
-	//VERIFICAR
-	public boolean encuesta() {
-		return true;
+	//metodo encuesta()
+	
+	public static boolean encuesta(int puntaje) {
+		return puntaje > 11;
 	}
-	//VERIFICAR
 	
 	//toString
 	
