@@ -30,7 +30,7 @@ public class Empleado extends Persona {
             return rol;
         }
     }
-    //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION(CONVIENE ENUM O SWITCH?)
+    //FALTA ARRAYLIST HORARIOS 
 
     //CONSTRUCTOR
     public Empleado( String nombre,int edad, long cedula,long telefono, String direccion,Rol profesion, ArrayList <Cita> horario)

@@ -1,118 +1,110 @@
 package gestorAplicación.servicioAdicional;
 import gestorAplicación.procesoAdopcion.Persona;
+import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Tienda {
         //Atributos//
         private ArrayList<Producto> productos = new ArrayList<> ();
         private ArrayList<Empleado> empleados = new ArrayList<> ();
         private ArrayList<Persona> voluntarios = new ArrayList<> ();
+        private CentroAdopcion centroAdopcion;
         
         //constructores//
-        public Tienda(Empleado empleado){
+        public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
             this.empleados.add(empleado); //Tienda con un empleado 
+            this.centroAdopcion = centroAdopcion;
+        }
+
+        public Tienda(Empleado empleado){
+            this.empleados.add(empleado);
+            //tienda definida solo con su centro de adopcion
         }
 
         public Tienda(){
-            //tienda sin empleados
+            //constructor vacío
         }
 
+        //setter y getter//
+        public void setCentroAdopcion(CentroAdopcion centroAdopcion){
+            this.centroAdopcion = centroAdopcion;
+        }
+        public CentroAdopcion getCentroAdopcion(){
+            return this.centroAdopcion;
+        }
 
         //métodos//
         public void agregarEmpleado(Empleado empleado){
             this.empleados.add(empleado);
         }
-        public void empleadosTienda(){ //muestra todos los empleados de la tienda 
-            for (int i = 0; i<empleados.size(); i++){
-                System.out.println(empleados.get(i));
-            }
+        public ArrayList<Empleado> empleadosTienda(){ //muestra todos los empleados de la tienda 
+            return empleados;
         }
 
-        public void agregarProducto(Producto producto){ //se agrega un producto si hay un empleado que lo agregue
-            if(empleados!=null){
-                String nombre = empleados.get(0).getNombre();
-                System.out.println(nombre+" agregó: "+producto.getNombre());
+        public void agregarProducto(Producto producto){ 
+            if(empleados!=null){     //se agrega un producto si hay un empleado que lo agregue
                 productos.add(producto);
             }
-            else{
-                System.out.println("No hay empleado para agregar producto");
-            }
         }
 
-        public void inventario(){ //inventario se hace si hay un empleado
+        public ArrayList<Producto> inventario(){ //inventario se hace si hay un empleado
             if(empleados!=null){
-                String nombre = empleados.get(0).getNombre();
-                System.out.println(nombre+" hizo inventario y encontró: ");
-                for (int i = 0; i<productos.size(); i++){
-                    System.out.println(productos.get(i));
+                return productos;
+            }
+            else {
+                return null;
+            }
+        }
+
+        public void agregarVoluntario(Persona voluntario){
+            voluntarios.add(voluntario);
+        }
+
+        public ArrayList<Persona> mostrarVoluntarios(){
+            return voluntarios;
+        }
+
+        public String compra(int indice){
+            if (empleados!=null){
+                indice -= 1;
+                int cantidad = productos.get(indice).getCantidadUnidades();
+
+                if (cantidad!=0){// si la cantidad unidades es diferente de 0, hace la compra
+                    cantidad-=1;
+                    productos.get(indice).setCantidadUnidades(cantidad); 
+                    return "Se compró una unidad de: "+productos.get(indice).getNombre();
                 }
-            }
-            else{
-                System.out.println("No hay empleado para hacer inventario");
+                else{
+                    return "No hay unidades suficientes.";
+                }
+            }else{
+                return "No hay un empleado para atenderlo.";
             }
         }
 
-        public void agregarVoluntario(){
+        public String compra(int indice, int unidades){
+            if (empleados!=null){
+                indice -= 1;
+                int cantidad = productos.get(indice).getCantidadUnidades();
 
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.println("Encuesta para unirse a los voluntarios: \n");
-            int contador = 0; // se va sumando el puntaje en la variable contador 
-   
-            // preguntas para agragar voluntarios 
-            System.out.println("1- ¿Eres mayor de 18 años?");
-            String respuesta1 = scanner.nextLine();
-            if(respuesta1.equals("SI")){
-                contador+=1;
-            } 
-
-            System.out.println("2- ¿Dispones de más de 8 horas libres en la semana?");
-            String respuesta2 = scanner.nextLine();
-            if(respuesta2.equals("SI")){
-                contador+=1;
-            } 
-
-            //una vez finalizado el formulario de voluntario, si obtuvo un puntaje especifico 
-            //se crea una persona y se añade a la lista de voluntarios
-            if (contador>1){
-                System.out.println("Comienza el registro: ");
-
-                System.out.println("Ingresa tu nombre: ");
-                String nombre = scanner.nextLine();
-
-                System.out.println("Ingresa tu edad: ");
-                int edad = scanner.nextInt();
-
-                System.out.println("Ingresa tu cédula: ");
-                long cedula = scanner.nextLong();
-                scanner.nextLine(); //Limpiar el buffer del scanner
-
-                System.out.println("Ingresa tu dirección: ");
-                String direccion = scanner.nextLine();
-
-                System.out.println("Ingresa tu teléfono: ");
-                long tel = scanner.nextLong();
-
-                //creamos persona y añadimos a la lista de voluntarios 
-                Persona voluntario = new Persona(nombre, edad, cedula, direccion, tel);
-                voluntarios.add(voluntario);
-                System.out.println("Gracias "+nombre+" por unirte a nuestros voluntarios.");
+                if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 
+                    // y mayor o igual a las unidades que se van a comprar
+                    cantidad-=unidades;
+                    productos.get(indice).setCantidadUnidades(cantidad); 
+                    return "Se compró "+unidades+" unidades de: "+productos.get(indice).getNombre();
+                }
+                else{
+                    return "No hay unidades suficientes.";
+                }
+            }else{
+                return "No hay un empleado para atenderlo.";
             }
-            else{
-                System.out.println("No has cumplido con los requisitos para pertenecer a los voluntarios.");
-            }
-
-           // scanner.close(); // por favor, NO ESTE CERRAR EL SCANNER
-        }
-
-        public void mostrarVoluntarios(){
-            System.out.println("Lista voluntarios:");
-            System.out.println(voluntarios);
         }
 
 
-
+        public String toString(){
+            return "Tienda con empleados: "+empleadosTienda();
+        }
     }
 
 

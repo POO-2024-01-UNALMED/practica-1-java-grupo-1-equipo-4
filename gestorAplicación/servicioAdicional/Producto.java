@@ -54,7 +54,7 @@ public class Producto {
 
     //método to String
     public String toString(){
-        return "Producto: "+getNombre()+"\n"+"Precio: "+getPrecio()+"\n"+"Dirigido a: "+getTipoAnimal()+"\n"+ "Cantidad unidades: "+getCantidadUnidades();        
+        return "\nProducto: "+getNombre()+"\n"+"Precio: "+getPrecio()+"\n"+"Dirigido a: "+getTipoAnimal()+"\n"+ "Cantidad unidades: "+getCantidadUnidades()+"\n";        
     }
     
 
