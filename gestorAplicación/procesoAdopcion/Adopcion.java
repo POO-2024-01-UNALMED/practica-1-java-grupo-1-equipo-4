@@ -5,17 +5,19 @@ import java.time.LocalDate;
 public class Adopcion {
     
 	private Animal animal;
-	private Persona persona;
+	private Cliente cliente;
 	private LocalDate fechaAdopcion;
 	
-	//constructor
+	//CONSTRUCTOR
 	
-	public Adopcion(Animal animal, Persona persona) {
+	public Adopcion(Animal animal, Cliente cliente) {
+		LocalDate fechaActual = LocalDate.now();
 		this.animal = animal;
-		this.persona = persona;
+		this.cliente = cliente;
+		this.fechaAdopcion = fechaActual;
 	}
 	
-	//setter y getter
+	//MÉTODOS SETTER Y GETTER
 	
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
@@ -25,17 +27,21 @@ public class Adopcion {
 		return animal;
 	}
 	
-	public void setAdoptante(Persona persona) {
-		this.persona = persona;
+	public void setCliente(Cliente cliente) {
+		this.cliente= cliente;
 	}
 	
-	public Persona getAdoptante() {
-		return persona;
+	public Persona getCliente() {
+		return cliente;
 	}
 	
 	public LocalDate getFechaAdopcion() {
 		return fechaAdopcion;
-	}	
+	}
+	
+	public void setFechaAdopcion(LocalDate fecha) {
+		this.fechaAdopcion=fecha;
+	}
 	
 	//VERIFICAR
 	public boolean encuesta() {
@@ -46,6 +52,6 @@ public class Adopcion {
 	//toString
 	
 	public String toString() {
-		return "Mascota: " + getAnimal() + "\nAdoptante: " + getAdoptante() + "\nFecha de adopcion: " + getFechaAdopcion();
+		return "Mascota - " + getAnimal() + "\nAdoptante -  " + getCliente() + "Fecha de adopcion - " + getFechaAdopcion();
 	}
 }

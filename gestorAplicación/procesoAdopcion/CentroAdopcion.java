@@ -5,16 +5,16 @@ import gestorAplicación.servicioAdicional.Tienda;
 
 public class CentroAdopcion {
 	
-	private static CentroAdopcion [] sedes = new CentroAdopcion[3];
+	public static enum tipoServicio{
+		VETERINARIA, GUARDERIA, PELUQUERIA
+	}
 	private ArrayList <Animal> animalesDisponibles = new ArrayList<>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<>();
 	private String nombre;
 	private int espaciosDisponibles = 0;
 	private tipoServicio servicio;
 	private Tienda tienda;
-	public static enum tipoServicio{
-		VETERINARIA, GUARDERIA, PELUQUERIA
-	}
+
 	
 	
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio, Tienda tienda) {
@@ -30,6 +30,7 @@ public class CentroAdopcion {
 	
 	
 	//METODOS SETTER Y GETTER
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -54,6 +55,14 @@ public class CentroAdopcion {
 	public Tienda getTienda() {
 		return tienda;
 	}
+	public void setTienda(Tienda tienda) {
+		this.tienda = tienda;
+	}
+	
+	public ArrayList<Adopcion> getAdopciones(){
+		return adopciones;
+	}
+	
 	
 	//OTROS MÉTODOS
 	public void agregarAnimal(Animal animal) {
@@ -77,7 +86,12 @@ public class CentroAdopcion {
 	
 	
 	public String toString() {
-		return "Nombre:" + getNombre() + ", Espacios Disponibles: " + getEspacios();
+		if (tienda!= null) {	
+		return "Nombre:" + getNombre() + "\nEspacios Disponibles: " + getEspacios() + "Servicio: " + getServicio() + "\tienda: si ";
+		}
+		else {
+			return "Nombre:" + getNombre() + "\nEspacios Disponibles: " + getEspacios() + "\nServicio: " + getServicio() + "\ntienda: no";
+		}
 		
 	}
 

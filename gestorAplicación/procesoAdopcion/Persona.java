@@ -5,12 +5,12 @@ public class Persona {
 	private String nombre;
 	private int edad;
 	private long cedula;
-	private String direccion;
 	private long telefono;
+	private String direccion;
 
 	
 	//CONSTRUCTOR
-	public Persona(String nombre,int edad, long cedula, String direccion, long telefono) {
+	public Persona(String nombre,int edad, long cedula,long telefono, String direccion) {
 		this.nombre= nombre;
 		this.edad= edad;
 		this.cedula= cedula;
@@ -62,6 +62,8 @@ public class Persona {
 		return "Nombre: " + getNombre() + "\nEdad: "+ getEdad()+ "\nCedula: " + getCedula() +"\nTelefono: " 
 				+ getTelefono() + "\nDireccion "+ getDireccion() + "\n";
 	}
+	
+
 
 }
 

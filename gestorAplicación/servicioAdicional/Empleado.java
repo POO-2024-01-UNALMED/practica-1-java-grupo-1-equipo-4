@@ -33,9 +33,9 @@ public class Empleado extends Persona {
     //FALTA ARRAYLIST HORARIOS Y ARREGLAR EL ENUM ROL DE PROFESION(CONVIENE ENUM O SWITCH?)
 
     //CONSTRUCTOR
-    public Empleado(String nombre,int edad, long cedula, String direccion, long telefono, Rol profesion, ArrayList <Cita> horario)
+    public Empleado( String nombre,int edad, long cedula,long telefono, String direccion,Rol profesion, ArrayList <Cita> horario)
     {
-     super (nombre,edad,cedula,direccion, telefono);
+     super (nombre,edad,cedula,telefono,direccion);
         this.profesion = profesion;
         this.horario = horario;
 
