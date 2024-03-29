@@ -2,31 +2,27 @@ package gestorAplicación.procesoAdopcion;
 
 public class Animal {
 	
+	public static enum EstadoSalud {
+		SANO, ENFERMO, ENTRATAMIENTO
+	}
+	
 	private String nombre;
 	private String tipo;
 	private int edad;
 	private String sexo;
-	private int id;
 	private EstadoSalud estadoSalud;
 	
-	public static enum EstadoSalud {
-		SANO, ENFERMO, ENTRATAMIENTO
-		
-		//VERIFICAR
-	}
+	//CONSTRUCTOR
 	
-	//constructor
-	
-	public Animal(String nombre, String tipo, int edad, String sexo, int id, EstadoSalud estadoSalud) {
+	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.edad = edad;
 		this.sexo = sexo;
-		this.id= id;
 		this.estadoSalud = estadoSalud;
 	}
 	
-	//setter y getter
+	//MÉTODOS SETTER Y GETTER
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -60,9 +56,6 @@ public class Animal {
 		return sexo;
 	}
 	
-	public int getId() {
-		return id;
-	}
 	
 	//VERIFICAR
 	public void setEstadoSalud(EstadoSalud estadoSalud) {
@@ -73,11 +66,10 @@ public class Animal {
 		return estadoSalud;
 	}
 	
-	//VERIFICAR
 	
-	//toString
+	//OTROS MÉTODOS
 	
 	public String toString() {
-		return "Nombre: " + getNombre() + " Tipo: " + getTipo() + " Edad: " + getEdad() + " Sexo: " + getSexo() + " Estado de salud: " + getEstadoSalud() + " ID: " + getId();
+		return "Nombre: " + getNombre() + ", Tipo: " + getTipo() + ", Edad: " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
 	}
 }

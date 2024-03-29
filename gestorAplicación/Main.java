@@ -205,30 +205,49 @@ public class Main
     
     //ENCUESTA PARA VERIFICAR SI EL ADOPTANTE CUMPLE LOS REQUISITOS (ADOPCION)
     
-    Scanner scanner = new Scanner(System.in);
-    int puntaje = hacerEncuesta(scanner);
-    
-    if (Adopcion.encuesta(puntaje)) {
-    	System.out.println("¡Felicidades! Usted es un candidato confiable para adoptar una mascota en AdoptaLove.");
-    	
-    }else {
-    	System.out.println("Lo sentimos, no cumple con los requisitos mínimos para adoptar una mascota.");
+        Scanner scanner = new Scanner(System.in);
+
+        int puntaje = hacerEncuesta(scanner);
+
+        if (Adopcion.encuesta(puntaje)) {
+
+        	System.out.println("¡Felicidades! Usted es un candidato confiable para adoptar una mascota en AdoptaLove.");
+        	
+        } else {
+            System.out.println("Lo sentimos, no cumple con los requisitos mínimos para adoptar una mascota.");
+        }
     }
-    
-    public static int hacerEncuesta(Scanner scanner) {
-    	System.out.println("Por favor responda las siguientes preguntas con un numero del 1 al 5: (1 siendo muy poco probable y 5 siendo muy probable).");
+
+   public static int hacerEncuesta(Scanner scanner) {
+        System.out.println("Por favor responda las siguientes siete preguntas con un número del 1 al 5: (Segun corresponda)");
         int puntaje = 0;
 
-        System.out.println("¿Tiene experiencia en el cuidado de animales? (1: No tengo experiencia, 5: Mucha experiencia)");
-        puntaje += scanner.nextInt();
+        puntaje += validacionRespuesta(scanner, "1) ¿Tiene experiencia en el cuidado de mascotas? (1: Ninguna experiencia, 5: Mucha experiencia)");
+        puntaje += validacionRespuesta(scanner, "2) ¿Cuánto tiempo puede dedicar diariamente a la atención y el cuidado de la mascota? (1: Menos de una hora, 5: Mas de tres horas)");
+        puntaje += validacionRespuesta(scanner, "3) ¿Está dispuesto a someter a la mascota a chequeos veterinarios regulares y proporcionarle atención médica cuando sea necesario? (1: No estoy seguro, 5: Sí, estoy comprometido)");
+        puntaje += validacionRespuesta(scanner, "4) ¿Tiene un espacio adecuado en su hogar para la mascota, tanto en interiores como en exteriores? (1: Espacio limitado o inadecuado, 5: Espacio amplio y adecuado)");
+        puntaje += validacionRespuesta(scanner, "5) ¿Está dispuesto/a a comprometerse a cuidar de la mascota durante toda su vida, incluso si surgen cambios en su situación personal o residencial? (1: No estoy seguro a largo plazo, 5: Estoy comprometido a cuidarla toda su vida)");
+        puntaje += validacionRespuesta(scanner, "6) ¿Ha considerado los requisitos específicos de la raza o tipo de mascota que está interesado en adoptar en términos de ejercicio, socialización y cuidados especiales? (1: No he investigado sobre ello, 5: He investigado y comprendo lo que implica cuidar esta raza o tipo de mascota)");
+        puntaje += validacionRespuesta(scanner, "7) ¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos y verificar el estado de la mascota? (1: No estoy dispuesto, 5: Sí)");
 
-        System.out.println("¿Tiene un espacio adecuado para el cuidado de la mascota? (1: No, 5: Sí)");
-        puntaje += scanner.nextInt();
-
-        System.out.println("¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos del estado de la mascota? (1: No, 5: Sí)");
-        puntaje += scanner.nextInt();
-        
         return puntaje;
+    }
+    
+    public static int validacionRespuesta(Scanner scanner, String pregunta) {
+        int respuesta;
+        do {
+            System.out.println(pregunta);
+            while (!scanner.hasNextInt()) {
+                System.out.println("Por favor, ingrese un número válido del 1 al 5.");
+                scanner.next();
+            }
+            respuesta = scanner.nextInt();
+            if (respuesta < 1 || respuesta > 5) {
+                System.out.println("Por favor, ingrese un número válido del 1 al 5.");
+            }
+        } while (respuesta < 1 || respuesta > 5);
+        
+        return respuesta;
     }
 
     //------------------------------------------------------------------------------
