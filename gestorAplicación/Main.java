@@ -205,30 +205,45 @@ public class Main
     
     //ENCUESTA PARA VERIFICAR SI EL ADOPTANTE CUMPLE LOS REQUISITOS (ADOPCION)
     
-    Scanner scanner = new Scanner(System.in);
-    int puntaje = hacerEncuesta(scanner);
-    
-    if (Adopcion.encuesta(puntaje)) {
-    	System.out.println("¡Felicidades! Usted es un candidato confiable para adoptar una mascota en AdoptaLove.");
-    	
-    }else {
-    	System.out.println("Lo sentimos, no cumple con los requisitos mínimos para adoptar una mascota.");
+        Scanner scanner = new Scanner(System.in);
+
+        int puntaje = hacerEncuesta(scanner);
+
+        if (Adopcion.encuesta(puntaje)) {
+
+        	System.out.println("¡Felicidades! Usted es un candidato confiable para adoptar una mascota en AdoptaLove.");
+        	
+        } else {
+            System.out.println("Lo sentimos, no cumple con los requisitos mínimos para adoptar una mascota.");
+        }
     }
-    
-    public static int hacerEncuesta(Scanner scanner) {
-    	System.out.println("Por favor responda las siguientes preguntas con un numero del 1 al 5: (1 siendo muy poco probable y 5 siendo muy probable).");
+
+   public static int hacerEncuesta(Scanner scanner) {
+        System.out.println("Por favor responda las siguientes preguntas con un número del 1 al 5:");
         int puntaje = 0;
 
-        System.out.println("¿Tiene experiencia en el cuidado de animales? (1: No tengo experiencia, 5: Mucha experiencia)");
-        puntaje += scanner.nextInt();
+        puntaje += validacionRespuesta(scanner, "¿Tiene experiencia en el cuidado de animales? (1: No tengo experiencia, 5: Mucha experiencia)");
+        puntaje += validacionRespuesta(scanner, "¿Tiene un espacio adecuado para el cuidado de la mascota? (1: No, 5: Sí)");
+        puntaje += validacionRespuesta(scanner, "¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos del estado de la mascota? (1: No, 5: Sí)");
 
-        System.out.println("¿Tiene un espacio adecuado para el cuidado de la mascota? (1: No, 5: Sí)");
-        puntaje += scanner.nextInt();
-
-        System.out.println("¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos del estado de la mascota? (1: No, 5: Sí)");
-        puntaje += scanner.nextInt();
-        
         return puntaje;
+    }
+    
+    public static int validacionRespuesta(Scanner scanner, String pregunta) {
+        int respuesta;
+        do {
+            System.out.println(pregunta);
+            while (!scanner.hasNextInt()) {
+                System.out.println("Por favor, ingrese un número válido del 1 al 5.");
+                scanner.next();
+            }
+            respuesta = scanner.nextInt();
+            if (respuesta < 1 || respuesta > 5) {
+                System.out.println("Por favor, ingrese un número válido del 1 al 5.");
+            }
+        } while (respuesta < 1 || respuesta > 5);
+        
+        return respuesta;
     }
 
     //------------------------------------------------------------------------------
