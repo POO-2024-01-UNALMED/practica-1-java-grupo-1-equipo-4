@@ -15,22 +15,13 @@ public class Finanza {
     private int sueldoGua = 6500;
     private int sueldoAsi = 5500;
 
-    // Duda, como ingresar horas, y de acuerdo a que empleado...
     public void pagoAdministracion(clasificacion Clasificacion, int cantidad) {
         if (Clasificacion == clasificacion.SERVICIO || Clasificacion == clasificacion.IMPUESTO) {
             patrimonio -= cantidad;
             salidas += cantidad;
-        }
-        if (Clasificacion == clasificacion.NOMINA) {
+        } else if (Clasificacion == clasificacion.NOMINA) {
 
         }
-
-    }
-
-    // duda si no tiene su propia clase...
-    public String ventaNueva(Producto producto, int cantidad) {
-
-        return null;
 
     }
 
