@@ -219,12 +219,16 @@ public class Main
     }
 
    public static int hacerEncuesta(Scanner scanner) {
-        System.out.println("Por favor responda las siguientes preguntas con un número del 1 al 5:");
+        System.out.println("Por favor responda las siguientes siete preguntas con un número del 1 al 5: (Segun corresponda)");
         int puntaje = 0;
 
-        puntaje += validacionRespuesta(scanner, "¿Tiene experiencia en el cuidado de animales? (1: No tengo experiencia, 5: Mucha experiencia)");
-        puntaje += validacionRespuesta(scanner, "¿Tiene un espacio adecuado para el cuidado de la mascota? (1: No, 5: Sí)");
-        puntaje += validacionRespuesta(scanner, "¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos del estado de la mascota? (1: No, 5: Sí)");
+        puntaje += validacionRespuesta(scanner, "1) ¿Tiene experiencia en el cuidado de mascotas? (1: Ninguna experiencia, 5: Mucha experiencia)");
+        puntaje += validacionRespuesta(scanner, "2) ¿Cuánto tiempo puede dedicar diariamente a la atención y el cuidado de la mascota? (1: Menos de una hora, 5: Mas de tres horas)");
+        puntaje += validacionRespuesta(scanner, "3) ¿Está dispuesto a someter a la mascota a chequeos veterinarios regulares y proporcionarle atención médica cuando sea necesario? (1: No estoy seguro, 5: Sí, estoy comprometido)");
+        puntaje += validacionRespuesta(scanner, "4) ¿Tiene un espacio adecuado en su hogar para la mascota, tanto en interiores como en exteriores? (1: Espacio limitado o inadecuado, 5: Espacio amplio y adecuado)");
+        puntaje += validacionRespuesta(scanner, "5) ¿Está dispuesto/a a comprometerse a cuidar de la mascota durante toda su vida, incluso si surgen cambios en su situación personal o residencial? (1: No estoy seguro a largo plazo, 5: Estoy comprometido a cuidarla toda su vida)");
+        puntaje += validacionRespuesta(scanner, "6) ¿Ha considerado los requisitos específicos de la raza o tipo de mascota que está interesado en adoptar en términos de ejercicio, socialización y cuidados especiales? (1: No he investigado sobre ello, 5: He investigado y comprendo lo que implica cuidar esta raza o tipo de mascota)");
+        puntaje += validacionRespuesta(scanner, "7) ¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos y verificar el estado de la mascota? (1: No estoy dispuesto, 5: Sí)");
 
         return puntaje;
     }

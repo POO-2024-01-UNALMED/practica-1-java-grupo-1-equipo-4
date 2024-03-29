@@ -43,13 +43,11 @@ public class Adopcion {
 		this.fechaAdopcion=fecha;
 	}
 	
-	//metodo encuesta()
+	//OTROS MÉTODOS
 	
 	public static boolean encuesta(int puntaje) {
-		return puntaje > 11;
+		return puntaje > 30;
 	}
-	
-	//toString
 	
 	public String toString() {
 		return "Mascota - " + getAnimal() + "\nAdoptante -  " + getCliente() + "Fecha de adopcion - " + getFechaAdopcion();
