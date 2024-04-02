@@ -1,5 +1,8 @@
 package gestorAplicación.servicioAdicional;
 
+import gestorAplicación.servicioAdicional.Empleado.Rol;
+import gestorAplicación.servicioAdicional.Empleado;
+
 public class Finanza {
     private enum clasificacion {
         NOMINA, SERVICIO, IMPUESTO
@@ -10,27 +13,31 @@ public class Finanza {
     private long patrimonio = 1000000;
     private long donacion;
     private clasificacion Clasificacion;
-    private int sueldoVet = 15000;
-    private int sueldoPel = 7000;
-    private int sueldoGua = 6500;
-    private int sueldoAsi = 5500;
+    private int sueldoVet = 750000;
+    private int sueldoPel = 900000;
+    private int sueldoGua = 1200000;
+    private int sueldoAsi = 900000;
 
-    // Duda, como ingresar horas, y de acuerdo a que empleado...
     public void pagoAdministracion(clasificacion Clasificacion, int cantidad) {
         if (Clasificacion == clasificacion.SERVICIO || Clasificacion == clasificacion.IMPUESTO) {
             patrimonio -= cantidad;
             salidas += cantidad;
+        } else if (Clasificacion == clasificacion.NOMINA) {
+            for (Empleado empleado : empleado); // cambiar la manera en la que se define la lista de empleados en la clase, preguntar juan si se puede cambiar la privacidad de empleado para hacer uso de este...
+                if (Rol profesion==Rol.PELUQUERO){ //Que tipo es Rol??
+                    patrimonio -= sueldoPel;
+                    salidas += sueldoPel;
+                } else if (Rol profesion==Rol.VETERINARIO){
+                    patrimonio -= sueldoVet;
+                    salidas += sueldoVet;
+                } else if (Rol profesion==Rol.CUIDADOR){
+                    patrimonio -= sueldoGua;
+                    salidas += sueldoGua;
+                } else if (Rol profesion==Rol.TENDERO){
+                    patrimonio -= sueldoAsi;
+                    salidas += sueldoAsi;
+            }
         }
-        if (Clasificacion == clasificacion.NOMINA) {
-
-        }
-
-    }
-
-    // duda si no tiene su propia clase...
-    public String ventaNueva(Producto producto, int cantidad) {
-
-        return null;
 
     }
 
