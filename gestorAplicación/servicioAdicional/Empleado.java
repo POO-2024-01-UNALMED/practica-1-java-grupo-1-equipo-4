@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Empleado extends Persona {
 	
-    private static ArrayList <Empleado> empleado = new ArrayList<>();
     private Rol profesion;
     private ArrayList <Cita> horario;
     

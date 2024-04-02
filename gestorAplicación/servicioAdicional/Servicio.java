@@ -1,11 +1,11 @@
 package gestorAplicación.servicioAdicional;
 import gestorAplicación.procesoAdopcion.Animal;
-import gestorAplicación.procesoAdopcion.Persona;
+import gestorAplicación.procesoAdopcion.Cliente;
 
 public class Servicio 
 {
     private Animal animal;
-    private Persona persona;
+    private Cliente persona;
     private String tipoServicio;
     private int costoServicio;
     private Empleado empleado;
@@ -13,26 +13,20 @@ public class Servicio
     //FALTA AGREGAR ENUM TIPO SERVICIO PARA QUE EL CLIENTE ELIJA
 
     //CONSTRUCTOR 1 PARA VERIFICAR USUARIO Y PARA REGISTRARLO SI NO LO ESTA
-    public Servicio(Animal animal, Persona persona)
+    public Servicio(Animal animal, Cliente persona)
     {
         this.animal = animal;
         this.persona = persona;
     }
 
     //CONSTRUCTOR 2 PARA ASIGNARLE A UN CLIENTE UN SERVICIO DE SU ELECCION
-    public Servicio(Animal animal, Persona persona, String tipoServicio)
+    public Servicio(Animal animal, Cliente persona, String tipoServicio)
     {
         this.animal = animal;
         this.persona = persona;
         this.tipoServicio = tipoServicio;
     }
 
-    //METODO
-    //public boolean verificarUsuario(long identificacion){} NO SE SI ESTO ES NECESARIO
-    //EL USUARIO SE PUEDE VERIFICAR CON CONDICIONALES LA CLASE MAIN
-
-    //toString NO LO VEO NECESARIO
-    
 
     //METODO SET Y GET
     public void setTipoServicio(String tipoServicio)
@@ -50,7 +44,7 @@ public class Servicio
         this.animal = animal;
     }
 
-    public void setPersona(Persona persona)
+    public void setPersona(Cliente persona)
     {
         this.persona = persona;
     }
@@ -77,7 +71,7 @@ public class Servicio
         return animal;
     }
 
-    public Persona getPersona()
+    public Cliente getPersona()
     {
         return persona;
     }
