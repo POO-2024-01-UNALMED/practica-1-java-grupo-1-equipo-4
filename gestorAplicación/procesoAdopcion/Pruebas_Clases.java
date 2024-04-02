@@ -5,7 +5,7 @@ package gestorAplicación.procesoAdopcion;
 
 public class Pruebas_Clases {
 
-	/*public static void main(String[] args) {
+	 public static void main(String[] args) {
 		
 		//PRUEBA CONSTRUCTOR CENTRO ADOPCIÓN
 		CentroAdopcion sede1= new CentroAdopcion("Sede principal", 20, CentroAdopcion.tipoServicio.VETERINARIA);
@@ -84,10 +84,11 @@ public class Pruebas_Clases {
 		System.out.println(persona1);
 		
 		
-		//PRUEBA DE LA CLASE CLIENTE
+		/*/PRUEBA DE LA CLASE CLIENTE
 		
-		Cliente cliente1 = new Cliente("Claudia",24,234563,34563256,"cartagena");	
+		Cliente cliente1 = new Cliente("Claudia",24,234563,34563256,"cartagena");
 		Cliente cliente2 = new Cliente ("Linda", 15,543725654,854527625,"vygvvs" );
+		
 		
 		
 		//PRUEBA DE LA CLASE ADOPCION
@@ -102,6 +103,6 @@ public class Pruebas_Clases {
 	
 		for (Adopcion adopcion: sede1.getAdopciones()) {
 			System.out.println(adopcion + "\n");
-		}
-	}*/
+		}*/
+	}
 }

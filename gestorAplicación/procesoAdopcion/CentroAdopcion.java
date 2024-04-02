@@ -87,10 +87,10 @@ public class CentroAdopcion {
 	
 	public String toString() {
 		if (tienda!= null) {	
-		return "Nombre:" + getNombre() + "\nEspacios Disponibles: " + getEspacios() + "Servicio: " + getServicio() + "\tienda: si ";
+		return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: si ";
 		}
 		else {
-			return "Nombre:" + getNombre() + "\nEspacios Disponibles: " + getEspacios() + "\nServicio: " + getServicio() + "\ntienda: no";
+			return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: no";
 		}
 		
 	}
