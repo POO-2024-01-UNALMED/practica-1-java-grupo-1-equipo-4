@@ -10,7 +10,6 @@ public class Servicio
     private int costoServicio;
     private Empleado empleado;
 
-    //FALTA AGREGAR ENUM TIPO SERVICIO PARA QUE EL CLIENTE ELIJA
 
     //CONSTRUCTOR 1 PARA VERIFICAR USUARIO Y PARA REGISTRARLO SI NO LO ESTA
     public Servicio(Animal animal, Cliente persona)
