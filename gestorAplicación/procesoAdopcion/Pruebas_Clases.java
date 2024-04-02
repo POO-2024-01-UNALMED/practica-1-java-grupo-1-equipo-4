@@ -5,7 +5,7 @@ package gestorAplicación.procesoAdopcion;
 
 public class Pruebas_Clases {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		//PRUEBA CONSTRUCTOR CENTRO ADOPCIÓN
 		CentroAdopcion sede1= new CentroAdopcion("Sede principal", 20, CentroAdopcion.tipoServicio.VETERINARIA);
@@ -103,5 +103,5 @@ public class Pruebas_Clases {
 		for (Adopcion adopcion: sede1.getAdopciones()) {
 			System.out.println(adopcion + "\n");
 		}
-	}
+	}*/
 }
