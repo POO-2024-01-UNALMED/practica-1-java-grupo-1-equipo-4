@@ -46,7 +46,7 @@ public class Adopcion {
 	//OTROS MÉTODOS
 	
 	public static boolean encuesta(int puntaje) {
-		return puntaje > 30;
+		return puntaje > 20;
 	}
 	
 	public String toString() {

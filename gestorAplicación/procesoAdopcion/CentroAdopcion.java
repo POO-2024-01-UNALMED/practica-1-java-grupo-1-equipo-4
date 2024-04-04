@@ -8,8 +8,9 @@ public class CentroAdopcion {
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	private ArrayList <Animal> animalesDisponibles = new ArrayList<>();
-	private ArrayList <Adopcion> adopciones = new ArrayList<>();
+	public static ArrayList<Adopcion> adopcionesGenerales= new ArrayList<Adopcion>();
+	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
+	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	private String nombre;
 	private int espaciosDisponibles = 0;
 	private tipoServicio servicio;
@@ -77,6 +78,7 @@ public class CentroAdopcion {
 	
 	public void agregarAdopcion(Adopcion adopcion) {
 		adopciones.add(adopcion);
+		CentroAdopcion.adopcionesGenerales.add(adopcion);
 	}
 	
 	public ArrayList <Animal> consultarAnimales() {
