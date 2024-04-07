@@ -1,5 +1,7 @@
 package gestorAplicación.procesoAdopcion;
 
+import gestorAplicación.uiMain.Main;
+
 public class Cliente extends Persona{
 	
 	public String toString() {
@@ -11,5 +13,7 @@ public class Cliente extends Persona{
 	public Cliente(String nombre,int edad, long cedula,long telefono, String direccion) {
 		
 		super(nombre,edad,cedula,telefono,direccion);
+		
+
 	}
 }
