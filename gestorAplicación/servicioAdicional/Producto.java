@@ -7,6 +7,8 @@ public class Producto {
     private String tipoAnimal; //tipo de animal al que vá dirigido el producto 
     private int cantidadUnidades; 
 
+    // filtrar por tipo de producto comida, vesrir etc.
+
     //constructor 
     public Producto(String nombre, float precio, String tipoAnimal, int cantidadUnidades){
         this.nombre = nombre;
