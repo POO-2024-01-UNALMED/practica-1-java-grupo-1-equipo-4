@@ -1,6 +1,6 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
-
+import gestorAplicación.servicioAdicional.Empleado;
 import gestorAplicación.servicioAdicional.Tienda;
 
 public class CentroAdopcion {
@@ -8,7 +8,8 @@ public class CentroAdopcion {
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	public static ArrayList<Adopcion> adopcionesGenerales= new ArrayList<Adopcion>();
+	public static ArrayList<Adopcion> adopcionesGenerales= new ArrayList<Adopcion>();	
+	private ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	private String nombre;
