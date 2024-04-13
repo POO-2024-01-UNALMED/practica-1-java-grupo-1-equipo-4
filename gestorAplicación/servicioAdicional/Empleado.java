@@ -28,6 +28,10 @@ public class Empleado extends Persona {
             return rol;
         }
     }
+
+        public Rol getProfesion(){
+            return profesion;
+        }
     //FALTA ARRAYLIST HORARIOS 
 
     //CONSTRUCTOR

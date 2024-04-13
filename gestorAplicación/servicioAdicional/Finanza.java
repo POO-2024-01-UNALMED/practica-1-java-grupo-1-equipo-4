@@ -24,7 +24,7 @@ public class Finanza {
             salidas += cantidad;
         } else if (Clasificacion == clasificacion.NOMINA) {
             for (Empleado empleado : empleado); // cambiar la manera en la que se define la lista de empleados en la clase, preguntar juan si se puede cambiar la privacidad de empleado para hacer uso de este...
-                if (Rol profesion==Rol.PELUQUERO){ //Que tipo es Rol??
+                if (Empleado.getProfesion)==Rol.PELUQUERO){ //Que tipo es Rol??
                     patrimonio -= sueldoPel;
                     salidas += sueldoPel;
                 } else if (Rol profesion==Rol.VETERINARIO){
