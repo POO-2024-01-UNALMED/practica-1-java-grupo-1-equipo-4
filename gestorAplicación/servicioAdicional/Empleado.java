@@ -10,7 +10,6 @@ public class Empleado extends Persona {
     private ArrayList <Cita> horario;
     
     public static enum Rol {
-
         VETERINARIO("Veterinario"), 
         PELUQUERO("Peluquero"), 
         CUIDADOR("Cuidador"), 

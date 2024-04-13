@@ -35,6 +35,7 @@ public class Main {
 		sede1.agregarAnimal(new Animal("Dino","Perro",1, "Macho", Animal.EstadoSalud.SANO));
 		sede1.agregarAnimal(new Animal("Reina","Gato",3,"Hembra",Animal.EstadoSalud.ENTRATAMIENTO));
 		
+		
 		//SEDE2	
 		sede2.agregarAnimal(new Animal("Golfo","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
 		sede2.agregarAnimal(new Animal("Frapee","Loro",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
@@ -54,13 +55,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		adoptarAnimal();
-		
-
-		
+			
 	}
-	
 	//MÉTODOS NECESARIOS
-	
 	
 	//ENTRADAS DE DATOS POR TIPO
 	static byte readByte() {
@@ -374,7 +371,7 @@ public class Main {
 			
 			}
 			else {
-				println("\nEs una pena que no haya podido realizar una adopción :(\nfue un gusto atenderlo señor/a" + nombre + ", ¡vuelva pronto! ");
+				println("\nEs una pena que no haya podido realizar una adopción :(\nfue un gusto atenderlo señor/a " + nombre + ", ¡vuelva pronto! ");
 			}			
 		}
 		
