@@ -22,6 +22,7 @@ public class Animal {
 		this.estadoSalud = estadoSalud;
 	}
 	
+	
 	//MÉTODOS SETTER Y GETTER
 	
 	public void setNombre(String nombre) {
@@ -32,11 +33,11 @@ public class Animal {
 		return nombre;
 	}
 	
-	public void setTipo(String tipo) {
+	public void setEspecie(String tipo) {
 		this.tipo = tipo;
 	}
 	
-	public String getTipo() {
+	public String getEspecie() {
 		return tipo;
 	}
 	
@@ -57,7 +58,6 @@ public class Animal {
 	}
 	
 	
-	//VERIFICAR
 	public void setEstadoSalud(EstadoSalud estadoSalud) {
 		this.estadoSalud = estadoSalud;
 	}
@@ -70,6 +70,6 @@ public class Animal {
 	//OTROS MÉTODOS
 	
 	public String toString() {
-		return "Nombre: " + getNombre() + ", Tipo: " + getTipo() + ", Edad: " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
+		return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad: " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
 	}
 }

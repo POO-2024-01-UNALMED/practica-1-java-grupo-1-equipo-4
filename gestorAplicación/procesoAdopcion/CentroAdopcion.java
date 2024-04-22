@@ -16,8 +16,6 @@ public class CentroAdopcion {
 	private int espaciosDisponibles = 0;
 	private tipoServicio servicio;
 	private Tienda tienda;
-
-	
 	
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio, Tienda tienda) {
 		this.nombre= nombre;
@@ -29,6 +27,7 @@ public class CentroAdopcion {
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio) {
 		this(nombre, espacios,servicio, null );
 	}
+	
 	
 	
 	//METODOS SETTER Y GETTER
@@ -85,6 +84,50 @@ public class CentroAdopcion {
 	public ArrayList <Animal> consultarAnimales() {
 		return animalesDisponibles;
 		
+	}
+	
+	public ArrayList<Animal> filtrarEspecie(int num){
+		ArrayList <Animal> disponibles = new ArrayList <Animal>();
+		
+		switch (num) {
+		case 1:
+			for (Animal perro : animalesDisponibles) {
+				if (perro.getEspecie().equalsIgnoreCase("Perro")) {
+					disponibles.add(perro);
+				}		
+			}
+			break;
+		case 2:
+			for (Animal gato : animalesDisponibles) {
+				if (gato.getEspecie().equalsIgnoreCase("Gato")) {
+					disponibles.add(gato);
+				}
+			}
+			break;
+		case 3:
+			for (Animal loro : animalesDisponibles) {
+				if (loro.getEspecie().equalsIgnoreCase("Loro")) {
+					disponibles.add(loro);
+				}
+			}
+			break;
+		case 4:
+			for (Animal conejo : animalesDisponibles) {
+				if (conejo.getEspecie().equalsIgnoreCase("Conejo")) {
+					disponibles.add(conejo);
+				}
+			}
+			break;
+		case 5:
+			for (Animal Hamster : animalesDisponibles) {
+				if (Hamster.getEspecie().equalsIgnoreCase("Hámster")) {
+					disponibles.add(Hamster);
+				}
+			}
+			break;		
+		}
+		
+		return disponibles;
 	}
 	
 	

@@ -35,7 +35,6 @@ public class Main {
 		sede1.agregarAnimal(new Animal("Dino","Perro",1, "Macho", Animal.EstadoSalud.SANO));
 		sede1.agregarAnimal(new Animal("Reina","Gato",3,"Hembra",Animal.EstadoSalud.ENTRATAMIENTO));
 		
-		
 		//SEDE2	
 		sede2.agregarAnimal(new Animal("Golfo","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
 		sede2.agregarAnimal(new Animal("Frapee","Loro",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
@@ -54,9 +53,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		adoptarAnimal();
+		adoptarMascota();
 			
 	}
+	
+	
 	//MÉTODOS NECESARIOS
 	
 	//ENTRADAS DE DATOS POR TIPO
@@ -91,13 +92,11 @@ public class Main {
 	
 	//MÉTODOS PARA EL FUNCIONAMIENTO DE LA ENCUESTA
 	
-	public static boolean validacionEncuestas() {
+	public static boolean validacionEncuesta() {
 		Scanner respuestas = new Scanner(System.in);
-
         int puntaje = hacerEncuesta(respuestas);
 
         if (Adopcion.encuesta(puntaje)) {
-
         	return true;
         	
         } else {
@@ -105,9 +104,9 @@ public class Main {
         }
 		
 	}
-	
+
 	public static int hacerEncuesta(Scanner scanner) {
-		    println("\nLa siguiente encuesta es un requisito para verificar que cumple con los requisistos para ser un adoptante en AdoptaLove.");
+		    println("\nLa siguiente encuesta es un requisito para verificar que cumple con los criterios para ser un adoptante en AdoptaLove.");
 	        println("Responda a las preguntas con una calificación en el rango [1-5], donde 1 significa muy poco y 5 significa mucho.");
 	        int puntaje = 0;
 
@@ -127,14 +126,14 @@ public class Main {
 	   public static int validacionRespuesta(Scanner scanner, String pregunta) {
 	        int respuesta;
 	        do {
-	            System.out.print(pregunta);
+	            print(pregunta);
 	            while (!scanner.hasNextInt()) {
-	                System.out.print("Por favor, ingrese un número en el rango [1-5]: ");
+	                print("Por favor, ingrese un número en el rango [1-5]: ");
 	                scanner.next();
 	            }
 	            respuesta = scanner.nextInt();
 	            if (respuesta < 1 || respuesta > 5) {
-	                System.out.println("Por favor, ingrese un númeoro en el rango [1-5]:  ");
+	                println("Por favor, ingrese un número en el rango [1-5]:  ");
 	            }
 	        } while (respuesta < 1 || respuesta > 5);
 	        
@@ -142,7 +141,8 @@ public class Main {
 	    }
 	   
 	   
-	   //MÉTODOS PARA LA SELECCION DEL ANIMAL
+	   
+	   //MÉTODOS PARA LA SELECCION DE LA MASCOTA
 	   
 	   public static int escogerSede() {
 		   int sede;
@@ -153,12 +153,12 @@ public class Main {
 		   println("3. SEDE 3");
 		   
 		   do {
-			   print("Ingrese su elección en el rango [1-3]: ");
+			   print("Ingrese su elección dentro del rango [1-3]: ");
 			   respuesta = readInt();
 			   sede = respuesta - 1;
 			   
 			   if (respuesta<1 || respuesta>3) {
-				   println("\nEl numero ingresado está fuera del rango.");
+				   println("Opción incorrecta.\n");
 			   }
 			  
 		   }while(respuesta<1 || respuesta>3);
@@ -169,16 +169,15 @@ public class Main {
 	   
 	   public static Animal escogerMascota(int sede) {
 		   
-		   println("\n¿Desea ver todos las mascotas disponibles o filtrar por un tipo en especifico?");
-		   
+		   println("¿Desea ver todos las mascotas disponibles o filtrar por una especie en especifico?");	   
 		     int opcion;
-		     Animal mascota = null;
+		     Animal mascota = null; //MASCOTA SELECCIONADA PARA ADOPCIÓN
 		     
 		     
-		     //BUCLE QUE CONTROLA QUE SE PULSE UNA DE LAS OPCIONES CORREcTAS
+		     //BUCLE QUE CONTROLA QUE SE PULSE UNA DE LAS OPCIONES CORRECTAS
 		   do {   
-			   println("1. Ver todos las mascotas disponibles.\n2. Filtrar por tipo.");
-			   print("Elija una opción dentro del rango [1-2]: ");
+			   println("1. Ver todos las mascotas disponibles.\n2. Filtrar por especie.");
+			   print("Ingrese una opción dentro del rango [1-2]: ");
 			   opcion = readInt();
 			   
 			   if (opcion!=1 && opcion!=2) {
@@ -190,26 +189,29 @@ public class Main {
 		   switch(opcion) {
 		   
 		   //VISUALIZAR TODOS LOS ANIMALES DE LA SEDE QUE SE ESCOGIÓ
-		   case 1:
-		
+		   case 1: 
+			   
+			   //INFORMAR SI NO HAY MASCOTAS DISPONIBLES
 			   if (Main.sedes.get(sede).consultarAnimales().size()==0) {
-				   println("Lo siento, no hay mascotas disponibles para adopción.");
-			   }
+				   println("Lo sentimos, en esta sede no hay mascotas disponibles para adopción.");
+			   }	
 			   
-			   
+			   //MOSTRAR AL USUARIO TODAS LAS MASCOTAS
 			   else {
 				   int mascotaseleccionada;
 				   int i=1;
+				   
 				   println("\nLas mascotas disponibles para adopción son:\n");
 			   for(Animal seleccion : sedes.get(sede).consultarAnimales()) {
-				   println("Macota " + i +": "+ seleccion);
+				   println("Mascota " + i +" - "+ seleccion);
 				   i++;
 			   }
+			   // SELECCIONAR LA MASCOTA DE SU PREFERENCIA
 			   do {
 				   print("\nIngrese el número de la mascota que quiere adoptar: ");
 				    mascotaseleccionada = readInt();
 				  
-				  if (mascotaseleccionada<0 || mascotaseleccionada> sedes.get(sede).consultarAnimales().size()) {
+				  if (mascotaseleccionada<=0 || mascotaseleccionada> sedes.get(sede).consultarAnimales().size()) {
 					  println("El número seleccionado está fuera del rango.");
 				  }
 			   }while(mascotaseleccionada<=0 || mascotaseleccionada> sedes.get(sede).consultarAnimales().size());
@@ -220,28 +222,43 @@ public class Main {
 			   }
 				   break;
 				   
-			//VISUALIZAR   
-		   case 2:
+			//VISUALIZAR LAS MASCOTAS FILTRADAS POR ESPECIE
+		   case 2:   
 			   
-			   ArrayList<Animal> filtroTipo = new ArrayList<>();
-			   print("\nIngrese el tipo de animal por el que quiere filtrar: ");
-			   String filtro = readString();
-			   int j = 1;
-			    
-			   for(Animal iterador: Main.sedes.get(sede).consultarAnimales()) {
-				   
-				   if (iterador.getTipo().equalsIgnoreCase(filtro)) {
-					   filtroTipo.add(iterador);  
-				   }
-			   }
+			   //INFORMAR SI NO HAY MASCOTAS DISPONIBLES
+			   if (Main.sedes.get(sede).consultarAnimales().size()==0) {
+				   println("Lo sentimos, en esta sede no hay mascotas disponibles para adopción.");
+			   }	
+			   else {
+			   ArrayList<Animal> filtroTipo; //ARRAY QUE GUARDA LAS MASCOTAS QUE COINCIDAN CON LA ESPECIE
+			   println("\nLas especies que manejamos son: ");
+			   println("1. Perros");
+			   println("2. Gatos");
+			   println("3. Loros");
+			   println("4. Conejos");
+			   println("5. Hámsters");	   
+			   int especie;
+			   String filtro = null;
+			   
+			   do {
+			   print("Ingrese una opción dentro del rango [1 - 5]: ");   
+			   especie = readInt();
+			   
+			   if(especie<1 || especie>5) {
+				   println("Opción incorrecta\n");
+			   }   
+			   } while(especie<1 || especie>5);
+			   
+			  filtroTipo = sedes.get(sede).filtrarEspecie(especie);
 			   
 			   if (filtroTipo.size()==0) {
-				   println("\nLo sentimos,en este momento no hay mascotas disponibles de ese tipo para adoptar.");
+				   println("\nLo sentimos,en este momento no hay mascotas de esa especie para adoptar.");
 			   }
 			   
 			   else {
+				   int j=1;
 				   int mascotaseleccionada;
-				   println("\nLas mascotas que se encuentran disponibles son:\n");
+				   println("\nLas mascotas que se encuentran disponibles son:");
 				   
 				   for (Animal seleccion: filtroTipo) {
 					   println("Mascota " + j + ": " + seleccion);
@@ -251,26 +268,27 @@ public class Main {
                print("\nIngrese el número de la mascota que quiere adoptar: ");
 				   
 				    mascotaseleccionada = readInt();
-				  if(mascotaseleccionada<0 || mascotaseleccionada > filtroTipo.size()) {
-					  println("\"El número seleccionado está fuera del rango.");
+				  if(mascotaseleccionada<=0 || mascotaseleccionada > filtroTipo.size()) {
+					  println("El número seleccionado está fuera del rango.");
 				  }
-				   }while (mascotaseleccionada<0 || mascotaseleccionada > filtroTipo.size());		
+				   }while (mascotaseleccionada<=0 || mascotaseleccionada > filtroTipo.size());		
 				   
 				   mascota = filtroTipo.get(mascotaseleccionada - 1);
 					  sedes.get(sede).borrarAnimal(mascota);
 			   }	   
+			   }
 		   }	   
 		   return mascota;	   
 	   }
 	
-		
-	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
-
 	
-	public static void adoptarAnimal() {
+	   
+	   
+	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
+	public static void adoptarMascota() {
 		
 		//INGRESAR LOS DATOS DEL CLIENTE
-		println("Proporcione los siguientes datos del interesado en adoptar: ");
+		println("Proporcione los siguientes datos de la persona interesada en adoptar  ");
 		print("Ingrese su nombre: ");
 		String nombre = readString();
 		
@@ -288,11 +306,10 @@ public class Main {
 			edad= readInt();
 			
 			if(edad<18) {
-				println("\nLa edad ingresada no corresponde a la de un adulto.");
+				println("La edad ingresada no corresponde a la de un adulto.\n");
 			
 			}} while(edad<18);
-			
-			}
+				}
 		
 		print("Ingrese su número de identificación: ");
 		long cedula = readLong();
@@ -301,11 +318,9 @@ public class Main {
 		print("Ingrese su dirección: ");
 		String direccion = readString();
 		
-		if (Main.validacionEncuestas()) {
-			println("\nSeñor/a " + nombre + " cumple con los requisitos para ser un adoptante en AdoptaLove, podemos continuar con el proceso." );
-			
-			ArrayList <Animal> adoptados = new ArrayList<>();
-			
+		if (Main.validacionEncuesta()) {
+			println("\nSeñor/a " + nombre + " cumple con los requisitos para ser un adoptante en AdoptaLove, podemos continuar con el proceso." );		
+			ArrayList <Animal> mascotasadoptadas= new ArrayList<>(); //ARRAY QUE GUARDA LAS MASCOTAS QUE ADOPTA LA PERSONA
 			String continuar = null;
 			int sede;
 			
@@ -314,17 +329,25 @@ public class Main {
 			Animal mascota = escogerMascota(sede);
 			
 			if (mascota == null) {
-				println("\n¿Desea intentar una nueva adopción?: ");
+				println("\n¿Desea intentar una nueva adopción? ");
 				print("Responda si/no: ");
 				
 				continuar = readString();
 			}
 			else {
-				adoptados.add(mascota);
+				mascotasadoptadas.add(mascota);
 				print("\n¡Felicitaciones señor/a "+ nombre + " ahora tendrá la compañia de " + mascota.getNombre()+ "!\n");		
-				println("\n¿Desea realizar otra adopción? : ");
+
+				
+				if (mascotasadoptadas.size()==3) {
+					continuar="no";
+					println("Señor/a "+ nombre + " tenemos un límite de 3 adopciones juntas, puede volver en otro momento si desea realizar otra.");
+				}
+				else {
+					println("\n¿Desea realizar otra adopción? : ");
 				print("Responda si/no: ");
 				continuar = readString();
+				}
 				
 			}
 			
@@ -335,7 +358,7 @@ public class Main {
 			
 			// 1. CREAMOS AL CLIENTE
 			Cliente nuevocliente = new Cliente(nombre,edad,cedula,telefono,direccion);	
-			for(Animal mascotaadoptada: adoptados) {
+			for(Animal mascotaadoptada: mascotasadoptadas) {
 				
 				if (mascotaadoptada!=null) {
 				Adopcion nuevaadopcion = new Adopcion(mascotaadoptada,nuevocliente);		
@@ -343,30 +366,30 @@ public class Main {
 				}
 			}
 			
-			if (adoptados.size()!=0) {	
+			if (mascotasadoptadas.size()!=0) {	
 				
-				if(adoptados.size()>1) {				
-					int ultimo = adoptados.size();		
+				if(mascotasadoptadas.size()>1) {				
+					int ultimo = mascotasadoptadas.size();		
 					String nombres= "";			
-					ArrayList <Animal> nombresmascotas = adoptados;	
+					ArrayList <Animal> nombresmascotas = mascotasadoptadas;	
 					String nombreultimo = nombresmascotas.get(ultimo-1).getNombre();
 					String nombreprimero = nombresmascotas.get(0).getNombre();
 					nombresmascotas.remove(ultimo-1);
 					nombresmascotas.remove(0);
 					
+					nombres+= nombreprimero;
 					
 					for (Animal nombremascota: nombresmascotas) {
 						if (nombremascota != null) {
-						nombres += "," + nombremascota.getNombre();
+						nombres += ", " + nombremascota.getNombre();
 						}
 					}		
-					nombres+= nombreprimero;
 					nombres+= " y " + nombreultimo;		
 					println("\nFue un gusto para AdoptaLove atenderlo señor/a " + nombre + ", ahora " + nombres +" son nuevos integrantes en su familia!");
 				}
 				
 				else {
-					println("\nFue un gusto para AdoptaLove atenderlo señor/a " + nombre + ", ahora " + adoptados.get(0).getNombre() + " es un nuevo integrante en su familia!");
+					println("\nFue un gusto para AdoptaLove atenderlo señor/a " + nombre + ", ahora " + mascotasadoptadas.get(0).getNombre() + " es un nuevo integrante en su familia!");
 				}
 			
 			}
@@ -376,7 +399,7 @@ public class Main {
 		}
 		
 		else {
-			println("\nSeñor/a " + nombre + " no cumple con los requisitos para pser un adoptante en AdoptaLove, no podemos continuar con el proceso.");
+			println("\nSeñor/a " + nombre + " no cumple con los requisitos para ser un adoptante en AdoptaLove, no podemos continuar con el proceso.");
 		}			
 	}
 		
