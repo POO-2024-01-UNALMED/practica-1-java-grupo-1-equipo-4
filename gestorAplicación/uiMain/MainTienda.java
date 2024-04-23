@@ -22,7 +22,7 @@ public class MainTienda {
 	
 	//PRUEBA DE MÉTODO
 	
-	long cedula = 776;
+	long cedula = 747;
 	
 	boolean respuesta = CentroAdopcion.EsCliente(cedula);
 	

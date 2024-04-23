@@ -71,7 +71,7 @@ public class CentroAdopcion {
 		
 		boolean valor = false; 
 		
-		for (int i = 0; i<adopcionesGenerales.size();) {
+		for (int i = 0; i<adopcionesGenerales.size(); i++) {
 			
 			Adopcion adopcion = adopcionesGenerales.get(i);
 			Persona cliente = adopcion.getCliente();
