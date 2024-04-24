@@ -14,15 +14,57 @@ public class Tienda {
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
             this.empleados.add(empleado); //Tienda con un empleado 
             this.centroAdopcion = centroAdopcion;
+            
+            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
+            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Correas", 25000, 10));
+            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
+            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
+            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            
         }
 
         public Tienda(Empleado empleado){
             this.empleados.add(empleado);
             //tienda definida solo con su centro de adopcion
+            
+            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
+            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Correas", 25000, 10));
+            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
+            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
+            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            
         }
 
         public Tienda(){
             //constructor vacío
+        	
+            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
+            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Correas", 25000, 10));
+            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
+            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
+            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            
         }
 
         //setter y getter//
