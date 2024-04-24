@@ -1,10 +1,47 @@
 package gestorAplicación.uiMain;
+import java.util.Scanner;
 import gestorAplicación.procesoAdopcion.*;
+import gestorAplicación.servicioAdicional.*;
 
 public class MainTienda {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 	
+		//METODOS ESCRITOS POR OKY
+		static byte readByte() {
+			return entrada.nextByte();
+		}
+		
+		static int readInt() {
+			return entrada.nextInt();
+		}
+		
+		static String readString() {	
+			String string =entrada.nextLine();
+			return string;
+		}
+		
+		static long readLong() {
+			return entrada.nextLong();
+		}
+		
+		static double nextDouble() {
+			return entrada.nextDouble();
+		}
+		
+		static void println(Object obj) {
+			System.out.println(obj);
+		}
+		
+		static void print(Object obj) {
+			System.out.print(obj);
+		}
+	
+		
+		
+		
+		
+		
 	CentroAdopcion sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
 
 	//CREAMOS UN ANIMAL PARA UN CENTRO
@@ -19,15 +56,18 @@ public class MainTienda {
 	
 	//AGREGAMOS ADOPCION
 	sede1.agregarAdopcion(adopcion1);
+
+	//CREAMOS UN EMPLEADO PARA QUE ATIENDA LA TIENDA
+	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO, null);
+	Tienda t1 = new Tienda(empliado, sede1);
 	
-	//PRUEBA DE MÉTODO
+	//OPERACION DE LA TIENDA
 	
-	long cedula = 747;
 	
-	boolean respuesta = CentroAdopcion.EsCliente(cedula);
 	
-	System.out.println("Resultado de la prueba:");
-	System.out.println(respuesta);
+	
+	System.out.println(t1.inventario());
+	
 	
 	}	
 }
