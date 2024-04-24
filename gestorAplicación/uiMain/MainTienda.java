@@ -5,42 +5,9 @@ import gestorAplicación.servicioAdicional.*;
 
 public class MainTienda {
 
+	public static Scanner entrada = new Scanner(System.in);
+	
 	public static void main(String[] args) {	
-	
-		//METODOS ESCRITOS POR OKY
-		static byte readByte() {
-			return entrada.nextByte();
-		}
-		
-		static int readInt() {
-			return entrada.nextInt();
-		}
-		
-		static String readString() {	
-			String string =entrada.nextLine();
-			return string;
-		}
-		
-		static long readLong() {
-			return entrada.nextLong();
-		}
-		
-		static double nextDouble() {
-			return entrada.nextDouble();
-		}
-		
-		static void println(Object obj) {
-			System.out.println(obj);
-		}
-		
-		static void print(Object obj) {
-			System.out.print(obj);
-		}
-	
-		
-		
-		
-		
 		
 	CentroAdopcion sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
 
@@ -62,12 +29,55 @@ public class MainTienda {
 	Tienda t1 = new Tienda(empliado, sede1);
 	
 	//OPERACION DE LA TIENDA
+
+	boolean bucle = true;
 	
+	System.out.println("Bienvenido a la tienda"+"\n");
 	
-	
-	
-	System.out.println(t1.inventario());
-	
-	
+	while (bucle==true) {
+		
+		System.out.println("Productos disponibles: \n");
+		System.out.println(t1.inventario());
+		System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
+		int indice = entrada.nextInt();
+		
+		System.out.println("Indique cuantas unidades quiere del producto: ");
+		int unidades = entrada.nextInt();
+		
+		
+		if (unidades==1) {
+			t1.compra(indice);
+			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+			long cedula = entrada.nextLong();
+			boolean esCliente = CentroAdopcion.esCliente(cedula);
+			if (esCliente) {
+				System.out.println("\nLa compra tiene un 10% de descuento\n");
+			}
+			
+		}else {
+			t1.compra(indice, unidades);
+			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+			long cedula = entrada.nextLong();
+			boolean esCliente = CentroAdopcion.esCliente(cedula);
+			if (esCliente) {
+				System.out.println("La compra tiene un 10% de descuento\n");
+			}
+		}
+		
+		entrada.nextLine();
+		
+		System.out.println("Se ha realizado su compra, muchas gracias\n");
+		System.out.println("¿Desea comprar algo más? (responda con si/no)");
+		String respuesta = entrada.nextLine();
+		
+		
+		if (respuesta.equals("si") || respuesta.equals("SI")) {
+			continue;
+		}
+		else {
+			System.out.println("Vuelva pronto :)");
+			break;
+		}
+	}
 	}	
 }
