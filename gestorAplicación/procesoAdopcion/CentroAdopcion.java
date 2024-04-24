@@ -67,7 +67,7 @@ public class CentroAdopcion {
 	
 	//OTROS MÉTODOS
 	
-	public static boolean EsCliente(long cedula){
+	public static boolean esCliente(long cedula){
 		
 		boolean valor = false; 
 		
