@@ -1,7 +1,6 @@
 package gestorAplicación.procesoAdopcion;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Adopcion {
     
@@ -49,6 +48,7 @@ public class Adopcion {
 	public static boolean encuesta(int puntaje) {
 		return puntaje > 20;
 	}
+	
 	
 	public String toString() {
 		return "Mascota - " + getAnimal() + "\nAdoptante -  " + getCliente() + "Fecha de adopcion - " + getFechaAdopcion();

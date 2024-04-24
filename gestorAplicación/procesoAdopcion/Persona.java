@@ -18,6 +18,12 @@ public class Persona {
 		this.direccion= direccion;
 	}
 	
+	public Persona(String nombre, int edad, long cedula) {
+		this.nombre=nombre;
+		this.edad = edad;
+		this.cedula=cedula;
+		}
+	
 	//MÉTODOS SETTER Y GETTER
 	
 	public void setNombre(String nombre) {
