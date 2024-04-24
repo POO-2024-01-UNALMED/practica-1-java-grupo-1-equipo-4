@@ -66,6 +66,28 @@ public class CentroAdopcion {
 	
 	
 	//OTROS MÉTODOS
+	
+	public static boolean EsCliente(long cedula){
+		
+		boolean valor = false; 
+		
+		for (int i = 0; i<adopcionesGenerales.size(); i++) {
+			
+			Adopcion adopcion = adopcionesGenerales.get(i);
+			Persona cliente = adopcion.getCliente();
+			
+			if (cliente.getCedula()==cedula) {
+				valor = true; //SE COMPRUEBA LA CÉDULA SÍ PERTENECE A UN CLIENTE
+				break;
+			}else {
+				continue;
+			}
+		} 
+		return valor;
+	}
+	
+	
+	
 	public void agregarAnimal(Animal animal) {
 		animalesDisponibles.add(animal);
 		espaciosDisponibles--;
