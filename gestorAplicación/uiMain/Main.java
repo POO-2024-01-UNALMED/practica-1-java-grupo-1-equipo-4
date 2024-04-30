@@ -36,26 +36,40 @@ public class Main {
 		
 		//AGREGAR ANIMALES A CADA SEDE
 		//SEDE1
-		sede1.agregarAnimal(new Animal("Tobi","Perro",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Capitán","Canario",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Nala","Canario",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rocky","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Sky","Conejo",3,"Hembra",Animal.EstadoSalud.SANO));
 		sede1.agregarAnimal(new Animal("Reina","Gato",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-		sede1.agregarAnimal(new Animal("Rocky","Conejo",1, "Macho", Animal.EstadoSalud.SANO));
-		sede1.agregarAnimal(new Animal("Nala","Loro",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-		sede1.agregarAnimal(new Animal("Dino","Perro",1, "Macho", Animal.EstadoSalud.SANO));
-		sede1.agregarAnimal(new Animal("Reina","Gato",3,"Hembra",Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rey","Gato",3, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rolly","Hámster",1, "Hembra", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Zuma","Hámster",2,"Macho",Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.SANO));
 		
 		//SEDE2	
-		sede2.agregarAnimal(new Animal("Golfo","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
-		sede2.agregarAnimal(new Animal("Frapee","Loro",1, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-		sede2.agregarAnimal(new Animal("Bolt","Perro",2, "Macho", Animal.EstadoSalud.SANO));
-		sede2.agregarAnimal(new Animal("Frodo","Perro",2, "Macho", Animal.EstadoSalud.SANO));
-		sede2.agregarAnimal(new Animal("Luna","Gato",1, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede2.agregarAnimal(new Animal("Bolt","Perro",7, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Frodo","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Golfo","Conejo",3, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Luna","Conejo",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede2.agregarAnimal(new Animal("Frapee","Canario",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Luna","Gato",6, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede2.agregarAnimal(new Animal("Everest","Gato",4, "Hembra", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Junior","Hámster",2, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Puppy","Hámster",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		
 		
 		//SEDE3
-		sede3.agregarAnimal(new Animal("Thor","Perro",2, "Macho", Animal.EstadoSalud.SANO));
-		sede3.agregarAnimal(new Animal("Teo","Perro",1, "Macho", Animal.EstadoSalud.SANO));
-		sede3.agregarAnimal(new Animal("Mia","Gato",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-		sede3.agregarAnimal(new Animal("Sony","Conejo",1, "Macho", Animal.EstadoSalud.SANO));
-		sede3.agregarAnimal(new Animal("Kira","Loro",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Thor","Perro",6, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Teo","Perro",7, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Mia","Gato",4, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Lola","Gato",6, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Sony","Conejo",3, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("River","Conejo",4, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Kira","Canario",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Furry","Canario",4, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Princea","Hámster",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
 	}
 	
 	static {
@@ -95,8 +109,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		adoptarMascota();	
+		//adoptarMascota();	
 		agendarServicio();
+		
 	}
 	
 	
@@ -137,7 +152,7 @@ public class Main {
 		Scanner respuestas = new Scanner(System.in);
         int puntaje = hacerEncuesta(respuestas);
 
-        if (puntaje>25) {
+        if (puntaje>20) {
         	return true;
         	
         } else {
@@ -152,7 +167,7 @@ public class Main {
 
 	        puntaje += validacionRespuesta(scanner, "1. ¿Tiene experiencia en el cuidado de mascotas?: ");
 	        puntaje += validacionRespuesta(scanner, "2. ¿Cuánto tiempo puede dedicar diariamente a la atención y el cuidado de la mascota?: ");
-	        puntaje += validacionRespuesta(scanner, "3. ¿Con qué frecuencia planea viajar en los próximos meses?: ");
+	        puntaje -= validacionRespuesta(scanner, "3. ¿Con qué frecuencia planea viajar en los próximos meses?: ");
 	        puntaje += validacionRespuesta(scanner, "4. ¿Tiene un espacio adecuado en su hogar para la mascota, tanto en interiores como en exteriores?: ");
 	        puntaje += validacionRespuesta(scanner, "5. ¿Qué tan cómodo/a se siente al tener una mascota en su hogar?: ");
 	        puntaje += validacionRespuesta(scanner, "6. ¿Ha considerado los requisitos específicos de la raza/tipo de mascota en términos de ejercicio,socialización y cuidados?: ");
@@ -198,7 +213,7 @@ public class Main {
 				   println("Opción fuera de rango.");
 			   }
 			   }catch(RuntimeException e) {
-				   println("Tipo de dato incorrecto, proporcione una respuesta válida.");
+				   println("Se ha ingresado un tipo de dato incorrecto.");
 			   }finally {
 				   readString();
 			   }
@@ -208,7 +223,7 @@ public class Main {
 	   }   
 	   public static Animal escogerMascota(int sede) {
 		   
-		   println("\n¿Desea ver todos las mascotas disponibles o filtrar por una especie en especifico?");	   
+		   println("\n¿Desea ver todas las mascotas disponibles o filtrar por una especie en especifico?");	   
 		     int opcion=0; //OPCIÓN DE VISUALIZACIÓN
 		     Animal mascota = null; //MASCOTA SELECCIONADA PARA ADOPCIÓN
 		     
@@ -223,7 +238,7 @@ public class Main {
 				   println("Opción fuera de rango.");
 			   }
 		   }catch(RuntimeException e) {
-			   println("Tipo de dato incorrecto, proporcione una respuesta válida.");
+			   println("Se ha ingresado un tipo de dato incorrecto.");
 		   }finally {
 			   readString();
 		   }
@@ -259,7 +274,7 @@ public class Main {
 					  println("El número seleccionado está fuera del rango.");
 				  }
 				   }catch(RuntimeException e) {
-					   println("Tipo de dato incorrecto, proporcione una respuesta válida.");
+					   println("Se ha ingresado un tipo de dato incorrecto.");
 				   }finally {
 					   readString();
 				   }
@@ -295,7 +310,7 @@ public class Main {
 				   println("Opción fuera del rango.");
 			   } 
 				   } catch(RuntimeException e) {
-					  println("Tipo de dato incorrecto, proporcione una respuesta válida.");
+					  println("Se ha ingresado un tipo de dato incorrecto.");
 				   }finally {
 					   readString();
 				   }
@@ -324,7 +339,7 @@ public class Main {
 					  println("El número seleccionado está fuera del rango.");
 				  }
 					   }catch(RuntimeException e) {
-						   println("Tipo de dato incorrecto, proporcione una respuesta válida.");
+						   println("Se ha ingresado un tipo de dato incorrecto.");
 					   }finally {
 						   readString();
 					   }
@@ -334,7 +349,7 @@ public class Main {
 				   sedes.get(sede).borrarAnimal(mascota);
 			   }	   
 
-			   }
+			 }
 		  }	   
 		   return mascota;	   
 	   }
@@ -352,11 +367,11 @@ public class Main {
 				print("Ingrese su edad: ");
 				edad = readInt();
 				if (edad<=0) {
-					println("El edad no puede ser una cantidad negativa ni nula.");
+					println("Proporcione una edad válida.");
 					edad=0;
 				}
 		    }catch(RuntimeException e) {
-		    	println("Tipo de dato incorrecto, proporcione un valor válido.");
+		    	println("Se ha ingresado un tipo de dato incorrecto.");
 		    }finally {
 		    	readString();//CONSUMIR SALTO DE LÍNEA.
 		    	}
@@ -374,13 +389,13 @@ public class Main {
 				edad= readInt();
 				
 				if (edad<=0) {
-					println("La edad no puede ser una cantidad negativa ni nula.");
+					println("Proporcione una edad válida.");
 				}
 				if (edad<18 && edad>0) {
 					break;
 				}
 					} catch(RuntimeException e) {
-						println("Tipo de dato incorrecto, proporcione un valor válido.");
+						println("Se ha ingresado un tipo de dato incorrecto.");
 					}finally {
 						readString(); //CONSUMIR SALTO DE LÍNEA.
 					}
@@ -399,7 +414,7 @@ public class Main {
 						print("Ingrese su número de identificación: ");
 						cedula = readLong();
 						if (cedula<=0) {
-							println("Proporcione un número de identificación válido.");
+							println("Proporcione una identificación válida.");
 							cedula=0;
 						}
 					}
@@ -415,7 +430,7 @@ public class Main {
 					}
 				}
 		}catch(RuntimeException e) {
-			println("Tipo de dato incorrecto, proporcione un valor válido.");
+			println("Se ha ingresado un tipo de dato incorrecto.");
 			}finally {
 				readString();
 			}
@@ -444,11 +459,11 @@ public class Main {
 				
 				if (mascotasadoptadas.size()==3) {
 					continuar="no";
-					println("En AdoptaLove tenemos un límite de 3 adopciones juntas, puede volver en otro momento si desea realizar otra adopción.");
+					println("En AdoptaLove una persona tiene un límite de tres adopciones consecutivas, puede volver en otro momento si desea realizar otra adopción.");
 				}
 				else {			
 				println("\n¿Desea realizar otra adopción? : ");
-				while(continuar.equalsIgnoreCase("si")==false && continuar.equalsIgnoreCase("no")==false) {
+				while(continuar.equalsIgnoreCase("si")== false && continuar.equalsIgnoreCase("no")==false) {
 				print("Responda si/no: ");
 				continuar = readString();
 				}
@@ -461,11 +476,14 @@ public class Main {
 			
 			// 1. CREAMOS AL CLIENTE
 			Cliente nuevocliente = new Cliente(nombre,edad,cedula,telefono,direccion);	
-			for(Animal mascotaadoptada: mascotasadoptadas) {
-				
+			int num=1;
+			for(Animal mascotaadoptada: mascotasadoptadas) {	
 				if (mascotaadoptada!=null) {
 				Adopcion nuevaadopcion = new Adopcion(mascotaadoptada,nuevocliente);		
 				sedes.get(sede).agregarAdopcion(nuevaadopcion);
+				println("\n---- DETALLES ADOPCIÓN "+ num+++ " ----");
+				println(nuevaadopcion);
+
 				}
 			}	
 			if (mascotasadoptadas.size()!=0) {	
@@ -505,7 +523,7 @@ public class Main {
 		}			
 	}	
 	
-	//------------------------------------INICIO AGENDAR SERVICIO-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------INICIO AGENDAR SERVICIO-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 			public static void agendarServicio() {
 				
