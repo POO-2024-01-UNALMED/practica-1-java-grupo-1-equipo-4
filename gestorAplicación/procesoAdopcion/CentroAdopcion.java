@@ -1,5 +1,7 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
+
+import gestorAplicación.procesoAdopcion.CentroAdopcion.tipoServicio;
 import gestorAplicación.servicioAdicional.Empleado;
 import gestorAplicación.servicioAdicional.Tienda;
 
@@ -28,8 +30,10 @@ public class CentroAdopcion {
 		this(nombre, espacios,servicio, null );
 	}
 	
-	
-	
+	public CentroAdopcion(String nombre, tipoServicio servicio) {
+		this(nombre, 0, servicio, null);
+	}
+
 	//METODOS SETTER Y GETTER
 	
 	public String getNombre() {
@@ -64,10 +68,14 @@ public class CentroAdopcion {
 		return adopciones;
 	}
 	
+	public ArrayList<Empleado> getEmpleados(){
+		return empleados;
+	}
+	
 	
 	//OTROS MÉTODOS
 	
-	public static boolean EsCliente(long cedula){
+	public static boolean esCliente(long cedula){
 		
 		boolean valor = false; 
 		
@@ -86,7 +94,9 @@ public class CentroAdopcion {
 		return valor;
 	}
 	
-	
+	public void agregarEmpleado(Empleado empleado) {
+		empleados.add(empleado);
+	}
 	
 	public void agregarAnimal(Animal animal) {
 		animalesDisponibles.add(animal);
