@@ -94,7 +94,7 @@ public class Main {
 		Scanner respuestas = new Scanner(System.in);
         int puntaje = hacerEncuesta(respuestas);
 
-        if (Adopcion.encuesta(puntaje)) {
+        if (puntaje>25) {
         	return true;
         	
         } else {
@@ -261,7 +261,7 @@ public class Main {
 			  filtroTipo = sedes.get(sede).filtrarEspecie(especie);
 			   
 			   if (filtroTipo.size()==0) {
-				   println("\nLo sentimos,en este momento no hay mascotas de esa especie para adoptar.");
+				   println("\nLo sentimos,en este momento no se encuentran mascotas de esa especie disponibles para adopción.");
 			   }	   
 			   else {
 				   int j=1;
