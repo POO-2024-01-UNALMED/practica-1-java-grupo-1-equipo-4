@@ -21,7 +21,6 @@ public class Main {
 	//ARRAYLIST DONDE SE VAN A GUARDAR LAS SEDES
 	public static Scanner entrada = new Scanner(System.in);
 	public static ArrayList<CentroAdopcion> sedes = new ArrayList<CentroAdopcion>();
-	public static ArrayList <CentroAdopcion> sedesEmpleados = new ArrayList<CentroAdopcion>();
 	public static Map<String, List<String>>[] horario = new Map[15];
 	
 	static {
@@ -70,41 +69,31 @@ public class Main {
 		sede3.agregarAnimal(new Animal("Kira","Canario",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
 		sede3.agregarAnimal(new Animal("Furry","Canario",4, "Macho", Animal.EstadoSalud.SANO));
 		sede3.agregarAnimal(new Animal("Princea","Hámster",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-	}
-	
-	static {
-		//CREACION UBICACION EMPLEADOS
-		CentroAdopcion empleadosSede1 = new CentroAdopcion("SEDE 1", CentroAdopcion.tipoServicio.GUARDERIA);
-		sedesEmpleados.add(empleadosSede1);
-		CentroAdopcion empleadosSede2 = new CentroAdopcion("SEDE 2", CentroAdopcion.tipoServicio.VETERINARIA);
-		sedesEmpleados.add(empleadosSede2);
-		CentroAdopcion empleadosSede3 = new CentroAdopcion("SEDE 3", CentroAdopcion.tipoServicio.PELUQUERIA);
-		sedesEmpleados.add(empleadosSede3);
 		
 		//AGREGAR EMPLEADOS A CADA SEDE
 		
 		//SEDE 1
-		empleadosSede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR, horario));
-		empleadosSede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR, horario));
-		empleadosSede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR, horario));
-		empleadosSede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR, horario));
-		empleadosSede1.agregarEmpleado(new Empleado("Wilson Jimenez", 36, 70925845, 313153964, "Carrera 72a", Empleado.Rol.CUIDADOR, horario));
-		empleadosSede1.agregarEmpleado(new Empleado("Mateo Munera", 25, 56892347, 311567832, "Carrera 68", Empleado.Rol.CUIDADOR, horario));
-				
+		sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR, horario));
+		sede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR, horario));
+		sede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR, horario));
+		sede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR, horario));
+		sede1.agregarEmpleado(new Empleado("Wilson Jimenez", 36, 70925845, 313153964, "Carrera 72a", Empleado.Rol.CUIDADOR, horario));
+		sede1.agregarEmpleado(new Empleado("Mateo Munera", 25, 56892347, 311567832, "Carrera 68", Empleado.Rol.CUIDADOR, horario));
+						
 		//SEDE 2
-		empleadosSede2.agregarEmpleado(new Empleado("Carlos Rivera", 23, 12307004, 328748995, "Carrera 30", Empleado.Rol.VETERINARIO, horario));
-		empleadosSede2.agregarEmpleado(new Empleado("Marta Puerta", 28, 66973892, 304236021, "Calle 90", Empleado.Rol.VETERINARIO, horario));
-		empleadosSede2.agregarEmpleado(new Empleado("Karen Diaz", 32, 11277768, 314943886, "Calle 86", Empleado.Rol.VETERINARIO, horario));
-		empleadosSede2.agregarEmpleado(new Empleado("Mario Martinez", 30, 79698181, 300564603, "Carrera 67b", Empleado.Rol.VETERINARIO, horario));
-				
+		sede2.agregarEmpleado(new Empleado("Carlos Rivera", 23, 12307004, 328748995, "Carrera 30", Empleado.Rol.VETERINARIO, horario));
+		sede2.agregarEmpleado(new Empleado("Marta Puerta", 28, 66973892, 304236021, "Calle 90", Empleado.Rol.VETERINARIO, horario));
+		sede2.agregarEmpleado(new Empleado("Karen Diaz", 32, 11277768, 314943886, "Calle 86", Empleado.Rol.VETERINARIO, horario));
+		sede2.agregarEmpleado(new Empleado("Mario Martinez", 30, 79698181, 300564603, "Carrera 67b", Empleado.Rol.VETERINARIO, horario));
+						
 		//SEDE 3
-		empleadosSede3.agregarEmpleado(new Empleado("Natalia Fernandez", 26, 70233557, 318529646, "Calle 63", Empleado.Rol.PELUQUERO, horario));
-		empleadosSede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO, horario));
-		empleadosSede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO, horario));
-		empleadosSede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO, horario));
-		empleadosSede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO, horario));
-		
+		sede3.agregarEmpleado(new Empleado("Natalia Fernandez", 26, 70233557, 318529646, "Calle 63", Empleado.Rol.PELUQUERO, horario));
+		sede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO, horario));
+		sede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO, horario));
+		sede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO, horario));
+		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO, horario));
 	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -583,7 +572,7 @@ public class Main {
 				                while (!seleccionValida) {
 				                    println("\nLos cuidadores disponibles para agendar son: \n");
 				                    int i = 1;
-				                    for(Empleado cuidador : sedesEmpleados.get(indicador).getEmpleados()) {
+				                    for(Empleado cuidador : sedes.get(indicador).getEmpleados()) {
 				                        if (cuidador.getProfesion() == Rol.CUIDADOR) {
 				                            println(i +". "+ cuidador);
 				                            i++;
@@ -593,15 +582,15 @@ public class Main {
 				                    print("\nIngrese el número del cuidador que desea seleccionar: ");
 				                    seleccion = readInt();
 				                    int indiceSede = 0;
-				                    for (int e = 0; e < sedesEmpleados.size(); e++) {
-				                        if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+				                    for (int e = 0; e < sedes.size(); e++) {
+				                        if (sedes.get(e) == sedes.get(indicador)) {
 				                            indiceSede = e;
 				                            break;
 				                        }
 				                    }
 
-				                    if (seleccion >= 1 && seleccion <= 6 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
-				                        Empleado cuidadorSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+				                    if (seleccion >= 1 && seleccion <= 6 && seleccion <= sedes.get(indiceSede).getEmpleados().size()) {
+				                        Empleado cuidadorSeleccionado = sedes.get(indiceSede).getEmpleados().get(seleccion - 1);
 				                        println("\nCuidador seleccionado: " + cuidadorSeleccionado + "\n");
 				                        String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
@@ -734,7 +723,7 @@ public class Main {
 							    while (!seleccionValida) {
 							        println("\nSeleccione el numero del veterinario para ver su disponibilidad y agendar. \n");
 							        int i = 7;
-							        for (Empleado veterinario : sedesEmpleados.get(indicador).getEmpleados()) {
+							        for (Empleado veterinario : sedes.get(indicador).getEmpleados()) {
 							            if (veterinario.getProfesion() == Rol.VETERINARIO) {
 							                println(i + ". " + veterinario);
 							                i++;
@@ -745,15 +734,15 @@ public class Main {
 							        try {
 							            seleccion = readInt();
 							            int indiceSede = 0;
-							            for (int e = 0; e < sedesEmpleados.size(); e++) {
-							                if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+							            for (int e = 0; e < sedes.size(); e++) {
+							                if (sedes.get(e) == sedes.get(indicador)) {
 							                    indiceSede = e;
 							                    break;
 							                }
 							            }
 
-							            if (seleccion >= 7 && seleccion <= 10 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
-							                Empleado veterinarioSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+							            if (seleccion >= 7 && seleccion <= 10 && seleccion >= sedes.get(indiceSede).getEmpleados().size()) {
+							                Empleado veterinarioSeleccionado = sedes.get(indiceSede).getEmpleados().get(seleccion - 7);
 							                println("\nVeterinario seleccionado: " + veterinarioSeleccionado + "\n");
 							                String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
@@ -854,8 +843,8 @@ public class Main {
 							    while (!seleccionValida) {
 							        println("\nSeleccione el numero del peluquero para ver su disponibilidad y agendar. \n");
 							        int i = 11;
-							        for (Empleado peluquero : sedesEmpleados.get(indicador).getEmpleados()) {
-							            if (peluquero.getProfesion() == Rol.VETERINARIO) {
+							        for (Empleado peluquero : sedes.get(indicador).getEmpleados()) {
+							            if (peluquero.getProfesion() == Rol.PELUQUERO) {
 							                println(i + ". " + peluquero);
 							                i++;
 							            }
@@ -865,15 +854,15 @@ public class Main {
 							        try {
 							            seleccion = readInt();
 							            int indiceSede = 0;
-							            for (int e = 0; e < sedesEmpleados.size(); e++) {
-							                if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+							            for (int e = 0; e < sedes.size(); e++) {
+							                if (sedes.get(e) == sedes.get(indicador)) {
 							                    indiceSede = e;
 							                    break;
 							                }
 							            }
 
-							            if (seleccion >= 11 && seleccion <= 15 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
-							                Empleado peluqueroSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+							            if (seleccion >= 11 && seleccion <= 15 && seleccion >= sedes.get(indiceSede).getEmpleados().size()) {
+							                Empleado peluqueroSeleccionado = sedes.get(indiceSede).getEmpleados().get(seleccion - 11);
 							                println("\nPeluquero seleccionado: " + peluqueroSeleccionado + "\n");
 							                String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
