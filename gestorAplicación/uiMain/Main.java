@@ -1,7 +1,11 @@
 package gestorAplicación.uiMain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import gestorAplicación.procesoAdopcion.Adopcion;
@@ -9,12 +13,16 @@ import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import gestorAplicación.procesoAdopcion.Cliente;
 import gestorAplicación.procesoAdopcion.Persona;
+import gestorAplicación.servicioAdicional.Empleado;
+import gestorAplicación.servicioAdicional.Empleado.Rol;
 
 public class Main {
 	
 	//ARRAYLIST DONDE SE VAN A GUARDAR LAS SEDES
 	public static Scanner entrada = new Scanner(System.in);
 	public static ArrayList<CentroAdopcion> sedes = new ArrayList<CentroAdopcion>();
+	public static ArrayList <CentroAdopcion> sedesEmpleados = new ArrayList<CentroAdopcion>();
+	public static Map<String, List<String>>[] horario = new Map[15];
 	
 	static {
 		//CREACION DE SEDES
@@ -50,10 +58,45 @@ public class Main {
 		sede3.agregarAnimal(new Animal("Kira","Loro",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
 	}
 	
+	static {
+		//CREACION UBICACION EMPLEADOS
+		CentroAdopcion empleadosSede1 = new CentroAdopcion("SEDE 1", CentroAdopcion.tipoServicio.GUARDERIA);
+		sedesEmpleados.add(empleadosSede1);
+		CentroAdopcion empleadosSede2 = new CentroAdopcion("SEDE 2", CentroAdopcion.tipoServicio.VETERINARIA);
+		sedesEmpleados.add(empleadosSede2);
+		CentroAdopcion empleadosSede3 = new CentroAdopcion("SEDE 3", CentroAdopcion.tipoServicio.PELUQUERIA);
+		sedesEmpleados.add(empleadosSede3);
+		
+		//AGREGAR EMPLEADOS A CADA SEDE
+		
+		//SEDE 1
+		empleadosSede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR, horario));
+		empleadosSede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR, horario));
+		empleadosSede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR, horario));
+		empleadosSede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR, horario));
+		empleadosSede1.agregarEmpleado(new Empleado("Wilson Jimenez", 36, 70925845, 313153964, "Carrera 72a", Empleado.Rol.CUIDADOR, horario));
+		empleadosSede1.agregarEmpleado(new Empleado("Mateo Munera", 25, 56892347, 311567832, "Carrera 68", Empleado.Rol.CUIDADOR, horario));
+				
+		//SEDE 2
+		empleadosSede2.agregarEmpleado(new Empleado("Carlos Rivera", 23, 12307004, 328748995, "Carrera 30", Empleado.Rol.VETERINARIO, horario));
+		empleadosSede2.agregarEmpleado(new Empleado("Marta Puerta", 28, 66973892, 304236021, "Calle 90", Empleado.Rol.VETERINARIO, horario));
+		empleadosSede2.agregarEmpleado(new Empleado("Karen Diaz", 32, 11277768, 314943886, "Calle 86", Empleado.Rol.VETERINARIO, horario));
+		empleadosSede2.agregarEmpleado(new Empleado("Mario Martinez", 30, 79698181, 300564603, "Carrera 67b", Empleado.Rol.VETERINARIO, horario));
+				
+		//SEDE 3
+		empleadosSede3.agregarEmpleado(new Empleado("Natalia Fernandez", 26, 70233557, 318529646, "Calle 63", Empleado.Rol.PELUQUERO, horario));
+		empleadosSede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO, horario));
+		empleadosSede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO, horario));
+		empleadosSede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO, horario));
+		empleadosSede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO, horario));
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		
 		adoptarMascota();	
+		agendarServicio();
 	}
 	
 	
@@ -461,6 +504,464 @@ public class Main {
 			println("\nSeñor/a " + nombre + " no cumple con los requisitos para ser un adoptante en AdoptaLove, no podemos continuar con el proceso.");
 		}			
 	}	
+	
+	//------------------------------------INICIO AGENDAR SERVICIO-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+			public static void agendarServicio() {
+				
+				for (int i = 0; i < 15; i++) {
+				    horario[i] = new HashMap<>();
+
+				    horario[i].put("Lunes", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Martes", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Miércoles", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Jueves", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Viernes", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Sábado", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				    horario[i].put("Domingo", Arrays.asList("8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 M", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"));
+				}
+				
+				int opcion = 0;
+				int indicador = 0;
+				int seleccion = 0;
+				int diaSemana = 0;
+				int hora = 0;
+				boolean seguirAgendando = true;
+				
+				
+				while (seguirAgendando) {
+				    try {
+				        println("\nRecuerde que cada sede ofrece un servicio diferente y las citas se agendan semanalmente. \n¿Qué servicio desea agendar?");
+				        
+				        do {
+				            println("\n1. Guardería (Sede 1) \n2. Veterinaria (Sede 2) \n3. Peluquería (Sede 3) \n4. Generar factura y salir");
+				            print("\nElija una opción dentro del rango [1-5]: ");
+				            opcion = readInt();
+				            entrada.nextLine();
+				            indicador = opcion - 1;
+
+				            if (opcion < 1 || opcion > 5) {
+				                println("\nIngrese una opcion valida");
+				            }
+				        } while (opcion < 1 || opcion > 5);
+				       
+				        
+				    } catch (InputMismatchException e) {
+				        println("Error: Ingrese un valor numérico válido.");
+				        entrada.nextLine();
+				    }
+
+					//----------------------------------------------------------------------------------------------------------------
+					//-------------------CASO 1------------------------------------------------------------------------------------------------------------------------------------------
+					switch(opcion) {
+					case 1:
+						
+					    println("\nVa a agendar en el servicio de guardería. \nValor por hora: $10.000 \nValor día completo: $80.000");
+					    println("\nTenga en cuenta que, si ocurre un error por el tipo de dato ingresado durante el agendamiento, será redireccionado al inicio del proceso de agendamiento, perdiendo el avance hecho.");
+					    String continuar = "si";
+					    do {
+				            try {
+				                boolean seleccionValida = false;
+				                while (!seleccionValida) {
+				                    println("\nLos cuidadores disponibles para agendar son: \n");
+				                    int i = 1;
+				                    for(Empleado cuidador : sedesEmpleados.get(indicador).getEmpleados()) {
+				                        if (cuidador.getProfesion() == Rol.CUIDADOR) {
+				                            println(i +". "+ cuidador);
+				                            i++;
+				                        }
+				                    }
+
+				                    print("\nIngrese el número del cuidador que desea seleccionar: ");
+				                    seleccion = readInt();
+				                    int indiceSede = 0;
+				                    for (int e = 0; e < sedesEmpleados.size(); e++) {
+				                        if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+				                            indiceSede = e;
+				                            break;
+				                        }
+				                    }
+
+				                    if (seleccion >= 1 && seleccion <= 6 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
+				                        Empleado cuidadorSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+				                        println("\nCuidador seleccionado: " + cuidadorSeleccionado + "\n");
+				                        String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+
+				                        for (int a = 0; a < diasSemana.length; a++) {
+				                            println((a + 1) + ". " + diasSemana[a]);
+				                        }
+
+				                        boolean seleccionValidaDia = false;
+				                        while (!seleccionValidaDia) {
+				                            print("\nEscriba la opción que contenga el día de la semana en el que quiere agendar: ");
+				                            diaSemana = readInt();
+				                            if (diaSemana >= 1 && diaSemana <= 7) {
+				                                seleccionValidaDia = true;
+				                                println("\nHorario disponible para el " + diasSemana[diaSemana - 1] +" de " + cuidadorSeleccionado.getNombre()  + ":" + "\n");
+				                                List<String> horasDisponibles = horario[seleccion - 1].get(diasSemana[diaSemana - 1]);
+				                                for (int o = 0; o < horasDisponibles.size(); o++) {
+				                                    println((o + 1) + ". " + horasDisponibles.get(o));
+				                                }
+
+				                                boolean seleccionValidaHora = false;
+				                                while (!seleccionValidaHora) {
+				                                    println("\nPara agendar en guardería, siga estas instrucciones: \n*Si va a agendar una sola hora, escriba solo el número que acompaña la hora a agendar. "
+				                                            + "\n*Si va a agendar dos o más horas, escriba los números que acompañan las horas que necesita, separándolos con una coma. Ej: 1,2,3 "
+				                                            + "\n*Si va a agendar el día completo, escriba 'todo'. Tenga en cuenta que deben estar disponibles todas las horas del día. \n");
+
+				                                    print("\nIngrese el/los número/s según su intención al agendar: ");
+				                                    entrada.nextLine();
+				                                    String horas = readString();
+
+				                                    if (!horas.matches("(10|[1-9])(,(10|[1-9]))*|todo")) {
+				                                        throw new IllegalArgumentException("Respuesta inválida. Por favor, siga las instrucciones indicadas.");
+				                                    }
+
+				                                    boolean noHayDisponibilidad = true;
+				                                    for (int u = 0; u < horasDisponibles.size(); u++) {
+				                                        if (!horasDisponibles.get(u).equals("Ocupada")) {
+				                                            noHayDisponibilidad = false;
+				                                            break;
+				                                        }
+				                                    }
+
+				                                    if (noHayDisponibilidad) {
+				                                        println("\nLo sentimos, no hay disponibilidad este día.");
+				                                        break;
+				                                    }
+
+				                                    if (horas.equalsIgnoreCase("todo")) {
+				                                        boolean todasDisponibles = true;
+				                                        for (String horaDisponible : horasDisponibles) {
+				                                            if (horaDisponible.equals("Ocupada")) {
+				                                                todasDisponibles = false;
+				                                            }
+				                                        }
+
+				                                        if (todasDisponibles) {
+				                                            seleccionValidaHora = true;
+				                                            seleccionValida = true;
+				                                            for (int b = 0; b < horasDisponibles.size(); b++) {
+				                                                horasDisponibles.set(b, "Ocupada");
+				                                            }
+
+				                                            println("\n¡Día completo agendado exitosamente!");
+
+				                                        } else {
+				                                            println("\nLo sentimos, no todas las horas del día están disponibles.");
+				                                            break;
+				                                        }
+
+				                                    } else {
+				                                        String[] selecciones = horas.split(",");
+				                                        List<Integer> horasSeleccionadas = new ArrayList<>();
+				                                        for (String seleccionado : selecciones) {
+				                                            if (!seleccionado.trim().isEmpty()) {
+				                                                horasSeleccionadas.add(Integer.parseInt(seleccionado.trim()) - 1);
+				                                            }
+				                                        }
+
+				                                        println("\nHoras seleccionadas:");
+				                                        for (int horaIndex : horasSeleccionadas) {
+				                                            if (horaIndex >= 0 && horaIndex < horasDisponibles.size()) {
+				                                                if (horasDisponibles.get(horaIndex).equals("Ocupada")) {
+				                                                    println(horasDisponibles.get(horaIndex) + " - Lo sentimos, no hay disponibilidad en esta hora.");
+				                                                    break;
+				                                                } else {
+				                                                    println(horasDisponibles.get(horaIndex) + " - ¡Cita agendada exitosamente!");
+				                                                    horasDisponibles.set(horaIndex, "Ocupada");
+				                                                    seleccionValidaHora = true;
+				                                                    seleccionValida = true;
+				                                                }
+				                                            } else {
+				                                                println("\nSelección inválida. Por favor, selecciona un número válido.");
+				                                            }
+				                                        }
+				                                    }
+				                                }
+				                            } else {
+				                                println("\nSelección inválida. Por favor, selecciona un número válido.");
+				                            }
+				                        }
+
+				                        print("\n¿Desea volver a agendar en guardería? Responda (si/no): ");
+				                        continuar = entrada.nextLine();
+				                        if (continuar.equalsIgnoreCase("si")) {
+				                            continue;
+				                        } else {
+				                            print("\nSerá redirigido al menú de servicios.\n");
+				                        }
+				                        break;
+				                    } else {
+				                        println("\nSelección inválida. Por favor, selecciona un número válido.");
+				                    }
+				                }
+				            } catch (InputMismatchException e) {
+				                println("Error: Ingrese un valor numérico válido.");
+				                entrada.nextLine(); 
+				            } catch (IllegalArgumentException e) {
+				                println("Error: " + e.getMessage());
+				            }
+				        } while (continuar.equalsIgnoreCase("si"));
+					    break;
+
+					
+				//--------------------------------CASO 2---------------------------------------------------------------------------------------------------------------------------
+						case 2:
+						
+							println("\nVa a agendar en el servicio de veterinaria. \nValor de la cita: $------");
+							String continuar2 = "si";
+							do {
+							    boolean seleccionValida = false;
+							    while (!seleccionValida) {
+							        println("\nSeleccione el numero del veterinario para ver su disponibilidad y agendar. \n");
+							        int i = 7;
+							        for (Empleado veterinario : sedesEmpleados.get(indicador).getEmpleados()) {
+							            if (veterinario.getProfesion() == Rol.VETERINARIO) {
+							                println(i + ". " + veterinario);
+							                i++;
+							            }
+							        }
+
+							        print("\nIngrese el número del veterinario que desea seleccionar: ");
+							        try {
+							            seleccion = readInt();
+							            int indiceSede = 0;
+							            for (int e = 0; e < sedesEmpleados.size(); e++) {
+							                if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+							                    indiceSede = e;
+							                    break;
+							                }
+							            }
+
+							            if (seleccion >= 7 && seleccion <= 10 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
+							                Empleado veterinarioSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+							                println("\nVeterinario seleccionado: " + veterinarioSeleccionado + "\n");
+							                String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+
+							                for (int a = 0; a < diasSemana.length; a++) {
+							                    println((a + 1) + ". " + diasSemana[a]);
+							                }
+
+							                boolean seleccionValidaDia = false;
+							                while (!seleccionValidaDia) {
+							                    print("\nEscriba la opción que contenga el día de la semana en el que quiere agendar: ");
+							                    try {
+							                        diaSemana = readInt();
+							                        entrada.nextLine();
+							                        if (diaSemana >= 1 && diaSemana <= 7) {
+							                            seleccionValidaDia = true;
+							                            println("\nHorario disponible para el " + diasSemana[diaSemana - 1] + " de " + veterinarioSeleccionado.getNombre() + ":\n");
+							                            List<String> horasDisponibles = horario[seleccion - 1].get(diasSemana[diaSemana - 1]);
+							                            for (int o = 0; o < horasDisponibles.size(); o++) {
+											    			   println((o + 1) + ". " + horasDisponibles.get(o));  
+											    		}
+
+							                            boolean noHayDisponibilidad = true;
+							                            for (int u = 0; u < horasDisponibles.size(); u++) {
+							                                if (!horasDisponibles.get(u).equals("Ocupada")) {
+							                                    noHayDisponibilidad = false;
+							                                    break;
+							                                }
+							                            }
+
+							                            if (noHayDisponibilidad) {
+							                                println("\nLo sentimos, no hay disponibilidad este día.");
+							                            }
+
+							                            boolean seleccionValidaHora = false;
+							                            while (!seleccionValidaHora) {
+							                                print("\nIngrese el número que acompaña la hora de su elección: ");
+							                                try {
+							                                    hora = readInt();
+							                                    entrada.nextLine(); 
+							                                    if (hora >= 1 && hora <= 10) {
+							                                        seleccionValidaHora = true;
+							                                        println("\nHoras seleccionadas:");
+							                                        if (horasDisponibles.get(hora - 1).equals("Ocupada")) {
+							                                            println(horasDisponibles.get(hora - 1) + " - Lo sentimos, no hay disponibilidad en esta hora.");
+							                                        } else {
+							                                            println(horasDisponibles.get(hora - 1) + " - ¡Cita agendada exitosamente!");
+							                                            horasDisponibles.set(hora - 1, "Ocupada");
+							                                            seleccionValida = true;
+							                                        }
+							                                    } else {
+							                                        println("\nSelección inválida. Por favor, selecciona un número válido.");
+							                                    }
+							                                } catch (InputMismatchException e) {
+							                                    println("\nError: Ingrese un valor numérico válido para la hora.");
+							                                    entrada.nextLine(); 
+							                                }
+							                            }
+
+							                        } else {
+							                            println("\nSelección inválida. Por favor, selecciona un número válido.");
+							                        }
+							                    } catch (InputMismatchException e) {
+							                        println("\nError: Ingrese un valor numérico válido para el día.");
+							                        entrada.nextLine();
+							                    }
+							                }
+
+							                print("\n¿Desea volver a agendar en veterinaria? Responda (si/no(u otro caracter)): ");
+							                continuar2 = entrada.nextLine();
+							                if (continuar2.equalsIgnoreCase("si")) {
+							                    continue;
+							                } else {
+							                    print("\nSerá redireccionado al menú de servicios.\n");
+							                }
+							                break;
+
+							            } else {
+							                println("\nSelección inválida. Por favor, selecciona un número válido.");
+							            }
+							        } catch (InputMismatchException e) {
+							            println("\nError: Ingrese un valor numérico válido para la selección del veterinario.");
+							            entrada.nextLine();
+							        }
+							    }
+
+							} while (continuar2.equalsIgnoreCase("si"));
+
+							break;
+
+					
+				//-----------------------------CASO 3-----------------------------------------------------------------------------------------------------------------------------------
+						case 3:
+							
+							println("\nVa a agendar en el servicio de peluquería. \nValor de la cita: $------");
+							String continuar3 = "si";
+							do {
+							    boolean seleccionValida = false;
+							    while (!seleccionValida) {
+							        println("\nSeleccione el numero del peluquero para ver su disponibilidad y agendar. \n");
+							        int i = 11;
+							        for (Empleado peluquero : sedesEmpleados.get(indicador).getEmpleados()) {
+							            if (peluquero.getProfesion() == Rol.VETERINARIO) {
+							                println(i + ". " + peluquero);
+							                i++;
+							            }
+							        }
+
+							        print("\nIngrese el número del peluquero que desea seleccionar: ");
+							        try {
+							            seleccion = readInt();
+							            int indiceSede = 0;
+							            for (int e = 0; e < sedesEmpleados.size(); e++) {
+							                if (sedesEmpleados.get(e) == sedesEmpleados.get(indicador)) {
+							                    indiceSede = e;
+							                    break;
+							                }
+							            }
+
+							            if (seleccion >= 11 && seleccion <= 15 && seleccion <= sedesEmpleados.get(indiceSede).getEmpleados().size()) {
+							                Empleado peluqueroSeleccionado = sedesEmpleados.get(indiceSede).getEmpleados().get(seleccion - 1);
+							                println("\nPeluquero seleccionado: " + peluqueroSeleccionado + "\n");
+							                String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+
+							                for (int a = 0; a < diasSemana.length; a++) {
+							                    println((a + 1) + ". " + diasSemana[a]);
+							                }
+
+							                boolean seleccionValidaDia = false;
+							                while (!seleccionValidaDia) {
+							                    print("\nEscriba la opción que contenga el día de la semana en el que quiere agendar: ");
+							                    try {
+							                        diaSemana = readInt();
+							                        entrada.nextLine();
+							                        if (diaSemana >= 1 && diaSemana <= 7) {
+							                            seleccionValidaDia = true;
+							                            println("\nHorario disponible para el " + diasSemana[diaSemana - 1] + " de " + peluqueroSeleccionado.getNombre() + ":\n");
+							                            List<String> horasDisponibles = horario[seleccion - 1].get(diasSemana[diaSemana - 1]);
+							                            for (int o = 0; o < horasDisponibles.size(); o++) {
+											    			   println((o + 1) + ". " + horasDisponibles.get(o));  
+											    		}
+
+							                            boolean noHayDisponibilidad = true;
+							                            for (int u = 0; u < horasDisponibles.size(); u++) {
+							                                if (!horasDisponibles.get(u).equals("Ocupada")) {
+							                                    noHayDisponibilidad = false;
+							                                    break;
+							                                }
+							                            }
+
+							                            if (noHayDisponibilidad) {
+							                                println("\nLo sentimos, no hay disponibilidad este día.");
+							                            }
+
+							                            boolean seleccionValidaHora = false;
+							                            while (!seleccionValidaHora) {
+							                                print("\nIngrese el número que acompaña la hora de su elección: ");
+							                                try {
+							                                    hora = readInt();
+							                                    entrada.nextLine();
+							                                    if (hora >= 1 && hora <= 10) {
+							                                        seleccionValidaHora = true;
+							                                        println("\nHoras seleccionadas:");
+							                                        if (horasDisponibles.get(hora - 1).equals("Ocupada")) {
+							                                            println(horasDisponibles.get(hora - 1) + " - Lo sentimos, no hay disponibilidad en esta hora.");
+							                                        } else {
+							                                            println(horasDisponibles.get(hora - 1) + " - ¡Cita agendada exitosamente!");
+							                                            horasDisponibles.set(hora - 1, "Ocupada");
+							                                            seleccionValida = true;
+							                                        }
+							                                    } else {
+							                                        println("\nSelección inválida. Por favor, selecciona un número válido.");
+							                                    }
+							                                } catch (InputMismatchException e) {
+							                                    println("\nError: Ingrese un valor numérico válido para la hora.");
+							                                    entrada.nextLine();
+							                                }
+							                            }
+
+							                        } else {
+							                            println("\nSelección inválida. Por favor, selecciona un número válido.");
+							                        }
+							                    } catch (InputMismatchException e) {
+							                        println("\nError: Ingrese un valor numérico válido para el día.");
+							                        entrada.nextLine();
+							                    }
+							                }
+
+							                print("\n¿Desea volver a agendar en veterinaria? Responda (si/no(u otro caracter)): ");
+							                continuar3 = entrada.nextLine();
+							                if (continuar3.equalsIgnoreCase("si")) {
+							                    continue;
+							                } else {
+							                    print("\nSerá redireccionado al menú de servicios.\n");
+							                }
+							                break;
+
+							            } else {
+							                println("\nSelección inválida. Por favor, selecciona un número válido.");
+							            }
+							        } catch (InputMismatchException e) {
+							            println("\nError: Ingrese un valor numérico válido para la selección del peluquero.");
+							            entrada.nextLine();
+							        }
+							    }
+
+							} while (continuar3.equalsIgnoreCase("si"));
+
+							break;
+
+
+				//-----------------------------CASO 4----------------------------------------------------------------------------------------------------------------------------------
+						case 4:
+							print("\nFIN DE LA FUNCIONALIDAD. luego agrego esto ;)\n");
+							seguirAgendando = false;
+							
+							break;
+							
+			    //-----------------------------DEFAULT (Si opción no valida para el switch)-----------------------------------------------------------------------------------------------------------------------------------         
+				        default:
+				            println("\nOpción inválida.");
+				            break;
+					}
+				}
+			}
+	//-----------------------------FIN AGENDAR SERVICIO-----------------------------------------------------------------------------------------------------------------------------------
+			
 }
 
 
