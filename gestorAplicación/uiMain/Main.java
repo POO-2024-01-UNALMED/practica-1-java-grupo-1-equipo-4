@@ -97,7 +97,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		adoptarMascota();	
+		//adoptarMascota();	
 		agendarServicio();
 		
 	}
@@ -690,16 +690,21 @@ public class Main {
 				                            }
 				                        }
 
-				                        print("\n¿Desea volver a agendar en guardería? Responda (si/no(u otro caracter)): ");
-				                        continuar = entrada.nextLine();
-				                        if (continuar.equalsIgnoreCase("si")) {
-				                            continue;
-				                        } else {
-				                            print("\nSerá redirigido al menú de servicios.\n");
+				                        while (continuar != "si" || continuar != "no") {
+					                        print("\n¿Desea volver a agendar en guardería? Responda (si/no): ");
+					                        continuar = entrada.nextLine();
+					                        if (continuar.equalsIgnoreCase("si")) {
+					                            break;
+					                        } if (continuar.equalsIgnoreCase("no")) {
+					                            print("\nSerá redirigido al menú de servicios.\n");
+					                            break;
+					                        }else {
+					                        	println("\nSelección inválida. Por favor, selecciona un número válido.");
+					                        }
 				                        }
-				                        break;
+				                        
 				                    } else {
-				                        println("\nSelección inválida. Por favor, selecciona un número válido.");
+				                        println("\nRespuesta inválida. Por favor, escribe si o no.");
 				                    }
 				                }
 				            } catch (InputMismatchException e) {
@@ -810,14 +815,18 @@ public class Main {
 							                    }
 							                }
 
-							                print("\n¿Desea volver a agendar en veterinaria? Responda (si/no(u otro caracter)): ");
-							                continuar2 = entrada.nextLine();
-							                if (continuar2.equalsIgnoreCase("si")) {
-							                    continue;
-							                } else {
-							                    print("\nSerá redireccionado al menú de servicios.\n");
-							                }
-							                break;
+							                while (continuar2 != "si" || continuar2 != "no") {
+						                        print("\n¿Desea volver a agendar en guardería? Responda (si/no): ");
+						                        continuar2 = entrada.nextLine();
+						                        if (continuar2.equalsIgnoreCase("si")) {
+						                            break;
+						                        } if (continuar2.equalsIgnoreCase("no")) {
+						                            print("\nSerá redirigido al menú de servicios.\n");
+						                            break;
+						                        }else {
+						                        	println("\nSelección inválida. Por favor, escribe si o no.");
+						                        }
+					                        }
 
 							            } else {
 							                println("\nSelección inválida. Por favor, selecciona un número válido.");
@@ -930,14 +939,18 @@ public class Main {
 							                    }
 							                }
 
-							                print("\n¿Desea volver a agendar en veterinaria? Responda (si/no(u otro caracter)): ");
-							                continuar3 = entrada.nextLine();
-							                if (continuar3.equalsIgnoreCase("si")) {
-							                    continue;
-							                } else {
-							                    print("\nSerá redireccionado al menú de servicios.\n");
-							                }
-							                break;
+							                while (continuar3 != "si" || continuar3 != "no") {
+						                        print("\n¿Desea volver a agendar en guardería? Responda (si/no): ");
+						                        continuar3 = entrada.nextLine();
+						                        if (continuar3.equalsIgnoreCase("si")) {
+						                            break;
+						                        } if (continuar3.equalsIgnoreCase("no")) {
+						                            print("\nSerá redirigido al menú de servicios.\n");
+						                            break;
+						                        }else {
+						                        	println("\nSelección inválida. Por favor, escribe si o no.");
+						                        }
+					                        }
 
 							            } else {
 							                println("\nSelección inválida. Por favor, selecciona un número válido.");
