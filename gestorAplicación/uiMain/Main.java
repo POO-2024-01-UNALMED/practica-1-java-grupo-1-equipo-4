@@ -285,7 +285,7 @@ public class Main {
 			   println("1. Perros");
 			   println("2. Gatos");
 			   println("3. Loros");
-			   println("4. Conejos");
+			   println("4. Canarios");
 			   println("5. Hámsters");	   
 			   int especie=0;
 			   
