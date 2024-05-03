@@ -70,6 +70,6 @@ public class Animal {
 	//OTROS MÉTODOS
 	
 	public String toString() {
-		return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad: " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
+		return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
 	}
 }

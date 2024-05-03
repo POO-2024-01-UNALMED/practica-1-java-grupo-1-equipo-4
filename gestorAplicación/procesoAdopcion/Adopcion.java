@@ -42,15 +42,9 @@ public class Adopcion {
 	public void setFechaAdopcion(LocalDate fecha) {
 		this.fechaAdopcion=fecha;
 	}
-	
-	//OTROS MÉTODOS
-
-	public static boolean encuesta(int puntaje) {
-		return puntaje > 20;
-	}
-	
+		
 	
 	public String toString() {
-		return "Mascota - " + getAnimal() + "\nAdoptante -  " + getCliente() + "Fecha de adopcion - " + getFechaAdopcion();
+		return "Mascota - " + getAnimal()+ "\nAdoptante - " + getCliente() + "Fecha de adopcion: " + getFechaAdopcion();
 	}
 }
