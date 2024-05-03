@@ -2,6 +2,7 @@ package gestorAplicación.uiMain;
 import java.util.Scanner;
 import gestorAplicación.procesoAdopcion.*;
 import gestorAplicación.servicioAdicional.*;
+import java.util.InputMismatchException;
 
 public class MainTienda {
 
@@ -34,9 +35,39 @@ public class MainTienda {
 	
 	System.out.println("Bienvenido a la tienda"+"\n");
 	
+	while (true) { 
+	
+		System.out.println("¿Qué deseas hacer?"+"\n");
+		System.out.println("1. Comprar un producto");
+		System.out.println("2. Registrar un voluntario");
+		System.out.println("3. Salir\n");
+		System.out.println("Ingrese el número de la opción que desea");
+		
+		int menu = 0;
+		while (menu==0) {
+			try {
+				menu = entrada.nextInt();
+				if (menu>0 && menu<=3) {
+					break;
+				}
+				else {
+					System.out.println("Ingrese un número válido por favor");
+					menu = 0;
+					continue;
+				}
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Por favor ingrese un número entre uno y tres!!!");
+			}
+			finally {
+					entrada.nextLine();//SALTO DE LINEA
+				}
+		}
+		
+	if (menu==1) {
 	while (bucle==true) {
 		
-		System.out.println("Productos disponibles: \n");
+		System.out.println("\nProductos disponibles: \n");
 		System.out.println(t1.inventario());
 		System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
 		int indice = entrada.nextInt();
@@ -75,9 +106,18 @@ public class MainTienda {
 			continue;
 		}
 		else {
-			System.out.println("Vuelva pronto :)");
+			System.out.println("Vuelva pronto :)\n");
 			break;
 		}
+	}//BUCLE COMPRAR
 	}
-	}	
+	else if (menu==2){
+		System.out.println("\nFormulario para pertenecer a los voluntarios: \n");
+		System.out.println("Trabajo en progreso\n");
+	}
+	else {
+		break;
+	}
+	}//BUCLE INICIAL
+	}//MAIN	
 }
