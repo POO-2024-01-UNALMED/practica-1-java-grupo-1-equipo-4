@@ -92,13 +92,13 @@ public class MainTienda {
 			}
 			
 			if (menuTienda==1) {	
-				System.out.println("\nProductos disponibles: \n");
+				System.out.println("\nProductos disponibles:");
 				System.out.println(t1.inventario());
 			}
 			else {
 				System.out.println("Estamos trabajando en ello...");
 			}
-				System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
+				System.out.println("La lista se le mostró en orden, indique el número del producto que escogió: ");
 				int indice = entrada.nextInt();
 		
 				System.out.println("Indique cuantas unidades quiere del producto: ");

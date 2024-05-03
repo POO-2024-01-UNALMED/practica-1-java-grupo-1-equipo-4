@@ -89,9 +89,13 @@ public class Tienda {
             }
         }
 
-        public ArrayList<Producto> inventario(){ //inventario se hace si hay un empleado
+        public String inventario(){ //inventario se hace si hay un empleado
             if(empleados!=null){
-                return productos;
+            	String resultado = " ";
+            	for (int i = 0; i<productos.size();i++) {
+            		resultado += productos.get(i).toString();
+            	}
+                return resultado;
             }
             else {
                 return null;
