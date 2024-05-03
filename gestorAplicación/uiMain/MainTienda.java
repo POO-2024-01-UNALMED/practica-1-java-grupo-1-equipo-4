@@ -64,53 +64,82 @@ public class MainTienda {
 				}
 		}
 		
-	if (menu==1) {
-	while (bucle==true) {
-		
-		System.out.println("\nProductos disponibles: \n");
-		System.out.println(t1.inventario());
-		System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
-		int indice = entrada.nextInt();
-		
-		System.out.println("Indique cuantas unidades quiere del producto: ");
-		int unidades = entrada.nextInt();
-		
-		
-		if (unidades==1) {
-			t1.compra(indice);
-			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-			long cedula = entrada.nextLong();
-			boolean esCliente = CentroAdopcion.esCliente(cedula);
-			if (esCliente) {
-				System.out.println("\nLa compra tiene un 10% de descuento\n");
+	if (menu==1) {			
+		while (bucle==true) {
+			System.out.println("\n¿Cómo desea que se muestren los productos?");
+			System.out.println("1. Mostrar todo");
+			System.out.println("2. Filtrar pot tipo");
+				
+			int menuTienda = 0;
+			while (menuTienda==0) {
+				try {
+					menuTienda = entrada.nextInt();
+					if (menuTienda>0 && menuTienda<=2) {
+						break;
+					}
+					else {
+						System.out.println("Ingrese un número válido por favor");
+						menuTienda = 0;
+						continue;
+					}
+				}
+				catch(InputMismatchException e) {
+					System.out.println("Por favor ingrese el numero uno o dos!!");
+				}
+				finally {
+					entrada.nextLine();//SALTO DE LINEA
+				}
 			}
 			
-		}else {
-			t1.compra(indice, unidades);
-			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-			long cedula = entrada.nextLong();
-			boolean esCliente = CentroAdopcion.esCliente(cedula);
-			if (esCliente) {
-				System.out.println("La compra tiene un 10% de descuento\n");
+			if (menuTienda==1) {	
+				System.out.println("\nProductos disponibles: \n");
+				System.out.println(t1.inventario());
 			}
-		}
+			else {
+				System.out.println("Estamos trabajando en ello...");
+			}
+				System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
+				int indice = entrada.nextInt();
 		
-		entrada.nextLine();
-		
-		System.out.println("Se ha realizado su compra, muchas gracias\n");
-		System.out.println("¿Desea comprar algo más? (responda con si/no)");
-		String respuesta = entrada.nextLine();
+				System.out.println("Indique cuantas unidades quiere del producto: ");
+				int unidades = entrada.nextInt();
 		
 		
-		if (respuesta.equals("si") || respuesta.equals("SI")) {
-			continue;
-		}
-		else {
-			System.out.println("Vuelva pronto :)\n");
-			break;
-		}
-	}//BUCLE COMPRAR
-	}
+				if (unidades==1) {
+					t1.compra(indice);
+					System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+					long cedula = entrada.nextLong();
+					boolean esCliente = CentroAdopcion.esCliente(cedula);
+					if (esCliente) {
+						System.out.println("\nLa compra tiene un 10% de descuento\n");
+					}
+				}
+				else {
+					t1.compra(indice, unidades);
+					System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+					long cedula = entrada.nextLong();
+					boolean esCliente = CentroAdopcion.esCliente(cedula);
+					if (esCliente) {
+						System.out.println("La compra tiene un 10% de descuento\n");
+					}
+				}
+		
+				entrada.nextLine();
+		
+				System.out.println("Se ha realizado su compra, muchas gracias\n");
+				System.out.println("¿Desea comprar algo más? (responda con si/no)");
+				String respuesta = entrada.nextLine();
+		
+		
+				if (respuesta.equals("si") || respuesta.equals("SI")) {
+					continue;
+				}
+				else {
+					System.out.println("Vuelva pronto :)\n");
+					break;
+				}
+			}//BUCLE COMPRAR
+	}//CONDICINAL MENU
 	else if (menu==2){
 		System.out.println("\nFormulario para pertenecer a los voluntarios: \n");
 		System.out.println("Trabajo en progreso\n");
@@ -119,5 +148,5 @@ public class MainTienda {
 		break;
 	}
 	}//BUCLE INICIAL
-	}//MAIN	
+  }//MAIN	
 }
