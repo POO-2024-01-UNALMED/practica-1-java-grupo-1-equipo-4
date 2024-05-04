@@ -96,7 +96,27 @@ public class MainTienda {
 				System.out.println(t1.inventario());
 			}
 			else {
-				System.out.println("Estamos trabajando en ello...");
+				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perro o gato)");
+				while (true) {
+					try {
+						String tipo = entrada.nextLine();
+						if (tipo.equals("Perro") || tipo.equals("perro") || tipo.equals("PERRO")) {
+							//MÉTODO FILTRAR POR TIPO
+							break;
+						}
+						else if (tipo.equals("Gato") || tipo.equals("gato") || tipo.equals("GATO")) {
+							//MÉTODO FILTRAR POR TIPO
+							break;
+						}
+						else {
+							System.out.println("Por favor, digite el nombre del animal bien (perro o gato)");
+							continue;
+						}
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Por favor, coloque un tipo valido de animal");
+					}
+				}
 			}
 				System.out.println("La lista se le mostró en orden, indique el número del producto que escogió: ");
 				int indice = entrada.nextInt();

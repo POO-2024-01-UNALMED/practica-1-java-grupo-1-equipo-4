@@ -92,8 +92,10 @@ public class Tienda {
         public String inventario(){ //inventario se hace si hay un empleado
             if(empleados!=null){
             	String resultado = " ";
+            	int indice = 1;
             	for (int i = 0; i<productos.size();i++) {
-            		resultado += productos.get(i).toString();
+            		resultado += indice+"."+productos.get(i).toString();
+            		indice = indice+1;
             	}
                 return resultado;
             }
