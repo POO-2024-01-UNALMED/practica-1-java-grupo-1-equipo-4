@@ -131,33 +131,45 @@ public class MainTienda {
 					}
 				}
 			}
-				System.out.println("Coloque el índice del producto que va a comprar: ");
-				int indice = entrada.nextInt();
+			boolean control = true;
+			while (control) {
+				try {
+						System.out.println("Coloque el índice del producto que va a comprar: ");
+						int indice = entrada.nextInt();
 		
-				System.out.println("Indique cuantas unidades quiere del producto: ");
-				int unidades = entrada.nextInt();
-		
-		
-				if (unidades==1) {
-					t1.compra(indice);
-					System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-					long cedula = entrada.nextLong();
-					boolean esCliente = CentroAdopcion.esCliente(cedula);
-					if (esCliente) {
-						System.out.println("\nLa compra tiene un 10% de descuento\n");
-					}
+						System.out.println("Indique cuantas unidades quiere del producto: ");
+						int unidades = entrada.nextInt();
+						
+						if (unidades==1) {
+							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+							long cedula = entrada.nextLong();
+							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							if (esCliente) {
+								System.out.println("\nLa compra tiene un 10% de descuento\n");
+							}
+							System.out.println(t1.compra(indice));
+						}
+						else {
+							t1.compra(indice, unidades);
+							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+							long cedula = entrada.nextLong();
+							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							if (esCliente) {
+								System.out.println("La compra tiene un 10% de descuento\n");
+							}
+						}
+						
+						control = false;
+					
 				}
-				else {
-					t1.compra(indice, unidades);
-					System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-					long cedula = entrada.nextLong();
-					boolean esCliente = CentroAdopcion.esCliente(cedula);
-					if (esCliente) {
-						System.out.println("La compra tiene un 10% de descuento\n");
-					}
+				catch(InputMismatchException e) {
+					System.out.println("Por favor, ingrese un número y no otra cosa\n");
 				}
-		
-				entrada.nextLine();
+				finally {
+					entrada.nextLine();
+				}
+			}
+			
 		
 				System.out.println("Se ha realizado su compra, muchas gracias\n");
 				System.out.println("¿Desea comprar algo más? (responda con si/no)");
