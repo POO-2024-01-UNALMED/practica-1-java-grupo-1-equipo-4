@@ -68,7 +68,7 @@ public class MainTienda {
 		while (bucle==true) {
 			System.out.println("\n¿Cómo desea que se muestren los productos?");
 			System.out.println("1. Mostrar todo");
-			System.out.println("2. Filtrar pot tipo");
+			System.out.println("2. Filtrar por tipo");
 				
 			int menuTienda = 0;
 			while (menuTienda==0) {
@@ -96,20 +96,22 @@ public class MainTienda {
 				System.out.println(t1.inventario());
 			}
 			else {
-				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perro o gato)");
+				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perros o gatos)");
 				while (true) {
 					try {
 						String tipo = entrada.nextLine();
-						if (tipo.equals("Perro") || tipo.equals("perro") || tipo.equals("PERRO")) {
-							//MÉTODO FILTRAR POR TIPO
+						if (tipo.equals("perros")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("perros"));
 							break;
 						}
-						else if (tipo.equals("Gato") || tipo.equals("gato") || tipo.equals("GATO")) {
-							//MÉTODO FILTRAR POR TIPO
+						else if (tipo.equals("gatos")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("gatos"));
 							break;
 						}
 						else {
-							System.out.println("Por favor, digite el nombre del animal bien (perro o gato)");
+							System.out.println("Por favor, ingrese el tipo del animal en minúsculas (perros o gatos)");
 							continue;
 						}
 					}
@@ -118,7 +120,7 @@ public class MainTienda {
 					}
 				}
 			}
-				System.out.println("La lista se le mostró en orden, indique el número del producto que escogió: ");
+				System.out.println("Coloque el índice del producto que va a comprar: ");
 				int indice = entrada.nextInt();
 		
 				System.out.println("Indique cuantas unidades quiere del producto: ");
