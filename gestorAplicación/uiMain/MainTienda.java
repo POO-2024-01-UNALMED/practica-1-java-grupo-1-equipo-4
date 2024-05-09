@@ -29,8 +29,8 @@ public class MainTienda {
 	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO, null);
 	Tienda t1 = new Tienda(empliado, sede1);
 	
+	
 	//OPERACION DE LA TIENDA
-
 	boolean bucle = true;
 	
 	System.out.println("Bienvenido a la tienda"+"\n");
@@ -170,12 +170,19 @@ public class MainTienda {
 				}
 			}
 			
-			
-				System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
-				String respuesta = entrada.nextLine();
-		
-		
-				if (respuesta.equals("si") || respuesta.equals("SI")) {
+			System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
+			String respuesta = " ";
+			while (true) {//CONTROL CON UN WHILE SOLAMENTE
+				respuesta = entrada.nextLine();
+				respuesta.toLowerCase();
+				if (respuesta.equals("si")||respuesta.equals("no")) {
+					break;
+				}else {
+					System.out.println("Por favor, ingrese una respuesta válida (si/no)");
+					continue;
+				}
+			}
+				if (respuesta.equals("si")) {
 					continue;
 				}
 				else {

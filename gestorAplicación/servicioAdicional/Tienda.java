@@ -174,7 +174,7 @@ public class Tienda {
             if (empleados!=null){
                 indice -= 1;
                 if (indice>=productos.size() || indice<0) {
-                	return "No pudimos realizar la compra, el índice es incorrecto";
+                	return "No pudimos realizar la compra, el índice es incorrecto.";
                 }
                 int cantidad = productos.get(indice).getCantidadUnidades();
 
@@ -190,7 +190,7 @@ public class Tienda {
                     return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo;
                 }
                 else{
-                    return "No hay unidades suficientes.";
+                    return "No pudimos realizar la compra, no hay unidades suficientes.";
                 }
             }else{
                 return "No hay un empleado para atenderlo.";
