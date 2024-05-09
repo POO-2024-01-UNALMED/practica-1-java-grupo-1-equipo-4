@@ -96,7 +96,7 @@ public class MainTienda {
 				System.out.println(t1.inventario());
 			}
 			else {
-				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves o hamsters)");
+				System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves o hamsters)");
 				while (true) {
 					try {
 						String tipo = entrada.nextLine();
@@ -145,18 +145,18 @@ public class MainTienda {
 							long cedula = entrada.nextLong();
 							boolean esCliente = CentroAdopcion.esCliente(cedula);
 							if (esCliente) {
-								System.out.println("\nLa compra tiene un 10% de descuento\n");
+								System.out.println("La compra tendrá un 10% de descuento\n");
 							}
 							System.out.println(t1.compra(indice));
 						}
 						else {
-							t1.compra(indice, unidades);
 							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
 							long cedula = entrada.nextLong();
 							boolean esCliente = CentroAdopcion.esCliente(cedula);
 							if (esCliente) {
-								System.out.println("La compra tiene un 10% de descuento\n");
+								System.out.println("La compra tendrá un 10% de descuento\n");
 							}
+							System.out.println(t1.compra(indice, unidades));
 						}
 						
 						control = false;
@@ -170,9 +170,8 @@ public class MainTienda {
 				}
 			}
 			
-		
-				System.out.println("Se ha realizado su compra, muchas gracias\n");
-				System.out.println("¿Desea comprar algo más? (responda con si/no)");
+			
+				System.out.println("\n¿Desea comprar algo más? (responda con si/no)");
 				String respuesta = entrada.nextLine();
 		
 		

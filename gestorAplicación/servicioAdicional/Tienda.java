@@ -154,8 +154,13 @@ public class Tienda {
 
                 if (cantidad!=0){// si la cantidad unidades es diferente de 0, hace la compra
                     cantidad-=1;
-                    productos.get(indice).setCantidadUnidades(cantidad); 
-                    return "Se compró una unidad de: "+productos.get(indice).getNombre();
+                    productos.get(indice).setCantidadUnidades(cantidad);
+                    String nombre = productos.get(indice).getNombre();
+                    String tipo =  productos.get(indice).getTipoAnimal();
+                    if (productos.get(indice).getCantidadUnidades()==0) {
+                    	productos.remove(indice);
+                    }
+                    return "Se compró una unidad de: "+nombre+" para "+tipo;
                 }
                 else{
                     return "No hay unidades suficientes.";
@@ -173,8 +178,13 @@ public class Tienda {
                 if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 
                     // y mayor o igual a las unidades que se van a comprar
                     cantidad-=unidades;
-                    productos.get(indice).setCantidadUnidades(cantidad); 
-                    return "Se compró "+unidades+" unidades de: "+productos.get(indice).getNombre();
+                    productos.get(indice).setCantidadUnidades(cantidad);
+                    String nombre = productos.get(indice).getNombre();
+                    String tipo = productos.get(indice).getTipoAnimal(); 
+                    if (productos.get(indice).getCantidadUnidades()==0) {
+                    	productos.remove(indice);
+                    }
+                    return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo;
                 }
                 else{
                     return "No hay unidades suficientes.";
