@@ -173,6 +173,9 @@ public class Tienda {
         public String compra(int indice, int unidades){
             if (empleados!=null){
                 indice -= 1;
+                if (indice>=productos.size() || indice<0) {
+                	return "No pudimos realizar la compra, el índice es incorrecto";
+                }
                 int cantidad = productos.get(indice).getCantidadUnidades();
 
                 if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 

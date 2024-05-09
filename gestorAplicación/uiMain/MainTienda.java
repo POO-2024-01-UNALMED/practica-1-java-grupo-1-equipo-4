@@ -101,22 +101,22 @@ public class MainTienda {
 					try {
 						String tipo = entrada.nextLine();
 						tipo.toLowerCase();
-						if (tipo.equals("perros")) {
+						if (tipo.equals("perros") || tipo.equals("perro")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("perros"));
 							break;
 						}
-						else if (tipo.equals("gatos")) {
+						else if (tipo.equals("gatos") || tipo.equals("gato")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("gatos"));
 							break;
 						}
-						else if (tipo.equals("aves")) {
+						else if (tipo.equals("aves") || tipo.equals("ave")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("aves"));
 							break;
 						}	
-						else if (tipo.equals("hamsters")) {
+						else if (tipo.equals("hamsters") || tipo.equals("hamster")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("hamsters"));
 							break;
@@ -163,7 +163,7 @@ public class MainTienda {
 					
 				}
 				catch(InputMismatchException e) {
-					System.out.println("Por favor, ingrese un número y no otra cosa\n");
+					System.out.println("Por favor lea e ingrese correctamente los datos\n");
 				}
 				finally {
 					entrada.nextLine();
@@ -171,7 +171,7 @@ public class MainTienda {
 			}
 			
 			
-				System.out.println("\n¿Desea comprar algo más? (responda con si/no)");
+				System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
 				String respuesta = entrada.nextLine();
 		
 		
