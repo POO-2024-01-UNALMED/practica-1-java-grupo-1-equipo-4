@@ -66,7 +66,7 @@ public class MainTienda {
 		
 	if (menu==1) {			
 		while (bucle==true) {
-			System.out.println("\n¿Cómo desea que se muestren los productos?");
+			System.out.println("\n¿Cómo desea que se le muestren los productos?");
 			System.out.println("1. Mostrar todo");
 			System.out.println("2. Filtrar por tipo");
 				
@@ -96,10 +96,11 @@ public class MainTienda {
 				System.out.println(t1.inventario());
 			}
 			else {
-				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perros o gatos)");
+				System.out.println("¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves o hamsters)");
 				while (true) {
 					try {
 						String tipo = entrada.nextLine();
+						tipo.toLowerCase();
 						if (tipo.equals("perros")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("perros"));
@@ -110,8 +111,18 @@ public class MainTienda {
 							System.out.println(t1.filtrar("gatos"));
 							break;
 						}
+						else if (tipo.equals("aves")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("aves"));
+							break;
+						}	
+						else if (tipo.equals("hamsters")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("hamsters"));
+							break;
+						}
 						else {
-							System.out.println("Por favor, ingrese el tipo del animal en minúsculas (perros o gatos)");
+							System.out.println("Por favor, ingrese el tipo del animal en minúsculas (Perros, gatos, aves o hamsters)");
 							continue;
 						}
 					}

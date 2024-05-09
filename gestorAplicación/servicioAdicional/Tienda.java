@@ -26,7 +26,13 @@ public class Tienda {
             this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
             this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
             this.agregarProducto(new Producto("Pienso generico", 30000,"Perros", 30));
-            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20)); 
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
             
         }
 
@@ -45,7 +51,13 @@ public class Tienda {
             this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
             this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
             this.agregarProducto(new Producto("Pienso generico", 30000,"perros", 30));
-            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20)); 
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
             
         }
 
@@ -64,6 +76,12 @@ public class Tienda {
             this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
             this.agregarProducto(new Producto("Pienso generico", 30000,"perros", 30));
             this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20)); 
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10));   
             
         }
 
@@ -106,7 +124,7 @@ public class Tienda {
         
         public String filtrar(String tipo){ //FILTRAR
             if(empleados!=null){
-            	String resultado = " ";
+            	String resultado = "";
             	int indice = 0;
             	for (int i = 0; i<productos.size();i++) {
               		indice = indice+1;
