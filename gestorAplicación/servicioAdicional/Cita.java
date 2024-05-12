@@ -7,7 +7,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cita {
-    private LocalTime hora;
+	
+	private String horaInicio;
+	private String horaFin;
+	private boolean disponibilidad;
+	
+	//CONSTRUCTOR
+	public Cita(String HoraInicio, String HoraFinal) {
+		this.horaInicio= HoraInicio;
+		this.horaFin = HoraFinal;
+		this.disponibilidad=true;
+	
+}
+	
+	public boolean getDisponibilidad() {
+		return this.disponibilidad;
+	}
+	
+	public void setDisponibilidad(boolean disponibilidad) {
+	        this.disponibilidad = disponibilidad;
+	}
+	
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public String getHoraFin() {
+        return horaFin;
+    }
+    
+    public String toString() {
+    	return " De " + horaInicio + ":" + horaFin;
+    }
+	
+   /* private LocalTime hora;
     private LocalDate fecha;
     private boolean disponibilidad;
     private ArrayList<Cita> citas;
@@ -58,5 +91,5 @@ public class Cita {
     @Override
     public String toString() {
         return "cita [hora=" + hora + ", fecha=" + fecha + ", disponibilidad=" + disponibilidad + "]";
-    }
+    }*/
 }

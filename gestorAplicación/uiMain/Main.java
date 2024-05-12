@@ -72,7 +72,7 @@ public class Main {
 		
 		//AGREGAR EMPLEADOS A CADA SEDE
 		//SEDE 1 (GUARDERÍA)
-		sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR, horario));
+	/*	sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR, horario));
 		sede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR, horario));
 		sede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR, horario));
 		sede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR, horario));
@@ -90,15 +90,15 @@ public class Main {
 		sede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO, horario));
 		sede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO, horario));
 		sede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO, horario));
-		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO, horario));
+		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO, horario));*/
 	}
 	
 	
 	
 	public static void main(String[] args) {
 		
-		//adoptarMascota();	
-		agendarServicio();
+		adoptarMascota();	
+		//agendarServicio();
 		
 	}
 	
@@ -346,7 +346,7 @@ public class Main {
 	public static void adoptarMascota() {	
 		//INGRESAR LOS DATOS DEL CLIENTE
 		
-		println("Proporcione los siguientes datos de la persona interesada en adoptar: ");
+		println("\nProporcione los siguientes datos de la persona interesada en adoptar: ");
 		print("Ingrese su nombre: ");
 		String nombre = readString();
 		int edad =0;

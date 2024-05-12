@@ -12,8 +12,7 @@ public class Servicio
 
 
     //CONSTRUCTOR 1 PARA VERIFICAR USUARIO Y PARA REGISTRARLO SI NO LO ESTA
-    public Servicio(Animal animal, Cliente persona)
-    {
+    public Servicio(Animal animal, Cliente persona){
         this.animal = animal;
         this.persona = persona;
     }

@@ -137,9 +137,9 @@ public class CentroAdopcion {
 			}
 			break;
 		case 3:
-			for (Animal loro : animalesDisponibles) {
-				if (loro.getEspecie().equalsIgnoreCase("Loro")) {
-					disponibles.add(loro);
+			for (Animal Canario : animalesDisponibles) {
+				if (Canario.getEspecie().equalsIgnoreCase("Canario")) {
+					disponibles.add(Canario);
 				}
 			}
 			break;
@@ -161,6 +161,9 @@ public class CentroAdopcion {
 		
 		return disponibles;
 	}
+	
+	
+	
 	
 	
 	public String toString() {
