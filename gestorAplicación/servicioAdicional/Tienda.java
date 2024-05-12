@@ -16,17 +16,23 @@ public class Tienda {
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
-            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
-            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
             this.agregarProducto(new Producto("Correas", 25000, 10));
-            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
-            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
             this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
             this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
-            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
-            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
-            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
-            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000,"Perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
             
         }
 
@@ -35,17 +41,23 @@ public class Tienda {
             //tienda definida solo con su centro de adopcion
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
-            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
-            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
             this.agregarProducto(new Producto("Correas", 25000, 10));
-            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
-            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
             this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
             this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
-            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
-            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
-            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
-            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000,"perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
             
         }
 
@@ -53,17 +65,23 @@ public class Tienda {
             //constructor vacío
         	
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
-            this.agregarProducto(new Producto("Pack juguetes", 14000, "Perros", 15));
-            this.agregarProducto(new Producto("Huesos", 6000, "Perros", 20));
+            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
             this.agregarProducto(new Producto("Correas", 25000, 10));
-            this.agregarProducto(new Producto("Pack juguetes", 18000, "Gatos", 10));
-            this.agregarProducto(new Producto("Rascadores", 40000, "gatos", 5));
+            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
             this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
             this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
-            this.agregarProducto(new Producto("Shampoo", 60000, "Perros", 20));
-            this.agregarProducto(new Producto("Shampoo", 65000, "Gatos", 20));
-            this.agregarProducto(new Producto("Pienso generico", 30000, "Perros", 30));
-            this.agregarProducto(new Producto("Pienso generico", 35000, "gatos", 20)); 
+            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000,"perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20)); 
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10));   
             
         }
 
@@ -89,12 +107,35 @@ public class Tienda {
             }
         }
 
-        public ArrayList<Producto> inventario(){ //inventario se hace si hay un empleado
+        public String inventario(){ //inventario se hace si hay un empleado
             if(empleados!=null){
-                return productos;
+            	String resultado = "";
+            	int indice = 1;
+            	for (int i = 0; i<productos.size();i++) {
+            		resultado += indice+"."+productos.get(i).toString();
+            		indice = indice+1;
+            	}
+                return resultado;
             }
             else {
-                return null;
+                return "No hay empleado para atender la tienda";
+            }
+        }
+        
+        public String filtrar(String tipo){ //FILTRAR
+            if(empleados!=null){
+            	String resultado = "";
+            	int indice = 0;
+            	for (int i = 0; i<productos.size();i++) {
+              		indice = indice+1;
+            		if (productos.get(i).getTipoAnimal().equals(tipo)) {
+            			resultado += indice+"."+productos.get(i).toString();
+            		}
+            	}
+                return resultado;
+            }
+            else {
+                return "No hay empleado para atender la tienda";
             }
         }
 
@@ -113,8 +154,13 @@ public class Tienda {
 
                 if (cantidad!=0){// si la cantidad unidades es diferente de 0, hace la compra
                     cantidad-=1;
-                    productos.get(indice).setCantidadUnidades(cantidad); 
-                    return "Se compró una unidad de: "+productos.get(indice).getNombre();
+                    productos.get(indice).setCantidadUnidades(cantidad);
+                    String nombre = productos.get(indice).getNombre();
+                    String tipo =  productos.get(indice).getTipoAnimal();
+                    if (productos.get(indice).getCantidadUnidades()==0) {
+                    	productos.remove(indice);
+                    }
+                    return "Se compró una unidad de: "+nombre+" para "+tipo;
                 }
                 else{
                     return "No hay unidades suficientes.";
@@ -127,16 +173,24 @@ public class Tienda {
         public String compra(int indice, int unidades){
             if (empleados!=null){
                 indice -= 1;
+                if (indice>=productos.size() || indice<0) {
+                	return "No pudimos realizar la compra, el índice es incorrecto.";
+                }
                 int cantidad = productos.get(indice).getCantidadUnidades();
 
                 if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 
                     // y mayor o igual a las unidades que se van a comprar
                     cantidad-=unidades;
-                    productos.get(indice).setCantidadUnidades(cantidad); 
-                    return "Se compró "+unidades+" unidades de: "+productos.get(indice).getNombre();
+                    productos.get(indice).setCantidadUnidades(cantidad);
+                    String nombre = productos.get(indice).getNombre();
+                    String tipo = productos.get(indice).getTipoAnimal(); 
+                    if (productos.get(indice).getCantidadUnidades()==0) {
+                    	productos.remove(indice);
+                    }
+                    return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo;
                 }
                 else{
-                    return "No hay unidades suficientes.";
+                    return "No pudimos realizar la compra, no hay unidades suficientes.";
                 }
             }else{
                 return "No hay un empleado para atenderlo.";

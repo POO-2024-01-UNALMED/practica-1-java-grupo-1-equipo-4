@@ -2,6 +2,7 @@ package gestorAplicación.uiMain;
 import java.util.Scanner;
 import gestorAplicación.procesoAdopcion.*;
 import gestorAplicación.servicioAdicional.*;
+import java.util.InputMismatchException;
 
 public class MainTienda {
 
@@ -28,56 +29,175 @@ public class MainTienda {
 	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO, null);
 	Tienda t1 = new Tienda(empliado, sede1);
 	
+	
 	//OPERACION DE LA TIENDA
-
 	boolean bucle = true;
 	
 	System.out.println("Bienvenido a la tienda"+"\n");
 	
-	while (bucle==true) {
+	while (true) { 
+	
+		System.out.println("¿Qué deseas hacer?"+"\n");
+		System.out.println("1. Comprar un producto");
+		System.out.println("2. Registrar un voluntario");
+		System.out.println("3. Salir\n");
+		System.out.println("Ingrese el número de la opción que desea");
 		
-		System.out.println("Productos disponibles: \n");
-		System.out.println(t1.inventario());
-		System.out.println("\n"+"La lista se le mostró en orden, indique el número del producto que escogió: ");
-		int indice = entrada.nextInt();
+		int menu = 0;
+		while (menu==0) {
+			try {
+				menu = entrada.nextInt();
+				if (menu>0 && menu<=3) {
+					break;
+				}
+				else {
+					System.out.println("Ingrese un número válido por favor");
+					menu = 0;
+					continue;
+				}
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Por favor ingrese un número entre uno y tres!!!");
+			}
+			finally {
+					entrada.nextLine();//SALTO DE LINEA
+				}
+		}
 		
-		System.out.println("Indique cuantas unidades quiere del producto: ");
-		int unidades = entrada.nextInt();
-		
-		
-		if (unidades==1) {
-			t1.compra(indice);
-			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-			long cedula = entrada.nextLong();
-			boolean esCliente = CentroAdopcion.esCliente(cedula);
-			if (esCliente) {
-				System.out.println("\nLa compra tiene un 10% de descuento\n");
+	if (menu==1) {			
+		while (bucle==true) {
+			System.out.println("\n¿Cómo desea que se le muestren los productos?");
+			System.out.println("1. Mostrar todo");
+			System.out.println("2. Filtrar por tipo");
+				
+			int menuTienda = 0;
+			while (menuTienda==0) {
+				try {
+					menuTienda = entrada.nextInt();
+					if (menuTienda>0 && menuTienda<=2) {
+						break;
+					}
+					else {
+						System.out.println("Ingrese un número válido por favor");
+						menuTienda = 0;
+						continue;
+					}
+				}
+				catch(InputMismatchException e) {
+					System.out.println("Por favor ingrese el numero uno o dos!!");
+				}
+				finally {
+					entrada.nextLine();//SALTO DE LINEA
+				}
 			}
 			
-		}else {
-			t1.compra(indice, unidades);
-			System.out.println("Ingrese su cédula para registrar la compra por favor: ");
-			long cedula = entrada.nextLong();
-			boolean esCliente = CentroAdopcion.esCliente(cedula);
-			if (esCliente) {
-				System.out.println("La compra tiene un 10% de descuento\n");
+			if (menuTienda==1) {	
+				System.out.println("\nProductos disponibles:");
+				System.out.println(t1.inventario());
 			}
-		}
+			else {
+				System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves o hamsters)");
+				while (true) {
+					try {
+						String tipo = entrada.nextLine();
+						tipo.toLowerCase();
+						if (tipo.equals("perros") || tipo.equals("perro")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("perros"));
+							break;
+						}
+						else if (tipo.equals("gatos") || tipo.equals("gato")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("gatos"));
+							break;
+						}
+						else if (tipo.equals("aves") || tipo.equals("ave")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("aves"));
+							break;
+						}	
+						else if (tipo.equals("hamsters") || tipo.equals("hamster")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("hamsters"));
+							break;
+						}
+						else {
+							System.out.println("Por favor, ingrese el tipo del animal en minúsculas (Perros, gatos, aves o hamsters)");
+							continue;
+						}
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Por favor, coloque un tipo valido de animal");
+					}
+				}
+			}
+			boolean control = true;
+			while (control) {
+				try {
+						System.out.println("Coloque el índice del producto que va a comprar: ");
+						int indice = entrada.nextInt();
 		
-		entrada.nextLine();
-		
-		System.out.println("Se ha realizado su compra, muchas gracias\n");
-		System.out.println("¿Desea comprar algo más? (responda con si/no)");
-		String respuesta = entrada.nextLine();
-		
-		
-		if (respuesta.equals("si") || respuesta.equals("SI")) {
-			continue;
-		}
-		else {
-			System.out.println("Vuelva pronto :)");
-			break;
-		}
+						System.out.println("Indique cuantas unidades quiere del producto: ");
+						int unidades = entrada.nextInt();
+						
+						if (unidades==1) {
+							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+							long cedula = entrada.nextLong();
+							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							if (esCliente) {
+								System.out.println("La compra tendrá un 10% de descuento\n");
+							}
+							System.out.println(t1.compra(indice));
+						}
+						else {
+							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+							long cedula = entrada.nextLong();
+							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							if (esCliente) {
+								System.out.println("La compra tendrá un 10% de descuento\n");
+							}
+							System.out.println(t1.compra(indice, unidades));
+						}
+						
+						control = false;
+					
+				}
+				catch(InputMismatchException e) {
+					System.out.println("Por favor lea e ingrese correctamente los datos\n");
+				}
+				finally {
+					entrada.nextLine();
+				}
+			}
+			
+			System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
+			String respuesta = " ";
+			while (true) {//CONTROL CON UN WHILE SOLAMENTE
+				respuesta = entrada.nextLine();
+				respuesta.toLowerCase();
+				if (respuesta.equals("si")||respuesta.equals("no")) {
+					break;
+				}else {
+					System.out.println("Por favor, ingrese una respuesta válida (si/no)");
+					continue;
+				}
+			}
+				if (respuesta.equals("si")) {
+					continue;
+				}
+				else {
+					System.out.println("Vuelva pronto :)\n");
+					break;
+				}
+			}//BUCLE COMPRAR
+	}//CONDICINAL MENU
+	else if (menu==2){
+		System.out.println("\nFormulario para pertenecer a los voluntarios: \n");
+		System.out.println("Trabajo en progreso\n");
 	}
-	}	
+	else {
+		break;
+	}
+	}//BUCLE INICIAL
+  }//MAIN	
 }
