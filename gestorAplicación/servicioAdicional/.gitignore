@@ -4,6 +4,7 @@
 /servicio.class
 /tienda.class
 /EstadoSalud.class
+<<<<<<< Updated upstream
 /Finanza$clasificacion.class
 /Finanza.class
 /Funcionalidad.class
@@ -15,3 +16,11 @@
 /Servicio.class
 /Tienda.class
 /Pruebas.class
+=======
+/Producto.class
+/Servicio.class
+/Empleado.class
+/Cita.class
+/Rol.class
+/Tienda.class
+>>>>>>> Stashed changes

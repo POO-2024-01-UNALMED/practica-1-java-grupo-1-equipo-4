@@ -1,12 +1,16 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
 
+<<<<<<< Updated upstream
 import gestorAplicación.procesoAdopcion.CentroAdopcion.tipoServicio;
 import gestorAplicación.servicioAdicional.Empleado;
+=======
+>>>>>>> Stashed changes
 import gestorAplicación.servicioAdicional.Tienda;
 
 public class CentroAdopcion {
 	
+<<<<<<< Updated upstream
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
@@ -14,10 +18,22 @@ public class CentroAdopcion {
 	private ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
+=======
+	//private static CentroAdopcion [] sedes = new CentroAdopcion[3];
+	private ArrayList <Animal> animalesDisponibles = new ArrayList<>();
+	private ArrayList <Adopcion> adopciones = new ArrayList<>();
+>>>>>>> Stashed changes
 	private String nombre;
 	private int espaciosDisponibles = 0;
 	private tipoServicio servicio;
 	private Tienda tienda;
+<<<<<<< Updated upstream
+=======
+	public static enum tipoServicio{
+		VETERINARIA, GUARDERIA, PELUQUERIA
+	}
+	
+>>>>>>> Stashed changes
 	
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio, Tienda tienda) {
 		this.nombre= nombre;
@@ -30,12 +46,17 @@ public class CentroAdopcion {
 		this(nombre, espacios,servicio, null );
 	}
 	
+<<<<<<< Updated upstream
 	public CentroAdopcion(String nombre, tipoServicio servicio) {
 		this(nombre, 0, servicio, null);
 	}
 
 	//METODOS SETTER Y GETTER
 	
+=======
+	
+	//METODOS SETTER Y GETTER
+>>>>>>> Stashed changes
 	public String getNombre() {
 		return nombre;
 	}
@@ -60,6 +81,7 @@ public class CentroAdopcion {
 	public Tienda getTienda() {
 		return tienda;
 	}
+<<<<<<< Updated upstream
 	public void setTienda(Tienda tienda) {
 		this.tienda = tienda;
 	}
@@ -98,6 +120,10 @@ public class CentroAdopcion {
 		empleados.add(empleado);
 	}
 	
+=======
+	
+	//OTROS MÉTODOS
+>>>>>>> Stashed changes
 	public void agregarAnimal(Animal animal) {
 		animalesDisponibles.add(animal);
 		espaciosDisponibles--;
@@ -110,7 +136,10 @@ public class CentroAdopcion {
 	
 	public void agregarAdopcion(Adopcion adopcion) {
 		adopciones.add(adopcion);
+<<<<<<< Updated upstream
 		CentroAdopcion.adopcionesGenerales.add(adopcion);
+=======
+>>>>>>> Stashed changes
 	}
 	
 	public ArrayList <Animal> consultarAnimales() {
@@ -118,6 +147,7 @@ public class CentroAdopcion {
 		
 	}
 	
+<<<<<<< Updated upstream
 	public ArrayList<Animal> filtrarEspecie(int num){
 		ArrayList <Animal> disponibles = new ArrayList <Animal>();
 		
@@ -175,5 +205,16 @@ public class CentroAdopcion {
 		}
 		
 	}
+=======
+	
+	public String toString() {
+		return "Nombre:" + getNombre() + ", Espacios Disponibles: " + getEspacios();
+		
+	}
+	
+	
+	
+	
+>>>>>>> Stashed changes
 
 }

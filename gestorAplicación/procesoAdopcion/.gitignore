@@ -4,6 +4,7 @@
 /Persona.class
 /prueba.class
 /Prueb.class
+<<<<<<< Updated upstream
 /Animal$EstadoSalud.class
 /CentroAdopcion$tipoServicio.class
 /CentroAdopcion.class
@@ -11,3 +12,11 @@
 /Animal.class
 /Pruebas_Clases.class
 /Cliente.class
+=======
+/CentroAdopcion.class
+/Adopcion.class
+/Animal.class
+/CentroAdopcion$tipoServicio.class
+/Prueba.class
+/FUNCIONALIDAD.class
+>>>>>>> Stashed changes

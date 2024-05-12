@@ -11,6 +11,11 @@ public class Animal {
 	private int edad;
 	private String sexo;
 	private EstadoSalud estadoSalud;
+<<<<<<< Updated upstream
+=======
+	//private Sede sede;
+	private int id;
+>>>>>>> Stashed changes
 	
 	//CONSTRUCTOR
 	
@@ -20,6 +25,10 @@ public class Animal {
 		this.edad = edad;
 		this.sexo = sexo;
 		this.estadoSalud = estadoSalud;
+<<<<<<< Updated upstream
+=======
+		//this.sede = sede;
+>>>>>>> Stashed changes
 	}
 	
 	
@@ -66,10 +75,26 @@ public class Animal {
 		return estadoSalud;
 	}
 	
+<<<<<<< Updated upstream
 	
 	//OTROS MÉTODOS
 	
 	public String toString() {
 		return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
+=======
+	/*public void setSede(Sede sede) {
+		this.sede = sede;
+	}
+	
+	//public Sede getSede() {
+		return sede;
+	}*/
+	//VERIFICAR
+	
+	//toString
+	
+	public String toString() {
+		return "Nombre: " + getNombre() + ", Tipo: " + getTipo() + ", Edad: " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud()+ ".\n";
+>>>>>>> Stashed changes
 	}
 }
