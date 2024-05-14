@@ -26,7 +26,7 @@ public class MainTienda {
 	sede1.agregarAdopcion(adopcion1);
 
 	//CREAMOS UN EMPLEADO PARA QUE ATIENDA LA TIENDA
-	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO, null);
+	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO);
 	Tienda t1 = new Tienda(empliado, sede1);
 	
 	
