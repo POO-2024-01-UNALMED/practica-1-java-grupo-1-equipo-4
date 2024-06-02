@@ -12,7 +12,7 @@ public class CentroAdopcion {
 	private ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
-	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
+	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
 	private String nombre;
 	private int espaciosDisponibles = 0;

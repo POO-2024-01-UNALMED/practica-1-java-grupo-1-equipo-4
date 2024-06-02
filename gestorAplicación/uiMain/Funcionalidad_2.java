@@ -52,6 +52,12 @@ public class Funcionalidad_2 {
 		sede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO));
 		sede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO));
 		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO));
+		
+		
+		//PROBAR CON UN CLIENTE YA REGISTRADO
+		Cliente cliente = new Cliente("Oky",23,12345, 310676,"Guayabo");
+		cliente.agregar_puntos(30);
+		CentroAdopcion.clientes_AdoptaLove.add(cliente);
 	}
 	public static void main(String[] args) {
 		
