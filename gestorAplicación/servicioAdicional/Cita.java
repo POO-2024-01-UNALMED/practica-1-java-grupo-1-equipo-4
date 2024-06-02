@@ -37,7 +37,7 @@ public class Cita {
     }
     
     public String toString() {
-    	return " De " + horaInicio + ":" + horaFin;
+    	return " De " + horaInicio + " a " + horaFin;
     }
 	
    /* private LocalTime hora;
@@ -86,10 +86,6 @@ public class Cita {
 
     public boolean getDisponibilidad() {
         return disponibilidad;
-    }
-
-    @Override
-    public String toString() {
-        return "cita [hora=" + hora + ", fecha=" + fecha + ", disponibilidad=" + disponibilidad + "]";
     }*/
+
 }

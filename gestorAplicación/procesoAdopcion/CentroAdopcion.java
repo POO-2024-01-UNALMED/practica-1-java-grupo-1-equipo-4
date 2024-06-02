@@ -1,7 +1,5 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
-
-import gestorAplicación.procesoAdopcion.CentroAdopcion.tipoServicio;
 import gestorAplicación.servicioAdicional.Empleado;
 import gestorAplicación.servicioAdicional.Tienda;
 
@@ -14,6 +12,7 @@ public class CentroAdopcion {
 	private ArrayList <Empleado> empleados = new ArrayList<Empleado>();
 	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
+	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
 	private String nombre;
 	private int espaciosDisponibles = 0;
@@ -100,6 +99,23 @@ public class CentroAdopcion {
 		return valor;
 	}
 	
+	public static Cliente isCliente(long cedula){
+		
+		Cliente cliente_existente=null; 
+		
+		for (Cliente cliente : clientes_AdoptaLove) {
+			
+			if (cliente.getCedula()==cedula) {
+				cliente_existente= cliente;
+				break;
+			}
+			else {
+				continue;
+			}
+		}
+		return cliente_existente;
+	}
+	
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
 	}
@@ -120,6 +136,7 @@ public class CentroAdopcion {
 	public void agregarAdopcion(Adopcion adopcion) {
 		adopciones.add(adopcion);
 		CentroAdopcion.adopcionesGenerales.add(adopcion);
+		CentroAdopcion.clientes_AdoptaLove.add(adopcion.getCliente());
 	}
 	
 	public ArrayList <Animal> consultarAnimales() {

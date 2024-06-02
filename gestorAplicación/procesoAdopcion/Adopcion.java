@@ -31,7 +31,7 @@ public class Adopcion {
 		this.cliente= cliente;
 	}
 	
-	public Persona getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 	

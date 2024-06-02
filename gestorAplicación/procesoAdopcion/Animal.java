@@ -22,6 +22,13 @@ public class Animal {
 		this.estadoSalud = estadoSalud;
 	}
 	
+	public Animal(String nombre, String tipo, int edad, String sexo) {
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.edad = edad;
+		this.sexo = sexo;
+	}
+	
 	
 	//MÉTODOS SETTER Y GETTER
 	
@@ -69,6 +76,12 @@ public class Animal {
 	//OTROS MÉTODOS
 	
 	public String toString() {
+		if (estadoSalud!=null) {
 		return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo() + ", Estado de salud: " + getEstadoSalud();
+		}
+		else {
+			return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo();
+			
+		}
 	}
 }

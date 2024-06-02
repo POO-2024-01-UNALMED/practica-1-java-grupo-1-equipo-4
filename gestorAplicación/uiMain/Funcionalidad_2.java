@@ -1,6 +1,8 @@
 package gestorAplicación.uiMain;
 
 import java.util.ArrayList;
+
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -9,9 +11,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 import gestorAplicación.procesoAdopcion.*;
-
+import gestorAplicación.procesoAdopcion.Animal.EstadoSalud;
 import gestorAplicación.servicioAdicional.*;
-import gestorAplicación.servicioAdicional.Empleado.Rol;
+//import gestorAplicación.servicioAdicional.Empleado.Rol;
 
 
 public class Funcionalidad_2 {
@@ -28,7 +30,6 @@ public class Funcionalidad_2 {
 		sedes.add(sede2);
 		CentroAdopcion sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
 		sedes.add(sede3);
-
 		
 		//AGREGAR EMPLEADOS A CADA SEDE
 		//SEDE 1 (GUARDERÍA)
@@ -53,7 +54,9 @@ public class Funcionalidad_2 {
 		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO));
 	}
 	public static void main(String[] args) {
+		
 		agendarServicio();
+		//datos_mascota(1);
 
 	}
 	
@@ -91,174 +94,251 @@ public class Funcionalidad_2 {
 	
 	public static void agendarServicio() {
 		
-		Map <String,ArrayList<Cita>> citasseleccionadas=new HashMap<>();//SE GUARDA EL DIA Y EN UN ARRAY LAS CITAS QUE SE ELIJAN EN ESE DÍA.
-		String mismoUsuario="no";
+		ArrayList<Cita> [] citas_seleccionadas; //SE GUARDA EN UN ARRAY LAS CITAS QUE SE ELIJAN EN UN DIA DETERMINADO
 		
+		String mismoUsuario="no";
+		ArrayList<Servicio> servicios= new ArrayList<Servicio>();
 		int servicio = escogerServicio();  //ELECCIÓN DEL SERVICIO Y SEDE.
-	        
+	      
 	   switch (servicio+1) {
-	   
-	   //CASO GUARDERÍA.
-	    case 1:
-	    	// citasseleccionadas = new HashMap<>(); //SE GUARDA EL DIA Y EN UN ARRAY LAS CITAS QUE SE ELIJAN EN ESE DÍA.	
-	    	 
-	    	//ELECCIÓN DEL EMPLEADO
-	    	println("\nPara el servicio de guarderia se manejan los siguientes precios:\nValor por cupo: 10.000 pesos\nValor por día completo: 50.000 pesos"); 
+	   	   
+	    case 1:	
 	    	
-	    	String servicioCero="ok";
+	    	servicios= new ArrayList<Servicio>();   	
+	    	println("\nUn cupo en el servicio de guardería tiene un rango de dos horas; su valor es de $ 10.000 pesos.");
 	    	
-	    //	do {
+	    	//INGRESO DE DATOS DEL CLIENTE
+			Cliente cliente= datos_cliente();	 
+			readString();
+	    	
+	    	String servicioCero="no"; //PARA COMENZAR UN AGENDAMIENTO DE SERVICIO DESDE CERO
+	    	
+	    	do {
+	    		citas_seleccionadas = new ArrayList[6];
+	    		  		
+	        	//INGRESO DE DATOS DE LA MASCOTA
+		    	Animal mascota= datos_mascota(servicio);
+		    	
+		    	//SELECCIONAR CUIDADOR
+	    		
 	    		int num_empleado= escogerEmpleado(servicio);
 	    		
-	    		Empleado eleccionEmpleado =sedes.get(servicio).getEmpleados().get(num_empleado); //CUIDADOR SELECCIONADO.
+	    		Empleado eleccionEmpleado =sedes.get(servicio).getEmpleados().get(num_empleado); 
 	    	    println("Cuidador seleccionado: " + eleccionEmpleado.getNombre());
 	    	
-	    	//---------------------
-	    	
-	    	//ELECCIÓN DEL DIA DEL SERVICIO
-	    	String mismoCuidador="ok"; 
-	    	ArrayList <Cita> citaseleccion;
-	    	
-	      	do {
-	      		 citaseleccion = new ArrayList<>();
-		 		 String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
-		         int num_dia=escogerDia();
-	      	    	    
-	    	    String eleccionDia = diasSemana[num_dia]; //DIA SELECCIONADO
-	    	    println("Dia seleccionado: "+ eleccionDia);
 	    	    
-	    	    //SELECCIÓN DEL HORARIO
-	    	    String mismoDia="ok";
-	    	    do {    
-	    	    if (eleccionEmpleado.cuposDisponibles(eleccionDia)) {
+	    	    String mismoCuidador="NO"; //PARA ESCOGER HORARIO CON EL MISMO CUIDADOR
+	    	    ArrayList <Cita> citaseleccion;
+	    	
+	      	    do {
+	      	    	citaseleccion = new ArrayList<>();
+	      	    	
+	      	    	//SELECCIONAR DIA DEL SERVICIO
+		 		    String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+		            int num_dia=escogerDia();
+	      	    	    
+	    	        String eleccionDia = diasSemana[num_dia];
+	    	        println("Dia seleccionado: "+ eleccionDia);
+	    	    
+	    	        //--------------
+	    	    
+	    	        String mismoDia="no"; //PARA SELECCIONAR CITAS EN EL MISMO DIA
+	    	        do { 
+	    	        	
+	    	        	if (eleccionEmpleado.cuposDisponibles(eleccionDia)) {
 	    	    	
-	    	    	println("\nSeleccione el horario en el que desea el servicio.");
-	    	    	println("Cupos para el día " + eleccionDia + ":");
-	    	    	int i =1;
-	    	    	int cupos=0;
-	    	    	ArrayList<Cita> citasDisponibles= new ArrayList<Cita>(); //ARREGLO DONDE SE GUARDAN
-	    	    	                                                         //LAS CITAS DISPONIBLES	    	    		    	    	
-	    	    	//MOSTRAR LAS CITAS DISPONIBLES DEL DIA SELECCIONADO.
-	    	    	for (Cita cita : eleccionEmpleado.obtenerCitas(eleccionDia)) {
-	    	    		if (cita.getDisponibilidad()==true) {
-	    	    			citasDisponibles.add(cita);
-	    	    			println(i +". De " + cita.getHoraInicio() + " a " + cita.getHoraFin() );
-	    	    			cupos++;
-	    	    			i++;
-	    	    			}else {
+	    	    	    println("\nSeleccione el horario en el que desea el servicio.");
+	    	    	    println("Cupos para el día " + eleccionDia + ":");
+	    	    	    int i =1;
+	    	    	    int cupos=0;
+	    	    	    ArrayList<Cita> citasDisponibles= new ArrayList<Cita>(); //ARRAY QUE GUARDA LAS CITAS DISPONIBLES
+	    	    	                                                            //EN EL DIA SELECCIONADO
+	    	    	           
+	    	    	    
+	    	    	    //MOSTRAR LAS CITAS DISPONIBLES DEL DIA SELECCIONADO.
+	    	    	    for (Cita cita : eleccionEmpleado.obtenerCitas(eleccionDia)) {
+	    	    	    	if (cita.getDisponibilidad()==true) {
+	    	    	    		citasDisponibles.add(cita);
+	    	    			    println(i +". De " + cita.getHoraInicio() + " a " + cita.getHoraFin() );
+	    	    			    cupos++;
+	    	    			    i++;
+	    	    			    }
+	    	    	    	else {
 	    	    				println(cita.getHoraInicio() + " a " + cita.getHoraFin() + " - Ocupado");
 	    	    				}
-	    	    		}	    	    	
-	    	    	//----------------------------
+	    	    	    	}	    	    	
 	    	    	
-	    	    	//ELECCIÓN DEL HORARIO
-	    	    	int num_cita= escogerNum_Cita(cupos,mismoUsuario, eleccionEmpleado, eleccionDia);
-	    	    	
-	            	
-	            	if(num_cita== (cupos+1)) {
-	            		for(Cita cita: eleccionEmpleado.obtenerCitas(eleccionDia)) {
-	            			citaseleccion.add(cita);
-	            			cita.setDisponibilidad(false);
-	            		}
-	            		citasseleccionadas.put(eleccionDia, citaseleccion); //AGREGAR TODAS LA CITAS A SELECCIONADAS
-	            		println("Ha agentado el día "+ eleccionDia + " completo.");
-	            		mismoDia="no"; //SALIR DEL BUBLE DEL MISMO DÍA.
-	            		entrada.nextLine();
-	            		println("¿Desea agendar otra cita en un día diferente?: ");
-	            		String respuesta="ok";             
-     	                do {
-     	                	print("Responda si/no: ");
-     	                	respuesta = readString();
-     	                	
-     	                	if (respuesta.equalsIgnoreCase("si")) {
-     	                		mismoCuidador="si";
-     	                		mismoUsuario="si";
-     	                	}
-     	                	else {
-     	                		mismoCuidador="no";
-     	                		servicioCero="no";
-     	                	}
-     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-     	                                
-     	            }
-	            	else {
-	            		if(num_cita==0) {
-	            			mismoDia="no"; //SALIR DEL BLOQUE DEL MISMO DIA.
-	            			String respuesta;
-	            			println("¿Desea intentar agendar cita en un día diferente? ");  
-	            			readString();
-	     	               do {
-	     	                	print("Responda si/no: ");
-	     	                	respuesta = readString();
-	     	                	
-	     	                	if (respuesta.equalsIgnoreCase("si")) {
-	     	                		mismoCuidador="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
-	     	                		mismoUsuario="si";
-	     	                	}
-	     	                	else {
-	     	                		mismoCuidador="no";
-	     	                		servicioCero="no";
-	     	                		
-	     	                	}
-	     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+	    	    	    //SELECCIONAR CITA
+	    	    	    int num_cita= escogerNum_Cita(cupos,mismoUsuario, eleccionEmpleado, eleccionDia);
+	    	    	    
+	    	    	    if(num_cita== (cupos+1)) {
+	    	    	    	for(Cita cita: eleccionEmpleado.obtenerCitas(eleccionDia)) {
+	    	    	    		citaseleccion.add(cita);
+	            			    cita.setDisponibilidad(false);
+	            			    }
+	    	    	    	
+	    	    	    	citas_seleccionadas[num_dia]= citaseleccion;
+	            		
+	            		    println("Ha agentado el día "+ eleccionDia + " completo.");
+	            		    mismoDia="no"; //SALIR DEL BUBLE DEL MISMO DÍA.
+	            		    entrada.nextLine();
+	            		    println("¿Desea agendar otra cita en un día diferente para la misma mascota?: ");
+	            		    String respuesta="ok";             
+	            		    
+	            		    do {
+	            		    	
+	            		    	print("Responda si/no: ");
+     	                	    respuesta = readString();
+     	                	    
+     	                	    if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+     	                	    	println("Proporcione una respuesta válida");
+     	                	    }
+     	                	    
+     	                	    
+	            		    }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+	            		    
+	            		    if (respuesta.equalsIgnoreCase("si")) {
+	            		    	mismoCuidador="si";
+ 	                		    mismoUsuario="si";
+ 	                		    
+	            		       } 
+	            		    else {
+	            		    	mismoCuidador="no";
+ 	                		    mismoUsuario="no";
+ 	                		
+ 	                		    String respuest;
+	            			    println("¿Desea agendar una cita para una mascota diferente? ");  
+	            			
+	     	                    do {
+	     	                    	print("Responda si/no: ");
+	     	                	    respuest= readString();
+	     	                	    
+	     	                	    if (respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false) {
+	     	                	    	println("Proporcione una respuesta válida");
+	     	                	    }
+	     	                	    
+	     	                	    if (respuest.equalsIgnoreCase("si")) {
+	     	                	    	servicioCero="si";
+	     	                	    	}
+	     	                	    else {
+	     	                	    	servicioCero="no";
+	     	                	    	}	     	    
+	     	                	    }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
+	     	                    }
+	            		    }
+	    	    	    else {
+	    	    	    	
+	    	    	    	if(num_cita==0) {
+	    	    	    		
+	    	    	    		mismoDia="no"; //SALIR DEL BLOQUE DEL MISMO DIA.
+	            			    String respuesta;
+	            			    println("¿Desea intentar agendar cita en un día diferente? ");  
+	            			    readString();
+	            			    
+	            			    do {
+	            			    	print("Responda si/no: ");
+	            			    	respuesta = readString();
+	            			    	
+	            			    	if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+	            			    		println("Proporcione una respuesta válida");
+	            			    	}
 
+	            			    	}while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+	            			    
+            			    	if (respuesta.equalsIgnoreCase("si")) {
+            			    		mismoCuidador="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
+     	                		    mismoUsuario="si";
+     	                		    }
+            			    	
+            			    	else {
+            			    		mismoCuidador="no";
+     	                		    servicioCero="no";
+     	                		    mismoUsuario="no";
+     	                		    }
+	            			    
+	    	    	    	}else {		
+	    	    	    		
+	    	    	    		if (citas_seleccionadas[num_dia]==null) {          				
+            				    citas_seleccionadas[num_dia]=new ArrayList<>();
+            				    
+	    	    	    		}
+	    	    	    		
+	    	    	    		citasDisponibles.get(num_cita-1).setDisponibilidad(false);
+	            			    citas_seleccionadas[num_dia].add(citasDisponibles.get(num_cita-1));
 	            			
-	            		}else {		
-	            			String dia_ya_seleccionado="no";      
-	            			for (String dia: citasseleccionadas.keySet()) {
-	            				if (dia.equalsIgnoreCase(eleccionDia)) {
-	            					dia_ya_seleccionado="si";
-	            				}            				
-	            			}
-	            			
-	            			if(dia_ya_seleccionado.equalsIgnoreCase("si")) {
-	            				
-	            				ArrayList <Cita> citas_yaseleccionadas = citasseleccionadas.get(eleccionDia);            				
-	            				citas_yaseleccionadas.add(citasDisponibles.get(num_cita-1));
-	            				citasseleccionadas.put(eleccionDia, citas_yaseleccionadas);	
-	            				citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-	            			}
-	            			
-	            			else {
-	          		
-	            			citaseleccion.add(citasDisponibles.get(num_cita-1));
-	            		    citasseleccionadas.put(eleccionDia, citaseleccion);
-	            		    citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-	            			}
-	            			
-	            		    println("¿Desea agendar otra cita en la misma fecha?");
-	            		    readString();
-  	                        String respuesta;
-  	                        do {
-  	                        	print("Responda si/no: ");
-  	                        	respuesta=readString();
-  	                        }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-  	                        
-  	                        if (respuesta.equalsIgnoreCase("si")) {
-  	                          mismoDia="si";
-  	                          mismoUsuario="si";
-  	                	    }
-  	                        else {
-  	                        	mismoDia="no";
-  	                        	println("¿Desea agendar otra cita en un día diferente?");
-  	  	                        String respuest;
-  	  	                    do {
-  	                        	print("Responda si/no: ");
-  	                        	respuest=readString();	                        	
-  	                        }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
-  	  	                                           
-  	  	                        if (respuest.equalsIgnoreCase("si")) {
-  	  	                          mismoCuidador="si";
-  	  	                          mismoUsuario="si";
-  	  	                        }else {
-  	  	                        	mismoCuidador="no";
-  	  	                        	servicioCero="no";
-  	  	                        }               
-  	  	                   }
-  	                  }
-	              }
-	            	
-	          }
+	            		        println("¿Desea hacer uso de otro cupo en el mismo día?");
+	            		        readString();
+  	                            String respuesta;
+  	                            
+  	                            do { 	                            	
+  	                            	print("Responda si/no: ");
+  	                            	respuesta=readString();
+  	                            	
+  	                            	if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+  	                            		println("Ingrese una respuesta válida");
+  	                            	}
+  	                            	
+  	                            }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+  	                            
+  	                            if (respuesta.equalsIgnoreCase("si")) {
+  	                            mismoDia="si";
+  	                            mismoUsuario="si";
+  	                            
+  	                            }
+  	                            
+  	                            else {
+  	                            	mismoDia="no";
+  	                        	    println("¿Desea agendar otra cita en un día diferente para la misma mascota?");
+  	  	                            String respuest;
+  	  	                            
+  	  	                            do {	  	                            	
+  	  	                            	print("Responda si/no: ");
+  	                        	        respuest=readString();	
+  	                        	        
+  	                        	        if(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false) {
+  	                        	        	println("Ingrese una respuesta válida");
+  	                        	        }
+  	                        	    }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
+  	  	                            
+  	  	                            if (respuest.equalsIgnoreCase("si")) {
+  	  	                            	mismoCuidador="si";
+  	  	                                mismoUsuario="si";
+  	  	                                
+  	  	                            }else {
+  	  	                        	    mismoCuidador="no";
+  	  	                        	    mismoUsuario="no";
+  	  	                        	
+  	  	       	  	                    String respuesta_;
+  	  	       	  	                    println("¿Desea agendar una cita para una mascota diferente? ");  
+  	  	       	  	                
+  	  	       	  	                    do {
+  	  	       	  	                	   print("Responda si/no: ");
+  	  	     	                	       respuesta_= readString();
+  	  	     	                	       
+  	   	                            	if (respuesta_.equalsIgnoreCase("si")==false && respuesta_.equalsIgnoreCase("no")==false) {
+  	  	                            		println("Ingrese una respuesta válida");
+  	  	                            	}
+  	  	     	                	       
+//  	  	     	                	       if (respuesta_.equalsIgnoreCase("si")) {
+//  	  	     	                	    	   servicioCero="si";
+//  	  	     	                	    	   }
+//  	  	     	                	       else {
+//  	  	     	                	    	   servicioCero="no";
+//  	  	     	                	       }
+  	  	     	                	    	   }while(respuesta_.equalsIgnoreCase("si")==false && respuesta_.equalsIgnoreCase("no")==false);
+  	  	       	  	                    
+	  	     	                	       if (respuesta_.equalsIgnoreCase("si")) {
+  	  	     	                	    	   servicioCero="si";
+  	  	     	                	    	   }
+  	  	     	                	       else {
+  	  	     	                	    	   servicioCero="no";
+  	  	     	                	       }
+  	  	       	  	                    }
+  	                            }
+  	                      }
+	    	    	    	}
+	    	    	    }
+	    	        	
 	    	    else {
 	    	    	println("\nNo hay cupos disponibles para el día " + eleccionDia + ".");
 	    	    	mismoDia="no"; //SALIR DE BUCLE DEL MISMO DÍA.
@@ -269,52 +349,92 @@ public class Funcionalidad_2 {
 	                do {
 	                	print("Responda si/no: ");
 	                   respuesta = readString();
+	                   
+	                   if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+	                	   println("Ingrese una respuesta válida");
+	                   }
+	                   
 	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
 	                
 	                if (respuesta.equalsIgnoreCase("si")) {
 	                	mismoCuidador="si"; //PARA QUE VUELVA A ELEGIR EL DIA
+
 	                	}
 	                else {
 	                	mismoCuidador="no"; //SALIR DEL BUCLE DEL MISMO CUIDADOR
+	                	servicioCero="no";
 	                }
 	             }
 	    	    
 	    	  }while(mismoDia.equalsIgnoreCase("si")==true);
 	    	    
 	    	}while(mismoCuidador.equalsIgnoreCase("si")==true);
-	      	      	
-	         //  }while(servicioCero.equalsIgnoreCase("si")==true);
-	    	
+	      	
+	      	
+	      	//COMPROBAR SI SIQUIERA AGENDÓ UNA CITA
+	      	boolean hayElementosNoNulos = false;
+	      	
+	      	for (ArrayList<Cita> lista : citas_seleccionadas) {
+	      	    if (lista != null) {
+	      	        hayElementosNoNulos = true;
+	      	        break;
+	      	    }
+	      	}
+	      	
+	      	//-------------
+	      	
+	      	if(hayElementosNoNulos) {
+		     		
+	      		//CREAR EL SERVICIO
+	      		Servicio nuevo_servicio = new Servicio(mascota,cliente,eleccionEmpleado,"Guardería",citas_seleccionadas); 
+	      		servicios.add(nuevo_servicio);
+	      	}
+	      	
+	          }while(servicioCero.equalsIgnoreCase("si")==true);
+	      	    	
 	      	break;
 	      	
 	    case 2:
-	    	 
-	    	//ELECCIÓN DEL EMPLEADO
-	    	println("\nPara el servicio de veterinaria se manejan los siguientes precios:\nValor por cita: 20.000 pesos."); 
-	    	int numEmpleado= escogerEmpleado(servicio);
-    		
-    		Empleado eleccion_Empleado=sedes.get(servicio).getEmpleados().get(numEmpleado); //VETERINARIO SELECCIONADO.
-    	    println("Veterinario seleccionado: " + eleccion_Empleado.getNombre());
-    	    
-    	    //-------------------------------
-    	    
-    	  //ELECCIÓN DEL DIA DEL SERVICIO
-	    	String mismoVeterinario="ok"; 
-	    	ArrayList <Cita> citaseleccion_2;
 	    	
-	    	do {	
-	    		citaseleccion_2 = new ArrayList<>();
-		 		String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
-		        int num_dia=escogerDia();
-	      	    	    
-	    	    String eleccionDia = diasSemana[num_dia]; //DIA SELECCIONADO
-	    	    println("Dia seleccionado: "+ eleccionDia);
-	    	    
-	    	    //SELECCIÓN DEL HORARIO
-	    	    String mismoDia="ok";	    	    
-	    	    do {
+	    	servicios= new ArrayList<Servicio>();
+	    	  
+	    	println("\nUna cita para el servicio de veterinaria tiene un valor de $20.000 pesos");
+	    	
+	    	//INGRESO DE DATOS DEL CLIENTE
+			Cliente cliente_2= datos_cliente();	 
+			readString();
+			
+			String servicioCero_2="no";
+			
+			do {
+				citas_seleccionadas = new ArrayList[6];
+				
+				//INGRESO DE DATOS DE LA MASCOTA
+	    	    Animal mascota_2 = datos_mascota(servicio);
+	    	
+	    	    //ELECCION DEL EMPLEADO
+	    	    int numEmpleado_2= escogerEmpleado(servicio);
+    		
+    		    Empleado eleccion_Empleado_2=sedes.get(servicio).getEmpleados().get(numEmpleado_2); //VETERINARIO SELECCIONADO.
+    	        println("Veterinario seleccionado: " + eleccion_Empleado_2.getNombre());
+    	    
+
+	    	    String mismoVeterinario="ok"; 
+	    	
+	    	    do {	    	
 	    	    	
-	    	    	if (eleccion_Empleado.cuposDisponibles(eleccionDia)) {
+	    	    	//ELECCIÓN DEL DIA DEL SERVICIO ----------
+		 		    String[] diasSemana_2= {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+		            int num_dia_2=escogerDia();
+	      	    	    
+	    	        String eleccionDia = diasSemana_2[num_dia_2]; //DIA SELECCIONADO
+	    	        println("Dia seleccionado: "+ eleccionDia);
+	    	        
+	    	        //------------------------
+	    	    
+	    	        //SELECCIÓN DEL HORARIO
+	    	    	
+	    	    	if (eleccion_Empleado_2.cuposDisponibles(eleccionDia)) {
 	    	    		println("\nSeleccione el horario en el que desea el servicio de veterinaria.");
 		    	    	println("Citas para el día " + eleccionDia + ":");
 		    	    	int i =1;
@@ -322,7 +442,7 @@ public class Funcionalidad_2 {
 		    	    	ArrayList<Cita> citasDisponibles= new ArrayList<Cita>(); //ARREGLO DONDE SE GUARDAN
 		    	    	                                                         //LAS CITAS DISPONIBLES	    	    		    	    	
 		    	    	//MOSTRAR LAS CITAS DISPONIBLES DEL DIA SELECCIONADO.
-		    	    	for (Cita cita : eleccion_Empleado.obtenerCitas(eleccionDia)) {
+		    	    	for (Cita cita : eleccion_Empleado_2.obtenerCitas(eleccionDia)) {
 		    	    		if (cita.getDisponibilidad()==true) {
 		    	    			citasDisponibles.add(cita);
 		    	    			println(i +". De " + cita.getHoraInicio() + " a " + cita.getHoraFin() );
@@ -333,123 +453,81 @@ public class Funcionalidad_2 {
 		    	    				}
 		    	    		}
 		    	    	
-		    	    	int num_cita= escogerNum_Cita(cupos,mismoUsuario, eleccion_Empleado, eleccionDia);
+		    	    	int num_cita = promtCupos(cupos);
 		    	    	
-		            	if(num_cita== (cupos+1)) {
-		            		for(Cita cita: eleccion_Empleado.obtenerCitas(eleccionDia)) {
-		            			citaseleccion_2.add(cita);
-		            			cita.setDisponibilidad(false);
-		            		}
-		            		citasseleccionadas.put(eleccionDia, citaseleccion_2); //AGREGAR TODAS LA CITAS A SELECCIONADAS
-		            		println("Ha agentado el día "+ eleccionDia + " completo.");
-		            		mismoDia="no"; //SALIR DEL BUBLE DEL MISMO DÍA.
-		            	
-		            		println("¿Desea agendar otra cita en un día diferente?");
-		            		entrada.nextLine();
-		            		String respuesta="ok";             
-	     	                do {
-	     	                	print("Responda si/no: ");
-	     	                	respuesta = readString();
-	     	                	
-	     	                	if (respuesta.equalsIgnoreCase("si")) {
-	     	                		mismoVeterinario="si";
-	     	                		mismoUsuario="si";
-	     	                	}
-	     	                	else {
-	     	                		mismoVeterinario="no";
-	     	                		servicioCero="no";
-	     	                	}
-	     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-	     	                                
-	     	            }
-		            	else {
-		            		if(num_cita==0) {
-		            			mismoDia="no"; //SALIR DEL BLOQUE DEL MISMO DIA.
-		            			String respuesta;
-		            			println("¿Desea intentar agendar cita en un día diferente?..");
-		     	                entrada.nextLine();            
-		     	               do {
-		     	                	print("Responda si/no: ");
-		     	                	respuesta = readString();
+		    	    //-------------------------
+		    	    	
+		    	    	if(num_cita==0) {
+		     
+		                String respuesta;
+		            	println("¿Desea intentar agendar cita en un día diferente?");
+		     	        entrada.nextLine(); 
+		     	        
+		     	        do {
+		     	        	print("Responda si/no: ");
+		     	            respuesta = readString();
+		     	            
+		     	            if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+		     	            	println("Proporcione una respuesta válida.");
+		     	            }
 		     	                	
-		     	                	if (respuesta.equalsIgnoreCase("si")) {
-		     	                		mismoVeterinario="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
-		     	                		mismoUsuario="si";
-		     	                	}
-		     	                	else {
-		     	                		mismoVeterinario="no";
-		     	               	                		
-		     	                	}
-		     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+		     	            if (respuesta.equalsIgnoreCase("si")) {
+		     	            	mismoVeterinario="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
+		     	                }
+		     	            else {
+		     	            	mismoVeterinario="no";
+		     	            	mismoUsuario="no";
+		     	            	servicioCero_2="no";
+		     	            	
+		     	            	}
+		     	            }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+		     	        
+		     	        
+		     	        }else {
+		     	        	
+	            			if (citas_seleccionadas[num_dia_2]==null) {          				
+	            				citas_seleccionadas[num_dia_2]=new ArrayList<>();
+	            			}
 
+		            		citasDisponibles.get(num_cita-1).setDisponibilidad(false);
+		            		citas_seleccionadas[num_dia_2].add(citasDisponibles.get(num_cita-1));
 		            			
-		            		}else {		
-		            			String dia_ya_seleccionado="no";
-		      
-		            			for (String dia: citasseleccionadas.keySet()) {
-		            				if (dia.equalsIgnoreCase(eleccionDia)) {
-		            					dia_ya_seleccionado="si";
-		            				}            				
-		            			}
-		            			
-		            			if(dia_ya_seleccionado.equalsIgnoreCase("si")) {
-		            				
-		            				ArrayList <Cita> citas_yaseleccionadas = citasseleccionadas.get(eleccionDia);            				
-		            				citas_yaseleccionadas.add(citasDisponibles.get(num_cita-1));
-		            				citasseleccionadas.put(eleccionDia, citas_yaseleccionadas);	
-		            				citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-		            			}
-		            			
-		            			else {
-		          		
-		            			citaseleccion_2.add(citasDisponibles.get(num_cita-1));
-		            		    citasseleccionadas.put(eleccionDia, citaseleccion_2);
-		            		    citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-		            			}
-		            			
-		            		    println("¿Desea agendar otra cita en la misma fecha?");
-		            	     	entrada.nextLine();
-	  	                        String respuesta;
-	  	                        do {
-	  	                        	print("Responda si/no: ");
-	  	                        	respuesta = readString();
-	  	                        }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-	  	                        
-	  	                        if (respuesta.equalsIgnoreCase("si")) {
-	  	                          mismoDia="si";
-	  	                          mismoUsuario="si";
-	  	                	    }
-	  	                        else {
-	  	                        	mismoDia="no";
-	  	                        	println("¿Desea intentar agendar otra cita en un día diferente?");
-	  	  	                        String respuest;
-	  	  	                        do {
-	  	  	                        	print("Responda si/no: ");
-	  	  	                        	respuest= readString();
-	  	  	                        }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-	  	  	                        
-	  	  	                        if (respuest.equalsIgnoreCase("si")) {
-	  	  	                          mismoVeterinario="si";
-	  	  	                          mismoUsuario="si";
-	  	  	                        }else {
-	  	  	                        	mismoVeterinario="no";
-	  	  	                        
-	  	  	                        }               
-	  	  	                   }
-	  	                  }
-		              }
-		            	
-		          }
-		    	    else {
-		    	    	println("\nNo hay cupos disponibles para el día " + eleccionDia + ".");
-		    	    	mismoDia="no"; //SALIR DE BUCLE DEL MISMO DÍA.
+		            		
+		            		mismoVeterinario="no";
+	  	                    println("¿Desea agendar otra cita para otra mascota?");
+	  	                    readString();
+	  	  	                String respuest;
+	  	  	                
+	  	  	                do {
+	  	  	                	print("Responda si/no: ");
+	  	  	                    respuest= readString();
+	  	  	                    
+	  	  	                    if (respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false) {
+	  	  	                    	println("Proporcione una respuesta válida");
+	  	  	                    }
+	  	  	                  }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
+	  	  	                
+	  	  	                if (respuest.equalsIgnoreCase("si")) {
+	  	  	                	servicioCero_2="si";
+	  	  	                	}
+	  	  	                else {
+	  	  	                	servicioCero_2="no";
+	  	  	                	}
+	  	  	                }
+		    	    	}
+	    	    	else {
+	    	    		println("\nNo hay cupos disponibles para el día " + eleccionDia + ".");
 		    	    	
-		                print("¿Desea agendar cita en un día diferente?:");
+		                print("¿Desea agendar cita en un día diferente?");
 		                readString();
 		                String respuesta;
 		                do {
 		                print("Responda si/no: ");
 		                respuesta = readString();
+		                
+		                if (respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false) {
+		                	println("Proporcione una respuesta válida");
+		                }
 		                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
 		                
 		                if (respuesta.equalsIgnoreCase("si")) {
@@ -459,165 +537,148 @@ public class Funcionalidad_2 {
 		                	mismoVeterinario="no"; //SALIR DEL BUCLE DEL MISMO CUIDADOR
 		                }
 		             }
-	    	    		 	    	
-	    	    }while(mismoDia.equalsIgnoreCase("si"));
-	    		
-	    	}while(mismoVeterinario.equalsIgnoreCase("si"));   	    
+	    	    	
+	    	    	}while(mismoVeterinario.equalsIgnoreCase("si")); 
+	    	    
+		      	boolean hayElementosNoNulos = false;
+		      	
+		      	for (ArrayList<Cita> lista : citas_seleccionadas) {
+		      	    if (lista != null) {
+		      	        hayElementosNoNulos = true;
+		      	        break;
+		      	    }
+		      	}
+		      	
+		      	//---------
+		      	
+		      	if(hayElementosNoNulos) {
+			     		
+		      		//CREAR EL SERVICIO
+		      		Servicio nuevo_servicio = new Servicio(mascota_2,cliente_2,eleccion_Empleado_2,"Veterinaria",citas_seleccionadas); 
+		      		servicios.add(nuevo_servicio);
+	
+		      	    	    
+			}
+
+	    	          	    
+	      	   }while(servicioCero_2.equalsIgnoreCase("si"));
+			
     	    break;
     	    
 	    case 3:
-		    	//ELECCIÓN DEL EMPLEADO
-		    	println("\nPara el servicio de peluquería se manejan los siguientes precios:\nValor por corte: 15.000 pesos."); 
-		    	int num_Empleado= escogerEmpleado(servicio);
-	    		
-	    		Empleado eleccion_empleado=sedes.get(servicio).getEmpleados().get(num_Empleado); //PELUQUERO SELECCIONADO.
-	    	    println("Peluquero seleccionado: " + eleccion_empleado.getNombre());
-	    	    
-	      	  //ELECCIÓN DEL DIA DEL SERVICIO
-		    	String mismoPeluquero="ok"; 
-		    	ArrayList <Cita> citaseleccion_3;
+	    	
+	    	servicios= new ArrayList<Servicio>();
+	    	
 		    	
-		    	do {	
-		    		citaseleccion_3 = new ArrayList<>();
-			 		String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
-			        int num_dia=escogerDia();
-		      	    	    
-		    	    String eleccionDia = diasSemana[num_dia]; //DIA SELECCIONADO
-		    	    println("Dia seleccionado: "+ eleccionDia);
+		    	println("\nPara el servicio de peluquería se manejan los siguientes precios:\nValor por corte: 15.000 pesos."); 
+		    	
+		    	//INGRESO DE DATOS DEL CLIENTE
+				Cliente cliente_3= datos_cliente();	 
+				readString();
+				
+				String servicioCero_3="no";
+				
+				do {
+					
+					citas_seleccionadas = new ArrayList[6];
+					
+					//INGRESO DE DATOS DE LA MASCOTA
+		    	    Animal mascota_3 = datos_mascota(servicio);
+				
+		    	    int num_Empleado_3= escogerEmpleado(servicio);
+	    		
+	    		    Empleado eleccion_empleado_3 =sedes.get(servicio).getEmpleados().get(num_Empleado_3); //PELUQUERO SELECCIONADO.
+	    	        println("Peluquero seleccionado: " + eleccion_empleado_3.getNombre());
+	    	    
+	      	        //ELECCIÓN DEL DIA DEL SERVICIO
+		    	    String mismoPeluquero="ok"; 
 		    	    
-		    	    //SELECCIÓN DEL HORARIO
-		    	    String mismoDia="ok";	    	    
 		    	    do {
 		    	    	
-		    	    	if (eleccion_empleado.cuposDisponibles(eleccionDia)) {
-		    	    		println("\nSeleccione el horario en el que desea el servicio de veterinaria.");
-			    	    	println("Citas para el día " + eleccionDia + ":");
-			    	    	int i =1;
-			    	    	int cupos=0;
-			    	    	ArrayList<Cita> citasDisponibles= new ArrayList<Cita>(); //ARREGLO DONDE SE GUARDAN
-			    	    	                                                         //LAS CITAS DISPONIBLES	    	    		    	    	
-			    	    	//MOSTRAR LAS CITAS DISPONIBLES DEL DIA SELECCIONADO.
-			    	    	for (Cita cita : eleccion_empleado.obtenerCitas(eleccionDia)) {
-			    	    		if (cita.getDisponibilidad()==true) {
-			    	    			citasDisponibles.add(cita);
-			    	    			println(i +". De " + cita.getHoraInicio() + " a " + cita.getHoraFin() );
-			    	    			cupos++;
-			    	    			i++;
-			    	    			}else {
-			    	    				println(cita.getHoraInicio() + " a " + cita.getHoraFin() + " - Ocupado");
-			    	    				}
-			    	    		}
+		    	    	String[] diasSemana_3 = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+			            int num_dia_3=escogerDia();
+		      	    	    
+		    	        String eleccionDia_3= diasSemana_3[num_dia_3]; //DIA SELECCIONADO
+		    	        println("Dia seleccionado: "+ eleccionDia_3);
+		    	    
+
+		    	    	
+		    	        if (eleccion_empleado_3.cuposDisponibles(eleccionDia_3)) {
+		    	        	println("\nSeleccione el horario en el que desea el servicio de veterinaria.");
+			    	        println("Citas para el día " + eleccionDia_3 + ":");
+			    	        int i =1;
+			    	        int cupos=0;
+			    	        ArrayList<Cita> citasDisponibles= new ArrayList<Cita>(); //ARREGLO DONDE SE GUARDAN
+			    	    	                                                         //LAS CITAS DISPONIBLES
+			    	        
+			    	        //MOSTRAR LAS CITAS DISPONIBLES DEL DIA SELECCIONADO.
+			    	   	    for (Cita cita : eleccion_empleado_3.obtenerCitas(eleccionDia_3)) {
+			    	   	    	
+			    	   	    	if (cita.getDisponibilidad()==true) {
+			    	    		citasDisponibles.add(cita);
+			    	    		println(i +". De " + cita.getHoraInicio() + " a " + cita.getHoraFin() );
+			    	    		cupos++;
+			    	    		i++;
+			    	    		
+			    	   	    	}else {
+			    	   	    		println(cita.getHoraInicio() + " a " + cita.getHoraFin() + " - Ocupado");
+			    	   	    	}
+			    	   	    }
 			    	    	
-			    	    	int num_cita= escogerNum_Cita(cupos,mismoUsuario, eleccion_empleado, eleccionDia);
+			    	    	int num_cita= promtCupos(cupos);
 			    	    	
-			            	if(num_cita== (cupos+1)) {
-			            		for(Cita cita: eleccion_empleado.obtenerCitas(eleccionDia)) {
-			            			citaseleccion_3.add(cita);
-			            			cita.setDisponibilidad(false);
-			            		}
-			            		citasseleccionadas.put(eleccionDia, citaseleccion_3); //AGREGAR TODAS LA CITAS A SELECCIONADAS
-			            		println("Ha agentado el día "+ eleccionDia + " completo.");
-			            		mismoDia="no"; //SALIR DEL BUBLE DEL MISMO DÍA.
-			            		entrada.nextLine();
-			            		println("¿Desea agendar otra cita en un día diferente?: ");
-			            		String respuesta="ok";             
-		     	                do {
-		     	                	print("Responda si/no: ");
-		     	                	respuesta = readString();
-		     	                	
-		     	                	if (respuesta.equalsIgnoreCase("si")) {
-		     	                		mismoPeluquero="si";
-		     	                		mismoUsuario="si";
-		     	                	}
-		     	                	else {
-		     	                		mismoPeluquero="no";
-		     	                		servicioCero="no";
-		     	                	}
-		     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-		     	                                
-		     	            }
-			            	else {
-			            		if(num_cita==0) {
-			            			mismoDia="no"; //SALIR DEL BLOQUE DEL MISMO DIA.
-			            			String respuesta;
-			            			println("¿Desea intentar agendar cita en un día diferente?");
-			     	                entrada.nextLine();            
-			     	               do {
-			     	                	print("Responda si/no: ");
-			     	                	respuesta = readString();
+			            	if(num_cita==0) {
+			            	
+			            		String respuesta;
+			            		println("¿Desea intentar agendar cita en un día diferente?");
+			     	            entrada.nextLine();  
+			     	            
+			     	            do {
+			     	                print("Responda si/no: ");
+			     	                respuesta = readString();
 			     	                	
-			     	                	if (respuesta.equalsIgnoreCase("si")) {
-			     	                		mismoPeluquero="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
-			     	                		mismoUsuario="si";
-			     	                	}
-			     	                	else {
-			     	                		mismoPeluquero="no";
-			     	                		servicioCero="no";
-			     	                		
+			     	                if (respuesta.equalsIgnoreCase("si")) {
+			     	                	mismoPeluquero="si"; //PARA QUE VUELVA A ELIGIR UN DÍA.
+			     	                	mismoUsuario="si";
+			     	                }
+			     	                else {
+			     	                	mismoPeluquero="no";
+			     	                	servicioCero_3="no";
 			     	                	}
 			     	                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
+		            			
+			            		}else {
+			            			
+			            			if (citas_seleccionadas[num_dia_3]==null) {          				
+			            				citas_seleccionadas[num_dia_3]=new ArrayList<>();
+			            			}
 
-			            			
-			            		}else {		
-			            			String dia_ya_seleccionado="no";
-			      
-			            			for (String dia: citasseleccionadas.keySet()) {
-			            				if (dia.equalsIgnoreCase(eleccionDia)) {
-			            					dia_ya_seleccionado="si";
-			            				}            				
-			            			}
-			            			
-			            			if(dia_ya_seleccionado.equalsIgnoreCase("si")) {
-			            				
-			            				ArrayList <Cita> citas_yaseleccionadas = citasseleccionadas.get(eleccionDia);            				
-			            				citas_yaseleccionadas.add(citasDisponibles.get(num_cita-1));
-			            				citasseleccionadas.put(eleccionDia, citas_yaseleccionadas);	
-			            				citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-			            			}
-			            			
-			            			else {
-			          		
-			            			citaseleccion_3.add(citasDisponibles.get(num_cita-1));
-			            		    citasseleccionadas.put(eleccionDia, citaseleccion_3);
-			            		    citasDisponibles.get(num_cita-1).setDisponibilidad(false);
-			            			}
-			            			
-			            		    println("¿Desea agendar otra cita en la misma fecha?");		
-			            		    readString();
-		  	                        String respuesta;
-		  	                        do {
-		  	                        	 print("Responda si/no: "); 
-		  	                        	 respuesta=readString();
-		  	                         }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
-		  	                        
-		  	                        if (respuesta.equalsIgnoreCase("si")) {
-		  	                          mismoDia="si";
-		  	                          mismoUsuario="si";
-		  	                	    }
-		  	                        else {
-		  	                        	mismoDia="no";
-		  	                        	println("¿Desea intentar agendar otra cita en un día diferente?");
-		  	  	                        String respuest;
-		  	  	                        do {
-		  	  	                        	print("Responda si/no: ");
-		  	  	                        	respuest=readString();
-		  	  	                        }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
+				            		citasDisponibles.get(num_cita-1).setDisponibilidad(false);
+				            		citas_seleccionadas[num_dia_3].add(citasDisponibles.get(num_cita-1));
+			          			    
+			            		    mismoPeluquero="no";
+			          
+		  	                        println("¿Desea agendar otra cita para una mascota diferente?");
+		  	                        readString();
+		  	  	                    String respuest;
+		  	  	                     do {
+		  	  	                        print("Responda si/no: ");
+		  	  	                        respuest=readString();
+		  	  	                     }while(respuest.equalsIgnoreCase("si")==false && respuest.equalsIgnoreCase("no")==false);
 		  	  	                        
-		  	  	                        if (respuest.equalsIgnoreCase("si")) {
-		  	  	                          mismoPeluquero="si";
-		  	  	                          mismoUsuario="si";
+		  	  	                        if (respuest.equalsIgnoreCase("si")) {	
+		  	  	                        	servicioCero_3="si";   
+		  	  	                        	mismoUsuario="si";
 		  	  	                        }else {
-		  	  	                        	mismoPeluquero="no";
-		  	  	                        
-		  	  	                        }               
-		  	  	                   }
-		  	                  }
-			              }
+		  	  	                        	servicioCero_3="no";
+		  	  	                        	mismoUsuario="no";
+		  	  	                        	}              	  	                  
+			            		}
 			            	
 			          }
 			    	    else {
-			    	    	println("\nNo hay cupos disponibles para el día " + eleccionDia + ".");
-			    	    	mismoDia="no"; //SALIR DE BUCLE DEL MISMO DÍA.
+			    	    	println("\nNo hay cupos disponibles para el día " + eleccionDia_3 + ".");
+
 			    	    	
 			                println("¿Desea agendar cita en un día diferente?");
 			                readString();
@@ -628,36 +689,192 @@ public class Funcionalidad_2 {
 			                }while(respuesta.equalsIgnoreCase("si")==false && respuesta.equalsIgnoreCase("no")==false);
 			                
 			                if (respuesta.equalsIgnoreCase("si")) {
-			                	mismoPeluquero="si"; //PARA QUE VUELVA A ELEGIR EL DIA
+			                	mismoPeluquero="si"; //PARA QUE VUELVA A ELEGIR EL DIA			                	
 			                	}
 			                else {
 			                	mismoPeluquero="no"; //SALIR DEL BUCLE DEL MISMO CUIDADOR
 			                }
-			             }
-		    	    		 	    	
-		    	    }while(mismoDia.equalsIgnoreCase("si"));
+			             }		  
 		    		
 		    	}while(mismoPeluquero.equalsIgnoreCase("si"));
-	    	    
+		    	    
+			      	boolean hayElementosNoNulos = false;
+			      	
+			      	for (ArrayList<Cita> lista : citas_seleccionadas) {
+			      	    if (lista != null) {
+			      	        hayElementosNoNulos = true;
+			      	        break;
+			      	    }
+			      	}
+			      	
+			      	//---------
+			      	
+			      	if(hayElementosNoNulos) {
+			      		int i=1;
+				      	for (ArrayList<Cita> lista : citas_seleccionadas) {
+				      	    if (lista != null) {
+				      	    	println(i);
+				      	        for (Cita cita: lista) {
+				      	        	println(cita);
+				      	        }
+				      	    }
+				      	    i++;
+				      	}
+				     		
+			      		//CREAR EL SERVICIO
+			      		Servicio nuevo_servicio = new Servicio(mascota_3,cliente_3,eleccion_empleado_3,"Peluquería",citas_seleccionadas); 
+			      		servicios.add(nuevo_servicio);
+			      		
+			      		println(nuevo_servicio.getCliente());
+			      	    	    
+				}
+		    	
+				}while(servicioCero_3.equalsIgnoreCase("si"));
+				
 	    	    break;
+	    	    
 	    	    	
 	    }
-	  
-   	int cuantas=0;
-   	println("\n------------------- Citas agendadas -------------------- ");
-     	for (String dia: citasseleccionadas.keySet()) {
-     		if (dia!= null){
-     			cuantas++;
-     			println("\n" + dia);
-     			for (Cita cita: citasseleccionadas.get(dia)) { //PROBANDO
-     			println(cita);
-     			}
-     		}
-     	}
-     	
-     
-     		 	
-   }
+	   
+	   //VERIFICAR SI SE AGENDÓ SIGUIERA UN SERVICIO
+	   
+	   
+        if (servicios.size()!=0) {
+		   	   
+		   //VERIFICAR SI EL USUARIO YA EXISTE
+		   Cliente cliente_existe = CentroAdopcion.isCliente(servicios.get(0).getCliente().getCedula());   
+		                                                                                       
+		   if (cliente_existe!=null) {
+			   
+			   //SI EXISTE ENTONCES SE ACTUALIZAN SUS DATOS
+			   cliente_existe.setEdad(servicios.get(0).getCliente().getEdad()); //ACTUALIZAR LA EDAD
+			   
+			   for (Servicio citas_servicios: servicios) {			   
+				   citas_servicios.setCliente(cliente_existe);	
+			   }  
+		   }
+		   
+		   //ANEXAR PUNTOS AL CLIENTE POR CADA CITA
+		   for (Servicio citas_servicios: servicios) {			   
+			   citas_servicios.anexo_puntos();  //ANEXAR PUNTOS POR CADA CITA
+		   }
+		   
+		   println("Le recordamos que por cada cita agendada usted recibe 5 puntos, que luego los podrá utilizar para descuentos.");
+		   println("- +100 puntos = 30% de descuento\n- +60 puntos = 20% de descuento\n- +30 puntos = 10% de descuento\n");
+		   
+		   println("En estos momentos usted cuenta con " + servicios.get(0).getCliente().getPuntos() + " puntos.");
+		   
+		   int puntos_disponibles=0;
+		   		   
+		  if(servicios.get(0).getCliente().getPuntos()>=30){
+			  println("¿Desea utilzar los puntos que tiene disponibles?");
+              String res;
+              
+              do {
+              	print("Responda si/no: ");
+               res= readString();
+
+               if (res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false) {
+            	   println("Proporcione una respuesta válida"); 
+               }
+              }while(res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false);
+              
+              if (res.equalsIgnoreCase("si")) {
+              	puntos_disponibles=1;	                	
+              	}
+		  }
+		  
+		  //CALCULAR EL COSTO POR CADA SERVICIO
+		  
+		  double valor_total=0;
+		  double descuento=0;
+		  double valor_pagar=0;
+		  
+		   for (Servicio servicio_individual: servicios) {	
+			   
+			   servicio_individual.setCosto(servicio_individual.monto_pagar(servicio)); //COSTO DEL SERVICIO
+			   
+			   valor_total+= servicio_individual.monto_pagar(servicio); //ACUMULAR EN ESTA VARIABLE
+			   
+		   }
+		 
+		   
+		   if (puntos_disponibles==1) {
+			   
+			   descuento= Servicio.descuento(valor_total,servicios.get(0).getCliente()); //DESCUENTO POR PUNTOS
+			   
+		   }
+		   
+		   valor_pagar=(valor_total- descuento); //COSTO CON DESCUENTOS
+		   
+		   imprimir_factura(servicios,valor_total,descuento,valor_pagar);
+		   	  	   	   
+		   
+		}
+	   else {
+		   println("\nNo se agendó ninguta cita, sin embargo, esperamos que haya sido una experiencia agradable con AdoptaLove, ¡vuelva pronto!");
+	   } 
+	}
+	
+	
+	public static void imprimir_factura(ArrayList<Servicio> servicios, double valor_total, double descuento, double valor_pagar) {
+		
+		int i=1;
+		println("\n---------- FACTURA-------------");
+		for (Servicio servicio_mascota: servicios) {
+			println("\n     AGENDA "+ i );
+			println("Nombre_Mascota: " + servicio_mascota.getAnimal().getNombre());
+			println("Nombre_usuario: " + servicio_mascota.getCliente().getNombre());
+			println(("Nombre_Empleado: "+ servicio_mascota.getEmpleado().getNombre()));
+			println("Servicio: " + servicio_mascota.getTipoServicio());
+			println("      CITAS");
+			mostrar_citas(servicio_mascota.citas());
+			println("---------------\nCosto: " + servicio_mascota.getCosto() );
+			
+			i++;
+
+		}
+		println("\nValor total: $"+ valor_total);
+		println("Descuento por puntos: $"+ descuento);
+		println("Valor a cancelar: $"+ valor_pagar + "\n----------------------");
+	}
+	
+	public static void mostrar_citas(ArrayList<Cita>[] citas_seleccionadas) {
+		
+		int i=1;
+		for (ArrayList<Cita> citas_dia: citas_seleccionadas) {
+			if (citas_dia!=null) {
+				
+			switch(i){
+				case 1:
+					println("LUNES");
+					break;
+				case 2:
+					println("MARTES");
+					break;
+				case 3:
+					println("MIERCOLES");
+					break;
+				case 4:
+					println("JUEVES");
+					break;
+				case 5:
+					println("VIERBES");
+					break;
+				case 6:
+					println("SABADO");
+					break;			
+			}
+			
+			for (Cita cita: citas_dia) {
+				println(cita);
+			}
+			
+		}
+			i++;
+		}
+	}
+    
 	
 	
 	//----------------------------
@@ -726,11 +943,11 @@ public class Funcionalidad_2 {
     			num_empleado= readInt();
     			
     			if (num_empleado<1 || num_empleado>listaEmpleados.size()) {
-    				println("Opción fuera de rango.");
+    				println("Opción fuera de rango.\n");
     			}
     			
     		}catch(InputMismatchException e) {
-    			println("Se ha ingresado un tipo de dato incorrecto.");
+    			println("Se ha ingresado un tipo de dato incorrecto.\n");
     		}finally {
     			readString();
     		}
@@ -755,10 +972,12 @@ public class Funcionalidad_2 {
 	    		print("Ingrese su elección dentro del rango [1-6]: ");
 	    		num_dia = readInt();
 	    		if (num_dia<1 || num_dia>6) {
-	    			println("Opción fuera de rango.");
+	    			println("Opción fuera de rango.\n");
+	    			
 	    			}
 	    		}catch(InputMismatchException e) {
-	    			println("Se ha ingresado un tipo de dato incorrecto.");
+	    			println("Se ha ingresado un tipo de dato incorrecto.\n");
+	    			readString();
 	    			}
 	    	}while(num_dia<1 || num_dia>6);
 	    
@@ -781,6 +1000,7 @@ public class Funcionalidad_2 {
 		        }
 		        }catch(InputMismatchException e) {
 		        	println("Se ha ingresado un tipo de dato incorrecto.");
+		        	readString();
 		        	}
 			}while(num_cita<0 || num_cita> (cupos +1));
 		
@@ -826,6 +1046,185 @@ public class Funcionalidad_2 {
 		}
 		
 		return num_cita;
+	}
+	
+	public static Animal datos_mascota(int servicio) {
+		
+		String nombre;
+		int edad=-1;
+		String especie=null;
+		String tipo=null;
+		
+		println("\nProporcione los datos de su mascota:");
+		
+		print("Ingrese el nombre: ");
+		nombre= readString();
+		
+		do {
+			try {
+				print("Ingrese la edad (meses): ");
+			    edad= readInt();
+			
+			    if (edad<=0) {
+			    	println("Proporcione una edad válida.\n");
+			    	}
+			    }catch(InputMismatchException e) {
+			    	println("Ha ingresado un tipo de dato incorrecto.\n");
+			    	readString();
+			    	}		
+		}while(edad<=0);
+		
+		int eleccion=-1;
+		int opciones=0;
+		println("\nSeleccione la especie de su mascota.");
+		if (servicio==2) {
+			opciones=4;
+			println("1. Perro \n2. Gato\n3. Conejo \n4. Hámster");
+		}
+		else {
+			println("1. Perro \n2. Gato\n3. Conejo \n4. Hámster \n5. Canario");
+			opciones=5;
+		}
+		
+		do {		
+			try {
+				print("Ingrese su elección dentro del rango [1-"+ opciones +"]: ");
+		        eleccion=readInt();
+		        
+		        if (eleccion<1 || eleccion >opciones) {
+		        	println("Opción fuera de rango.\n");
+		        }
+		        }catch(InputMismatchException e) {
+		        	println("Se ha ingresado un tipo de dato incorrecto.\n");
+		        	readString();
+		        	}
+			}while(eleccion<1 || eleccion>opciones);
+		
+		switch(eleccion) {
+		
+		case 1:
+			especie="Perro";
+			break;
+		case 2:
+			especie= "Gato";
+			break;
+		case 3:
+			especie ="Conejo";
+			break;
+		case 4:
+			especie="Hámster";
+			break;
+		case 5:
+			especie= "Canario";
+			break;		
+		}
+		
+		println("\nSeleccione el género de su mascota: ");
+		println("1. Macho\n2. Hembra");
+		eleccion=0;
+		
+		do {		
+			try {
+				print("Ingrese su elección dentro del rango [1-2]: ");
+		        eleccion=readInt();
+		        
+		        if (eleccion<1 || eleccion >2) {
+		        	println("Opción fuera de rango.\n");
+		        }
+		        }catch(InputMismatchException e) {
+		        	println("Se ha ingresado un tipo de dato incorrecto.\n");
+		        	readString();
+		        	}
+			}while(eleccion<1 || eleccion>2);
+		
+		switch(eleccion) {
+		
+		case 1:
+			tipo="Macho";
+			break;
+		case 2:
+			tipo="Hembra";
+			break;
+		}
+		
+		Animal mascota = new Animal(nombre,especie, edad,tipo);
+		
+		return mascota;	
+	}
+	
+	//--------------------
+	public static Cliente datos_cliente() {
+		
+		println("Antes de continuar, le informamos que para hacer uso del servicio la persona encargada de la mascota debe ser mayor de edad.\n");
+		
+		String nombre;
+		int edad=0;
+		long cedula=0;
+		
+		println("Proporcione los siguientes datos:");
+		print("Ingrese su nombre: ");
+		nombre = readString();
+		while(edad<=0) {
+		    try {
+				print("Ingrese su edad: ");
+				edad = readInt();
+				if (edad<=0) {
+					println("Proporcione una edad válida.\n");
+				}
+		    }catch(RuntimeException e) {
+		    	println("Se ha ingresado un tipo de dato incorrecto.\n");
+		    }finally {
+		    	readString();//CONSUMIR SALTO DE LÍNEA.
+		    	}
+		}
+		
+		if (edad<18) {
+			println("El interesado en hacer uso del servicio es menor de edad.\n");
+			do {
+				println("Proporcione los datos de un adulto responsable: ");
+				print("Ingrese su nombre: ");	
+				nombre = readString(); 
+				
+				while(edad<18) {
+					try {
+				print("Ingrese su edad: ");
+				edad= readInt();
+				
+				if (edad<=0) {
+					println("Proporcione una edad válida.\n");
+				}
+				if (edad<18 && edad>0) {
+					break;
+				}
+					} catch(RuntimeException e) {
+						println("Se ha ingresado un tipo de dato incorrecto.\n");
+					}finally {
+						readString(); //CONSUMIR SALTO DE LÍNEA.
+					}
+				}
+				if(edad<18 && edad>0) {
+					println("La edad ingresada no corresponde a la de un adulto.\n");
+	             }
+			}while(edad<18);
+		}
+		
+		while(cedula<=0) {
+			try {
+			print("Ingrese su número de identificación: ");
+			cedula = readLong();
+			if (cedula<=0) {
+				println("Proporcione una identificación válida.\n");
+				cedula=0;
+				}
+			}catch (InputMismatchException e) {
+				println("Se ha ingresado un tipo de dato incorrecto.\n");
+				readString();
+			}			
+		}	
+		
+		Cliente cliente= new Cliente(nombre,edad,cedula);
+		
+		return cliente;
 	}
 	
 	

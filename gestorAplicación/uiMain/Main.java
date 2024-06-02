@@ -494,8 +494,7 @@ public class Main {
 					}		
 					nombres+= " y " + nombreultimo;		
 					println("\nFue un gusto para AdoptaLove atenderlo señor/a " + nombre + ", ahora " + nombres +" son nuevos integrantes en su familia!");
-				}
-				
+				}		
 				else {
 					println("\nFue un gusto para AdoptaLove atenderlo señor/a " + nombre + ", ahora " + mascotasadoptadas.get(0).getNombre() + " es un nuevo integrante en su familia!");
 				}

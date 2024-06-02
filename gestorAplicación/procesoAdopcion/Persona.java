@@ -19,9 +19,7 @@ public class Persona {
 	}
 	
 	public Persona(String nombre, int edad, long cedula) {
-		this.nombre=nombre;
-		this.edad = edad;
-		this.cedula=cedula;
+		this(nombre,edad,cedula,0,null);
 		}
 	
 	//MÉTODOS SETTER Y GETTER
@@ -65,8 +63,8 @@ public class Persona {
 	//MÉTODO TO STRING
 	
 	public String toString() {
-		return "Nombre: " + getNombre() + "\nEdad: "+ getEdad()+ "\nCedula: " + getCedula() +"\nTelefono: " 
-				+ getTelefono() + "\nDireccion "+ getDireccion() + "\n";
+		return "Nombre: " + getNombre() + "\nEdad: "+ getEdad()+ "\nCédula: " + getCedula() +"\nTelefono: " 
+				+ getTelefono() + "\nDirección "+ getDireccion() + "\n";
 	}
 	
 
