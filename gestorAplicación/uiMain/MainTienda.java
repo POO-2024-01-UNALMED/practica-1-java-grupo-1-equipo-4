@@ -96,7 +96,7 @@ public class MainTienda {
 				System.out.println(t1.inventario());
 			}
 			else {
-				System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves o hamsters)");
+				System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves, hamsters o conejos)");
 				while (true) {
 					try {
 						String tipo = entrada.nextLine();
@@ -119,6 +119,11 @@ public class MainTienda {
 						else if (tipo.equals("hamsters") || tipo.equals("hamster")) {
 							System.out.println("\nProductos disponibles:\n");
 							System.out.println(t1.filtrar("hamsters"));
+							break;
+						}
+						else if (tipo.equals("conejos") || tipo.equals("conejo")) {
+							System.out.println("\nProductos disponibles:\n");
+							System.out.println(t1.filtrar("conejos"));
 							break;
 						}
 						else {

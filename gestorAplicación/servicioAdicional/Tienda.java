@@ -33,6 +33,8 @@ public class Tienda {
             this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
             this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
             this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
+            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
+            this.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));    
             
         }
 
@@ -58,6 +60,8 @@ public class Tienda {
             this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
             this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
             this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
+            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
+            this.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));    
             
         }
 
@@ -82,6 +86,8 @@ public class Tienda {
             this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
             this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
             this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
+            this.agregarProducto(new Producto("Corral metálico", 60000,"conejos", 10));    
             
         }
 
@@ -128,7 +134,7 @@ public class Tienda {
             	int indice = 0;
             	for (int i = 0; i<productos.size();i++) {
               		indice = indice+1;
-            		if (productos.get(i).getTipoAnimal().equals(tipo)) {
+            		if (productos.get(i).getTipoAnimal().equals(tipo) || productos.get(i).getTipoAnimal().equals("Uso general")) {
             			resultado += indice+"."+productos.get(i).toString();
             		}
             	}
