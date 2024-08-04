@@ -62,7 +62,7 @@ public class Funcionalidad_2 {
 	public static void main(String[] args) {
 		
 		agendarServicio();
-		//datos_mascota(1);
+		
 
 	}
 	

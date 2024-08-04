@@ -71,13 +71,11 @@ public class Main
         String profesion = scanner.next();
 
 
-        Empleado empleado0 = new Empleado(nombre, cedula, profesion);
 
         //DOS FORMAS DE IMPRIMIR EMPLEADO, POR MEDIO DEL TOSTRING DE LA CLASE
         //O REFERENCIANDO CADA ATRIBUTO DEL OBJETO
 
-        System.out.println(empleado0);
-        //System.out.println(empleado0.getNombre() + " " + empleado0.getCedula() + " " + empleado0.getprofesion());
+
         
 
         // CONDICIONAL CICLO
