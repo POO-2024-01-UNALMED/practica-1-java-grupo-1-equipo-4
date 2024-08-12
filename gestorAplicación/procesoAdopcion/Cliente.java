@@ -3,7 +3,7 @@ package gestorAplicación.procesoAdopcion;
 public class Cliente extends Persona{
 	
 	//ATRIBUTOS	
-	int puntos;
+	private int puntos;
 	
 	//CONSTRUCTOR
 	
@@ -19,6 +19,13 @@ public class Cliente extends Persona{
 	//-----------
 	
 	//MÉTODOS SETTER Y GETTER
+	
+	public void actualizar_datos(int edad, long telefono, String direccion) {
+		this.setEdad(edad);
+		this.setTelefono(telefono);
+		this.setDireccion(direccion);
+		
+	}
 	
 	public void agregar_puntos(int puntos) {
 		this.puntos+=puntos;

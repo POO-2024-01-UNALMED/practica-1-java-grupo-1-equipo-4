@@ -8,9 +8,9 @@ public class CentroAdopcion {
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	public static ArrayList<Adopcion> adopcionesGenerales= new ArrayList<Adopcion>();	
-	private ArrayList <Empleado> empleados = new ArrayList<Empleado>();
-	private ArrayList <Animal> animalesDisponibles = new ArrayList<Animal>();
+	public static ArrayList<Adopcion > adopcionesGenerales= new ArrayList<Adopcion>();	
+	private ArrayList < Empleado > empleados = new ArrayList<Empleado>();
+	private ArrayList < Animal > animales= new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
@@ -36,8 +36,151 @@ public class CentroAdopcion {
 	public CentroAdopcion(String nombre, tipoServicio servicio) {
 		this(nombre, 0, servicio, null);
 	}
-
-	//METODOS SETTER Y GETTER
+	
+	public boolean tieneMascotas() {
+		boolean boleano = false;
+		
+		for (Animal mascota : this.animales ) {	
+			if (mascota.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+				boleano = true;
+				break;		
+			}
+		}
+		return boleano;
+	}
+	
+	public ArrayList <Animal> animalesDisponibles() {
+		
+		ArrayList <Animal> disponibles= new ArrayList<>();
+		
+		for (Animal mascota: this.animales) {	
+			if (mascota.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+				disponibles.add(mascota);
+			}
+		}		
+		return disponibles;
+		
+	}
+	
+	public ArrayList<Animal> filtrarEspecie(int num){
+		ArrayList <Animal> disponibles = new ArrayList <Animal>();
+		
+		switch (num) {
+		case 1:
+			for (Animal perro : animales) {
+				if (perro.getEspecie().equalsIgnoreCase("Perro")) {			
+					if (perro.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+						disponibles.add(perro);
+					}
+				}		
+			}
+			break;
+		case 2:
+			for (Animal gato : animales) {
+				if (gato.getEspecie().equalsIgnoreCase("Gato")) {
+					if (gato.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+						disponibles.add(gato);
+					}
+				}
+			}
+			break;
+		case 3:
+			for (Animal Canario : animales) {
+				if (Canario.getEspecie().equalsIgnoreCase("Canario")) {
+					if (Canario.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+						disponibles.add(Canario);
+					}
+				}
+			}
+			break;
+		case 4:
+			for (Animal conejo : animales) {
+				if (conejo.getEspecie().equalsIgnoreCase("Conejo")) {
+					if (conejo.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+						disponibles.add(conejo);
+					}
+				}
+			}
+			break;
+		case 5:
+			for (Animal Hamster : animales) {
+				if (Hamster.getEspecie().equalsIgnoreCase("Hámster")) {
+					if (Hamster.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+						disponibles.add(Hamster);
+					}
+				}
+			}
+			break;		
+		}
+		
+		return disponibles;
+	}
+	
+	public ArrayList<Animal> filtrar (String tipo){
+		ArrayList <Animal> disponibles= new ArrayList<>();
+		
+		for (Animal Hamster : animales) {
+			if (Hamster.getEspecie().equalsIgnoreCase(tipo)) {
+				if (Hamster.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+					disponibles.add(Hamster);
+				}
+			}
+		}
+		
+		return disponibles;
+		
+	}
+	
+	
+	public static Cliente isCliente(Cliente cliente){
+		
+		Cliente cliente_adoptaLove=null; 
+		
+		for (Cliente  existe : clientes_AdoptaLove) {
+			if (existe!=null) {
+				if (existe.getCedula()== cliente.getCedula()) { //SE COMPRUEBA SI YA EXISTE
+					cliente_adoptaLove = existe;
+					break;
+					}
+				}
+			}
+		
+		if (cliente_adoptaLove==null) {	
+			
+			//SI NO EXISTE, SE AGREGA COMO NUEVO CLIENTE
+			cliente_adoptaLove = cliente;
+			clientes_AdoptaLove.add(cliente_adoptaLove);
+		}
+		else {
+			//SI EXISTE, ENTONCES SE ACTUALIZAN LOS DATOS.
+			cliente_adoptaLove.actualizar_datos(cliente.getEdad(),cliente.getTelefono(), cliente.getDireccion());	
+		}
+		
+		return cliente_adoptaLove;
+		
+	}
+	
+	public ArrayList <Adopcion>puntos_cliente(ArrayList<Animal> mascotas, Cliente cliente) {
+		
+		ArrayList<Adopcion> adopciones_realizadas= new ArrayList<>();
+		
+		int nuevos_puntos=0;
+		
+		Cliente cliente_adoptaLove = isCliente(cliente);
+		
+		for (Animal mascota: mascotas) {
+			
+			if (mascota!=null) {
+				Adopcion nueva_adopcion = new Adopcion(mascota, cliente_adoptaLove);
+				this.agregarAdopcion(nueva_adopcion);
+				adopciones_realizadas.add(nueva_adopcion);
+				nuevos_puntos+=5;
+						
+			}
+		}	
+		
+		return adopciones_realizadas;
+	}
 	
 	//METODOS SETTER Y GETTER
 
@@ -98,24 +241,7 @@ public class CentroAdopcion {
 		} 
 		return valor;
 	}
-	
-	public static Cliente isCliente(long cedula){
 		
-		Cliente cliente_existente=null; 
-		
-		for (Cliente cliente : clientes_AdoptaLove) {
-			
-			if (cliente.getCedula()==cedula) {
-				cliente_existente= cliente;
-				break;
-			}
-			else {
-				continue;
-			}
-		}
-		return cliente_existente;
-	}
-	
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
 	}
@@ -124,71 +250,24 @@ public class CentroAdopcion {
 	//OTROS MÉTODOS
 
 	public void agregarAnimal(Animal animal) {
-		animalesDisponibles.add(animal);
-		espaciosDisponibles--;
+		
+		if (espaciosDisponibles>0) {
+			animales.add(animal);
+			espaciosDisponibles--;
+			}
 	}
+	
 	public void borrarAnimal(Animal animal) {
-		int posicion= animalesDisponibles.indexOf(animal);
-		animalesDisponibles.remove(posicion);
+		int posicion= animales.indexOf(animal);
+		animales.remove(posicion);
 		espaciosDisponibles++;
 	}
 	
 	public void agregarAdopcion(Adopcion adopcion) {
 		adopciones.add(adopcion);
 		CentroAdopcion.adopcionesGenerales.add(adopcion);
-		CentroAdopcion.clientes_AdoptaLove.add(adopcion.getCliente());
+		adopcion.getCliente().agregar_puntos(5);
 	}
-	
-	public ArrayList <Animal> consultarAnimales() {
-		return animalesDisponibles;
-		
-	}
-	
-	public ArrayList<Animal> filtrarEspecie(int num){
-		ArrayList <Animal> disponibles = new ArrayList <Animal>();
-		
-		switch (num) {
-		case 1:
-			for (Animal perro : animalesDisponibles) {
-				if (perro.getEspecie().equalsIgnoreCase("Perro")) {
-					disponibles.add(perro);
-				}		
-			}
-			break;
-		case 2:
-			for (Animal gato : animalesDisponibles) {
-				if (gato.getEspecie().equalsIgnoreCase("Gato")) {
-					disponibles.add(gato);
-				}
-			}
-			break;
-		case 3:
-			for (Animal Canario : animalesDisponibles) {
-				if (Canario.getEspecie().equalsIgnoreCase("Canario")) {
-					disponibles.add(Canario);
-				}
-			}
-			break;
-		case 4:
-			for (Animal conejo : animalesDisponibles) {
-				if (conejo.getEspecie().equalsIgnoreCase("Conejo")) {
-					disponibles.add(conejo);
-				}
-			}
-			break;
-		case 5:
-			for (Animal Hamster : animalesDisponibles) {
-				if (Hamster.getEspecie().equalsIgnoreCase("Hámster")) {
-					disponibles.add(Hamster);
-				}
-			}
-			break;		
-		}
-		
-		return disponibles;
-	}
-	
-	
 	
 	
 	
