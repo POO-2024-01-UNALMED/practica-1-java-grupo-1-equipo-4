@@ -745,81 +745,81 @@ public class Funcionalidad_2 {
 	   //VERIFICAR SI SE AGENDÓ SIGUIERA UN SERVICIO
 	   
 	   
-        if (servicios.size()!=0) {
+//        if (servicios.size()!=0) {
 		   	   
 		   //VERIFICAR SI EL USUARIO YA EXISTE
-		   Cliente cliente_existe = CentroAdopcion.isCliente(servicios.get(0).getCliente().getCedula());   
-		                                                                                       
-		   if (cliente_existe!=null) {
-			   
-			   //SI EXISTE ENTONCES SE ACTUALIZAN SUS DATOS
-			   cliente_existe.setEdad(servicios.get(0).getCliente().getEdad()); //ACTUALIZAR LA EDAD
-			   
-			   for (Servicio citas_servicios: servicios) {			   
-				   citas_servicios.setCliente(cliente_existe);	
-			   }  
-		   }
-		   
-		   //ANEXAR PUNTOS AL CLIENTE POR CADA CITA
-		   for (Servicio citas_servicios: servicios) {			   
-			   citas_servicios.anexo_puntos();  //ANEXAR PUNTOS POR CADA CITA
-		   }
-		   
-		   println("Le recordamos que por cada cita agendada usted recibe 5 puntos, que luego los podrá utilizar para descuentos.");
-		   println("- +100 puntos = 30% de descuento\n- +60 puntos = 20% de descuento\n- +30 puntos = 10% de descuento\n");
-		   
-		   println("En estos momentos usted cuenta con " + servicios.get(0).getCliente().getPuntos() + " puntos.");
-		   
-		   int puntos_disponibles=0;
-		   		   
-		  if(servicios.get(0).getCliente().getPuntos()>=30){
-			  println("¿Desea utilzar los puntos que tiene disponibles?");
-              String res;
-              
-              do {
-              	print("Responda si/no: ");
-               res= readString();
-
-               if (res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false) {
-            	   println("Proporcione una respuesta válida"); 
-               }
-              }while(res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false);
-              
-              if (res.equalsIgnoreCase("si")) {
-              	puntos_disponibles=1;	                	
-              	}
-		  }
-		  
-		  //CALCULAR EL COSTO POR CADA SERVICIO
-		  
-		  double valor_total=0;
-		  double descuento=0;
-		  double valor_pagar=0;
-		  
-		   for (Servicio servicio_individual: servicios) {	
-			   
-			   servicio_individual.setCosto(servicio_individual.monto_pagar(servicio)); //COSTO DEL SERVICIO
-			   
-			   valor_total+= servicio_individual.monto_pagar(servicio); //ACUMULAR EN ESTA VARIABLE
-			   
-		   }
-		 
-		   
-		   if (puntos_disponibles==1) {
-			   
-			   descuento= Servicio.descuento(valor_total,servicios.get(0).getCliente()); //DESCUENTO POR PUNTOS
-			   
-		   }
-		   
-		   valor_pagar=(valor_total- descuento); //COSTO CON DESCUENTOS
-		   
-		   imprimir_factura(servicios,valor_total,descuento,valor_pagar);
-		   	  	   	   
-		   
-		}
-	   else {
-		   println("\nNo se agendó ninguta cita, sin embargo, esperamos que haya sido una experiencia agradable con AdoptaLove, ¡vuelva pronto!");
-	   } 
+//		   Cliente cliente_existe = CentroAdopcion.isCliente(servicios.get(0).getCliente().getCedula());   
+//		                                                                                       
+//		   if (cliente_existe!=null) {
+//			   
+//			   //SI EXISTE ENTONCES SE ACTUALIZAN SUS DATOS
+//			   cliente_existe.setEdad(servicios.get(0).getCliente().getEdad()); //ACTUALIZAR LA EDAD
+//			   
+//			   for (Servicio citas_servicios: servicios) {			   
+//				   citas_servicios.setCliente(cliente_existe);	
+//			   }  
+//		   }
+//		   
+//		   //ANEXAR PUNTOS AL CLIENTE POR CADA CITA
+//		   for (Servicio citas_servicios: servicios) {			   
+//			   citas_servicios.anexo_puntos();  //ANEXAR PUNTOS POR CADA CITA
+//		   }
+//		   
+//		   println("Le recordamos que por cada cita agendada usted recibe 5 puntos, que luego los podrá utilizar para descuentos.");
+//		   println("- +100 puntos = 30% de descuento\n- +60 puntos = 20% de descuento\n- +30 puntos = 10% de descuento\n");
+//		   
+//		   println("En estos momentos usted cuenta con " + servicios.get(0).getCliente().getPuntos() + " puntos.");
+//		   
+//		   int puntos_disponibles=0;
+//		   		   
+//		  if(servicios.get(0).getCliente().getPuntos()>=30){
+//			  println("¿Desea utilzar los puntos que tiene disponibles?");
+//              String res;
+//              
+//              do {
+//              	print("Responda si/no: ");
+//               res= readString();
+//
+//               if (res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false) {
+//            	   println("Proporcione una respuesta válida"); 
+//               }
+//              }while(res.equalsIgnoreCase("si")==false && res.equalsIgnoreCase("no")==false);
+//              
+//              if (res.equalsIgnoreCase("si")) {
+//              	puntos_disponibles=1;	                	
+//              	}
+//		  }
+//		  
+//		  //CALCULAR EL COSTO POR CADA SERVICIO
+//		  
+//		  double valor_total=0;
+//		  double descuento=0;
+//		  double valor_pagar=0;
+//		  
+//		   for (Servicio servicio_individual: servicios) {	
+//			   
+//			   servicio_individual.setCosto(servicio_individual.monto_pagar(servicio)); //COSTO DEL SERVICIO
+//			   
+//			   valor_total+= servicio_individual.monto_pagar(servicio); //ACUMULAR EN ESTA VARIABLE
+//			   
+//		   }
+//		 
+//		   
+//		   if (puntos_disponibles==1) {
+//			   
+//			   descuento= Servicio.descuento(valor_total,servicios.get(0).getCliente()); //DESCUENTO POR PUNTOS
+//			   
+//		   }
+//		   
+//		   valor_pagar=(valor_total- descuento); //COSTO CON DESCUENTOS
+//		   
+//		   imprimir_factura(servicios,valor_total,descuento,valor_pagar);
+//		   	  	   	   
+//		   
+//		}
+//	   else {
+//		   println("\nNo se agendó ninguta cita, sin embargo, esperamos que haya sido una experiencia agradable con AdoptaLove, ¡vuelva pronto!");
+//	   } 
 	}
 	
 	

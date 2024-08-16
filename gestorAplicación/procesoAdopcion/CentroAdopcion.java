@@ -8,20 +8,17 @@ public class CentroAdopcion {
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	public static ArrayList<Adopcion > adopcionesGenerales= new ArrayList<Adopcion>();	
 	private ArrayList < Empleado > empleados = new ArrayList<Empleado>();
 	private ArrayList < Animal > animales= new ArrayList<Animal>();
 	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
 	private String nombre;
-	private int espaciosDisponibles = 0;
+	private int espaciosDisponibles;
 	private tipoServicio servicio;
 	private Tienda tienda;
 	
 
-	
-	
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio, Tienda tienda) {
 		this.nombre= nombre;
 		this.espaciosDisponibles= espacios;
@@ -37,6 +34,8 @@ public class CentroAdopcion {
 		this(nombre, 0, servicio, null);
 	}
 	
+	//-----------------------------------------------------------------
+	
 	public boolean tieneMascotas() {
 		boolean boleano = false;
 		
@@ -49,6 +48,7 @@ public class CentroAdopcion {
 		return boleano;
 	}
 	
+	//SOBRECARGA
 	public ArrayList <Animal> animalesDisponibles() {
 		
 		ArrayList <Animal> disponibles= new ArrayList<>();
@@ -58,83 +58,27 @@ public class CentroAdopcion {
 				disponibles.add(mascota);
 			}
 		}		
-		return disponibles;
-		
+		return disponibles;	
 	}
 	
-	public ArrayList<Animal> filtrarEspecie(int num){
-		ArrayList <Animal> disponibles = new ArrayList <Animal>();
-		
-		switch (num) {
-		case 1:
-			for (Animal perro : animales) {
-				if (perro.getEspecie().equalsIgnoreCase("Perro")) {			
-					if (perro.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-						disponibles.add(perro);
-					}
-				}		
-			}
-			break;
-		case 2:
-			for (Animal gato : animales) {
-				if (gato.getEspecie().equalsIgnoreCase("Gato")) {
-					if (gato.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-						disponibles.add(gato);
-					}
-				}
-			}
-			break;
-		case 3:
-			for (Animal Canario : animales) {
-				if (Canario.getEspecie().equalsIgnoreCase("Canario")) {
-					if (Canario.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-						disponibles.add(Canario);
-					}
-				}
-			}
-			break;
-		case 4:
-			for (Animal conejo : animales) {
-				if (conejo.getEspecie().equalsIgnoreCase("Conejo")) {
-					if (conejo.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-						disponibles.add(conejo);
-					}
-				}
-			}
-			break;
-		case 5:
-			for (Animal Hamster : animales) {
-				if (Hamster.getEspecie().equalsIgnoreCase("Hámster")) {
-					if (Hamster.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-						disponibles.add(Hamster);
-					}
-				}
-			}
-			break;		
-		}
-		
-		return disponibles;
-	}
-	
-	public ArrayList<Animal> filtrar (String tipo){
+	public ArrayList<Animal> animalesDisponibles (String tipo){
 		ArrayList <Animal> disponibles= new ArrayList<>();
 		
-		for (Animal Hamster : animales) {
-			if (Hamster.getEspecie().equalsIgnoreCase(tipo)) {
-				if (Hamster.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
-					disponibles.add(Hamster);
+		for (Animal mascota : animales) {
+			if (mascota.getEspecie().equalsIgnoreCase(tipo)) {
+				if (mascota.getEstadoSalud()!= Animal.EstadoSalud.ENFERMO) {
+					disponibles.add(mascota);
 				}
 			}
-		}
-		
-		return disponibles;
-		
+		}		
+		return disponibles;	
 	}
+	
 	
 	
 	public static Cliente isCliente(Cliente cliente){
 		
-		Cliente cliente_adoptaLove=null; 
+		Cliente cliente_adoptaLove = null; 
 		
 		for (Cliente  existe : clientes_AdoptaLove) {
 			if (existe!=null) {
@@ -145,42 +89,54 @@ public class CentroAdopcion {
 				}
 			}
 		
-		if (cliente_adoptaLove==null) {	
+		if (cliente_adoptaLove == null) {	
 			
 			//SI NO EXISTE, SE AGREGA COMO NUEVO CLIENTE
 			cliente_adoptaLove = cliente;
 			clientes_AdoptaLove.add(cliente_adoptaLove);
 		}
 		else {
-			//SI EXISTE, ENTONCES SE ACTUALIZAN LOS DATOS.
+			//SI EXISTE, ENTONCES SE ACTUALIZAN LOS DATOS, LA EDAD, TELEFONO Y DIRECCIÓN.
 			cliente_adoptaLove.actualizar_datos(cliente.getEdad(),cliente.getTelefono(), cliente.getDireccion());	
 		}
 		
 		return cliente_adoptaLove;
-		
 	}
 	
-	public ArrayList <Adopcion>puntos_cliente(ArrayList<Animal> mascotas, Cliente cliente) {
+	public ArrayList <Adopcion> registrar_adopciones(ArrayList<Animal> mascotas, Cliente cliente) {
 		
+		//ARRAY LIST QUE GUARDA LAS ADOPCIONES RECIENTEMENTE HECHAS
 		ArrayList<Adopcion> adopciones_realizadas= new ArrayList<>();
 		
-		int nuevos_puntos=0;
+		Cliente cliente_adoptaLove = isCliente(cliente); //VERIFICA SI EL USUARIO YA ESTÁ REGISTRADO.
 		
-		Cliente cliente_adoptaLove = isCliente(cliente);
-		
-		for (Animal mascota: mascotas) {
+		for (Animal mascota : mascotas) {
 			
 			if (mascota!=null) {
-				Adopcion nueva_adopcion = new Adopcion(mascota, cliente_adoptaLove);
-				this.agregarAdopcion(nueva_adopcion);
-				adopciones_realizadas.add(nueva_adopcion);
-				nuevos_puntos+=5;
-						
+				
+				Adopcion nueva_adopcion = new Adopcion(mascota, cliente_adoptaLove); 
+				
+				this.adopciones.add(nueva_adopcion); //SE GUARDA EN EL ARRAYLIST DE ADOPCIONES DE LA SEDE
+				nueva_adopcion.getCliente().agregar_puntos(5); //SE LE SUMAN 5 PUNTOS AL CLIENTE
+				adopciones_realizadas.add(nueva_adopcion);					
 			}
-		}	
-		
+		}		
 		return adopciones_realizadas;
 	}
+	
+	public void borrarAnimal(Animal animal) {
+		int posicion= animales.indexOf(animal);
+		animales.remove(posicion);
+		espaciosDisponibles++;
+	}
+	
+	public void agregarAdopcion(Adopcion adopcion) {
+		adopciones.add(adopcion);
+		adopcion.getCliente().agregar_puntos(5); //SE AGREGAN 5 PUNTOS 
+	}
+	
+	//----------------------------------------------------------
+	
 	
 	//METODOS SETTER Y GETTER
 
@@ -220,27 +176,6 @@ public class CentroAdopcion {
 		return empleados;
 	}
 	
-	
-	//OTROS MÉTODOS
-	
-	public static boolean esCliente(long cedula){
-		
-		boolean valor = false; 
-		
-		for (int i = 0; i<adopcionesGenerales.size(); i++) {
-			
-			Adopcion adopcion = adopcionesGenerales.get(i);
-			Persona cliente = adopcion.getCliente();
-			
-			if (cliente.getCedula()==cedula) {
-				valor = true; //SE COMPRUEBA LA CÉDULA SÍ PERTENECE A UN CLIENTE
-				break;
-			}else {
-				continue;
-			}
-		} 
-		return valor;
-	}
 		
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
@@ -256,19 +191,6 @@ public class CentroAdopcion {
 			espaciosDisponibles--;
 			}
 	}
-	
-	public void borrarAnimal(Animal animal) {
-		int posicion= animales.indexOf(animal);
-		animales.remove(posicion);
-		espaciosDisponibles++;
-	}
-	
-	public void agregarAdopcion(Adopcion adopcion) {
-		adopciones.add(adopcion);
-		CentroAdopcion.adopcionesGenerales.add(adopcion);
-		adopcion.getCliente().agregar_puntos(5);
-	}
-	
 	
 	
 	public String toString() {

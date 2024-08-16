@@ -18,6 +18,7 @@ public class Empleado extends Persona {
         VETERINARIO,PELUQUERO,CUIDADOR,TENDERO;
 
     }
+      ArrayList<String> [] horarioo;
 
         public Rol getProfesion(){
             return profesion;

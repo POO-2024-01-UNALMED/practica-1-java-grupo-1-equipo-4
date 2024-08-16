@@ -45,7 +45,7 @@ public class Adopcion {
 			return "\n7. ¿Está dispuesto a recibir visitas por parte de AdoptaLove para enterarnos del estado de la mascota?";
 			
 		default:
-			return "nada";
+			return " ";
 		}
 	}
 	
