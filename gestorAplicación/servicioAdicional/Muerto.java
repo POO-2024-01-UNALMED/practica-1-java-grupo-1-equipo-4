@@ -1,4 +1,6 @@
 package gestorAplicación.servicioAdicional;
+import java.util.ArrayList;
+
 import gestorAplicación.procesoAdopcion.*;
 
 public class Muerto {
@@ -9,7 +11,7 @@ public class Muerto {
 	private Cliente dueño;
 	private String tiempo;
 	private String tipo;
-	private String[] flores = new String[5];
+    private ArrayList<String> flores = new ArrayList<> ();
 	
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
 		this.animal = animal;
@@ -18,7 +20,7 @@ public class Muerto {
 		this.mensaje = mensaje;
 		this.tiempo = tiempo;
 		this.tipo = tipo;
-		flores[0] = "No hay flores"; 
+		flores.add("No hay flores");
 	}
 	
 	//SETTER AND GETTER //
@@ -65,36 +67,38 @@ public class Muerto {
 	}
 	
 	
+	// MÉTODOS //
+	public String ponerFlor(String flor) {
+		if (flores.get(0).equals("No hay flores")) {
+			flores.clear();
+			flores.add(flor);
+			return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
+		}
+		else if(flores.size()<=5) {
+			flores.add(flor);
+			return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
+		}
+		else {
+			return "Hay un límite de 5 flores.";
+		}	
+	}
+	
+	public String mostrarFlores() {
+		
+		String acomulador = "Flores que hay puestas: ";
+		
+		for(int i = 0; i>flores.size();i++) {	
+			acomulador += flores.get(i)+", ";
+		}
+		return acomulador;
+	}
+	
 	
 	// MÉTODO toString //
 	public String toString() {
-		return animal.getNombre()+"\n"+fecha+"\n"+mensaje;
+		return animal.getNombre()+"\n"+fecha+"\n"+mensaje+"\n"+this.mostrarFlores();
 	}
 	
-	// MÉTODOS //
-	public String ponerFlor(String flor) {
-		if (flores[0].equals("No hay flores")) {
-			flores[0] = flor;
-		}
-		else if(flores.length==1) {
-			flores[1] = flor;
-		}
-		else {
-			flores[flores.length-1] = flor;
-		}
-		
-		return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
 
 
