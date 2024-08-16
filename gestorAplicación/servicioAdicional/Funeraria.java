@@ -46,10 +46,13 @@ public class Funeraria {
 	}
 	
 	//AÑADIR TUMBA/CENIZAS
-	public void añadirTumba(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
-		tumbas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, tipo));
+	public void añadirTumba(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo) {
+		tumbas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Tumba"));
 	}
 	
+	public void añadirCenizas(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo) {
+		cenizas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Cenizas"));
+	}
 	
 	
 	
