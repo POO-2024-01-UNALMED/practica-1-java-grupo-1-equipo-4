@@ -65,7 +65,7 @@ Public class Cita{
     if (TC.equals("emergencia")){
         System.out.println("Ingresa la fecha para la que deseas tu cita, en el formato dia, mes y año");
         String Fecha = Scanner.nextLine();
-        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato horam jornada (am,pm)");
+        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato hora jornada (am,pm)");
         String Hora = Scanner.nextLine();
         System.out.println("Ingresa tu ID");
         int ID = Scanner.nextLine();
@@ -76,7 +76,7 @@ Public class Cita{
     }else if (TC.equals("prioritaria")){
         System.out.println("Ingresa la fecha para la que deseas tu cita, en el formato dia, mes y año");
         String Fecha = Scanner.nextLine();
-        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato horam jornada (am,pm)");
+        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato hora jornada (am,pm)");
         String Hora = Scanner.nextLine();
         System.out.println("Ingresa tu ID");
         int ID = Scanner.nextLine();
@@ -87,7 +87,7 @@ Public class Cita{
     }else if (TC.equals("comun")){
         System.out.println("Ingresa la fecha para la que deseas tu cita, en el formato dia, mes y año");
         String Fecha = Scanner.nextLine();
-        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato horam jornada (am,pm)");
+        System.out.println("Ingresa la hora para la que deseas tu cita, en el formato hora jornada (am,pm)");
         String Hora = Scanner.nextLine();
         System.out.println("Ingresa tu ID");
         int ID = Scanner.nextLine();

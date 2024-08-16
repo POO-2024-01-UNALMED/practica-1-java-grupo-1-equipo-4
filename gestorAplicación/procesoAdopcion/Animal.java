@@ -14,7 +14,7 @@ public class Animal {
 	
 	//CONSTRUCTOR
 	
-	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {
+	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {//Agregar lista de caracteristicas// 
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.edad = edad;

@@ -7,7 +7,7 @@ public class Cliente extends Persona{
 	
 	//CONSTRUCTOR
 	
-	public Cliente(String nombre,int edad, long cedula,long telefono, String direccion) {
+	public Cliente(String nombre,int edad, long cedula,long telefono, String direccion ) {//booelan ParticiparSocializar//
 		
 		super(nombre,edad,cedula,telefono,direccion);
 	}
