@@ -1,6 +1,5 @@
 package gestorAplicación.servicioAdicional;
 import java.util.ArrayList;
-
 import gestorAplicación.procesoAdopcion.*;
 
 public class Muerto {
@@ -12,7 +11,8 @@ public class Muerto {
 	private String tiempo;
 	private String tipo;
     private ArrayList<String> flores = new ArrayList<> ();
-	
+    
+    // CONSTRUCTOR //
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
 		this.animal = animal;
 		this.dueño = dueño;
