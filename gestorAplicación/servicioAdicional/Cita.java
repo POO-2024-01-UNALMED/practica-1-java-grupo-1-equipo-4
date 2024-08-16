@@ -2,7 +2,7 @@ package gestorAplicación.servicioAdicional;
 import java.util.ArrayList;
 import java.util.Scanner; 
 
-Public class Cita{
+public class Cita{
     private String Hora;
     private String Fecha;
     private String Nombre;
