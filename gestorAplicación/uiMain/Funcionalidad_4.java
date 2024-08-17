@@ -66,7 +66,8 @@ public class Funcionalidad_4 {
 				finally {
 						entrada.nextLine();//SALTO DE LINEA
 					}		
-			}
+				}//BUCLE CONTROL
+			
 				if (menu==4) {
 					System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
 					break;
@@ -99,7 +100,7 @@ public class Funcionalidad_4 {
 							finally {
 									entrada.nextLine();//SALTO DE LINEA
 								}
-						}
+							}// BUCLE CONTROL
 						
 							if (menu2==4) {
 								System.out.println(" ");
@@ -116,16 +117,16 @@ public class Funcionalidad_4 {
 									System.out.println("Escoja entre las siguientes opciones: \n");
 									
 								}
-						
+								else {
+									System.out.println("No hay espacio disponible, por favor seleccione otro centro.");
+									break;
+								}
+							}//ELSE CASO CREMACIÓN
+							
 								
-							}
-							
-							
-							
-						
-					}
-				}
-			} //BUCLE FUNCIONALIDAD
+				}// BUCLE SELECCION DE QUE HACER
+			}//ELSE CASO DONDE NO ESCOGIÓ SALIR
+		} //BUCLE SELECCIÓN CENTRO
 	}// MAIN 
 }// CLASE
 
