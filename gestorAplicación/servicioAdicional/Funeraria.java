@@ -24,6 +24,10 @@ public class Funeraria {
 		return this.centro;
 	}
 	
+	public String getNombre() {
+		return centro.getNombre();
+	}
+	
 	// MÉTODOS //
 	
 	//ESPACIOS
@@ -55,8 +59,6 @@ public class Funeraria {
 		/*SE AÑADEN LAS CENIZAS AL OSARIO (LA LISTA DE TUMBAS)*/
 		cenizas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Cenizas"));
 	}
-	
-	
 	
 	
 	

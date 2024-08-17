@@ -66,7 +66,7 @@ public class Funcionalidad_4 {
 				finally {
 						entrada.nextLine();//SALTO DE LINEA
 					}		
-			
+			}
 				if (menu==4) {
 					System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
 					break;
@@ -80,15 +80,15 @@ public class Funcionalidad_4 {
 						System.out.println("4. Salir.\n");
 						
 						int menu2 = 0;
-						while (menu==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+						while (menu2==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
 							try {
-								menu = entrada.nextInt(); //RECIBIENDO ENTRADA
-								if (menu>0 && menu<=4) {
+								menu2 = entrada.nextInt(); //RECIBIENDO ENTRADA
+								if (menu2>0 && menu2<=4) {
 									break;
 								}
 								else {
 									System.out.println("Ingrese un número válido por favor");
-									menu = 0;
+									menu2 = 0;
 									continue;
 								}
 							}
@@ -98,14 +98,34 @@ public class Funcionalidad_4 {
 							}
 							finally {
 									entrada.nextLine();//SALTO DE LINEA
-								}		
+								}
 						}
+						
+							if (menu2==4) {
+								System.out.println(" ");
+								break;
+							}
+							else if(menu2==1) {
+								//CREMACIÓN---------------------------------------------------------------------------------------
+								
+								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio.\n");
+								
+								if(funerarias.get(menu).espacioCenizas()==true) {
+									
+									System.out.println("Si hay espacio disponible.");
+									System.out.println("Escoja entre las siguientes opciones: \n");
+									
+								}
+						
+								
+							}
+							
+							
+							
+						
 					}
 				}
-			
-			
-			
-			}
-		}
-	}
-}
+			} //BUCLE FUNCIONALIDAD
+	}// MAIN 
+}// CLASE
+
