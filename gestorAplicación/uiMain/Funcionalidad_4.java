@@ -10,15 +10,6 @@ public class Funcionalidad_4 {
 	
 	public static Scanner entrada = new Scanner(System.in);
 	
-	//PRINTS QUE HIZO OKY
-	static void println(Object obj) {
-		System.out.println(obj);
-	}
-	
-	static void print(Object obj) {
-		System.out.print(obj);
-	}
-	
 	// MAIN //
 	public static void main(String[] args) {
 		
@@ -52,7 +43,7 @@ public class Funcionalidad_4 {
 			System.out.println("1. "+fune1.getCentro().getNombre()+".");
 			System.out.println("2. "+fune2.getCentro().getNombre()+".");
 			System.out.println("3. "+fune3.getCentro().getNombre()+".");
-			System.out.println("4. Salir\n");
+			System.out.println("4. Salir.\n");
 			System.out.println("Ingrese el número de la opción que desea: ");
 			
 			int menu = 0;
@@ -76,20 +67,41 @@ public class Funcionalidad_4 {
 						entrada.nextLine();//SALTO DE LINEA
 					}		
 			
-			if (menu==4) {
-				System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
-				break;
-			}
-			else {
-				System.out.println("¿Qué desea hacer?\n");
-				System.out.println("1. Cremación.");
-				System.out.println("2. Entierro.");
-				System.out.println("3. visitar cementerio");
-				
-			}
-			
-			
-			
+				if (menu==4) {
+					System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
+					break;
+				}
+				else {
+					while (true) {
+						System.out.println("¿Qué desea hacer?\n");
+						System.out.println("1. Cremación.");
+						System.out.println("2. Entierro.");
+						System.out.println("3. Visitar cementerio");
+						System.out.println("4. Salir.\n");
+						
+						int menu2 = 0;
+						while (menu==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+							try {
+								menu = entrada.nextInt(); //RECIBIENDO ENTRADA
+								if (menu>0 && menu<=4) {
+									break;
+								}
+								else {
+									System.out.println("Ingrese un número válido por favor");
+									menu = 0;
+									continue;
+								}
+							}
+							
+							catch(InputMismatchException e) {
+								System.out.println("Por favor ingrese un número entre uno y cuatro!!!");
+							}
+							finally {
+									entrada.nextLine();//SALTO DE LINEA
+								}		
+						}
+					}
+				}
 			
 			
 			
