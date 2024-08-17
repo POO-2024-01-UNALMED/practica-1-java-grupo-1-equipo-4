@@ -115,13 +115,20 @@ public class Funcionalidad_4 {
 									
 									System.out.println("Si hay espacio disponible.");
 									System.out.println("Escoja entre las siguientes opciones: \n");
-									
+									break;
 								}
 								else {
 									System.out.println("No hay espacio disponible, por favor seleccione otro centro.");
 									break;
 								}
 							}//ELSE CASO CREMACIÓN
+							
+							else if (menu2==3) {
+								System.out.println("\n Visitando cementerio.....");
+								System.out.println("Sientes un frió en el aire....");
+								System.out.println("Por tu bien, es mejor que no mires atrás.\n");
+								break;
+							}//ELSE CASO VISITA CEMENTERIO 
 							
 								
 				}// BUCLE SELECCION DE QUE HACER
