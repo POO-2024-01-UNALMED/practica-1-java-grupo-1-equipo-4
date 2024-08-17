@@ -84,13 +84,18 @@ public class Muerto {
 	}
 	
 	public String mostrarFlores() {
-		
-		String acomulador = "Flores que hay puestas: ";
-		
-		for(int i = 0; i>flores.size();i++) {	
-			acomulador += flores.get(i)+", ";
+		if (flores.get(0).equals("No hay flores")) {
+			return flores.get(0);
 		}
-		return acomulador;
+		else {
+			String acomulador = "Flores que hay puestas: ";
+		
+			for(int i = 0; i>flores.size();i++) {	
+				acomulador += flores.get(i)+", ";
+			}
+			acomulador+=".";
+			return acomulador;
+		}
 	}
 	
 	
