@@ -236,25 +236,60 @@ public class Funcionalidad_4 {
 										String mensaje = entrada.nextLine();
 										//SE REGISTRA EL MENSAJE 
 										cenizas.setMensaje(mensaje);
-										System.out.println("\n");
 										//FINALIZA EL PROCESO DE REGISTRO
 										System.out.println("Se ha realizado el proceso de registro.\n");
 										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
 										funerarias.get(menu).añadirCenizas(cenizas);
 										
-										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA AL CEMENTERIO
-										System.out.println("Comienza el proceso de visita de las cenizas: \n");
+										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA A LOS OSARIOS -----------------------
+										System.out.println("Comienza la visita a las cenizas:\n");
 										System.out.println(funerarias.get(menu).visita("Cenizas"));
 										
-										System.out.println("\n¿Deseas colocarle flores a algún osario (si/no)?: ");
-										String si_no = entrada.nextLine();
+										System.out.println("¿Deseas colocarle flores a algún osario (si/no)?: ");
 										
-										if (si_no.equals("no")||si_no.equals("NO")) {
-											System.out.println("\nUna muerte bella, honra toda vida...\n");
-										}
-										else if(si_no.equals("si")||si_no.equals("SI")) {
+										while(true) {
 										
-											
+											String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+											if (si_no.equals("no")||si_no.equals("NO")) {
+												System.out.println("\nUna muerte bella, honra toda vida...\n");
+												break;
+											}
+											else if(si_no.equals("si")||si_no.equals("SI")) {
+												System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+												String flor = entrada.nextLine();
+												
+												System.out.print("¿A cuál osario? (digite el número de osario): ");
+												
+												int control53 = 0;
+												while (control53==0) {
+													try {
+														control53 = entrada.nextInt();
+														if (control53>0 && control53<=Funeraria.cenizas.size()) {
+															break;
+														}
+														else {
+															System.out.println("Ingrese un número válido por favor");
+															control53 = 0;
+															continue;
+														}
+													}
+													catch(InputMismatchException e) {
+														System.out.println("Por favor ingrese solo números.");
+													}
+													finally {
+															entrada.nextLine();//SALTO DE LINEA
+														}
+												}
+												
+												System.out.println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
+												
+												
+												break;
+											}
+											else {
+												System.out.println("Escoja una opción válida (si/no)");
+												continue;
+											}
 										}
 										
 										
@@ -268,10 +303,333 @@ public class Funcionalidad_4 {
 								}
 							}//ELSE CASO CREMACIÓN
 							
+							else if(menu2==2) {
+								// ENTIERRO ----------------------------------------------------------------------------------------
+								
+								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio...\n");
+								
+								if(funerarias.get(menu).espacioTumbas()==true) {
+									
+									System.out.println("¡Si hay espacio disponible!\n");
+									System.out.println("Escoja entre las siguientes opciones: \n");
+									System.out.println("1. Comprar Terreno.");
+									System.out.println("2. Alquilar Terreno.");
+									System.out.println("3. Salir.\n");
+									
+									int menu3 = 0;
+									while (menu3==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+										try {
+											menu3 = entrada.nextInt(); //RECIBIENDO ENTRADA
+											if (menu3>0 && menu3<=3) {
+												break;
+											}
+											else {
+												System.out.println("Ingrese un número válido por favor");
+												menu2 = 0;
+												continue;
+											}
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Por favor ingrese un número entre uno y tres!!!");
+										}
+										finally {
+												entrada.nextLine();//SALTO DE LINEA
+											}
+										}// BUCLE CONTROL
+									
+									if (menu3==1 || menu3==2) {
+										String tiempo = "de por vida"; 
+										int  alquiler = 0;
+										// OBJETO DE TIPO MUERTO
+										Muerto tumba = new Muerto();
+										
+										if (menu3==2) {
+											System.out.println("\nConsigne el número de años que va a alquilar el terreno:");
+											System.out.println("(Ejemplo: 3, 4, etc..)");
+										
+											while(alquiler==0) {
+												try {
+													alquiler = entrada.nextInt();
+												}
+												catch(InputMismatchException e){
+													System.out.println("Ingrese únicamente un número");
+												}finally {
+													entrada.nextLine();
+												}
+												System.out.print("\n");
+											}
+										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
+										
+										//DATOS DUEÑO
+										boolean control33 = true;
+										while(control33==true)
+										try {
+											System.out.println("Por favor, ingrese sus datos para realizar la compra:\n ");
+											System.out.print("Nombre : ");
+											String name = entrada.nextLine();
+											System.out.print("Dirección : ");
+											String direc = entrada.nextLine();
+											System.out.print("Edad : ");
+											int edad = entrada.nextInt();
+											System.out.print("Cédula : ");
+											long cedu = entrada.nextLong();
+											System.out.print("Número : ");
+											long numero = entrada.nextLong();
+											System.out.print("\n");
+											// CREAMOS EL OBJETO DE TIPO CLIENTE
+											Cliente cliente = new Cliente(name, edad, cedu, numero, direc);
+											// SE LE AÑADE EL DUEÑO A LAS CENIZAS
+											tumba.setDueño(cliente);
+											control33 = false;
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Error con algún dato.\n");
+										}finally {
+											entrada.nextLine();
+										}
+										
+										if (menu3==2) {
+											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											System.out.println("Total a pagar por los "+alquiler+" años son: "+alquiler*500000+" $.\n");
+											tumba.setTiempo(alquiler+" años");
+										}
+										else {
+											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											System.out.println("Total a pagar por el terreno "+tiempo+" es igual a: 4000000 $\n");
+											tumba.setTiempo(tiempo);
+										}
+										
+
+										//DATOS MASCOTA
+										boolean control43 = true;
+										while(control43==true)
+										try {
+											System.out.println("Digitación de los datos de la mácota:\n");
+											System.out.print("Nombre : ");
+											String namePet = entrada.nextLine();
+											System.out.print("Tipo : ");
+											String tipo = entrada.nextLine();
+											System.out.print("Edad : ");
+											int edad = entrada.nextInt();
+											entrada.nextLine();
+											System.out.print("Sexo : ");
+											String sex = entrada.nextLine();
+											System.out.print("Fecha de fallecimiento (dia/mes/año): ");
+											String fecha = entrada.nextLine();
+											System.out.print("\n");
+											// CREAMOS EL OBJETO DE TIPO CLIENTE
+											Animal animal = new Animal(namePet, tipo, edad, sex);
+											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA
+											tumba.setAnimal(animal);
+											tumba.setFecha(fecha);
+											control43 = false;
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Error con algún dato.\n");
+										}
+										
+										System.out.println("Para finalizar, escribe el mensaje para la tumba: ");
+										String mensaje = entrada.nextLine();
+										//SE REGISTRA EL MENSAJE 
+										tumba.setMensaje(mensaje);
+										//FINALIZA EL PROCESO DE REGISTRO
+										System.out.println("Se ha realizado el proceso de registro.\n");
+										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
+										funerarias.get(menu).añadirTumba(tumba);
+										
+										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA AL CEMENTERIO-----------------------
+										System.out.println("Comienza la visita a las tumbas:\n");
+										System.out.println(funerarias.get(menu).visita("tumbas"));
+										
+										System.out.println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+										
+										while(true) {
+										
+											String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+											if (si_no.equals("no")||si_no.equals("NO")) {
+												System.out.println("\nUna muerte bella, honra toda vida...\n");
+												break;
+											}
+											else if(si_no.equals("si")||si_no.equals("SI")) {
+												System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+												String flor = entrada.nextLine();
+												
+												System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
+												
+												int control53 = 0;
+												while (control53==0) {
+													try {
+														control53 = entrada.nextInt();
+														if (control53>0 && control53<=Funeraria.tumbas.size()) {
+															break;
+														}
+														else {
+															System.out.println("Ingrese un número válido por favor");
+															control53 = 0;
+															continue;
+														}
+													}
+													catch(InputMismatchException e) {
+														System.out.println("Por favor ingrese solo números.");
+													}
+													finally {
+															entrada.nextLine();//SALTO DE LINEA
+														}
+												}
+												
+												System.out.println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
+												
+												
+												break;
+											}
+											else {
+												System.out.println("Escoja una opción válida (si/no)");
+												continue;
+											}
+										}	
+									}
+									break;
+								}
+								else {
+									System.out.println("No hay espacio disponible, por favor seleccione otro centro.");
+									break;
+								}
+								
+							}//ELSE CASO ENTIERRO
+							
 							else if (menu2==3) {
-								System.out.println("\n Visitando cementerio.....");
-								System.out.println("Sientes un frió en el aire....");
-								System.out.println("Por tu bien, es mejor que no mires atrás.\n");
+								// VISITA--------------------------------------------------------------------------------------------
+								System.out.println("\n ¿Qué te gustaría visitar?\n");
+								System.out.println("1. Los osarios.");
+								System.out.println("2. Las tumbas.");
+								System.out.println("3. Salir.\n");
+								System.out.println("Ingrese el número de la opción que desea");
+								
+								int menu5 = 0;
+								while (menu5==0) {
+									try {
+										menu5 = entrada.nextInt();
+										if (menu5>0 && menu5<=3) {
+											break;
+										}
+										else {
+											System.out.println("Ingrese un número válido por favor");
+											menu5 = 0;
+											continue;
+										}
+									}
+									catch(InputMismatchException e) {
+										System.out.println("Por favor ingrese un número entre uno y tres!!!");
+									}
+									finally {
+											entrada.nextLine();//SALTO DE LINEA
+										}
+								}
+								
+								if (menu5==1) {
+									// VISITA OSARIOS ---------------------------------------------------------------------------------
+									System.out.println("Comienza la visita a las cenizas:\n");
+									System.out.println(funerarias.get(menu).visita("Cenizas"));
+									
+									System.out.println("¿Deseas colocarle flores a algún osario (si/no)?: ");
+									
+									while(true) {
+									
+										String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+										if (si_no.equals("no")||si_no.equals("NO")) {
+											System.out.println("\nUna muerte bella, honra toda vida...\n");
+											break;
+										}
+										else if(si_no.equals("si")||si_no.equals("SI")) {
+											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+											String flor = entrada.nextLine();
+											
+											System.out.print("¿A cuál osario? (digite el número de osario): ");
+											
+											int control53 = 0;
+											while (control53==0) {
+												try {
+													control53 = entrada.nextInt();
+													if (control53>0 && control53<=Funeraria.cenizas.size()) {
+														break;
+													}
+													else {
+														System.out.println("Ingrese un número válido por favor");
+														control53 = 0;
+														continue;
+													}
+												}
+												catch(InputMismatchException e) {
+													System.out.println("Por favor ingrese solo números.");
+												}
+												finally {
+														entrada.nextLine();//SALTO DE LINEA
+													}
+											}
+											
+											System.out.println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
+											
+											
+											break;
+										}
+										else {
+											System.out.println("Escoja una opción válida (si/no)");
+											continue;
+										}
+									}
+								}
+								else if (menu5==2) {
+									// VISITA CEMENTERIO -------------------------------------------------------------------------------
+									System.out.println("Comienza la visita a las tumbas:\n");
+									System.out.println(funerarias.get(menu).visita("tumbas"));
+									
+									System.out.println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+									
+									while(true) {
+									
+										String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+										if (si_no.equals("no")||si_no.equals("NO")) {
+											System.out.println("\nUna muerte bella, honra toda vida...\n");
+											break;
+										}
+										else if(si_no.equals("si")||si_no.equals("SI")) {
+											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+											String flor = entrada.nextLine();
+											
+											System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
+											
+											int control53 = 0;
+											while (control53==0) {
+												try {
+													control53 = entrada.nextInt();
+													if (control53>0 && control53<=Funeraria.tumbas.size()) {
+														break;
+													}
+													else {
+														System.out.println("Ingrese un número válido por favor");
+														control53 = 0;
+														continue;
+													}
+												}
+												catch(InputMismatchException e) {
+													System.out.println("Por favor ingrese solo números.");
+												}
+												finally {
+														entrada.nextLine();//SALTO DE LINEA
+													}
+											}
+											
+											System.out.println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
+											
+											
+											break;
+										}
+										else {
+											System.out.println("Escoja una opción válida (si/no)");
+											continue;
+										}
+									}	
+								}
 								break;
 							}//ELSE CASO VISITA CEMENTERIO 
 							

@@ -73,25 +73,33 @@ public class Funeraria {
 	
     public String visita(String tipo){ //FILTRAR
     	String resultado = "";
-    	
+
     	if (tipo.equals("tumbas")) {
-        	
         	int indice = 0;
         	for (int i = 0; i<tumbas.size();i++) {
         		indice = indice+1;
-        		resultado += indice+". "+tumbas.get(i).toString();
+        		resultado += indice+". "+tumbas.get(i).toString()+"\n";
         	}
     	}
     	else {
-    		
          	int indice = 0;
         	for (int i = 0; i<cenizas.size();i++) {
         		indice = indice+1;
-        		resultado += indice+". "+cenizas.get(i).toString();
+        		resultado += indice+". "+cenizas.get(i).toString()+"\n";
         	}
     	}
-            return resultado;
-            
+            return resultado; 
+    }
+    
+    public String florCenizas(int indice, String flor){
+            indice -= 1;
+            return cenizas.get(indice).ponerFlor(flor);
+    }    
+    
+    public String florTumbas(int indice, String flor) {   
+    	indice -= 1;
+    	return tumbas.get(indice).ponerFlor(flor);
+       
     }
     
 }

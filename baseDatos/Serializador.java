@@ -50,7 +50,10 @@ public class Serializador {
 		//objetos de gestorAplicacion.servicioAdicional
 			
 			//clases con listas para serializar:
+		
 				//cita, funeraria, socializar, tienda
+		
+		
 				// no muy seguro: horario en empleado, flores en muerto, citas en servicio
 		
 		

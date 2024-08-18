@@ -9,8 +9,8 @@ public class CentroAdopcion implements Serializable{
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	private static ArrayList < Empleado > empleados = new ArrayList<Empleado>();
-	private static ArrayList < Animal > animales= new ArrayList<Animal>();
+	private ArrayList < Empleado > empleados = new ArrayList<Empleado>();
+	private ArrayList < Animal > animales= new ArrayList<Animal>();
 	private static ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
@@ -174,7 +174,7 @@ public class CentroAdopcion implements Serializable{
 		return adopciones;
 	}
 	
-	public static ArrayList<Empleado> getEmpleados(){
+	public ArrayList<Empleado> getEmpleados(){
 		return empleados;
 	}
 	
