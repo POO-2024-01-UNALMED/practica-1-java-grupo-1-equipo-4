@@ -14,7 +14,7 @@ public class Muerto {
     
     // CONSTRUCTOR //
     public Muerto() {
-		flores.add("No hay flores");
+		flores.add("No hay flores colocadas aquí.");
     }
     
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
@@ -24,7 +24,7 @@ public class Muerto {
 		this.mensaje = mensaje;
 		this.tiempo = tiempo;
 		this.tipo = tipo;
-		flores.add("No hay flores");
+		flores.add("No hay flores colocadas aquí.");
 	}
 	
 	//SETTER AND GETTER //
@@ -73,7 +73,7 @@ public class Muerto {
 	
 	// MÉTODOS //
 	public String ponerFlor(String flor) {
-		if (flores.get(0).equals("No hay flores")) {
+		if (flores.get(0).equals("No hay flores colocadas aquí.")) {
 			flores.clear();
 			flores.add(flor);
 			return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
@@ -88,14 +88,17 @@ public class Muerto {
 	}
 	
 	public String mostrarFlores() {
-		if (flores.get(0).equals("No hay flores")) {
+		if (flores.get(0).equals("No hay flores colocadas aquí.")) {
 			return flores.get(0);
+		}
+		else if(flores.size()==1) {
+			return "Hay: "+flores.get(0);
 		}
 		else {
 			String acomulador = "Flores que hay puestas: ";
 		
-			for(int i = 0; i>flores.size();i++) {	
-				acomulador += flores.get(i)+", ";
+			for(int i = 0; i<flores.size();i++) {	
+				acomulador += flores.get(i)+" ";
 			}
 			acomulador+=".";
 			return acomulador;
@@ -105,7 +108,7 @@ public class Muerto {
 	
 	// MÉTODO toString //
 	public String toString() {
-		return animal.getNombre()+"\n"+fecha+"\n"+mensaje+"\n"+this.mostrarFlores();
+		return animal.getNombre()+"\n"+fecha+"\n"+mensaje+"\n"+this.mostrarFlores()+"\n";
 	}
 	
 }
