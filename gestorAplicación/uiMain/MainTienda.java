@@ -148,7 +148,7 @@ public class MainTienda {
 						if (unidades==1) {
 							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
 							long cedula = entrada.nextLong();
-							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							boolean esCliente = Tienda.isCliente(cedula);
 							if (esCliente) {
 								System.out.println("La compra tendrá un 10% de descuento\n");
 							}
@@ -157,7 +157,7 @@ public class MainTienda {
 						else {
 							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
 							long cedula = entrada.nextLong();
-							boolean esCliente = CentroAdopcion.esCliente(cedula);
+							boolean esCliente = Tienda.isCliente(cedula);
 							if (esCliente) {
 								System.out.println("La compra tendrá un 10% de descuento\n");
 							}

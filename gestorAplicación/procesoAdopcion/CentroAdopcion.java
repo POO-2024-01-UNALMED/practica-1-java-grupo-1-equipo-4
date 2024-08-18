@@ -2,17 +2,19 @@ package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
 import gestorAplicación.servicioAdicional.Empleado;
 import gestorAplicación.servicioAdicional.Tienda;
+import java.io.Serializable;
 
-public class CentroAdopcion {
+public class CentroAdopcion implements Serializable{
 	
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	private ArrayList < Empleado > empleados = new ArrayList<Empleado>();
-	private ArrayList < Animal > animales= new ArrayList<Animal>();
-	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
+	private static ArrayList < Empleado > empleados = new ArrayList<Empleado>();
+	private static ArrayList < Animal > animales= new ArrayList<Animal>();
+	private static ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int espaciosDisponibles;
 	private tipoServicio servicio;
@@ -168,11 +170,11 @@ public class CentroAdopcion {
 		this.tienda = tienda;
 	}
 	
-	public ArrayList<Adopcion> getAdopciones(){
+	public static ArrayList<Adopcion> getAdopciones(){
 		return adopciones;
 	}
 	
-	public ArrayList<Empleado> getEmpleados(){
+	public static ArrayList<Empleado> getEmpleados(){
 		return empleados;
 	}
 	

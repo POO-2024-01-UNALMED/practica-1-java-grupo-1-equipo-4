@@ -24,6 +24,10 @@ public class Funeraria {
 		return this.centro;
 	}
 	
+	public String getNombre() {
+		return centro.getNombre();
+	}
+	
 	// MÉTODOS //
 	
 	//ESPACIOS
@@ -47,14 +51,14 @@ public class Funeraria {
 	
 	//AÑADIR TUMBA/CENIZAS
 	public void añadirTumba(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo) {
+		/*SE AÑADE LA TUMBA AL CEMENTERIO (LA LISTA DE TUMBAS)*/
 		tumbas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Tumba"));
 	}
 	
 	public void añadirCenizas(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo) {
+		/*SE AÑADEN LAS CENIZAS AL OSARIO (LA LISTA DE TUMBAS)*/
 		cenizas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Cenizas"));
 	}
-	
-	
 	
 	
 	
