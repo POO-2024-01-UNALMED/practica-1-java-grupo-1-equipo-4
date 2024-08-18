@@ -2,6 +2,7 @@ package gestorAplicación.uiMain;
 import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import gestorAplicación.servicioAdicional.Funeraria;
 import java.util.ArrayList;
+import gestorAplicación.procesoAdopcion.Cliente;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -109,12 +110,79 @@ public class Funcionalidad_4 {
 							else if(menu2==1) {
 								//CREMACIÓN---------------------------------------------------------------------------------------
 								
-								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio.\n");
+								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio...\n");
 								
 								if(funerarias.get(menu).espacioCenizas()==true) {
 									
-									System.out.println("Si hay espacio disponible.");
+									System.out.println("¡Si hay espacio disponible!\n");
 									System.out.println("Escoja entre las siguientes opciones: \n");
+									System.out.println("1. Comprar Osario.");
+									System.out.println("2. Alquilar Osario.");
+									System.out.println("3. Salir.\n");
+									
+									int menu3 = 0;
+									while (menu3==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+										try {
+											menu3 = entrada.nextInt(); //RECIBIENDO ENTRADA
+											if (menu3>0 && menu3<=3) {
+												break;
+											}
+											else {
+												System.out.println("Ingrese un número válido por favor");
+												menu2 = 0;
+												continue;
+											}
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Por favor ingrese un número entre uno y tres!!!");
+										}
+										finally {
+												entrada.nextLine();//SALTO DE LINEA
+											}
+										}// BUCLE CONTROL
+									
+									if (menu3==1 || menu3==2) {
+										String tiempo = "De por vida"; 
+										if (menu3==2) {
+											System.out.println("\nConsigne el número de años que va a alquilar el osario:");
+											System.out.println("(Ejemplo: 3, 4, etc..)");
+											int  alquiler = 0;
+											while(alquiler==0) {
+												try {
+													alquiler = entrada.nextInt();
+												}
+												catch(InputMismatchException e){
+													System.out.println("Ingrese únicamente un número");
+												}finally {
+													entrada.nextLine();
+												}
+												System.out.print("\n");
+											}
+										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
+										
+										try {
+											System.out.println("Por favor, ingrese sus datos para realizar la compra:\n ");
+											System.out.print("Nombre : ");
+											String name = entrada.nextLine();
+											System.out.print("Dirección : ");
+											String direc = entrada.nextLine();
+											System.out.print("Edad : ");
+											int edad = entrada.nextInt();
+											System.out.print("Cédula : ");
+											long cedu = entrada.nextLong();
+											System.out.print("Número : ");
+											long numero = entrada.nextLong();
+											System.out.print("\n");
+											// CREAMOS EL OBJETO DE TIPO CLIENTE
+											Cliente cliente = new Cliente(name, edad, cedu, numero, direc); 
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Error con algún dato.");
+										}
+										
+										
+									}
+									
 									break;
 								}
 								else {
@@ -130,7 +198,6 @@ public class Funcionalidad_4 {
 								break;
 							}//ELSE CASO VISITA CEMENTERIO 
 							
-								
 				}// BUCLE SELECCION DE QUE HACER
 			}//ELSE CASO DONDE NO ESCOGIÓ SALIR
 		} //BUCLE SELECCIÓN CENTRO
