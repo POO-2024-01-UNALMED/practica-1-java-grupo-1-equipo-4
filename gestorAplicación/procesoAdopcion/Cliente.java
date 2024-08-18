@@ -5,6 +5,7 @@ public class Cliente extends Persona{
 	//ATRIBUTOS	
 	private int puntos;
 	private boolean participar;
+	private Animal mascota;
 	
 	//CONSTRUCTOR
 	
@@ -17,8 +18,8 @@ public class Cliente extends Persona{
 		super(nombre, edad, cedula);
 	}
 	
-	public Cliente(String nombre,int edad,long telefono, boolean participar) {
-		super(nombre,edad,telefono);
+	public Cliente(String nombre,int edad,long telefono, long cedula,boolean participar) {
+		super(nombre,edad,telefono,cedula);
 		this.participar=participar;
 	}
 	
@@ -45,11 +46,22 @@ public class Cliente extends Persona{
 		return this.puntos;
 	}
 	
+	public long getCedula(){
+		return getCedula();
+	}
+
 	public boolean isParticipar() {
 		return participar;
 	}
 	
-
+	public void setMascota(Animal mascota){
+		this.mascota=mascota;
+	}
+	
+	public Animal getMascota() { 
+		return mascota;
+	}
+	
 	public String toString() {
 		
 		return "Nombre: " + getNombre() + ", Edad: "+ getEdad()+ ", Cedula: " + getCedula() +", Telefono: " 
