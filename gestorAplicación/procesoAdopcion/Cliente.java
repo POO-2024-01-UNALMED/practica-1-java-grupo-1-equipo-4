@@ -23,7 +23,7 @@ public class Cliente extends Persona{
 		this.participar=participar;
 	}
 	
-	//-----------
+	//-----------nk++
 	
 	//MÉTODOS SETTER Y GETTER
 	
