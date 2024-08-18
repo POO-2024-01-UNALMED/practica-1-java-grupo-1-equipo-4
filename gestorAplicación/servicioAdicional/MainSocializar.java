@@ -6,19 +6,20 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 public class MainSocializar {
 	public static void main(String[] args) {
-		Socializar socializar=new Socializar();
 		Cliente persona1=new Cliente("Dani",24,457693830,1076759938,true);
 		Cliente persona2=new Cliente("Salo",23,457653830,184950530,true);
-		socializar.registroC(persona2);
-		socializar.registroC(persona1);
+	
 		
-		Animal perro=new Animal("Homero",2,EstadoSalud.SANO,Arrays.asList("jugueton,calmado"));
+		Animal perro=new Animal("Homero",2,EstadoSalud.SANO,Arrays.asList("jugueton","calmado"));
 		Animal gato=new Animal("Ari",3,EstadoSalud.SANO,Arrays.asList("tranquilo","calmado"));
 		persona1.setMascota(gato);
 		persona2.setMascota(perro);
 		
-		socializar.match();
+		Socializar socializar=new Socializar();
 		
+		socializar.registroC(persona2);
+		socializar.registroC(persona1);
+		socializar.match();
 		for (Cita cita:socializar.getCitas()) {
 			 System.out.println("Cita entre: " + cita.getCliente().getNombre() + " con su mascota " + 
                      cita.getAnimal().getNombre() + " y " + 
