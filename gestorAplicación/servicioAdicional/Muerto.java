@@ -13,6 +13,10 @@ public class Muerto {
     private ArrayList<String> flores = new ArrayList<> ();
     
     // CONSTRUCTOR //
+    public Muerto() {
+		flores.add("No hay flores");
+    }
+    
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
 		this.animal = animal;
 		this.dueño = dueño;

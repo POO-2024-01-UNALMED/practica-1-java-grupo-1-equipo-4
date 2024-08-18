@@ -4,10 +4,11 @@ import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import java.util.ArrayList;
 
 public class Tienda {
-        //Atributos//
-        private ArrayList<Producto> productos = new ArrayList<> ();
-        private ArrayList<Empleado> empleados = new ArrayList<> ();
-        private ArrayList<Persona> voluntarios = new ArrayList<> ();
+        // ATRIBUTOS 
+		//LISTAS STATIC PARA LA SERIALIZACION 
+        public static ArrayList<Producto> productos = new ArrayList<> ();
+        public static ArrayList<Empleado> empleados = new ArrayList<> ();
+        public static ArrayList<Persona> voluntarios = new ArrayList<> ();
         private CentroAdopcion centroAdopcion;
         
         //constructores//

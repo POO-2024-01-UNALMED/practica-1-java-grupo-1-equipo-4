@@ -1,11 +1,10 @@
 package gestorAplicación.uiMain;
-import gestorAplicación.procesoAdopcion.CentroAdopcion;
-import gestorAplicación.servicioAdicional.Funeraria;
+import gestorAplicación.servicioAdicional.*;
 import java.util.ArrayList;
-import gestorAplicación.procesoAdopcion.Cliente;
-
+import gestorAplicación.procesoAdopcion.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class Funcionalidad_4 {
 	
@@ -68,12 +67,13 @@ public class Funcionalidad_4 {
 						entrada.nextLine();//SALTO DE LINEA
 					}		
 				}//BUCLE CONTROL
-			
+				
 				if (menu==4) {
 					System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
 					break;
 				}
 				else {
+					menu-=1;
 					while (true) {
 						System.out.println("¿Qué desea hacer?\n");
 						System.out.println("1. Cremación.");
@@ -142,11 +142,15 @@ public class Funcionalidad_4 {
 										}// BUCLE CONTROL
 									
 									if (menu3==1 || menu3==2) {
-										String tiempo = "De por vida"; 
+										String tiempo = "de por vida"; 
+										int  alquiler = 0;
+										// OBJETO DE TIPO MUERTO
+										Muerto cenizas = new Muerto();
+										
 										if (menu3==2) {
 											System.out.println("\nConsigne el número de años que va a alquilar el osario:");
 											System.out.println("(Ejemplo: 3, 4, etc..)");
-											int  alquiler = 0;
+										
 											while(alquiler==0) {
 												try {
 													alquiler = entrada.nextInt();
@@ -160,6 +164,9 @@ public class Funcionalidad_4 {
 											}
 										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
 										
+										//DATOS DUEÑO
+										boolean control33 = true;
+										while(control33==true)
 										try {
 											System.out.println("Por favor, ingrese sus datos para realizar la compra:\n ");
 											System.out.print("Nombre : ");
@@ -174,10 +181,80 @@ public class Funcionalidad_4 {
 											long numero = entrada.nextLong();
 											System.out.print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
-											Cliente cliente = new Cliente(name, edad, cedu, numero, direc); 
+											Cliente cliente = new Cliente(name, edad, cedu, numero, direc);
+											// SE LE AÑADE EL DUEÑO A LAS CENIZAS
+											cenizas.setDueño(cliente);
+											control33 = false;
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Error con algún dato.");
+											System.out.println("Error con algún dato.\n");
+										}finally {
+											entrada.nextLine();
+										}
+										
+										if (menu3==2) {
+											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											System.out.println("Total a pagar por los "+alquiler+" años son: "+alquiler*200000+" $.\n");
+											cenizas.setTiempo(alquiler+" años");
+										}
+										else {
+											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											System.out.println("Total a pagar por el osario "+tiempo+" es igual a: 2000000 $\n");
+											cenizas.setTiempo(tiempo);
+										}
+										
+
+										//DATOS MASCOTA
+										boolean control43 = true;
+										while(control43==true)
+										try {
+											System.out.println("Digitación de los datos de la mácota:\n");
+											System.out.print("Nombre : ");
+											String namePet = entrada.nextLine();
+											System.out.print("Tipo : ");
+											String tipo = entrada.nextLine();
+											System.out.print("Edad : ");
+											int edad = entrada.nextInt();
+											entrada.nextLine();
+											System.out.print("Sexo : ");
+											String sex = entrada.nextLine();
+											System.out.print("Fecha de fallecimiento (dia/mes/año): ");
+											String fecha = entrada.nextLine();
+											System.out.print("\n");
+											// CREAMOS EL OBJETO DE TIPO CLIENTE
+											Animal animal = new Animal(namePet, tipo, edad, sex);
+											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA
+											cenizas.setAnimal(animal);
+											cenizas.setFecha(fecha);
+											control43 = false;
+										}
+										catch(InputMismatchException e) {
+											System.out.println("Error con algún dato.\n");
+										}
+										
+										System.out.println("Para finalizar, escribe el mensaje para el Osario: ");
+										String mensaje = entrada.nextLine();
+										//SE REGISTRA EL MENSAJE 
+										cenizas.setMensaje(mensaje);
+										System.out.println("\n");
+										//FINALIZA EL PROCESO DE REGISTRO
+										System.out.println("Se ha realizado el proceso de registro.\n");
+										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
+										funerarias.get(menu).añadirCenizas(cenizas);
+										
+										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA AL CEMENTERIO
+										System.out.println("Comienza el proceso de visita de las cenizas: \n");
+										System.out.println(funerarias.get(menu).visita("Cenizas"));
+										
+										System.out.println("\n¿Deseas colocarle flores a algún osario (si/no)?: ");
+										String si_no = entrada.nextLine();
+										
+										if (si_no.equals("no")||si_no.equals("NO")) {
+											System.out.println("\nUna muerte bella, honra toda vida...\n");
+										}
+										else if(si_no.equals("si")||si_no.equals("SI")) {
+										
+											
 										}
 										
 										

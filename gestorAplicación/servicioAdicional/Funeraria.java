@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class Funeraria {
 	
+	// ARRAYLIST LISTOS PARA LA SERIALIZACIÓN
 	private CentroAdopcion centro;
-	private ArrayList<Muerto> tumbas = new ArrayList<> ();
-	private ArrayList<Muerto> cenizas = new ArrayList<> ();
+	public static ArrayList<Muerto> tumbas = new ArrayList<> ();
+	public static ArrayList<Muerto> cenizas = new ArrayList<> ();
 	
 	//CONSTRUCTORES//
 	public Funeraria () {
@@ -55,13 +56,42 @@ public class Funeraria {
 		tumbas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Tumba"));
 	}
 	
+	public void añadirTumba(Muerto tumba) {
+		tumba.setTipo("Tumba");
+		tumbas.add(tumba);
+	}
+	
 	public void añadirCenizas(Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo) {
 		/*SE AÑADEN LAS CENIZAS AL OSARIO (LA LISTA DE TUMBAS)*/
 		cenizas.add(new Muerto (animal, fecha,  mensaje,  dueño,  tiempo, "Cenizas"));
 	}
 	
+	public void añadirCenizas(Muerto ceniza) {
+		ceniza.setTipo("Cenizas");
+		cenizas.add(ceniza);
+	}
 	
-	
-	
-	
+    public String visita(String tipo){ //FILTRAR
+    	String resultado = "";
+    	
+    	if (tipo.equals("tumbas")) {
+        	
+        	int indice = 0;
+        	for (int i = 0; i<tumbas.size();i++) {
+        		indice = indice+1;
+        		resultado += indice+". "+tumbas.get(i).toString();
+        	}
+    	}
+    	else {
+    		
+         	int indice = 0;
+        	for (int i = 0; i<cenizas.size();i++) {
+        		indice = indice+1;
+        		resultado += indice+". "+cenizas.get(i).toString();
+        	}
+    	}
+            return resultado;
+            
+    }
+    
 }
