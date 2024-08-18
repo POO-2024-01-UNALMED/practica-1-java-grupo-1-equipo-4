@@ -100,7 +100,6 @@ public class Muerto {
 			for(int i = 0; i<flores.size();i++) {	
 				acomulador += flores.get(i)+" ";
 			}
-			acomulador+=".";
 			return acomulador;
 		}
 	}
