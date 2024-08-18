@@ -31,7 +31,7 @@ public class Funcionalidad_4 {
 		funerarias.add(fune1);
 		funerarias.add(fune2);
 		funerarias.add(fune3);
-		
+				
 		//-------------------------------------------------------------------------------------------------------
 		// PROCESO FUNERARIA 
 		

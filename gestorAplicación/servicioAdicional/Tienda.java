@@ -13,7 +13,7 @@ public class Tienda {
         
         //constructores//
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
-            this.empleados.add(empleado); //Tienda con un empleado 
+            Tienda.empleados.add(empleado); //Tienda con un empleado 
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
@@ -40,7 +40,7 @@ public class Tienda {
         }
 
         public Tienda(Empleado empleado){
-            this.empleados.add(empleado);
+            Tienda.empleados.add(empleado);
             //tienda definida solo con su centro de adopcion
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
@@ -102,7 +102,7 @@ public class Tienda {
 
         //métodos//
         public void agregarEmpleado(Empleado empleado){
-            this.empleados.add(empleado);
+            Tienda.empleados.add(empleado);
         }
         public ArrayList<Empleado> empleadosTienda(){ //muestra todos los empleados de la tienda 
             return empleados;
