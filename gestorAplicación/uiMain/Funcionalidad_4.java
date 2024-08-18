@@ -593,7 +593,7 @@ public class Funcionalidad_4 {
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+											System.out.print("Ingresa el nombre de las flores que le gustaría poner: ");
 											String flor = entrada.nextLine();
 											
 											System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
