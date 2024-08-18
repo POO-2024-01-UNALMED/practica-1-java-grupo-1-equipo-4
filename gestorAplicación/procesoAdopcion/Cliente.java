@@ -4,16 +4,22 @@ public class Cliente extends Persona{
 	
 	//ATRIBUTOS	
 	private int puntos;
+	private boolean participar;
 	
 	//CONSTRUCTOR
 	
-	public Cliente(String nombre,int edad, long cedula,long telefono, String direccion ) {//booelan ParticiparSocializar//
+	public Cliente(String nombre,int edad, long cedula,long telefono, String direccion ) {
 		
 		super(nombre,edad,cedula,telefono,direccion);
 	}
 	
 	public Cliente(String nombre, int edad, long cedula) {
 		super(nombre, edad, cedula);
+	}
+	
+	public Cliente(String nombre,int edad,long telefono, boolean participar) {
+		super(nombre,edad,telefono);
+		this.participar=participar;
 	}
 	
 	//-----------
@@ -39,7 +45,9 @@ public class Cliente extends Persona{
 		return this.puntos;
 	}
 	
-	
+	public boolean isParticipar() {
+		return participar;
+	}
 	
 
 	public String toString() {
