@@ -580,15 +580,55 @@ public class Funcionalidad_4 {
 								}
 								else if (menu5==2) {
 									// VISITA CEMENTERIO -------------------------------------------------------------------------------
+									System.out.println("Comienza la visita a las tumbas:\n");
+									System.out.println(funerarias.get(menu).visita("tumbas"));
 									
+									System.out.println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
 									
+									while(true) {
 									
-									
-									
-									
-									
-									
-									
+										String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+										if (si_no.equals("no")||si_no.equals("NO")) {
+											System.out.println("\nUna muerte bella, honra toda vida...\n");
+											break;
+										}
+										else if(si_no.equals("si")||si_no.equals("SI")) {
+											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+											String flor = entrada.nextLine();
+											
+											System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
+											
+											int control53 = 0;
+											while (control53==0) {
+												try {
+													control53 = entrada.nextInt();
+													if (control53>0 && control53<=Funeraria.tumbas.size()) {
+														break;
+													}
+													else {
+														System.out.println("Ingrese un número válido por favor");
+														control53 = 0;
+														continue;
+													}
+												}
+												catch(InputMismatchException e) {
+													System.out.println("Por favor ingrese solo números.");
+												}
+												finally {
+														entrada.nextLine();//SALTO DE LINEA
+													}
+											}
+											
+											System.out.println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
+											
+											
+											break;
+										}
+										else {
+											System.out.println("Escoja una opción válida (si/no)");
+											continue;
+										}
+									}	
 								}
 								break;
 							}//ELSE CASO VISITA CEMENTERIO 
