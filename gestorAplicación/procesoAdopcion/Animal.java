@@ -1,5 +1,6 @@
 package gestorAplicación.procesoAdopcion;
-
+import java.util.List;
+import java.util.ArrayList;
 public class Animal {
 	
 	public static enum EstadoSalud {
@@ -10,11 +11,12 @@ public class Animal {
 	private String tipo;
 	private int edad;
 	private String sexo;
+	private List<String> caracteristicas;
 	private EstadoSalud estadoSalud;
 	
 	//CONSTRUCTOR
 	
-	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {//Agregar lista de caracteristicas// 
+	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.edad = edad;
@@ -29,6 +31,12 @@ public class Animal {
 		this.sexo = sexo;
 	}
 	
+	public Animal(String nombre, int edad,EstadoSalud estadoSalud,List<String> caracteristicas) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.estadoSalud = estadoSalud;
+		this.caracteristicas=new ArrayList<>(caracteristicas);
+	}
 	
 	//MÉTODOS SETTER Y GETTER
 	
@@ -64,6 +72,9 @@ public class Animal {
 		return sexo;
 	}
 	
+	public List<String> getCaracteristicas(){
+		return caracteristicas;
+	}
 	
 	public void setEstadoSalud(EstadoSalud estadoSalud) {
 		this.estadoSalud = estadoSalud;
