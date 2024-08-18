@@ -17,7 +17,6 @@ public class Adopcion {
 		this.fechaAdopcion = fechaActual;
 	}
 	
-	
 	//MÉTODO DE CLASE
 	public static String preguntasEncuesta(int pregunta) {
 		

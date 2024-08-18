@@ -1,5 +1,6 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.ArrayList;
+
 import gestorAplicación.servicioAdicional.Empleado;
 import gestorAplicación.servicioAdicional.Tienda;
 import java.io.Serializable;
@@ -9,8 +10,8 @@ public class CentroAdopcion implements Serializable{
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	private ArrayList < Empleado > empleados = new ArrayList<Empleado>();
-	private ArrayList < Animal > animales= new ArrayList<Animal>();
+	private ArrayList <Empleado> empleados = new ArrayList<>();
+	private static ArrayList < Animal > animales= new ArrayList<Animal>();
 	private static ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 
@@ -50,7 +51,8 @@ public class CentroAdopcion implements Serializable{
 		return boleano;
 	}
 	
-	//SOBRECARGA
+	//SOBRECARGA -----------------------------------------------------
+	
 	public ArrayList <Animal> animalesDisponibles() {
 		
 		ArrayList <Animal> disponibles= new ArrayList<>();
@@ -75,7 +77,6 @@ public class CentroAdopcion implements Serializable{
 		}		
 		return disponibles;	
 	}
-	
 	
 	
 	public static Cliente isCliente(Cliente cliente){
@@ -139,6 +140,22 @@ public class CentroAdopcion implements Serializable{
 	
 	//----------------------------------------------------------
 	
+	//MÉTODOS PARA LA FUNCIONALIDAD AGENDAR SERVICIO
+	
+	public ArrayList <Empleado>tieneEmpleados() {
+		
+		ArrayList<Empleado> emp_Disponibles = new ArrayList<>();
+		
+		for (Empleado empleado: this.empleados) {
+			
+			if (empleado.tieneCupos()) {
+				
+				emp_Disponibles.add(empleado);
+			}
+		}
+		
+		return emp_Disponibles;
+	}
 	
 	//METODOS SETTER Y GETTER
 
@@ -174,7 +191,7 @@ public class CentroAdopcion implements Serializable{
 		return adopciones;
 	}
 	
-	public ArrayList<Empleado> getEmpleados(){
+	public  ArrayList<Empleado> getEmpleados(){
 		return empleados;
 	}
 	
@@ -183,7 +200,7 @@ public class CentroAdopcion implements Serializable{
 		empleados.add(empleado);
 	}
 	
-	
+
 	//OTROS MÉTODOS
 
 	public void agregarAnimal(Animal animal) {

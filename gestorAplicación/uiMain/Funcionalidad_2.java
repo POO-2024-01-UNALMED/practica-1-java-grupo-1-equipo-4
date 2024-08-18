@@ -31,6 +31,7 @@ public class Funcionalidad_2 {
 		CentroAdopcion sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
 		sedes.add(sede3);
 		
+		
 		//AGREGAR EMPLEADOS A CADA SEDE
 		//SEDE 1 (GUARDERÍA)
 		sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR));
@@ -925,21 +926,15 @@ public class Funcionalidad_2 {
 		switch(servicio) {
 		
 		case 0:
-			println("\nContamos con los siguientes cuidadores de mascotas:\n");
-	    	mostrarEmpleados(servicio);    //MÉTODO PARA MOSTRAR LOS EMPLEADOS
-	    	println("\nproporcione el número del cuidador que desea seleccionar.");
+			println("\nContamos con los siguientes cuidadores de mascotas, seleccione el de su preferencia:\n");
 	    	break;
 	    	
 		case 1:
-			println("\nContamos con los siguientes veterinarios:\n");
-	    	mostrarEmpleados(servicio);    //MÉTODO PARA MOSTRAR LOS EMPLEADOS
-	    	println("\nproporcione el número del veterinario que desea seleccionar.");
+			println("\nContamos con los siguientes veterinarios, seleccione el de su preferencia:\n");
 	    	break;
 	    	
 		case 2:
-			println("\nContamos con los siguientes peluqueros de mascotas:\n");
-	    	mostrarEmpleados(servicio);    //MÉTODO PARA MOSTRAR LOS EMPLEADOS
-	    	println("\nproporcione el número del peluquero que desea seleccionar.");
+			println("\nContamos con los siguientes peluqueros de mascotas, seleccione el de su preferencia:\n");
 	    	break;	
 		}
 		
@@ -1056,12 +1051,12 @@ public class Funcionalidad_2 {
 	
 	public static Animal datos_mascota(int servicio) {
 		
-		String nombre;
-		int edad=-1;
-		String especie=null;
-		String tipo=null;
+		String nombre = null;
+		int edad = 0;
+		String especie = null;
+		String sexo = null;
 		
-		println("\nProporcione los datos de su mascota:");
+		println("\nProporcione la siguiente información sobre su mascota:");
 		
 		print("Ingrese el nombre: ");
 		nombre= readString();
@@ -1072,32 +1067,34 @@ public class Funcionalidad_2 {
 			    edad= readInt();
 			
 			    if (edad<=0) {
-			    	println("Proporcione una edad válida.\n");
+			    	println("Proporcione una  respuesta válida.\n");
 			    	}
 			    }catch(InputMismatchException e) {
-			    	println("Ha ingresado un tipo de dato incorrecto.\n");
+			    	println("proporcione una respuesta válida.\n");
 			    	readString();
 			    	}		
 		}while(edad<=0);
 		
-		int eleccion=-1;
+		int eleccion=0;
 		int opciones=0;
+		
 		println("\nSeleccione la especie de su mascota.");
+		if (servicio==1 || servicio==3) {
+			opciones=2;
+			println("1. Perro \n2. Gato");
+		}
+		
 		if (servicio==2) {
 			opciones=4;
 			println("1. Perro \n2. Gato\n3. Conejo \n4. Hámster");
 		}
-		else {
-			println("1. Perro \n2. Gato\n3. Conejo \n4. Hámster \n5. Canario");
-			opciones=5;
-		}
-		
+
 		do {		
 			try {
 				print("Ingrese su elección dentro del rango [1-"+ opciones +"]: ");
 		        eleccion=readInt();
 		        
-		        if (eleccion<1 || eleccion >opciones) {
+		        if (eleccion<1 || eleccion > opciones) {
 		        	println("Opción fuera de rango.\n");
 		        }
 		        }catch(InputMismatchException e) {
@@ -1119,9 +1116,6 @@ public class Funcionalidad_2 {
 			break;
 		case 4:
 			especie="Hámster";
-			break;
-		case 5:
-			especie= "Canario";
 			break;		
 		}
 		
@@ -1135,25 +1129,25 @@ public class Funcionalidad_2 {
 		        eleccion=readInt();
 		        
 		        if (eleccion<1 || eleccion >2) {
-		        	println("Opción fuera de rango.\n");
+		        	println("Proporcione una respuesta válida.\n");
 		        }
 		        }catch(InputMismatchException e) {
-		        	println("Se ha ingresado un tipo de dato incorrecto.\n");
-		        	readString();
+		        	println("Proporcione una respuesta válida.\n");
+		        	readString();//CONSUMIR SALTO DE LÍNEA
 		        	}
 			}while(eleccion<1 || eleccion>2);
 		
 		switch(eleccion) {
 		
 		case 1:
-			tipo="Macho";
+			sexo="Macho";
 			break;
 		case 2:
-			tipo="Hembra";
+			sexo="Hembra";
 			break;
 		}
 		
-		Animal mascota = new Animal(nombre,especie, edad,tipo);
+		Animal mascota = new Animal(nombre,especie, edad,sexo);
 		
 		return mascota;	
 	}
@@ -1167,7 +1161,7 @@ public class Funcionalidad_2 {
 		int edad=0;
 		long cedula=0;
 		
-		println("Proporcione los siguientes datos:");
+		println("Proporcione la siguiente información: ");
 		print("Ingrese su nombre: ");
 		nombre = readString();
 		while(edad<=0) {
@@ -1175,10 +1169,10 @@ public class Funcionalidad_2 {
 				print("Ingrese su edad: ");
 				edad = readInt();
 				if (edad<=0) {
-					println("Proporcione una edad válida.\n");
+					println("Proporcione una respuesta válida.\n");
 				}
 		    }catch(RuntimeException e) {
-		    	println("Se ha ingresado un tipo de dato incorrecto.\n");
+		    	println("Proporcione una respuesta válida.\n");
 		    }finally {
 		    	readString();//CONSUMIR SALTO DE LÍNEA.
 		    	}
@@ -1191,26 +1185,23 @@ public class Funcionalidad_2 {
 				print("Ingrese su nombre: ");	
 				nombre = readString(); 
 				
-				while(edad<18) {
-					try {
-				print("Ingrese su edad: ");
-				edad= readInt();
+			    try {
+			    	print("Ingrese su edad: ");
+				    edad= readInt();
 				
-				if (edad<=0) {
-					println("Proporcione una edad válida.\n");
-				}
-				if (edad<18 && edad>0) {
-					break;
-				}
-					} catch(RuntimeException e) {
-						println("Se ha ingresado un tipo de dato incorrecto.\n");
-					}finally {
+				    if (edad<=0) {
+				    	println("Proporcione una edad válida.\n");
+				        }
+				    
+					if(edad>0 && edad<18) {
+						println("La edad ingresada no corresponde a la de un adulto.\n");
+		             }
+					
+				      } catch(RuntimeException e) {
+				    	   println("Proporcione una respuesta válida.\n");
+				   }finally {
 						readString(); //CONSUMIR SALTO DE LÍNEA.
 					}
-				}
-				if(edad<18 && edad>0) {
-					println("La edad ingresada no corresponde a la de un adulto.\n");
-	             }
 			}while(edad<18);
 		}
 		
@@ -1219,11 +1210,11 @@ public class Funcionalidad_2 {
 			print("Ingrese su número de identificación: ");
 			cedula = readLong();
 			if (cedula<=0) {
-				println("Proporcione una identificación válida.\n");
+				println("Proporcione una respuesta válida.\n");
 				cedula=0;
 				}
 			}catch (InputMismatchException e) {
-				println("Se ha ingresado un tipo de dato incorrecto.\n");
+				println("Proporcione una respuesta válida.\n");
 				readString();
 			}			
 		}	

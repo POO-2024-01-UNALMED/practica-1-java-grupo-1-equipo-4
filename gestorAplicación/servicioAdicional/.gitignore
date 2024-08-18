@@ -4,29 +4,15 @@
 /servicio.class
 /tienda.class
 /EstadoSalud.class
-<<<<<<< Updated upstream
-/Finanza$clasificacion.class
-/Finanza.class
-/Funcionalidad.class
-/TipoServicio.class
-/Empleado$Rol.class
-/Cita.class
-/Empleado.class
-/Producto.class
-/Servicio.class
-/Tienda.class
-/Pruebas.class
-=======
 /Producto.class
 /Servicio.class
 /Empleado.class
 /Cita.class
 /Rol.class
 /Tienda.class
->>>>>>> Stashed changes
 /Funeraria.class
 /Muerto.class
 /Socializar.class
 /MainSocializr.class
 /MainSocializar.class
-/Cita$EstadoCita.class
+/Cupo.class
