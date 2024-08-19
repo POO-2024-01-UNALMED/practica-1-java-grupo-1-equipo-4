@@ -220,22 +220,9 @@ public class CentroAdopcion implements Serializable{
 		empleados.add(empleado);
 	}
 	
-	public static CentroAdopcion getInstance() {
-        if (instance == null) {
-            instance = new CentroAdopcion();
-        }
-        return instance;
-    }
 	
 	//OTROS MÉTODOS
 
-	public void agregarAnimal(Animal animal) {
-		
-		if (espaciosDisponibles>0) {
-			animales.add(animal);
-			espaciosDisponibles--;
-			}
-	}
 	
 	
 	public String toString() {
