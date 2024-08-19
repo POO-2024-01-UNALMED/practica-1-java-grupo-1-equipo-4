@@ -55,6 +55,9 @@ public class Cita{
     	
     	
     }
+    public void aplicarDescuento() {
+    	this.costo -= (this.costo *0.1);
+    }
     
 	public Cliente getCliente() {
         return cliente1;
@@ -87,6 +90,31 @@ public class Cita{
     public void setFecha(LocalDate fecha) {
     	this.fecha=fecha;
     }
+    
+    public String toString() {
+    	
+    	String profesion="";
+    	
+    	if (this.empleado.getProfesion()== Empleado.Rol.VETERINARIO) {
+    		profesion = "Veterinario";
+    	}
+      	if (this.empleado.getProfesion()== Empleado.Rol.CUIDADOR) {
+    		profesion = "Veterinario";
+    	}
+      	if (this.empleado.getProfesion()== Empleado.Rol.PELUQUERO) {
+    		profesion = "Veterinario";
+    	}
+    	
+    	
+    	return "Cliente: " + this.cliente.getNombre() +"\n"
+    			+ "Mascota: " + this.animal.getNombre()+ "\n"
+    			+ profesion +": " + this.empleado.getNombre() + "\n"
+    			+ "Costo cita: " + this.costo + " pesos \n"
+    			+ "Fecha de la cita: " + this.cupo.fechaFormateada() +"\n"
+    			+ "Hora: " + this.cupo.getHoraInicio() + " - "+ this.cupo.getHoraFin();
+    			
+    }
+    
 }
 
 
