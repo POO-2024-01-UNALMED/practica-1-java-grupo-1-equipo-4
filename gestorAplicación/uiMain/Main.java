@@ -1988,7 +1988,7 @@ public class Main {
 			while (bucle==true) {
 				System.out.println("\n¿Cómo desea que se le muestren los productos?");
 				System.out.println("1. Mostrar todo");
-				System.out.println("2. Filtrar por tipo");
+				System.out.println("2. Filtrar por tipo\n");
 				System.out.print("Ingrese el número de la opción que desea [1-2]: ");
 					
 				int menuTienda = 0;
@@ -2017,7 +2017,7 @@ public class Main {
 					System.out.println(t1.inventario());
 				}
 				else {
-					System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves, hamsters o conejos)");
+					System.out.print("\n¿Por qué tipo de animal te gustaría ver? [Perros, gatos, aves, hamsters o conejos]: ");
 					while (true) {
 						try {
 							String tipo = entrada.nextLine();
@@ -2048,7 +2048,7 @@ public class Main {
 								break;
 							}
 							else {
-								System.out.println("Por favor, ingrese el tipo del animal en minúsculas (Perros, gatos, aves o hamsters)");
+								System.out.println("Por favor, ingrese el tipo del animal en minúsculas [Perros, gatos, aves o hamsters]");
 								continue;
 							}
 						}
