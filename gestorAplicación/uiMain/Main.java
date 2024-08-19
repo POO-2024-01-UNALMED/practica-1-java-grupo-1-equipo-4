@@ -1120,6 +1120,7 @@ public class Main {
 
 		
 		println("Ingrese el nombre del cliente");
+		readString();
 		nombre=readString();
 		while(edad <= 0) {		
 		    try {
@@ -1170,6 +1171,7 @@ public class Main {
 		Cliente nuevoCliente= new Cliente(nombre,edad,cedula,celular,participar);
 		
 		println("Ingrese el nombre de su mascota");
+		readString();
 		nombreM=readString();
 		while(edadM <= 0) {		
 		    try {
