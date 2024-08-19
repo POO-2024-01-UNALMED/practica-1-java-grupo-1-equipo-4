@@ -8,6 +8,7 @@ import gestorAplicación.procesoAdopcion.Adopcion;
 import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import gestorAplicación.procesoAdopcion.Cliente;
+import gestorAplicación.servicioAdicional.Cita;
 import gestorAplicación.servicioAdicional.Cupo;
 import gestorAplicación.servicioAdicional.Empleado;
 
@@ -29,16 +30,16 @@ public class Main {
 		
 		//AGREGAR ANIMALES A CADA SEDE -------------------------
 		//SEDE1
-//		sede1.agregarAnimal(new Animal("Capitán","Canario",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Capitán","Canario",2, "Macho", Animal.EstadoSalud.SANO));
 		sede1.agregarAnimal(new Animal("Nala","Canario",3, "Hembra", Animal.EstadoSalud.ENFERMO));
-//		sede1.agregarAnimal(new Animal("Rocky","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Sky","Conejo",3,"Hembra",Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Reina","Gato",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		sede1.agregarAnimal(new Animal("Rey","Gato",3, "Macho", Animal.EstadoSalud.ENFERMO));
-//		sede1.agregarAnimal(new Animal("Rolly","Hámster",1, "Hembra", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Zuma","Hámster",2,"Macho",Animal.EstadoSalud.ENFERMO));
-//    	sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rocky","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Sky","Conejo",3,"Hembra",Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Reina","Gato",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rey","Gato",3, "Macho", Animal.EstadoSalud.ENFERMO));
+		sede1.agregarAnimal(new Animal("Rolly","Hámster",1, "Hembra", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Zuma","Hámster",2,"Macho",Animal.EstadoSalud.ENFERMO));
+    	sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
 		
 		//SEDE2	
 		//sede2.agregarAnimal(new Animal("Bolt","Perro",7, "Macho", Animal.EstadoSalud.SANO));
@@ -94,16 +95,13 @@ public class Main {
 		
 		CentroAdopcion.clientes_AdoptaLove.add(cliente1);
 	}
-	
-	
-	
+		
 	public static void main(String[] args) {
 		  agendar_servicio();
-		//adoptarAnimal();
+		 //adoptarAnimal();
 		
 	}
-	
-	
+		
 	//MÉTODOS NECESARIOS	
 	//ENTRADAS DE DATOS POR TIPO
 	static byte readByte() {
@@ -167,8 +165,6 @@ public class Main {
 
 		   
 	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
-
-	
 	static void adoptarAnimal() {
 		
 		println("\n¡Gracias por tu interés en adoptar un animal! 🐾 Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
@@ -578,10 +574,14 @@ public class Main {
 	
 	static void agendar_servicio(){
 		
+		ArrayList<Cita> citas_agendadas= new ArrayList<>();
+		
 		println("mensaje de bienvenida");
 		println("\nLe recordamos que cada sede de AdoptaLove ofrece un servicio diferente para las mascotas, seleccione según sea su necesidad. \n¿Qué servicio desea agendar?");
 		
 		//SELECCIÓN DE SEDE Y SERVICIO
+		boolean repetir = false;
+		do {
 		int servicio=0;
         println("\n1. SEDE 1 - Servicio: Guarderia \n2. SEDE 2 - Servicio: Veterinaria \n3. SEDE 3 - Servicio: Peluquería\n");
         do {
@@ -674,6 +674,7 @@ public class Main {
         if(confirmacion==false) {
         	
         	println("\nNos disculpamos, pero el servicio que desea no está disponible para su tipo de mascota. Agradecemos su comprensión.\n");
+        	repetir = false;
         }
         else {
         	
@@ -686,6 +687,7 @@ public class Main {
         	if (empleados_disponibles.size()==0) {
         		
         		println("\nActualmente, debido a la falta de disponibilidad de citas, no es posible continuar con el proceso de agendamiento");
+        		repetir = false;
         	}
         	//SI HAY EMPLEADOS CON DISPONIBILIDAD, ENTONCES EL USUARIO LOS PODRÁ VISUALIZAR
         	else {
@@ -763,6 +765,7 @@ public class Main {
         	    //SI EL EMPLEADO NO TIENE CUPOS PARA ESE DÍA, ENTONCES EL PROCESO NO PODRÁ CONTINIAR.
         	    if (cupos_disponibles.size()==0) {
         	    	println("Lamentablemente, el empleado seleccionado no tiene disponibilidad para el día que se eligió.");
+        	    	repetir = false;
         	    }
         	    else {
         	    	//SI EL EMPLEADO TIENE CUPOS PARA EL DIA SELECCIONADO, ENTONCES SE LE MOSTRARÁN AL CLIENTE
@@ -806,6 +809,8 @@ public class Main {
         	    		
         	    	}
         	    	else {	
+        	    		//DE LO CONTRARIO, SI SELECCIONA UNI, ENTONCES SE PROCEDE A REOCGER LOS DATOS DEL CLIENTE 
+        	    		//Y LA MASCOTA.
         	    		Cupo cupo_seleccionado = cupos_disponibles.get(num_cupo-1);
         	    	    println(cupo_seleccionado);
         	    	    
@@ -813,24 +818,45 @@ public class Main {
         	    	    
         	    	    cliente = CentroAdopcion.isCliente(cliente); //COMPROBAR SI EL CLIENTE YA ESTÁ REGISTRADO
         	    	    
-        	    	    Animal mascota = datos_mascota(servicio);
+        	    	    Animal mascota = datos_mascota(servicio); //DATOS DE LA MASCOTA.
+        	    	    
+        	    	    Cita nueva_cita = new Cita(cliente,mascota,empleado_seleccionado,cupo_seleccionado,servicio);
+        	    	    
+        	    	    citas_agendadas.add(nueva_cita);
         	    	    
         	    	    
+        	    	    println("¡Cita agendada exitosamente!");
         	    	    
         	    	    
-        	    	    
-        	    	    
-        	    	    
-        	    	    
-        	    	    
-        	    	    
+        	    	    println("\n¿Desea agendar cita otra cita");
+        	    	    String respues;
+        	    	    readString(); //CONSUMIR SALTO DE LÍNEA
+        		    	do {
+        		    		print("Responda si / no: ");
+        		    	    respues= readString();
+        		    	    
+        		    	    if (respues.equalsIgnoreCase("si")!=true && respues.equalsIgnoreCase("no")!=true) {
+        		    	    	println("Proporcione una respuesta válida.\n");
+        		    	    	
+        		    	    }
+        		    	 }while (respues.equalsIgnoreCase("si")!=true && respues.equalsIgnoreCase("no")!=true);
+        		    	
+        		    	if (respues.equalsIgnoreCase("si")==true) {
+        		    		
+        		    		repetir=true;
+        		    	}
+        		    	else {
+        		    		repetir=false;
+        		    	}
+        	    	    	    
         	    	}
         	    	    	    	
         	    }
         	             
         	}
    	
-        }	
+		}
+	}while(repetir);
 	}
 	
 	
