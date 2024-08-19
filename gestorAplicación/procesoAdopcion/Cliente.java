@@ -20,7 +20,6 @@ public class Cliente extends Persona{
 	
 	public Cliente(String nombre,int edad,long telefono, long cedula,boolean participar) {
 		super(nombre,edad,telefono,cedula);
-		this.participar=participar;
 	}
 	
 	//-------------

@@ -16,10 +16,8 @@ public class Socializar{
 		}
 	
 	public void registroC (Cliente cliente) {
-		if (cliente.isParticipar()) {
 			clientes.add(cliente);
 		}
-	}
 
 	private boolean posibleMatch(Animal animal, Animal animal2) {
 		for (String caracteristicas:animal.getCaracteristicas()) {
