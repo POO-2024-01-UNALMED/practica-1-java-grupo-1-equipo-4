@@ -18,6 +18,10 @@ public class Deserializador {
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
     public static <T> void deserializar(T objeto, List<String> nombresArchivos) {
+        if (!rutaTemp.exists()) {
+            System.out.println("La ruta " + rutaTemp.getAbsolutePath() + " no existe.");
+            return;
+        }
 
         File[] docs = rutaTemp.listFiles();
         if (docs == null) {
