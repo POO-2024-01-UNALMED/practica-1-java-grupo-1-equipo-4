@@ -150,7 +150,20 @@ public class CentroAdopcion implements Serializable{
 	}
 	
 	//----------------------------------------------------------
-	
+	public ArrayList <Empleado>tieneEmpleados() {
+			
+			ArrayList<Empleado> emp_Disponibles = new ArrayList<>();
+			
+			for (Empleado empleado: this.empleados) {
+				
+				if (empleado.tieneCupos()) {
+					
+					emp_Disponibles.add(empleado);
+				}
+			}
+			
+			return emp_Disponibles;
+		}
 	
 	//METODOS SETTER Y GETTER
 
