@@ -2071,22 +2071,29 @@ public class Main {
 							//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
 							
 							if (unidades==1) {
-								System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+								System.out.println("Sus datos serán tomados para registrar la compra.");
+								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								boolean esCliente = Tienda.isCliente(cedula);
-								if (esCliente) {
-									System.out.println("La compra tendrá un 10% de descuento\n");
-								}
-								System.out.println(t1.compra(indice));
+								System.out.print("Ingrese su edad: ");
+								int edad = entrada.nextInt();
+								System.out.print("Ingrese su nombre: ");
+								String nombre = entrada.nextLine();
+								
+								Cliente cliente = new Cliente(nombre, edad, cedula);
+								System.out.println("\n"+t1.compra(indice, cliente));
 							}
 							else {
-								System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+								System.out.println("Sus datos serán tomados para registrar la compra.");
+								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								boolean esCliente = Tienda.isCliente(cedula);
-								if (esCliente) {
-									System.out.println("La compra tendrá un 10% de descuento\n");
-								}
-								System.out.println(t1.compra(indice, unidades));
+								System.out.print("Ingrese su edad: ");
+								int edad = entrada.nextInt();
+								System.out.print("Ingrese su nombre: ");
+								entrada.nextLine();
+								String nombre = entrada.nextLine();
+								
+								Cliente cliente = new Cliente(nombre, edad, cedula);
+								System.out.println("\n"+t1.compra(indice, unidades, cliente));
 							}
 							
 							// ENCERRADO EN ESTAS LINEAS --------------------------------------------------------------------------------
