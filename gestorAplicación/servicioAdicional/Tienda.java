@@ -1,5 +1,4 @@
 package gestorAplicación.servicioAdicional;
-import gestorAplicación.procesoAdopcion.Persona;
 import gestorAplicación.procesoAdopcion.CentroAdopcion;
 import java.util.ArrayList;
 
@@ -8,7 +7,6 @@ public class Tienda {
 		//LISTAS STATIC PARA LA SERIALIZACION 
         public static ArrayList<Producto> productos = new ArrayList<> ();
         public static ArrayList<Empleado> empleados = new ArrayList<> ();
-        public static ArrayList<Persona> voluntarios = new ArrayList<> ();
         private CentroAdopcion centroAdopcion;
         
         //constructores//
@@ -146,13 +144,6 @@ public class Tienda {
             }
         }
 
-        public void agregarVoluntario(Persona voluntario){
-            voluntarios.add(voluntario);
-        }
-
-        public ArrayList<Persona> mostrarVoluntarios(){
-            return voluntarios;
-        }
 
         public String compra(int indice){
             if (empleados!=null){

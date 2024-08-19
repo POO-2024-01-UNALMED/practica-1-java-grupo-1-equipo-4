@@ -22,6 +22,8 @@ public class Funcionalidad_4 {
 		
 		//TODO: RECORDAR COLOCAR EN CENTRO ADOPCIÓN UN ATRIBUTO FUNERARIA (COMO PARA RELACCIONARLOS)
 		
+		//FUNERARIAS CON SUS CENTROS 
+		
 		Funeraria fune1 = new Funeraria(centro1);
 		Funeraria fune2 = new Funeraria(centro2);
 		Funeraria fune3 = new Funeraria(centro3);
