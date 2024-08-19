@@ -129,9 +129,9 @@ public class Main {
 		Deserializador.deserializar(sz, List.of("clientes", "citas"));
 		Deserializador.deserializar(t, List.of("productos", "empleados"));
 		Deserializador.deserializar(m, List.of("flores"));
+				
+		while (true) {
 
-		 int opcion;
-			do {
 				println("¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?");
 				println("1. Adoptar una mascota");
 				println("2. Agendar un servicio");
@@ -139,9 +139,29 @@ public class Main {
 				println("4. Comprar en la tienda para mascotas");
 				println("5. Ingresar a servicios funerarios");
 				println("6. Salir del programa");
-				opcion = readInt();
 				
-				switch (opcion) {
+				int menu = 0;
+				while (menu==0) {
+					try {
+						menu = entrada.nextInt();
+						if (menu>0 && menu<=6) {
+							break;
+						}
+						else {
+							System.out.println("Ingrese un número válido por favor");
+							menu = 0;
+							continue;
+						}
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Por favor ingrese un número entre uno y seis!!!");
+					}
+					finally {
+							entrada.nextLine();//SALTO DE LINEA
+						}
+				}
+				
+				switch (menu) {
 					case 1: adoptarAnimal(); break;
 					case 2: agendar_servicio(); break;
 					case 3: socializar(); break;
@@ -150,9 +170,11 @@ public class Main {
 					case 6: salirDelSistema(); break;
 				}
 				
-			}while (opcion<1 || opcion>6);
+		}
+				
+	}//MAIN	
 			
-	}
+	
 		
 	//MÉTODOS NECESARIOS	
 	//ENTRADAS DE DATOS POR TIPO
