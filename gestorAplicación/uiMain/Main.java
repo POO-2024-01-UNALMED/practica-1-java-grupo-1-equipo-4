@@ -1473,7 +1473,7 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											System.out.println("Digitación de los datos de la mácota:\n");
+											System.out.println("Digitación de los datos de la mascota:\n");
 											System.out.print("Nombre : ");
 											String namePet = entrada.nextLine();
 											System.out.print("Tipo : ");
@@ -1669,7 +1669,7 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											System.out.println("Digitación de los datos de la mácota:\n");
+											System.out.println("Digitación de los datos de la mascota:\n");
 											System.out.print("Nombre : ");
 											String namePet = entrada.nextLine();
 											System.out.print("Tipo : ");
