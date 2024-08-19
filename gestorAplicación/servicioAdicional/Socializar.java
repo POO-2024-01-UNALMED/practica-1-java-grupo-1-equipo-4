@@ -10,7 +10,13 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 
 public class Socializar implements Serializable{
-
+	public static Cliente clientePorDefecto = null;
+	public static Animal animalPorDefecto = null;
+	static {
+        animalPorDefecto =new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
+        clientePorDefecto =new Cliente("Juan", 30, 1234567890L, 987654321L, true);
+        clientePorDefecto.setMascota(animalPorDefecto);
+	}
 	private static final long serialVersionUID = 1L;
 	private static ArrayList<Cliente> clientes = new ArrayList<> ();
 	private static ArrayList<Cita> citas = new ArrayList<> ();

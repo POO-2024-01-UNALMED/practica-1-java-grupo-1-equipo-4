@@ -1160,10 +1160,8 @@ public class Main {
 	
 	static void socializar() {
 		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
-		Cliente cliente=new Cliente("Pedro",24,311786174,10486739,true);
-		Animal animal=new Animal("Canela",4,Arrays.asList("jugueton", "calmado", "activo"));
-		cliente.setMascota(animal);
-		socializar.registroC(cliente);
+		Socializar socializar=new Socializar();
+		socializar.registroC(Socializar.clientePorDefecto);
 
 		//Persona
 		String nombre;
