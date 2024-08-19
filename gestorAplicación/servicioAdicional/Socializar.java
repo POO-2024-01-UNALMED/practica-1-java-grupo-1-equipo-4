@@ -92,6 +92,11 @@ public class Socializar{
     public List<Cita> getCitas(){
     	return citas;
     }
+    
+    public List<Cliente> getClientes(){
+		return clientes;
+	}
+	
 
 }
 

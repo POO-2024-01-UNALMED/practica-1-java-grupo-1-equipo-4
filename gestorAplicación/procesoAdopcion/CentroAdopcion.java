@@ -41,6 +41,10 @@ public class CentroAdopcion implements Serializable{
 	
 	//-----------------------------------------------------------------
 	
+	public CentroAdopcion() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean tieneMascotas() {
 		boolean boleano = false;
 		
@@ -192,6 +196,14 @@ public class CentroAdopcion implements Serializable{
 	
 	public ArrayList<Empleado> getEmpleados(){
 		return empleados;
+	}
+	
+	public ArrayList<Animal> getAnimales(){
+		return animales;
+	}
+	
+	public static ArrayList<Cliente> getClientes(){
+		return clientes_AdoptaLove;
 	}
 	
 		

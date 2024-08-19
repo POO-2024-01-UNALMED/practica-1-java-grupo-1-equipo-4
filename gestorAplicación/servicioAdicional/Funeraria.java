@@ -70,6 +70,14 @@ public class Funeraria {
 	
 	// MÉTODOS //
 	
+	public ArrayList<Muerto> getTumbas(){
+    	return tumbas;
+    }
+    
+    public ArrayList<Muerto> getCenizas(){
+    	return cenizas;
+    }
+	
 	//ESPACIOS
 	public boolean espacioCenizas() {
 		if (cenizas.size()<=25) {

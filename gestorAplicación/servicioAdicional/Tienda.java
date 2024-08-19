@@ -97,6 +97,14 @@ public class Tienda {
         public CentroAdopcion getCentroAdopcion(){
             return this.centroAdopcion;
         }
+        
+        public ArrayList<Producto> getProductos(){
+        	return productos;
+        }
+        
+        public ArrayList<Empleado> getEmpleados(){
+        	return empleados;
+        }
 
         //métodos//
         public void agregarEmpleado(Empleado empleado){

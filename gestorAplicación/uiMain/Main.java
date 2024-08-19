@@ -3,6 +3,8 @@ package gestorAplicación.uiMain;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import baseDatos.Serializador;
 import gestorAplicación.procesoAdopcion.Adopcion;
 import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.Animal.EstadoSalud;
@@ -110,11 +112,34 @@ public class Main {
 	}
 		
 	public static void main(String[] args) {
+
 		 //agendar_servicio();
 		 //adoptarAnimal();
 		 //funeraria();
 		 //tienda();
-		socializar();
+
+		//socializar();
+
+		 int opcion;
+			do {
+				println("¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?");
+				println("1. Adoptar una mascota");
+				println("2. Agendar un servicio");
+				println("3. Agendar cita para socializar");
+				println("4. Comprar en la tienda para mascotas");
+				println("5. Ingresar a servicios funerarios");
+				println("6. Salir del programa");
+				opcion = readInt();
+			}while (opcion<1 || opcion>6);
+			
+			switch (opcion) {
+			case 1: adoptarAnimal(); break;
+			case 2: agendar_servicio(); break;
+			case 3: socializar(); break;
+			case 4: tienda(); break;
+			case 5: funeraria(); break;
+			case 6: salirDelSistema(); break;
+			}
 	}
 		
 	//MÉTODOS NECESARIOS	
@@ -2027,5 +2052,23 @@ public class Main {
 		}
 		}//BUCLE INICIAL
 	}//FINAL MÉTODO TIENDA
+	
+	private static void salirDelSistema() {
+		CentroAdopcion ca = new CentroAdopcion();
+		Funeraria f = new Funeraria();
+		Socializar sz = new Socializar();
+		Tienda t = new Tienda();
+		Muerto m = new Muerto();
+		
+		println("¡Vuelva pronto!");
+		
+		Serializador.serializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
+		Serializador.serializar(f, List.of("tumbas", "cenizas"));
+		Serializador.serializar(sz, List.of("clientes", "citas"));
+		Serializador.serializar(t, List.of("productos", "empleados"));
+		Serializador.serializar(m, List.of("flores"));
+		
+		System.exit(0);
+	}
 }
 	

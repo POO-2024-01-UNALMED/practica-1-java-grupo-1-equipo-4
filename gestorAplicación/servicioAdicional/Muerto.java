@@ -35,6 +35,10 @@ public class Muerto {
 		return this.animal;
 	}
 	
+	public ArrayList<String> getFlores() {
+		return flores;
+	}
+	
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
