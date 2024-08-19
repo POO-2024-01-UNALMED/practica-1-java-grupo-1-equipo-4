@@ -1927,7 +1927,7 @@ public class Main {
 		//OPERACION DE LA TIENDA
 		boolean bucle = true;
 		
-		System.out.println("Bienvenido a la tienda"+"\n");
+		System.out.println("\nBienvenido a la tienda"+"\n");
 		
 		while (true) { 
 		
