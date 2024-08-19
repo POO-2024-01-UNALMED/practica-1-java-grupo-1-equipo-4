@@ -1220,7 +1220,7 @@ public class Main {
 		Cliente cliente=new Cliente("Pedro",24,311786174,10486739,true);
 		Animal animal=new Animal("Canela",4,Arrays.asList("jugueton", "calmado", "activo"));
 		cliente.setMascota(animal);
-		
+		socializar.registroC(cliente);
 		//Persona
 		String nombre;
 		int edad = 0;
