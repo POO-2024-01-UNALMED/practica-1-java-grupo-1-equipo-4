@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import baseDatos.Deserializador;
 import baseDatos.Serializador;
 import gestorAplicación.procesoAdopcion.Adopcion;
 import gestorAplicación.procesoAdopcion.Animal;
@@ -112,13 +113,22 @@ public class Main {
 	}
 		
 	public static void main(String[] args) {
-
 		 //agendar_servicio();
 		 //adoptarAnimal();
 		 //funeraria();
 		 //tienda();
-
 		//socializar();
+		CentroAdopcion ca = new CentroAdopcion();
+		Funeraria f = new Funeraria();
+		Socializar sz = new Socializar();
+		Tienda t = new Tienda();
+		Muerto m = new Muerto();
+		
+		Deserializador.deserializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
+		Deserializador.deserializar(f, List.of("tumbas", "cenizas"));
+		Deserializador.deserializar(sz, List.of("clientes", "citas"));
+		Deserializador.deserializar(t, List.of("productos", "empleados"));
+		Deserializador.deserializar(m, List.of("flores"));
 
 		 int opcion;
 			do {
