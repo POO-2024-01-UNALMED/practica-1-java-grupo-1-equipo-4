@@ -1123,7 +1123,6 @@ public class Main {
 	static void socializar() {
 		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
 		Socializar socializar=new Socializar();
-		socializar.registroC(Socializar.clientePorDefecto());
         
 		//Persona
 		String nombre;
