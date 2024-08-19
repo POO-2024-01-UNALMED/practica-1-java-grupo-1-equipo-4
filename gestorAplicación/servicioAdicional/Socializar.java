@@ -7,12 +7,12 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 
 public class Socializar{
-	private ArrayList<Cliente> clientes;
-	private ArrayList<Cita> citas;
+	private static ArrayList<Cliente> clientes;
+	private static ArrayList<Cita> citas;
 	
 	public Socializar(){
-		this.clientes= new ArrayList<>();
-		this.citas= new ArrayList<>();
+		Socializar.clientes= new ArrayList<>();
+		Socializar.citas= new ArrayList<>();
 		}
 	
 	public void registroC (Cliente cliente) {
@@ -98,11 +98,11 @@ public class Socializar{
 	}
 	
     public void setClientes(ArrayList<Cliente> clientes){
-		this.clientes = clientes;
+		Socializar.clientes = clientes;
 	}
     
     public void setCitas(ArrayList<Cita> citas){
-		this.citas = citas;
+		Socializar.citas = citas;
 	}
 
 }
