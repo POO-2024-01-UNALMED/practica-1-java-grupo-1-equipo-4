@@ -18,7 +18,12 @@ public class Deserializador {
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
     public static <T> void deserializar(T objeto, List<String> nombresArchivos) {
+
         File[] docs = rutaTemp.listFiles();
+        if (docs == null) {
+            System.out.println("No se pudieron listar los archivos en " + rutaTemp.getAbsolutePath());
+            return;
+        }
 
         for (File file : docs) {
             for (String nombreArchivo : nombresArchivos) {
@@ -29,7 +34,7 @@ public class Deserializador {
             }
         }
     }
-    
+
     private static <T> List<?> deserializarLista(File file) {
         try (FileInputStream fis = new FileInputStream(file);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -41,37 +46,36 @@ public class Deserializador {
     }
 
     private static <T> void asignarLista(T objeto, String nombreArchivo, List<?> lista) {
-    	
         if (objeto instanceof CentroAdopcion) {
             CentroAdopcion ca = (CentroAdopcion) objeto;
             switch (nombreArchivo) {
-                case "adopciones": ca.setAdopciones((ArrayList<Adopcion>) objeto); break;
-                case "animales": ca.setAnimales((ArrayList<Animal>) objeto); break;
-                case "clientes": ca.setClientes((ArrayList<Cliente>) objeto); break;
-                case "empleados": ca.setEmpleados((ArrayList<Empleado>) objeto); break;
+                case "adopciones": ca.setAdopciones((ArrayList<Adopcion>) lista); break;
+                case "animales": ca.setAnimales((ArrayList<Animal>) lista); break;
+                case "clientes": ca.setClientes((ArrayList<Cliente>) lista); break;
+                case "empleados": ca.setEmpleados((ArrayList<Empleado>) lista); break;
             }
         } else if (objeto instanceof Funeraria) {
             Funeraria f = (Funeraria) objeto;
             switch (nombreArchivo) {
-                case "tumbas": f.setTumbas((ArrayList<Muerto>) objeto); break;
-                case "cenizas": f.setCenizas((ArrayList<Muerto>) objeto); break;
+                case "tumbas": f.setTumbas((ArrayList<Muerto>) lista); break;
+                case "cenizas": f.setCenizas((ArrayList<Muerto>) lista); break;
             }
         } else if (objeto instanceof Socializar) {
             Socializar sz = (Socializar) objeto;
             switch (nombreArchivo) {
-                case "clientes": sz.setClientes((ArrayList<Cliente>) objeto); break;
-                case "citas": sz.setCitas((ArrayList<Cita>) objeto); break;
+                case "clientes": sz.setClientes((ArrayList<Cliente>) lista); break;
+                case "citas": sz.setCitas((ArrayList<Cita>) lista); break;
             }
         } else if (objeto instanceof Tienda) {
             Tienda t = (Tienda) objeto;
             switch (nombreArchivo) {
-                case "productos": t.setProductos((ArrayList<Producto>) objeto); break;
-                case "empleados": t.setEmpleados((ArrayList<Empleado>) objeto); break;
+                case "productos": t.setProductos((ArrayList<Producto>) lista); break;
+                case "empleados": t.setEmpleados((ArrayList<Empleado>) lista); break;
             }
         } else if (objeto instanceof Muerto) {
             Muerto m = (Muerto) objeto;
             switch (nombreArchivo) {
-                case "productos": m.setFlores((ArrayList<String>) objeto); break;
+                case "productos": m.setFlores((ArrayList<String>) lista); break;
             }
         }
     }

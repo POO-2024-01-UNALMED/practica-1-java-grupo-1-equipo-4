@@ -118,7 +118,17 @@ public class Main {
 		 //funeraria();
 		 //tienda();
 		//socializar();
-
+		CentroAdopcion ca = new CentroAdopcion();
+		Funeraria f = new Funeraria();
+		Socializar sz = new Socializar();
+		Tienda t = new Tienda();
+		Muerto m = new Muerto();
+		
+		Deserializador.deserializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
+		Deserializador.deserializar(f, List.of("tumbas", "cenizas"));
+		Deserializador.deserializar(sz, List.of("clientes", "citas"));
+		Deserializador.deserializar(t, List.of("productos", "empleados"));
+		Deserializador.deserializar(m, List.of("flores"));
 
 		 int opcion;
 			do {

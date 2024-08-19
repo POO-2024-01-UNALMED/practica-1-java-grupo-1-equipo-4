@@ -17,9 +17,17 @@ public class Serializador {
 
     private static File rutaTemp = new File("src\\baseDatos\\temp");
 
-
     public static <T> void serializar(T objeto, List<String> nombresArchivos) {
+        if (!rutaTemp.exists()) {
+            System.out.println("La ruta " + rutaTemp.getAbsolutePath() + " no existe. Creando...");
+            rutaTemp.mkdirs(); // Crear el directorio si no existe.
+        }
+
         File[] docs = rutaTemp.listFiles();
+        if (docs == null) {
+            System.out.println("No se pudieron listar los archivos en " + rutaTemp.getAbsolutePath());
+            return;
+        }
 
         for (File file : docs) {
             limpiarArchivo(file);
