@@ -1143,7 +1143,9 @@ public class Main {
 		List<String> caracteristicas;
 		int opcion=0;
 
-		
+		println("¿Desea participar en socializar? (true/false)");
+		participar=readBoolean();
+		if (participar==true) {
 		println("Ingrese el nombre del cliente");
 		readString();
 		nombre=readString();
@@ -1188,15 +1190,10 @@ public class Main {
 			}finally {
 				readString();
 			}
-		}
-		
-		println("¿Desea participar en socializar? (true/false");
-		participar=readBoolean();
-		
+		}		
 		Cliente nuevoCliente= new Cliente(nombre,edad,cedula,celular,participar);
 		
 		println("Ingrese el nombre de su mascota");
-		readString();
 		nombreM=readString();
 		while(edadM <= 0) {		
 		    try {
@@ -1223,16 +1220,32 @@ public class Main {
 		println("¡Buscando nuevos amigos!....\n");
 		socializar.match();
 		
-	    if (socializar.getCitas().isEmpty()) {
-            println("No se encontraron coincidencias para socializar en este momento.");
-        } else {
-            for (Cita cita : socializar.getCitas()) {
-                System.out.println("Cita generada entre " + cita.getCliente().getNombre() + " con su mascota " + cita.getAnimal().getNombre() +
-                        " y " + cita.getCliente2().getNombre() + " con su mascota " + cita.getAnimal2().getNombre());
-            } 
-        }
-	    if(!socializar.getCitas().isEmpty()) {
-	    Cita primeraCita=socializar.getCitas().get(0);
+		 if (Socializar.getCitas().isEmpty()) {
+	            println("No se encontraron coincidencias para socializar en este momento.");
+	        } else {
+	            println("Elija el número del match con el que desea interactuar:");
+	            for (int i = 0; i < Socializar.getCitas().size(); i++) {
+	                Cita cita = Socializar.getCitas().get(i);
+	                println((i + 1) + ". Cita generada entre " + cita.getCliente().getNombre() + " con su mascota " + cita.getAnimal().getNombre() +
+	                        " y " + cita.getCliente2().getNombre() + " con su mascota " + cita.getAnimal2().getNombre());
+	            }
+
+	            int citaSeleccionada = 0;
+	            while (citaSeleccionada < 1 || citaSeleccionada > Socializar.getCitas().size()) {
+	                try {
+	                    print("Ingrese el número de la cita que desea seleccionar: ");
+	                    citaSeleccionada = readInt();
+	                    if (citaSeleccionada < 1 || citaSeleccionada > Socializar.getCitas().size()) {
+	                        println("Proporcione una respuesta válida.\n");
+	                    }
+	                } catch (RuntimeException e) {
+	                    println("Proporcione una respuesta válida.\n");
+	                } finally {
+	                    readString();
+	                }
+	            }
+	    if(!Socializar.getCitas().isEmpty()) {
+	    Cita primeraCita=Socializar.getCitas().get(citaSeleccionada-1);
 		println("¿Que desea hacer con su cita?");
 		println("1. Aceptarla");
 		println("2. Rechazarla");
@@ -1252,35 +1265,38 @@ public class Main {
 				readString();
 			}
 			
-		switch (opcion) {
-		case 1:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.ACEPTADA);
-			println ("Cita aceptada");
-			break;
-		case 2:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
-			println("Cita rechaza");
-			break;
-		case 3:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.APLAZADA);
-			println("Cita aplazada");
-		default:
-			println("Opcion invalida");
-			break;
+			switch (opcion) {
+			case 1:
+				socializar.cambiarEstadoCita(primeraCita, EstadoCita.ACEPTADA);
+				println("Califica a la mascota de"+primeraCita.getCliente().getNombre()+"de 1 hasta 5");
+				int calificacion=readInt();
+				socializar.calificarAnimal(primeraCita.getAnimal(), calificacion);
+			 
+				println("Califica a la mascota de"+primeraCita.getCliente2().getNombre()+"de 1 hasta 5");
+				int calificacion2=readInt();
+				socializar.calificarAnimal(primeraCita.getAnimal2(), calificacion2);
+			 
+				println("\nPuntaje de " + primeraCita.getAnimal().getNombre() + ": " + primeraCita.getAnimal().getPuntaje());
+				println("\nPuntaje de " + primeraCita.getAnimal2().getNombre() + ": " + primeraCita.getAnimal2().getPuntaje());
+				println("Muchas gracias por participar en socializar");
+				break;
+			case 2:
+				socializar.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
+				println("Cita rechazada");
+				break;
+			case 3:
+				socializar.cambiarEstadoCita(primeraCita, EstadoCita.APLAZADA);
+				println("Cita aplazada");
+			default:
+				println("Opcion invalida");
+				break;
 		}	
 	}
-		println("Califica a la mascota de"+primeraCita.getCliente().getNombre()+"de 1 hasta 5");
-		 int calificacion=readInt();
-		 socializar.calificarAnimal(primeraCita.getAnimal(), calificacion);
-		 
-		 println("Califica a la mascota de"+primeraCita.getCliente2().getNombre()+"de 1 hasta 5");
-		 int calificacion2=readInt();
-		 socializar.calificarAnimal(primeraCita.getAnimal2(), calificacion2);
-		 
-		 println("\nPuntaje de " + primeraCita.getAnimal().getNombre() + ": " + primeraCita.getAnimal().getPuntaje());
-		 println("\nPuntaje de " + primeraCita.getAnimal2().getNombre() + ": " + primeraCita.getAnimal2().getPuntaje());
-		 println("Muchas gracias por participar en socializar");
+	    }
 	}
+		 }else {
+			println("Esperamos que pronto quieras ser parte de Socializar, Te esperamos! \n");
+		}
 	}
 	
 	public static void funeraria() {
