@@ -2081,6 +2081,7 @@ public class Main {
 								System.out.print("Ingrese su edad: ");
 								int edad = entrada.nextInt();
 								System.out.print("Ingrese su nombre: ");
+								entrada.nextLine();
 								String nombre = entrada.nextLine();
 								
 								Cliente cliente = new Cliente(nombre, edad, cedula);
@@ -2108,9 +2109,7 @@ public class Main {
 					catch(InputMismatchException e) {
 						System.out.println("Por favor lea e ingrese correctamente los datos\n");
 					}
-					finally {
-						entrada.nextLine();
-					}
+					
 				}
 				
 				System.out.println("\n¿Desea volver al catálogo? [si/no]");
