@@ -108,10 +108,5 @@ public class Socializar implements Serializable{
     public void setCitas(ArrayList<Cita> citas){
 		Socializar.citas = citas;
 	}
-
-	public static Cliente clientePorDefecto() {
-		return clientePorDefecto;
-	}
-
 }
 
