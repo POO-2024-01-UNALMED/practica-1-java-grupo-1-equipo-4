@@ -1,4 +1,5 @@
 package gestorAplicación.servicioAdicional;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +8,9 @@ import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.Cliente;
 
 
-public class Socializar{
+public class Socializar implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private static ArrayList<Cliente> clientes = new ArrayList<> ();
 	private static ArrayList<Cita> citas = new ArrayList<> ();
 	private static final Cliente clientePorDefecto = null;
