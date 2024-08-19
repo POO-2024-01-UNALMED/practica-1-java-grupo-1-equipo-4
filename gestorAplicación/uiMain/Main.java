@@ -63,7 +63,7 @@ public class Main {
 		sede2.agregarAnimal(new Animal("Golfo","Conejo",3, "Macho", Animal.EstadoSalud.ENFERMO));
 		sede2.agregarAnimal(new Animal("Luna","Conejo",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
 		sede2.agregarAnimal(new Animal("Frapee","Canario",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-		sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
+		//sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
 		sede2.agregarAnimal(new Animal("Luna","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
 		sede2.agregarAnimal(new Animal("Everest","Gato",4, "Hembra", Animal.EstadoSalud.SANO));
 		sede2.agregarAnimal(new Animal("Junior","Hámster",2, "Macho", Animal.EstadoSalud.SANO)); 
@@ -118,17 +118,8 @@ public class Main {
 		 //funeraria();
 		 //tienda();
 		//socializar();
-		CentroAdopcion ca = new CentroAdopcion();
-		Funeraria f = new Funeraria();
-		Socializar sz = new Socializar();
-		Tienda t = new Tienda();
-		Muerto m = new Muerto();
 		
-		Deserializador.deserializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
-		Deserializador.deserializar(f, List.of("tumbas", "cenizas"));
-		Deserializador.deserializar(sz, List.of("clientes", "citas"));
-		Deserializador.deserializar(t, List.of("productos", "empleados"));
-		Deserializador.deserializar(m, List.of("flores"));
+		Deserializador.deserializarListas();
 				
 		while (true) {
 
@@ -2099,19 +2090,11 @@ public class Main {
 	}//FINAL MÉTODO TIENDA
 	
 	private static void salirDelSistema() {
-		CentroAdopcion ca = new CentroAdopcion();
-		Funeraria f = new Funeraria();
-		Socializar sz = new Socializar();
-		Tienda t = new Tienda();
-		Muerto m = new Muerto();
+
 		
 		println("¡Vuelva pronto!");
 		
-		Serializador.serializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
-		Serializador.serializar(f, List.of("tumbas", "cenizas"));
-		Serializador.serializar(sz, List.of("clientes", "citas"));
-		Serializador.serializar(t, List.of("productos", "empleados"));
-		Serializador.serializar(m, List.of("flores"));
+		Serializador.serializarListas();
 		
 		System.exit(0);
 	}

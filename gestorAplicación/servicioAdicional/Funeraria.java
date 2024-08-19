@@ -1,9 +1,13 @@
 package gestorAplicación.servicioAdicional;
 import gestorAplicación.procesoAdopcion.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Funeraria {
+public class Funeraria implements Serializable{
 	
+
+	private static final long serialVersionUID = 1L;
 	// ARRAYLIST LISTOS PARA LA SERIALIZACIÓN
 	private CentroAdopcion centro;
 	public static ArrayList<Muerto> tumbas = new ArrayList<> ();
@@ -70,7 +74,7 @@ public class Funeraria {
 	
 	// MÉTODOS //
 	
-	public ArrayList<Muerto> getTumbas(){
+	public static ArrayList<Muerto> getTumbas(){
     	return tumbas;
     }
     
@@ -78,13 +82,6 @@ public class Funeraria {
     	return cenizas;
     }
     
-    public void setTumbas(ArrayList<Muerto> tumbas) {
-    	Funeraria.tumbas = tumbas;
-    }
-    
-    public void setCenizas(ArrayList<Muerto> cenizas) {
-    	Funeraria.cenizas = cenizas;
-    }
 	
 	//ESPACIOS
 	public boolean espacioCenizas() {

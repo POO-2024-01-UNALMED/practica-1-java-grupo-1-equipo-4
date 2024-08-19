@@ -13,7 +13,7 @@ public class CentroAdopcion implements Serializable{
 	}
 	private ArrayList <Empleado> empleados = new ArrayList<>();
 	private ArrayList < Animal > animales= new ArrayList<Animal>();
-	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
+	private static ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
 	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 	public static ArrayList<Cita> citas_agendadas = new ArrayList<>();
 
@@ -190,7 +190,7 @@ public class CentroAdopcion implements Serializable{
 		this.tienda = tienda;
 	}
 	
-	public ArrayList<Adopcion> getAdopciones(){
+	public static ArrayList<Adopcion> getAdopciones(){
 		return adopciones;
 	}
 	
@@ -206,21 +206,7 @@ public class CentroAdopcion implements Serializable{
 		return clientes_AdoptaLove;
 	}
 	
-	public void setAdopciones(ArrayList<Adopcion> adopciones) {
-        this.adopciones = adopciones;
-    }
 
-    public void setAnimales(ArrayList<Animal> animales) {
-        this.animales = animales;
-    }
-
-    public void setClientes(ArrayList<Cliente> clientes) {
-        CentroAdopcion.clientes_AdoptaLove = clientes;
-    }
-
-    public void setEmpleados(ArrayList<Empleado> empleados) {
-        this.empleados = empleados;
-    }
 	
 		
 	public void agregarEmpleado(Empleado empleado) {

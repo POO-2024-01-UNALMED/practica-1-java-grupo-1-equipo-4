@@ -15,72 +15,41 @@ import java.util.List;
 
 public class Deserializador {
 
-    private static File rutaTemp = new File("src\\baseDatos\\temp");
+	private static <T> void deserializar(ArrayList<T> lista, String nombre) {
 
-    public static <T> void deserializar(T objeto, List<String> nombresArchivos) {
-        if (!rutaTemp.exists()) {
-            System.out.println("La ruta " + rutaTemp.getAbsolutePath() + " no existe.");
-            return;
-        }
 
-        File[] docs = rutaTemp.listFiles();
-        if (docs == null) {
-            System.out.println("No se pudieron listar los archivos en " + rutaTemp.getAbsolutePath());
-            return;
-        }
+		FileInputStream fis;
+		ObjectInputStream ois;
 
-        for (File file : docs) {
-            for (String nombreArchivo : nombresArchivos) {
-                if (file.getAbsolutePath().contains(nombreArchivo)) {
-                    List<?> lista = deserializarLista(file);
-                    asignarLista(objeto, nombreArchivo, lista);
-                }
-            }
-        }
-    }
+		try {
+			File path = new File("src/baseDatos/temp/" + nombre + ".txt");
 
-    private static <T> List<?> deserializarLista(File file) {
-        try (FileInputStream fis = new FileInputStream(file);
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-            return (List<?>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
-    }
 
-    private static <T> void asignarLista(T objeto, String nombreArchivo, List<?> lista) {
-        if (objeto instanceof CentroAdopcion) {
-            CentroAdopcion ca = (CentroAdopcion) objeto;
-            switch (nombreArchivo) {
-                case "adopciones": ca.setAdopciones((ArrayList<Adopcion>) lista); break;
-                case "animales": ca.setAnimales((ArrayList<Animal>) lista); break;
-                case "clientes": ca.setClientes((ArrayList<Cliente>) lista); break;
-                case "empleados": ca.setEmpleados((ArrayList<Empleado>) lista); break;
-            }
-        } else if (objeto instanceof Funeraria) {
-            Funeraria f = (Funeraria) objeto;
-            switch (nombreArchivo) {
-                case "tumbas": f.setTumbas((ArrayList<Muerto>) lista); break;
-                case "cenizas": f.setCenizas((ArrayList<Muerto>) lista); break;
-            }
-        } else if (objeto instanceof Socializar) {
-            Socializar sz = (Socializar) objeto;
-            switch (nombreArchivo) {
-                case "clientes": sz.setClientes((ArrayList<Cliente>) lista); break;
-                case "citas": sz.setCitas((ArrayList<Cita>) lista); break;
-            }
-        } else if (objeto instanceof Tienda) {
-            Tienda t = (Tienda) objeto;
-            switch (nombreArchivo) {
-                case "productos": t.setProductos((ArrayList<Producto>) lista); break;
-                case "empleados": t.setEmpleados((ArrayList<Empleado>) lista); break;
-            }
-        } else if (objeto instanceof Muerto) {
-            Muerto m = (Muerto) objeto;
-            switch (nombreArchivo) {
-                case "productos": m.setFlores((ArrayList<String>) lista); break;
-            }
-        }
-    }
+			fis = new FileInputStream(path);
+			ois = new ObjectInputStream(fis);
+
+			lista.addAll((ArrayList<T>) ois.readObject());
+
+			ois.close();
+			fis.close();
+
+		}catch(FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		}catch(IOException e) {
+
+			e.printStackTrace();
+
+		}catch(ClassNotFoundException e) {
+
+			e.printStackTrace();
+
+		}
+	}
+
+	public static void deserializarListas() {
+		deserializar(CentroAdopcion.getAdopciones(), "Adopciones");
+
+	}
 }

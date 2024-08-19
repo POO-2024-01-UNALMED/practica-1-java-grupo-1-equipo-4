@@ -1,9 +1,11 @@
 package gestorAplicación.servicioAdicional;
+import java.io.Serializable;
 import java.util.ArrayList;
 import gestorAplicación.procesoAdopcion.*;
 
-public class Muerto {
+public class Muerto implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private Animal animal;
 	private String fecha;
 	private String mensaje;

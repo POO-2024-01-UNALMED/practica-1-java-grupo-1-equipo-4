@@ -6,92 +6,51 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import gestorAplicación.procesoAdopcion.*;
 import gestorAplicación.servicioAdicional.*;
 
-
-
 public class Serializador {
 
-    private static File rutaTemp = new File("src\\baseDatos\\temp");
+	private static void serializar(ArrayList<? extends Object> lista, String nombre) {
 
-    public static <T> void serializar(T objeto, List<String> nombresArchivos) {
-        if (!rutaTemp.exists()) {
-            System.out.println("La ruta " + rutaTemp.getAbsolutePath() + " no existe. Creando...");
-            rutaTemp.mkdirs(); // Crear el directorio si no existe.
-        }
+		File archivo = new File("");
 
-        File[] docs = rutaTemp.listFiles();
-        if (docs == null) {
-            System.out.println("No se pudieron listar los archivos en " + rutaTemp.getAbsolutePath());
-            return;
-        }
+		try {
+			File path = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/" + nombre + ".txt");
 
-        for (File file : docs) {
-            limpiarArchivo(file);
+			FileOutputStream fop = new FileOutputStream(path);
+			ObjectOutputStream oos = new ObjectOutputStream(fop);
 
-            for (String nombreArchivo : nombresArchivos) {
-                if (file.getAbsolutePath().contains(nombreArchivo)) {
-                    List<?> lista = obtenerLista(objeto, nombreArchivo);
-                    if (lista != null) {
-                        serializarLista(file, lista);
-                    }
-                }
-            }
-        }
-    }
+			oos.writeObject(lista);
 
-    private static <T> List<?> obtenerLista(T objeto, String nombreArchivo) {
-        if (objeto instanceof CentroAdopcion) {
-            CentroAdopcion ca = (CentroAdopcion) objeto;
-            switch (nombreArchivo) {
-                case "adopciones": return ca.getAdopciones();
-                case "animales": return ca.getAnimales();
-                case "clientes": return CentroAdopcion.getClientes();
-                case "empleados": return ca.getEmpleados();
-            }
-        } else if (objeto instanceof Funeraria) {
-            Funeraria f = (Funeraria) objeto;
-            switch (nombreArchivo) {
-                case "tumbas": return f.getTumbas();
-                case "cenizas": return f.getCenizas();
-            }
-        } else if (objeto instanceof Socializar) {
-            Socializar sz = (Socializar) objeto;
-            switch (nombreArchivo) {
-                case "clientes": return sz.getClientes();
-                case "citas": return sz.getCitas();
-            }
-        } else if (objeto instanceof Tienda) {
-            Tienda t = (Tienda) objeto;
-            switch (nombreArchivo) {
-                case "productos": return t.getProductos();
-                case "empleados": return t.getEmpleados();
-            }
-        } else if (objeto instanceof Muerto) {
-            Muerto m = (Muerto) objeto;
-            switch (nombreArchivo) {
-                case "flores": return m.getFlores();
-            }
-        }
-        return null;
-    }
+			oos.close();
+			fop.close();
 
-    private static void limpiarArchivo(File file) {
-        try (PrintWriter pw = new PrintWriter(file)) {
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+		}catch(FileNotFoundException e) {
 
-    private static <T> void serializarLista(File file, List<T> lista) {
-        try (FileOutputStream fos = new FileOutputStream(file);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(lista);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+			System.out.println("No se encuentra el archivo ingresado");
+
+		}catch(IOException e) {
+
+			System.out.println("Error en el flujo de inicializacion");
+
+		}
+			//--------
+			//----------
+			//--------
+	}
+
+	public static void serializarListas() {
+		serializar(CentroAdopcion.getAdopciones(), "Adopciones");
+		serializar(CentroAdopcion.getClientes(), "Clientes");
+		
+		
+		serializar(Funeraria.getTumbas(), "Tumbas");
+		
+
+
+	}
 }
