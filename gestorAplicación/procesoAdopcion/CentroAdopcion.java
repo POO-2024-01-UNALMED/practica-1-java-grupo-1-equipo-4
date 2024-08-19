@@ -11,17 +11,18 @@ public class CentroAdopcion implements Serializable{
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
-	private ArrayList <Empleado> empleados = new ArrayList<>();
-	private ArrayList < Animal > animales= new ArrayList<Animal>();
-	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
-	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
-	private ArrayList<Cita> citas_agendadas = new ArrayList<>();
+	private ArrayList <Empleado> empleados = new ArrayList<>();//
+	private ArrayList < Animal > animales= new ArrayList<Animal>();//
+	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();//
+	private ArrayList<Cita> citas_agendadas = new ArrayList<>();//
+	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();//
 
+	
 	private static CentroAdopcion instance;
 	private static final long serialVersionUID = 1L;
-	private String nombre;
-	private int espaciosDisponibles;
-	private tipoServicio servicio;
+	private String nombre;//
+	private int espaciosDisponibles;//
+	private tipoServicio servicio;//
 	private Tienda tienda;
 	
 
@@ -140,10 +141,15 @@ public class CentroAdopcion implements Serializable{
 		espaciosDisponibles++;
 	}
 	
-	public void agregarAdopcion(Adopcion adopcion) {
-		adopciones.add(adopcion);
-		adopcion.getCliente().agregar_puntos(5); //SE AGREGAN 5 PUNTOS 
+	
+	public void agregarAnimal(Animal animal) {
+		
+		if (espaciosDisponibles>0) {
+			animales.add(animal);
+			espaciosDisponibles--;
+			}
 	}
+	
 	
 	//----------------------------------------------------------
 	public ArrayList <Empleado>tieneEmpleados() {
@@ -223,27 +229,4 @@ public class CentroAdopcion implements Serializable{
         return instance;
     }
 	
-	
-	//OTROS MÉTODOS
-
-	public void agregarAnimal(Animal animal) {
-		
-		if (espaciosDisponibles>0) {
-			animales.add(animal);
-			espaciosDisponibles--;
-			}
-	}
-	
-	
-	public String toString() {
-		if (tienda!= null) {	
-		return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: si ";
-		}
-		else {
-			return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: no";
-		}
-		
-	}
-
-
 }
