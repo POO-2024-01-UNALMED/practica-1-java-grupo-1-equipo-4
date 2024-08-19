@@ -42,7 +42,6 @@ public class Deserializador {
 
     private static <T> void asignarLista(T objeto, String nombreArchivo, List<?> lista) {
     	
-    	ObjectInputStream ois;
         if (objeto instanceof CentroAdopcion) {
             CentroAdopcion ca = (CentroAdopcion) objeto;
             switch (nombreArchivo) {

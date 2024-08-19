@@ -118,17 +118,7 @@ public class Main {
 		 //funeraria();
 		 //tienda();
 		//socializar();
-		CentroAdopcion ca = new CentroAdopcion();
-		Funeraria f = new Funeraria();
-		Socializar sz = new Socializar();
-		Tienda t = new Tienda();
-		Muerto m = new Muerto();
-		
-		Deserializador.deserializar(ca, List.of("adopciones", "animales", "clientes", "empleados"));
-		Deserializador.deserializar(f, List.of("tumbas", "cenizas"));
-		Deserializador.deserializar(sz, List.of("clientes", "citas"));
-		Deserializador.deserializar(t, List.of("productos", "empleados"));
-		Deserializador.deserializar(m, List.of("flores"));
+
 
 		 int opcion;
 			do {
@@ -142,13 +132,13 @@ public class Main {
 				opcion = readInt();
 				
 				switch (opcion) {
-				case 1: adoptarAnimal(); break;
-				case 2: agendar_servicio(); break;
-				case 3: socializar(); break;
-				case 4: tienda(); break;
-				case 5: funeraria(); break;
-				case 6: salirDelSistema(); break;
-			}
+					case 1: adoptarAnimal(); break;
+					case 2: agendar_servicio(); break;
+					case 3: socializar(); break;
+					case 4: tienda(); break;
+					case 5: funeraria(); break;
+					case 6: salirDelSistema(); break;
+				}
 				
 			}while (opcion<1 || opcion>6);
 			
