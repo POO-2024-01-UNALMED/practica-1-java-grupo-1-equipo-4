@@ -177,7 +177,7 @@ public class Tienda {
                     if (productos.get(indice).getCantidadUnidades()==0) {
                     	productos.remove(indice);
                     }
-                    return "Se compró una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $";
+                    return "---------------------------------------------"+"\n"+"Se compró una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"---------------------------------------------";
                 }
                 else{
                     return "No hay unidades suficientes.";
@@ -205,7 +205,7 @@ public class Tienda {
                     if (productos.get(indice).getCantidadUnidades()==0) {
                     	productos.remove(indice);
                     }
-                    return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+unidades*precio+" $";
+                    return "---------------------------------------------"+"\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+unidades*precio+" $"+"\n"+"---------------------------------------------";
                 }
                 else{
                     return "No pudimos realizar la compra, no hay unidades suficientes.";
