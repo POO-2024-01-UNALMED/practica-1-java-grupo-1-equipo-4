@@ -1137,10 +1137,10 @@ public class Main {
 		List<String> caracteristicas;
 		int opcion=0;
 
-		println("¿Desea participar en socializar? (true/false)");
+		println("¿Deseas participar en socializar? (true/false)");
 		participar=readBoolean();
 		if (participar==true) {
-		println("Ingrese el nombre del cliente");
+		println("Ingresa el nombre del cliente");
 		readString();
 		nombre=readString();
 		while(edad <= 0) {		
@@ -1173,7 +1173,7 @@ public class Main {
 		}
 		while(cedula<=0) {
 			try {
-				print("Ingrese su cedula");
+				print("Ingrese su cedula🪪");
 				cedula=readLong();
 				if (cedula<=0) {
 					println("Proporcione una respuesta válida.\n");
@@ -1187,11 +1187,11 @@ public class Main {
 		}		
 		Cliente nuevoCliente= new Cliente(nombre,edad,cedula,celular,participar);
 		
-		println("Ingrese el nombre de su mascota");
+		println("Ingrese el nombre de su mascota🐾");
 		nombreM=readString();
 		while(edadM <= 0) {		
 		    try {
-				print("Ingrese su edad: ");
+				print("Ingrese la edad de la mascota: ");
 				edadM = readInt();
 				if (edadM <= 0) {
 					println("Proporcione una respuesta válida.\n");
@@ -1203,7 +1203,7 @@ public class Main {
 		    	readString();
 		    	}
 		}
-		println("Indica que caracteristicas tiene tu mascota separadas por coma (jugueton, calmado, activo, pasivo");
+		println("Indica que caracteristicas tiene tu mascota separadas por coma (jugueton, calmado, activo, pasivo)");
 		caracteristicas= Arrays.asList(readString().split("\\s*,\\s*"));
 		
 		Animal nuevaMascota=new Animal(nombreM,edadM,caracteristicas);
@@ -1215,7 +1215,7 @@ public class Main {
 		socializar.match();
 		
 		 if (Socializar.getCitas().isEmpty()) {
-	            println("No se encontraron coincidencias para socializar en este momento.");
+	            println("No se encontraron coincidencias para socializar en este momento. :( ");
 	        } else {
 	            println("Elija el número del match con el que desea interactuar:");
 	            for (int i = 0; i < Socializar.getCitas().size(); i++) {
@@ -1272,7 +1272,7 @@ public class Main {
 			 
 				println("\nPuntaje de " + primeraCita.getAnimal().getNombre() + ": " + primeraCita.getAnimal().getPuntaje());
 				println("\nPuntaje de " + primeraCita.getAnimal2().getNombre() + ": " + primeraCita.getAnimal2().getPuntaje());
-				println("Muchas gracias por participar en socializar");
+				println("Muchas gracias por participar en socializar 😊");
 				break;
 			case 2:
 				socializar.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
