@@ -36,6 +36,11 @@ public class Main {
 	static CentroAdopcion sede2;
 	static CentroAdopcion sede3;
 	static Tienda t1;
+	static 	ArrayList<Funeraria> funerarias;
+	
+	static Funeraria fune1;
+	static Funeraria fune2;
+	static Funeraria fune3;
 	
 	static {
 		
@@ -131,9 +136,10 @@ public class Main {
       t1.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
       t1.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
       t1.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));  
-		
-		
-		
+      fune1 = new Funeraria(sede1);
+  	  fune2 = new Funeraria(sede2);
+  	  fune3 = new Funeraria(sede3);
+	  funerarias = new ArrayList<> ();
 		
 		
 		
@@ -1362,14 +1368,6 @@ public class Main {
 	}
 	
 	public static void funeraria() {
-		
-		//FUNERARIAS CON SUS CENTROS 
-		
-		Funeraria fune1 = new Funeraria(sede1);
-		Funeraria fune2 = new Funeraria(sede2);
-		Funeraria fune3 = new Funeraria(sede3);
-		
-		ArrayList<Funeraria> funerarias = new ArrayList<> ();
 		
 		funerarias.add(fune1);
 		funerarias.add(fune2);
