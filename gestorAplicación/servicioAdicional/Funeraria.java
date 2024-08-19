@@ -14,43 +14,43 @@ public class Funeraria implements Serializable{
 	public static ArrayList<Muerto> cenizas = new ArrayList<> ();
 	
 	//TUMBAS PUESTAS BY DEFAULT 
-	static {
-		//CLIENTES BY DEFAULT
-		Cliente c1 = new Cliente("Miguel Cortés", 19, 1020349);
-		Cliente c2 = new Cliente("Julian Sanchéz", 18, 234933);
-		Cliente c3 = new Cliente("Catalina Salazar", 18, 666);
-		Cliente c4 = new Cliente("Nico Murcia", 19, 3335632);
-		Cliente c5 = new Cliente("Richard Pérez", 19, 339393);
-		
-		//ANIMALES BY DEFAULT
-		Animal b1 = new Animal("Rocky", "Perro", 8, "Macho");
-		Animal b2 = new Animal("Zimba", "Gato",13, "Macho");
-		Animal b3 = new Animal("Coco", "Pato", 15, "Hembra");
-		Animal b4 = new Animal("Lucero", "Vaca", 9 , "Macho");
-		Animal b5 = new Animal("Milo", "Hamster", 16, "Hembra");
-		
-		//MUERTOS BY DEFAULT
-		Muerto a1 = new Muerto(b1, "18/08/2022", "Eres nuestro ángel de cuatro patas, siempre en nuestros corazones.", c1, "Permanente", "tumba");
-		Muerto a2 = new Muerto(b2, "23/1/2023", "Tu lealtad y amor nunca serán olvidados.", c2, "4 años", "tumba");
-		Muerto a3 = new Muerto(b3, "7/05/2022", "Eternamente en nuestros pensamientos.", c3, "Permanente", "Osario");
-		Muerto a4 = new Muerto(b4, "21/07/2021", "Fuiste la vaca más bonita de mi rancho.", c4, "7 años", "tumba");
-		Muerto a5 = new Muerto(b5, "18/08/2024", "Te queremos y te extrañamos.", c5, "6 años", "Osario");
-		
-		//FLORES BY DEFAULT
-		a4.ponerFlor("Girasoles");
-		a3.ponerFlor("Margaritas");
-		a1.ponerFlor("Rosas");
-		a1.ponerFlor("Lirios");
-		a2.ponerFlor("Claveles");
-		a2.ponerFlor("Hortensias");
-		
-		//TUMBAS Y CENIZAS BY DEFUALT
-		Funeraria.cenizas.add(a5);
-		Funeraria.tumbas.add(a4);
-		Funeraria.tumbas.add(a2);
-		Funeraria.cenizas.add(a3);
-		Funeraria.tumbas.add(a1);
-	}
+//	static {
+//		//CLIENTES BY DEFAULT
+//		Cliente c1 = new Cliente("Miguel Cortés", 19, 1020349);
+//		Cliente c2 = new Cliente("Julian Sanchéz", 18, 234933);
+//		Cliente c3 = new Cliente("Catalina Salazar", 18, 666);
+//		Cliente c4 = new Cliente("Nico Murcia", 19, 3335632);
+//		Cliente c5 = new Cliente("Richard Pérez", 19, 339393);
+//		
+//		//ANIMALES BY DEFAULT
+//		Animal b1 = new Animal("Rocky", "Perro", 8, "Macho");
+//		Animal b2 = new Animal("Zimba", "Gato",13, "Macho");
+//		Animal b3 = new Animal("Coco", "Pato", 15, "Hembra");
+//		Animal b4 = new Animal("Lucero", "Vaca", 9 , "Macho");
+//		Animal b5 = new Animal("Milo", "Hamster", 16, "Hembra");
+//		
+//		//MUERTOS BY DEFAULT
+//		Muerto a1 = new Muerto(b1, "18/08/2022", "Eres nuestro ángel de cuatro patas, siempre en nuestros corazones.", c1, "Permanente", "tumba");
+//		Muerto a2 = new Muerto(b2, "23/1/2023", "Tu lealtad y amor nunca serán olvidados.", c2, "4 años", "tumba");
+//		Muerto a3 = new Muerto(b3, "7/05/2022", "Eternamente en nuestros pensamientos.", c3, "Permanente", "Osario");
+//		Muerto a4 = new Muerto(b4, "21/07/2021", "Fuiste la vaca más bonita de mi rancho.", c4, "7 años", "tumba");
+//		Muerto a5 = new Muerto(b5, "18/08/2024", "Te queremos y te extrañamos.", c5, "6 años", "Osario");
+//		
+//		//FLORES BY DEFAULT
+//		a4.ponerFlor("Girasoles");
+//		a3.ponerFlor("Margaritas");
+//		a1.ponerFlor("Rosas");
+//		a1.ponerFlor("Lirios");
+//		a2.ponerFlor("Claveles");
+//		a2.ponerFlor("Hortensias");
+//		
+//		//TUMBAS Y CENIZAS BY DEFUALT
+//		Funeraria.cenizas.add(a5);
+//		Funeraria.tumbas.add(a4);
+//		Funeraria.tumbas.add(a2);
+//		Funeraria.cenizas.add(a3);
+//		Funeraria.tumbas.add(a1);
+//	}
 	
 	//CONSTRUCTORES//
 	public Funeraria () {
