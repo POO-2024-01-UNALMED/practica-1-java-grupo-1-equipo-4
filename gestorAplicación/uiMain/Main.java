@@ -625,6 +625,9 @@ public class Main {
 	
 		//SELECCIÓN DE SEDE Y SERVICIO
 		boolean repetir = false;
+		boolean mismoUsuario=false;
+		
+		Cliente cliente= null;
 		do {
 		int servicio=0;
 		println("\nLe recordamos que cada sede de AdoptaLove ofrece un servicio diferente para las mascotas, seleccione según sea su necesidad. \n¿Qué servicio desea agendar?");
@@ -859,15 +862,20 @@ public class Main {
         	    		Cupo cupo_seleccionado = cupos_disponibles.get(num_cupo-1);
         	    	    println(cupo_seleccionado);
         	    	    
-        	    	    Cliente cliente = datos_cliente(); //DATOS DEL CLIENTE
+        	    	    if (mismoUsuario!=true) {
+        	    	    
+        	    	    cliente = datos_cliente(); //DATOS DEL CLIENTE
         	    	    
         	    	    cliente = CentroAdopcion.isCliente(cliente); //COMPROBAR SI EL CLIENTE YA ESTÁ REGISTRADO
+        	    	    readString();
+        	    	    }
         	    	    
         	    	    Animal mascota = datos_mascota(servicio); //DATOS DE LA MASCOTA.
         	    	    
+        	    	    //CREAR EL OBJETO DE TIPO CITA
         	    	    Cita nueva_cita = new Cita(cliente,mascota,empleado_seleccionado,cupo_seleccionado,servicio);
         	    	    
-        	    	    citas_agendadas.add(nueva_cita);
+        	    	    citas_agendadas.add(nueva_cita);//AGREGAR LA CITA AL ARRAY DE CITAS QUE EL USUARIO ESTÁ AGENDANDO
         	    	    
         	    	    
         	    	    println("¡Cita agendada exitosamente!");
@@ -889,24 +897,24 @@ public class Main {
         		    	if (respues.equalsIgnoreCase("si")==true) {
         		    		
         		    		repetir=true;
+        		    		mismoUsuario = true;
         		    	}
         		    	else {
-        		    		repetir=false;
-        		    	}
-        	    	    	    
-        	    	}
-        	    	    	    	
-        	    }
-        	             
+        		    		repetir = false;
+        		    		mismoUsuario = false;
+        		    	}     	    	    	    
+        	    	}   	    	    	
+        	    }    
         	}
-   	
 		}
 	}while(repetir);
 		
-		//FACTURA
-		for (Cita cita: citas_agendadas) {
+		if (citas_agendadas.size()!=0) {
 			
-		}
+			int puntos = cliente.getPuntos();
+			
+			println(puntos);
+		}	
 	}
 	
 	
@@ -983,7 +991,7 @@ public class Main {
 	
 	
 	public static Animal datos_mascota(int servicio) {
-		readString();//CONSUMIR SALTO DE LÍNEA
+		//readString();//CONSUMIR SALTO DE LÍNEA
 		
 		String nombre = null;
 		int edad = 0;
