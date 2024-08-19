@@ -32,10 +32,9 @@ public class Animal {
 		this.sexo = sexo;
 	}
 	
-	public Animal(String nombre, int edad,EstadoSalud estadoSalud,List<String> caracteristicas) {
+	public Animal(String nombre, int edad,List<String> caracteristicas) {
 		this.nombre = nombre;
 		this.edad = edad;
-		this.estadoSalud = estadoSalud;
 		this.caracteristicas=new ArrayList<>(caracteristicas);
 		this.puntaje=100;
 	}

@@ -10,8 +10,8 @@ public class MainSocializar {
 		Cliente persona2=new Cliente("Salo",23,457653830,184950530,true);
 	
 		
-		Animal perro=new Animal("Homero",2,EstadoSalud.SANO,Arrays.asList("jugueton","calmado"));
-		Animal gato=new Animal("Ari",3,EstadoSalud.SANO,Arrays.asList("tranquilo","calmado"));
+		Animal perro=new Animal("Homero",2,Arrays.asList("jugueton","calmado"));
+		Animal gato=new Animal("Ari",3,Arrays.asList("tranquilo","calmado"));
 		persona1.setMascota(gato);
 		persona2.setMascota(perro);
 		
@@ -43,3 +43,5 @@ public class MainSocializar {
     	}
 	}
 }
+
+
