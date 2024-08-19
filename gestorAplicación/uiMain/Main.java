@@ -712,15 +712,15 @@ public class Main {
         		switch(servicio) {
         		
         		case 1:
-        			println("\nContamos con los siguientes cuidadores de mascotas, seleccione el de su preferencia:\n");
+        			println("\nContamos con los siguientes cuidadores de mascotas, seleccione el de su preferencia:");
         	    	break;
         	    	
         		case 2:
-        			println("\nContamos con los siguientes veterinarios, seleccione el de su preferencia:\n");
+        			println("\nContamos con los siguientes veterinarios, seleccione el de su preferencia:");
         	    	break;
         	    	
         		case 3:
-        			println("\nContamos con los siguientes peluqueros de mascotas, seleccione el de su preferencia:\n");
+        			println("\nContamos con los siguientes peluqueros de mascotas, seleccione el de su preferencia:");
         	    	break;	
         		}
         		
@@ -734,16 +734,16 @@ public class Main {
                 //SELECCIONAR AL EMPLEADO
                 int num_empleado = 0;
         	 	do {
-            		print("Ingrese su elección dentro del rango [1-" + empleados_disponibles.size() + "]: " );
+            		print("\nIngrese su elección dentro del rango [1-" + empleados_disponibles.size() + "]: " );
             		try {
             			num_empleado= readInt();
             			
             			if (num_empleado<1 || num_empleado > empleados_disponibles.size()) {
-            				println("Proporcione una respuesta válida.\n");
+            				println("Proporcione una respuesta válida.");
             			}
             			
             		}catch(InputMismatchException e) {
-            			println("Proporcione una respuesta válida.\n");
+            			println("Proporcione una respuesta válida.");
             		}finally {
             			readString();
             		}
@@ -804,7 +804,7 @@ public class Main {
         	    	int num_cupo=0;
         	    	do {
         	    		try {
-        	    			print("Ingrese su elección en el rango en el rango [1 -" + (cupos_disponibles.size()+1) +"]:");
+        	    			print("Ingrese su elección en el rango en el rango [1 -" + (cupos_disponibles.size()+1) +"]: ");
         	    		    num_cupo = readInt();
         	    		
         	    		    if (num_cupo<1 || num_cupo>(cupos_disponibles.size()+1)) {
@@ -823,7 +823,7 @@ public class Main {
         	    	//SI EL USUARIO DECIDE CANCELAR EL PROCESO DE AGENDAMIENTO DE CITA, ENTONCES EL PROCESO FINALIZARÁ.
         	    	if (num_cupo==(cupos_disponibles.size()+1)) {
         	    		
-        	    		println("Se ha cancelado la cita");
+        	    		println("Se ha cancelado el agendamiento de la cita.");
         	    		
         	    	}
         	    	else {	
@@ -846,7 +846,7 @@ public class Main {
         	    	    println("¡Cita agendada exitosamente!");
         	    	    
         	    	    
-        	    	    println("\n¿Desea agendar cita otra cita");
+        	    	    println("\n¿Desea agendar cita otra cita?");
         	    	    String respues;
         	    	    readString(); //CONSUMIR SALTO DE LÍNEA
         		    	do {
