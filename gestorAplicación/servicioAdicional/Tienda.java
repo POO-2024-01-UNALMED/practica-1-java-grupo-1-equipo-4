@@ -12,7 +12,6 @@ public class Tienda {
         //constructores//
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
             Tienda.empleados.add(empleado); //Tienda con un empleado 
-            centroAdopcion.setTienda(this);
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
@@ -99,11 +98,11 @@ public class Tienda {
             return this.centroAdopcion;
         }
         
-        public static ArrayList<Producto> getProductos(){
+        public ArrayList<Producto> getProductos(){
         	return productos;
         }
         
-        public static ArrayList<Empleado> getEmpleados(){
+        public ArrayList<Empleado> getEmpleados(){
         	return empleados;
         }
         
@@ -173,11 +172,10 @@ public class Tienda {
                     productos.get(indice).setCantidadUnidades(cantidad);
                     String nombre = productos.get(indice).getNombre();
                     String tipo =  productos.get(indice).getTipoAnimal();
-                    float precio = productos.get(indice).getPrecio();
                     if (productos.get(indice).getCantidadUnidades()==0) {
                     	productos.remove(indice);
                     }
-                    return "---------------------------------------------"+"\n"+"Se compró una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"---------------------------------------------";
+                    return "Se compró una unidad de: "+nombre+" para "+tipo;
                 }
                 else{
                     return "No hay unidades suficientes.";
@@ -200,12 +198,11 @@ public class Tienda {
                     cantidad-=unidades;
                     productos.get(indice).setCantidadUnidades(cantidad);
                     String nombre = productos.get(indice).getNombre();
-                    String tipo = productos.get(indice).getTipoAnimal();
-                    float precio = productos.get(indice).getPrecio();
+                    String tipo = productos.get(indice).getTipoAnimal(); 
                     if (productos.get(indice).getCantidadUnidades()==0) {
                     	productos.remove(indice);
                     }
-                    return "---------------------------------------------"+"\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+unidades*precio+" $"+"\n"+"---------------------------------------------";
+                    return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo;
                 }
                 else{
                     return "No pudimos realizar la compra, no hay unidades suficientes.";
