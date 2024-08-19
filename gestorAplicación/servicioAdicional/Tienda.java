@@ -20,25 +20,25 @@ public class Tienda implements Serializable{
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
-//            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
-//            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
-//            this.agregarProducto(new Producto("Correas", 25000, 10));
-//            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
-//            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
-//            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
-//            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
-//            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
-//            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
-//            this.agregarProducto(new Producto("Pienso generico", 30000,"Perros", 30));
-//            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
-//            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
-//            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
-//            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
-//            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
-//            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
-//            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
-//            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
-//            this.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));    
+            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
+            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
+            this.agregarProducto(new Producto("Correas", 25000, 10));
+            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
+            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
+            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
+            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
+            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
+            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
+            this.agregarProducto(new Producto("Pienso generico", 30000,"Perros", 30));
+            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
+            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
+            this.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));    
             
         }
 
@@ -243,9 +243,10 @@ public class Tienda implements Serializable{
                     
                     if (puntos>=15) {
                     	cliente.disminuir_puntos(puntos);
-                    	 return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*0.1+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
+                    	precio -= precio*0.1;
+                    	 return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
                     }else {
-                    	return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"No ha sido posible usar puntos para descuento\n"+"-------------------------------------------";
+                    	return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"No cuentas con los suficientes puntos como para un descuento\n"+"-------------------------------------------";
                     }
                 }
                 else{
@@ -284,9 +285,10 @@ public class Tienda implements Serializable{
                     
                     if (puntos>=15) {
                     	cliente.disminuir_puntos(puntos);
-                    	 return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*unidades*0.1+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
+                    	precio -= precio*unidades*0.1;
+                    	 return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
                     }else {
-                    	return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*unidades+" $"+"\n"+"No ha sido posible usar puntos para descuento\n"+"-------------------------------------------";
+                    	return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*unidades+" $"+"\n"+"No cuentas con los suficientes puntos como para un descuento\n"+"-------------------------------------------";
                     }
                 }
                 else{

@@ -13,14 +13,6 @@ public class Socializar implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private static ArrayList<Cliente> clientes = new ArrayList<> ();
 	private static ArrayList<Cita> citas = new ArrayList<> ();
-	private static final Cliente clientePorDefecto = null;
-	private static final Animal animalPorDefecto = null;
-	
-//	 static {
-//	        animalPorDefecto = new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
-//	        clientePorDefecto = new Cliente("Juan", 30, 1234567890L, 987654321L, true);
-//	        clientePorDefecto.setMascota(animalPorDefecto);
-//	    }
 	
 	public Socializar(){
 		Socializar.clientes= new ArrayList<>();
@@ -116,10 +108,5 @@ public class Socializar implements Serializable{
     public void setCitas(ArrayList<Cita> citas){
 		Socializar.citas = citas;
 	}
-
-	public static Cliente clientePorDefecto() {
-		return clientePorDefecto;
-	}
-
 }
 

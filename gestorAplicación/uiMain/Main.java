@@ -1185,8 +1185,13 @@ public class Main {
 	
 	static void socializar() {
 		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
+		Cliente cliente=new Cliente("Pedro",24,311786174,10486739,true);
+		Animal animal=new Animal("Canela",4,Arrays.asList("jugueton", "calmado", "activo"));
+		cliente.setMascota(animal);
+		
 		Socializar socializar=new Socializar();
-		socializar.registroC(Socializar.clientePorDefecto());
+		socializar.registroC(cliente);
+		
         
 		//Persona
 		String nombre;
@@ -1994,10 +1999,10 @@ public class Main {
 		
 		while (true) { 
 		
-			System.out.println("¿Qué deseas hacer?"+"\n");
+			System.out.println("¿Qué deseas hacer?");
 			System.out.println("1. Comprar un producto");
 			System.out.println("2. Salir\n");
-			System.out.println("Ingrese el número de la opción que desea");
+			System.out.println("Ingrese el número de la opción que desea [1-2]: ");
 			
 			int menu = 0;
 			while (menu==0) {
@@ -2024,7 +2029,8 @@ public class Main {
 			while (bucle==true) {
 				System.out.println("\n¿Cómo desea que se le muestren los productos?");
 				System.out.println("1. Mostrar todo");
-				System.out.println("2. Filtrar por tipo");
+				System.out.println("2. Filtrar por tipo\n");
+				System.out.print("Ingrese el número de la opción que desea [1-2]: ");
 					
 				int menuTienda = 0;
 				while (menuTienda==0) {
@@ -2052,7 +2058,7 @@ public class Main {
 					System.out.println(t1.inventario());
 				}
 				else {
-					System.out.println("\n¿Por qué tipo de animal te gustaría ver? (Perros, gatos, aves, hamsters o conejos)");
+					System.out.print("\n¿Por qué tipo de animal te gustaría ver? [Perros, gatos, aves, hamsters o conejos]: ");
 					while (true) {
 						try {
 							String tipo = entrada.nextLine();
@@ -2083,7 +2089,7 @@ public class Main {
 								break;
 							}
 							else {
-								System.out.println("Por favor, ingrese el tipo del animal en minúsculas (Perros, gatos, aves o hamsters)");
+								System.out.println("Por favor, ingrese el tipo del animal en minúsculas [Perros, gatos, aves o hamsters]");
 								continue;
 							}
 						}
@@ -2095,31 +2101,39 @@ public class Main {
 				boolean control = true;
 				while (control) {
 					try {
-							System.out.println("Coloque el índice del producto que va a comprar: ");
+							System.out.print("Coloque el índice del producto que va a comprar: ");
 							int indice = entrada.nextInt();
 			
-							System.out.println("Indique cuantas unidades quiere del producto: ");
+							System.out.print("Indique cuantas unidades quiere del producto: ");
 							int unidades = entrada.nextInt();
 							
 							//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
 							
 							if (unidades==1) {
-								System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+								System.out.println("\nSus datos serán tomados para registrar la compra.");
+								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								boolean esCliente = Tienda.isCliente(cedula);
-								if (esCliente) {
-									System.out.println("La compra tendrá un 10% de descuento\n");
-								}
-								System.out.println(t1.compra(indice));
+								System.out.print("Ingrese su edad: ");
+								int edad = entrada.nextInt();
+								System.out.print("Ingrese su nombre: ");
+								entrada.nextLine();
+								String nombre = entrada.nextLine();
+								
+								Cliente cliente = new Cliente(nombre, edad, cedula);
+								System.out.println("\n"+t1.compra(indice, cliente));
 							}
 							else {
-								System.out.println("Ingrese su cédula para registrar la compra por favor: ");
+								System.out.println("\nSus datos serán tomados para registrar la compra.");
+								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								boolean esCliente = Tienda.isCliente(cedula);
-								if (esCliente) {
-									System.out.println("La compra tendrá un 10% de descuento\n");
-								}
-								System.out.println(t1.compra(indice, unidades));
+								System.out.print("Ingrese su edad: ");
+								int edad = entrada.nextInt();
+								System.out.print("Ingrese su nombre: ");
+								entrada.nextLine();
+								String nombre = entrada.nextLine();
+								
+								Cliente cliente = new Cliente(nombre, edad, cedula);
+								System.out.println("\n"+t1.compra(indice, unidades, cliente));
 							}
 							
 							// ENCERRADO EN ESTAS LINEAS --------------------------------------------------------------------------------
@@ -2130,12 +2144,10 @@ public class Main {
 					catch(InputMismatchException e) {
 						System.out.println("Por favor lea e ingrese correctamente los datos\n");
 					}
-					finally {
-						entrada.nextLine();
-					}
+					
 				}
 				
-				System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
+				System.out.println("\n¿Desea volver al catálogo? [si/no]");
 				String respuesta = " ";
 				while (true) {//CONTROL CON UN WHILE SOLAMENTE
 					respuesta = entrada.nextLine();
@@ -2143,7 +2155,7 @@ public class Main {
 					if (respuesta.equals("si")||respuesta.equals("no")) {
 						break;
 					}else {
-						System.out.println("Por favor, ingrese una respuesta válida (si/no)");
+						System.out.println("Por favor, ingrese una respuesta válida [si/no]");
 						continue;
 					}
 				}
