@@ -140,9 +140,8 @@ public class Main {
 				println("5. Ingresar a servicios funerarios");
 				println("6. Salir del programa");
 				opcion = readInt();
-			}while (opcion<1 || opcion>6);
-			
-			switch (opcion) {
+				
+				switch (opcion) {
 				case 1: adoptarAnimal(); break;
 				case 2: agendar_servicio(); break;
 				case 3: socializar(); break;
@@ -150,6 +149,9 @@ public class Main {
 				case 5: funeraria(); break;
 				case 6: salirDelSistema(); break;
 			}
+				
+			}while (opcion<1 || opcion>6);
+			
 	}
 		
 	//MÉTODOS NECESARIOS	
