@@ -133,12 +133,12 @@ public class Main {
 			}while (opcion<1 || opcion>6);
 			
 			switch (opcion) {
-			case 1: adoptarAnimal(); break;
-			case 2: agendar_servicio(); break;
-			case 3: socializar(); break;
-			case 4: tienda(); break;
-			case 5: funeraria(); break;
-			case 6: salirDelSistema(); break;
+				case 1: adoptarAnimal(); break;
+				case 2: agendar_servicio(); break;
+				case 3: socializar(); break;
+				case 4: tienda(); break;
+				case 5: funeraria(); break;
+				case 6: salirDelSistema(); break;
 			}
 	}
 		

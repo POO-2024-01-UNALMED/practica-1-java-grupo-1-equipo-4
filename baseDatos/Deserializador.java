@@ -29,7 +29,7 @@ public class Deserializador {
             }
         }
     }
-
+    
     private static <T> List<?> deserializarLista(File file) {
         try (FileInputStream fis = new FileInputStream(file);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -41,6 +41,7 @@ public class Deserializador {
     }
 
     private static <T> void asignarLista(T objeto, String nombreArchivo, List<?> lista) {
+    	
     	ObjectInputStream ois;
         if (objeto instanceof CentroAdopcion) {
             CentroAdopcion ca = (CentroAdopcion) objeto;
