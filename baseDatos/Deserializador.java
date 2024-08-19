@@ -23,7 +23,7 @@ public class Deserializador {
 		ObjectInputStream ois;
 
 		try {
-			File path = new File("src/baseDatos/temp/" + nombre + ".txt");
+			File path = new File("/src/baseDatos/temp/" + nombre + ".txt");
 
 
 			fis = new FileInputStream(path);
@@ -61,15 +61,16 @@ public class Deserializador {
 		deserializar(Tienda.getProductos(), "Productos");
 		deserializar(Tienda.getEmpleados(), "Empleados_Tienda");
 				
-				
-				
 		//metodos no estaticos
 				
 		CentroAdopcion ca = new CentroAdopcion();
 		deserializar(ca.getAdopciones(), "Adopciones");
-		deserializar(ca.getEmpleados(), "Empleados");
-		deserializar(ca.getAnimales(), "Animales");
-		deserializar(ca.getCitas(), "Citas");
+		CentroAdopcion ca2 = new CentroAdopcion();
+		deserializar(ca2.getEmpleados(), "Empleados");
+		CentroAdopcion ca3 = new CentroAdopcion();
+		deserializar(ca3.getAnimales(), "Animales");
+		CentroAdopcion ca4 = new CentroAdopcion();
+		deserializar(ca4.getCitas(), "Citas");
 		        
 		Empleado em = new Empleado();
 		deserializar(em.getCupo(), "Agenda");

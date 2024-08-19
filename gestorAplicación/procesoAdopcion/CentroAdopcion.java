@@ -222,8 +222,6 @@ public class CentroAdopcion implements Serializable{
 	
 	
 	//OTROS MÉTODOS
-
-	
 	
 	public String toString() {
 		if (tienda!= null) {	

@@ -52,32 +52,23 @@ public class Serializador {
 		serializar(Socializar.getClientes(), "Clientes_Socializar");
 		serializar(Tienda.getProductos(), "Productos");
 		serializar(Tienda.getEmpleados(), "Empleados_Tienda");
-		
-		
-		
+
 		//metodos no estaticos
 		
 		CentroAdopcion ca = new CentroAdopcion();
         serializar(ca.getAdopciones(), "Adopciones");
-        serializar(ca.getEmpleados(), "Empleados");
-        serializar(ca.getAnimales(), "Animales");
-        serializar(ca.getCitas(), "Citas");
+        CentroAdopcion ca2 = new CentroAdopcion();
+        serializar(ca2.getEmpleados(), "Empleados");
+        CentroAdopcion ca3 = new CentroAdopcion();
+        serializar(ca3.getAnimales(), "Animales");
+        CentroAdopcion ca4 = new CentroAdopcion();
+        serializar(ca4.getCitas(), "Citas");
         
         Empleado em = new Empleado();
         serializar(em.getCupo(), "Agenda");
 		
         Muerto m = new Muerto();
         serializar(m.getFlores(), "Flores");
-        
-        //CENTROADOPCION LISTO
-        //EMPLEADO LISTO
-        //FUNERARIA LISTO
-        //MUERTO LISTO
-        //TIENDA LISTO
-        
-        
-        
-        
 
 	}
 }
