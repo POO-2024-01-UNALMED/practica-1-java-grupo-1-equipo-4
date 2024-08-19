@@ -22,13 +22,13 @@ public class Serializador {
 		try {
 			File path = new File(archivo.getAbsolutePath() + "/baseDatos/temp/" + nombre + ".txt");
 
-			FileOutputStream fop = new FileOutputStream(path);
-			ObjectOutputStream oos = new ObjectOutputStream(fop);
+			FileOutputStream fos = new FileOutputStream(path);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(lista);
 
 			oos.close();
-			fop.close();
+			fos.close();
 
 		}catch(FileNotFoundException e) {
 

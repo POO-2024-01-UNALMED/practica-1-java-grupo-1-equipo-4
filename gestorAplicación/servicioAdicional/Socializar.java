@@ -8,8 +8,8 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 
 public class Socializar{
-	private static ArrayList<Cliente> clientes;
-	private static ArrayList<Cita> citas;
+	private static ArrayList<Cliente> clientes = new ArrayList<> ();
+	private static ArrayList<Cita> citas = new ArrayList<> ();
 	private static final Cliente clientePorDefecto = null;
 	private static final Animal animalPorDefecto = null;
 	

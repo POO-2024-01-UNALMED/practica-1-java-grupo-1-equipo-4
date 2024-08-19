@@ -21,6 +21,10 @@ public class Deserializador {
 		File archivo = new File("");
 		FileInputStream fis;
 		ObjectInputStream ois;
+		
+		if (lista == null) {
+	        lista = new ArrayList<>();
+	    }
 
 		try {
 			File path = new File(archivo.getAbsolutePath()+"/baseDatos/temp/" + nombre + ".txt");
@@ -29,7 +33,7 @@ public class Deserializador {
 			fis = new FileInputStream(path);
 			ois = new ObjectInputStream(fis);
 
-			lista.addAll((ArrayList<T>) ois.readObject());
+			lista.addAll((List<T>) ois.readObject());
 
 			ois.close();
 			fis.close();
@@ -57,7 +61,7 @@ public class Deserializador {
 		deserializar(CentroAdopcion.getClientes(), "Clientes");
 		deserializar(Funeraria.getTumbas(), "Tumbas");
 		deserializar(Funeraria.getCenizas(), "Cenizas");
-		deserializar(Socializar.getClientes(), "Clientes_Socializar");
+		//deserializar(Socializar.getClientes(), "Clientes_Socializar");
 		deserializar(Tienda.getProductos(), "Productos");
 		deserializar(Tienda.getEmpleados(), "Empleados_Tienda");
 				
