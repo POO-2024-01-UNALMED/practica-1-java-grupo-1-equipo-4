@@ -577,12 +577,12 @@ public class Main {
 		ArrayList<Cita> citas_agendadas= new ArrayList<>();
 		
 		println("mensaje de bienvenida");
-		println("\nLe recordamos que cada sede de AdoptaLove ofrece un servicio diferente para las mascotas, seleccione según sea su necesidad. \n¿Qué servicio desea agendar?");
-		
+	
 		//SELECCIÓN DE SEDE Y SERVICIO
 		boolean repetir = false;
 		do {
 		int servicio=0;
+		println("\nLe recordamos que cada sede de AdoptaLove ofrece un servicio diferente para las mascotas, seleccione según sea su necesidad. \n¿Qué servicio desea agendar?");
         println("\n1. SEDE 1 - Servicio: Guarderia \n2. SEDE 2 - Servicio: Veterinaria \n3. SEDE 3 - Servicio: Peluquería\n");
         do {
             print("Ingrese su elección dentro del rango [1-3]: ");
@@ -857,6 +857,11 @@ public class Main {
    	
 		}
 	}while(repetir);
+		
+		//FACTURA
+		for (Cita cita: citas_agendadas) {
+			
+		}
 	}
 	
 	
@@ -868,7 +873,7 @@ public class Main {
 		int edad=0;
 		long cedula=0;
 		
-		println("Proporcione la siguiente información: ");
+		println("Proporcione la siguiente información. ");
 		print("Ingrese su nombre: ");
 		nombre = readString();
 		while(edad<=0) {
@@ -940,7 +945,7 @@ public class Main {
 		String especie = null;
 		String sexo = null;
 		
-		println("\nProporcione la siguiente información sobre su mascota:");
+		println("\nProporcione la siguiente información sobre su mascota.");
 		
 		print("Ingrese el nombre: ");
 		nombre= readString();

@@ -13,6 +13,7 @@ public class Animal {
 	private String sexo;
 	private List<String> caracteristicas;
 	private EstadoSalud estadoSalud;
+	private int puntaje;
 	
 	//CONSTRUCTOR
 	
@@ -31,11 +32,11 @@ public class Animal {
 		this.sexo = sexo;
 	}
 	
-	public Animal(String nombre, int edad,EstadoSalud estadoSalud,List<String> caracteristicas) {
+	public Animal(String nombre, int edad,List<String> caracteristicas) {
 		this.nombre = nombre;
 		this.edad = edad;
-		this.estadoSalud = estadoSalud;
 		this.caracteristicas=new ArrayList<>(caracteristicas);
+		this.puntaje=100;
 	}
 	
 	//MÉTODOS SETTER Y GETTER
@@ -84,6 +85,10 @@ public class Animal {
 		return estadoSalud;
 	}
 	
+	public int getPuntaje() {
+		return puntaje;
+	}
+	
 	//OTROS MÉTODOS
 	
 	public String toString() {
@@ -94,5 +99,35 @@ public class Animal {
 			return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo();
 			
 		}
+	}
+	
+	 public void ajustarPuntos(int calificacion) {
+	        switch (calificacion) {
+	            case 1:
+	                puntaje -= 10;
+	                break;
+	            case 2:
+	                puntaje -= 8;
+	                break;
+	            case 3:
+	                puntaje -= 6;
+	                break;
+	            case 4:
+	                puntaje -= 4;
+	                break;
+	            case 5:
+	                puntaje += 0;
+	                break;
+	        }
+
+	        if (puntaje < 0) {
+	            puntaje = 0;
+	        } else if (puntaje > 100) {
+	            puntaje = 100;
+	        }
+	    }
+	
+	public boolean elegible() {
+		return this.puntaje>=40;
 	}
 }

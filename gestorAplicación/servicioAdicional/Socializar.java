@@ -8,12 +8,10 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 public class Socializar{
 	private List<Cliente> clientes;
-	private List<Animal> animales;
 	private List<Cita> citas;
 	
 	public Socializar(){
 		this.clientes= new ArrayList<>();
-		this.animales= new ArrayList<>();
 		this.citas= new ArrayList<>();
 		}
 	
@@ -22,11 +20,7 @@ public class Socializar{
 			clientes.add(cliente);
 		}
 	}
-	
-	public void registroA (Animal animal) {
-		animales.add(animal);
-	}
-	
+
 	private boolean posibleMatch(Animal animal, Animal animal2) {
 		for (String caracteristicas:animal.getCaracteristicas()) {
 			if (animal2.getCaracteristicas().contains(caracteristicas)) {
@@ -35,27 +29,71 @@ public class Socializar{
 		}
 		return false;
 	}
-	
-	private Cliente buscarCliente(Animal animal) {
-        for (Cliente cliente : clientes) {
-            if (cliente.isParticipar()) {
-                return cliente;
-            }
-        }
-        return null;
-    }
+
 	public void match() {
-		for (int a=0;a<animales.size(); a++) {
-			Animal animal1 = animales.get(a);
-			for (int l=0;l<animales.size();l++) {
-				Animal animal2=animales.get(l);
-				if(animal1.getEdad()==animal2.getEdad()&&posibleMatch(animal1,animal2)) {
-					Cita cita=new Cita(buscarCliente(animal1),animal2,LocalDate.now());
-					citas.add(cita);
-					System.out.println("Cita generada para"+animal1.getNombre()+"y"+animal2.getNombre());
-				}
+		for (int a=0;a<clientes.size(); a++) {
+			for (int l=a+1;l<clientes.size();l++) {
+				Cliente persona1 = clientes.get(a);
+                Cliente persona2 = clientes.get(l);
+                Animal animal1 = persona1.getMascota();
+                Animal animal2 = persona2.getMascota();
+                
+                if (posibleMatch(animal1, animal2)) {
+                	LocalDate fechaCita=calcularFechaCita(persona1);
+                	Cita cita=new Cita(persona1,persona2,animal1,animal2,fechaCita);
+                	citas.add(cita);
+                }
 			}
 		}
 	}
+    
+    private LocalDate calcularFechaCita(Cliente cliente) {
+        LocalDate now = LocalDate.now();
+        LocalDate fechaCita = now.plusDays(1);
+        return fechaCita;
+    }
+    
+    private void reprogramarCita(Cita cita) {
+        LocalDate nuevaFecha = calcularProximaFechaDisponible();
+        cita.setFecha(nuevaFecha);
+        System.out.println("La nueva fecha de la cita es: " + nuevaFecha);
+    }
+
+    private LocalDate calcularProximaFechaDisponible() {
+        LocalDate nuevaFecha = LocalDate.now().plusDays(1);
+        return nuevaFecha;
+    }
+    
+    public void cambiarEstadoCita(Cita cita, Cita.EstadoCita nuevoEstado) {
+        cita.setEstado(nuevoEstado);
+
+        switch (nuevoEstado) {
+            case ACEPTADA:
+                System.out.println("La cita ha sido aceptada.");
+                break;
+            case RECHAZADA:
+                System.out.println("La cita ha sido rechazada.");
+                break;
+            case APLAZADA:
+                System.out.println("La cita ha sido aplazada.");
+                reprogramarCita(cita);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public void calificarAnimal(Animal animal, int calificacion) {
+        animal.ajustarPuntos(calificacion);
+
+        if (!animal.elegible()) {
+            System.out.println("El animal " + animal.getNombre() + " ha sido retirado del programa Socializar debido a un puntaje bajo.");
+        }
+    }
+    
+    public List<Cita> getCitas(){
+    	return citas;
+    }
+
 }
 

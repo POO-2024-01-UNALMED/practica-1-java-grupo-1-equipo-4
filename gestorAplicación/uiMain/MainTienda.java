@@ -39,15 +39,14 @@ public class MainTienda {
 	
 		System.out.println("¿Qué deseas hacer?"+"\n");
 		System.out.println("1. Comprar un producto");
-		System.out.println("2. Registrar un voluntario");
-		System.out.println("3. Salir\n");
+		System.out.println("2. Salir\n");
 		System.out.println("Ingrese el número de la opción que desea");
 		
 		int menu = 0;
 		while (menu==0) {
 			try {
 				menu = entrada.nextInt();
-				if (menu>0 && menu<=3) {
+				if (menu>0 && menu<=2) {
 					break;
 				}
 				else {
@@ -57,7 +56,7 @@ public class MainTienda {
 				}
 			}
 			catch(InputMismatchException e) {
-				System.out.println("Por favor ingrese un número entre uno y tres!!!");
+				System.out.println("Por favor ingrese un número entre uno y dos!!!");
 			}
 			finally {
 					entrada.nextLine();//SALTO DE LINEA
@@ -145,6 +144,8 @@ public class MainTienda {
 						System.out.println("Indique cuantas unidades quiere del producto: ");
 						int unidades = entrada.nextInt();
 						
+						//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
+						
 						if (unidades==1) {
 							System.out.println("Ingrese su cédula para registrar la compra por favor: ");
 							long cedula = entrada.nextLong();
@@ -163,6 +164,8 @@ public class MainTienda {
 							}
 							System.out.println(t1.compra(indice, unidades));
 						}
+						
+						// ENCERRADO EN ESTAS LINEAS --------------------------------------------------------------------------------
 						
 						control = false;
 					
@@ -195,14 +198,10 @@ public class MainTienda {
 					break;
 				}
 			}//BUCLE COMPRAR
-	}//CONDICINAL MENU
-	else if (menu==2){
-		System.out.println("\nFormulario para pertenecer a los voluntarios: \n");
-		System.out.println("Trabajo en progreso\n");
-	}
+	}//CONDICINAL MENU INGRESAR TIENDA
 	else {
-		break;
+		break;//OPCION 2 SALIR
 	}
 	}//BUCLE INICIAL
   }//MAIN	
-}
+}//CLASE

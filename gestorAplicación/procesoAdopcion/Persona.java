@@ -22,6 +22,10 @@ public class Persona {
 		this(nombre,edad,cedula,0,null);
 		}
 	
+	public Persona(String nombre, int edad,long telefono,long cedula) {
+		this(nombre,edad,telefono,cedula,null);
+		}
+	
 	//MÉTODOS SETTER Y GETTER
 	
 	public void setNombre(String nombre) {

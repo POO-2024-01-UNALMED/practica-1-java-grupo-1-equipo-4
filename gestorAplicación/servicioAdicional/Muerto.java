@@ -76,14 +76,14 @@ public class Muerto {
 		if (flores.get(0).equals("No hay flores colocadas aquí.")) {
 			flores.clear();
 			flores.add(flor);
-			return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
+			return "Se ha mandado un jardinero a colocar las flores: "+flor+".";
 		}
 		else if(flores.size()<=5) {
 			flores.add(flor);
-			return "Se ha mandado un jardinero a colocar la flor: "+flor+".";
+			return "Se ha mandado un jardinero a colocar las flores: "+flor+".";
 		}
 		else {
-			return "Hay un límite de 5 flores.";
+			return "Hay un límite de 5 tipos de flores.";
 		}	
 	}
 	
@@ -100,7 +100,6 @@ public class Muerto {
 			for(int i = 0; i<flores.size();i++) {	
 				acomulador += flores.get(i)+" ";
 			}
-			acomulador+=".";
 			return acomulador;
 		}
 	}
