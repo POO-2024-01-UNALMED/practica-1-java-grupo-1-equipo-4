@@ -17,8 +17,6 @@ public class CentroAdopcion implements Serializable{
 	private ArrayList<Cita> citas_agendadas = new ArrayList<>();//
 	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();//
 
-	
-	private static CentroAdopcion instance;
 	private static final long serialVersionUID = 1L;
 	private String nombre;//
 	private int espaciosDisponibles;//
@@ -229,4 +227,26 @@ public class CentroAdopcion implements Serializable{
         return instance;
     }
 	
+	//OTROS MÉTODOS
+
+	public void agregarAnimal(Animal animal) {
+		
+		if (espaciosDisponibles>0) {
+			animales.add(animal);
+			espaciosDisponibles--;
+			}
+	}
+	
+	
+	public String toString() {
+		if (tienda!= null) {	
+		return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: si ";
+		}
+		else {
+			return "Nombre: " + getNombre() + ", Espacios Disponibles: " + getEspacios() + ", Servicio: " + getServicio() + ", tienda: no";
+		}
+		
+	}
+
+
 }

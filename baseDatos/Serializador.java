@@ -50,7 +50,8 @@ public class Serializador {
 		serializar(Funeraria.getTumbas(), "Tumbas");
 		serializar(Funeraria.getCenizas(), "Cenizas");
 		serializar(Socializar.getClientes(), "Clientes_Socializar");
-		serializar(Tienda.get)
+		serializar(Tienda.getProductos(), "Productos");
+		serializar(Tienda.getEmpleados(), "Empleados_Tienda");
 		
 		
 		
@@ -72,6 +73,7 @@ public class Serializador {
         //EMPLEADO LISTO
         //FUNERARIA LISTO
         //MUERTO LISTO
+        //TIENDA LISTO
         
         
         
