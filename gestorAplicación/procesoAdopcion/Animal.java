@@ -1,8 +1,11 @@
 package gestorAplicación.procesoAdopcion;
 import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Animal {
+public class Animal implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	public static enum EstadoSalud {
 		SANO, ENFERMO, ENTRATAMIENTO
 	}
