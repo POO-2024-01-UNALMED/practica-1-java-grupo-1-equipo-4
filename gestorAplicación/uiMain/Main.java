@@ -1121,15 +1121,9 @@ public class Main {
 	}
 	
 	static void socializar() {
-		
 		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
-		//objetos a serializar
-		Cliente clientePorDefecto = new Cliente("Juan", 30, 1234567890L, 987654321L, true);
-        Animal animalPorDefecto = new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado","activo","pasivo"));
-        clientePorDefecto.setMascota(animalPorDefecto);
-        
-        Socializar socializar=new Socializar();
-        socializar.registroC(clientePorDefecto);
+		Socializar socializar=new Socializar();
+		socializar.registroC(Socializar.clientePorDefecto());
         
 		//Persona
 		String nombre;

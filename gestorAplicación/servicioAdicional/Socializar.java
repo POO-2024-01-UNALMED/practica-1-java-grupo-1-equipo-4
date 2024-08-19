@@ -1,6 +1,7 @@
 package gestorAplicación.servicioAdicional;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.Cliente;
@@ -9,6 +10,14 @@ import gestorAplicación.procesoAdopcion.Cliente;
 public class Socializar{
 	private static ArrayList<Cliente> clientes;
 	private static ArrayList<Cita> citas;
+	private static final Cliente clientePorDefecto;
+	private static final Animal animalPorDefecto;
+	
+	 static {
+	        animalPorDefecto = new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
+	        clientePorDefecto = new Cliente("Juan", 30, 1234567890L, 987654321L, true);
+	        clientePorDefecto.setMascota(animalPorDefecto);
+	    }
 	
 	public Socializar(){
 		Socializar.clientes= new ArrayList<>();
@@ -103,6 +112,10 @@ public class Socializar{
     
     public void setCitas(ArrayList<Cita> citas){
 		Socializar.citas = citas;
+	}
+
+	public static Cliente clientePorDefecto() {
+		return clientePorDefecto;
 	}
 
 }
