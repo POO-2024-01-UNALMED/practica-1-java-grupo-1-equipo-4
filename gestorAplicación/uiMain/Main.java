@@ -39,7 +39,6 @@ public class Main {
 
 	static Socializar socializar;
 	
-	
 	static {
 		
 		//CREACION DE SEDES
