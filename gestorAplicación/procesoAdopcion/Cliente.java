@@ -46,10 +46,6 @@ public class Cliente extends Persona{
 		return this.puntos;
 	}
 	
-	public long getCedula(){
-		return getCedula();
-	}
-
 	public boolean isParticipar() {
 		return participar;
 	}

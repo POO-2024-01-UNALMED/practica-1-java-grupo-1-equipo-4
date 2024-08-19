@@ -155,8 +155,7 @@ public class Empleado extends Persona {
     				 int num_dia=Array_dia.get(0).getDia().getDayOfWeek().getValue();
     				
     				 boolean continuar = true;	
-    				
-  
+    			
     			    while(continuar) {
     			    	
     			    	//SI EL DIA ("LUNES", "MARTES"..) NO COINCIDE CON EL ACTUAL, ENTONCES BUSCAMOS CON EL QUE 
