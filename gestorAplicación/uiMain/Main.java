@@ -36,12 +36,9 @@ public class Main {
 	static CentroAdopcion sede2;
 	static CentroAdopcion sede3;
 	static Tienda t1;
-	static 	ArrayList<Funeraria> funerarias;
+
 	static Socializar socializar;
 	
-	static Funeraria fune1;
-	static Funeraria fune2;
-	static Funeraria fune3;
 	
 	static {
 		
