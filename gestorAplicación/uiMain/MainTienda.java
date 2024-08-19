@@ -27,6 +27,8 @@ public class MainTienda {
 
 	//CREAMOS UN EMPLEADO PARA QUE ATIENDA LA TIENDA
 	Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO);
+	
+	// CREACIÓN DE TIENDA
 	Tienda t1 = new Tienda(empliado, sede1);
 	
 	

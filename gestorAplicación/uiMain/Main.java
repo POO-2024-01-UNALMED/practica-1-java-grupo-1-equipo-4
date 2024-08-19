@@ -18,13 +18,18 @@ public class Main {
 	public static Scanner entrada = new Scanner(System.in);
 	public static ArrayList<CentroAdopcion> sedes = new ArrayList<CentroAdopcion>();
 	
+	//CREANDO LOS APUNTADORES DE SEDE 
+	static CentroAdopcion sede1;
+	static CentroAdopcion sede2;
+	static CentroAdopcion sede3;
+	
 	static {
 		//CREACION DE SEDES
-		CentroAdopcion sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
+		sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
 		sedes.add(sede1);
-		CentroAdopcion sede2 = new CentroAdopcion("SEDE 2",20, CentroAdopcion.tipoServicio.VETERINARIA);
+		sede2 = new CentroAdopcion("SEDE 2",20, CentroAdopcion.tipoServicio.VETERINARIA);
 		sedes.add(sede2);
-		CentroAdopcion sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
+		sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
 		sedes.add(sede3);
 		
 		
