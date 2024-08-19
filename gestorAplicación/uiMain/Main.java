@@ -34,83 +34,83 @@ public class Main {
 	static CentroAdopcion sede2;
 	static CentroAdopcion sede3;
 	
-//	static {
-//		//CREACION DE SEDES
-//		sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
-//		sedes.add(sede1);
-//		sede2 = new CentroAdopcion("SEDE 2",20, CentroAdopcion.tipoServicio.VETERINARIA);
-//		sedes.add(sede2);
-//		sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
-//		sedes.add(sede3);
-//		
-//		
-//		//AGREGAR ANIMALES A CADA SEDE -------------------------
-//		//SEDE1
-//		sede1.agregarAnimal(new Animal("Capitán","Canario",2, "Macho", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Nala","Canario",3, "Hembra", Animal.EstadoSalud.ENFERMO));
-//		sede1.agregarAnimal(new Animal("Rocky","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Sky","Conejo",3,"Hembra",Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Reina","Gato",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		sede1.agregarAnimal(new Animal("Rey","Gato",3, "Macho", Animal.EstadoSalud.ENFERMO));
-//		sede1.agregarAnimal(new Animal("Rolly","Hámster",1, "Hembra", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Zuma","Hámster",2,"Macho",Animal.EstadoSalud.ENFERMO));
-//    	sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
-//		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
-//		
-//		//SEDE2	
-//		//sede2.agregarAnimal(new Animal("Bolt","Perro",7, "Macho", Animal.EstadoSalud.SANO));
-//		//sede2.agregarAnimal(new Animal("Frodo","Perro",5, "Macho", Animal.EstadoSalud.SANO));
-//		sede2.agregarAnimal(new Animal("Golfo","Conejo",3, "Macho", Animal.EstadoSalud.ENFERMO));
-//		sede2.agregarAnimal(new Animal("Luna","Conejo",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		sede2.agregarAnimal(new Animal("Frapee","Canario",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		//sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
-//		sede2.agregarAnimal(new Animal("Luna","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
-//		sede2.agregarAnimal(new Animal("Everest","Gato",4, "Hembra", Animal.EstadoSalud.SANO));
-//		sede2.agregarAnimal(new Animal("Junior","Hámster",2, "Macho", Animal.EstadoSalud.SANO)); 
-//		sede2.agregarAnimal(new Animal("Puppy","Hámster",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO)); 
-//		
-//		
-//		//SEDE3
-//		sede3.agregarAnimal(new Animal("Thor","Perro",6, "Macho", Animal.EstadoSalud.SANO));
-//		sede3.agregarAnimal(new Animal("Teo","Perro",7, "Macho", Animal.EstadoSalud.SANO));
-//		sede3.agregarAnimal(new Animal("Mia","Gato",4, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		sede3.agregarAnimal(new Animal("Lola","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
-//		sede3.agregarAnimal(new Animal("Sony","Conejo",3, "Macho", Animal.EstadoSalud.SANO));
-//		sede3.agregarAnimal(new Animal("River","Conejo",4, "Macho", Animal.EstadoSalud.SANO));
-//		sede3.agregarAnimal(new Animal("Kira","Canario",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		sede3.agregarAnimal(new Animal("Furry","Canario",4, "Macho", Animal.EstadoSalud.ENFERMO));
-//		sede3.agregarAnimal(new Animal("Princea","Hámster",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//			
-//		
-//		//AGREGAR EMPLEADOS A CADA SEDE ----------------------------
-//		//SEDE 1 (GUARDERÍA)
-//		sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR));
-//		sede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR));
-//		sede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR));
-//		sede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR));
-//		sede1.agregarEmpleado(new Empleado("Wilson Jimenez", 36, 70925845, 313153964, "Carrera 72a", Empleado.Rol.CUIDADOR));
-//		sede1.agregarEmpleado(new Empleado("Mateo Munera", 25, 56892347, 311567832, "Carrera 68", Empleado.Rol.CUIDADOR));
-//						
-//		//SEDE 2 (VETERINARIA)
-//		sede2.agregarEmpleado(new Empleado("Carlos Rivera", 23, 12307004, 328748995, "Carrera 30", Empleado.Rol.VETERINARIO));
-//		sede2.agregarEmpleado(new Empleado("Marta Puerta", 28, 66973892, 304236021, "Calle 90", Empleado.Rol.VETERINARIO));
-//		sede2.agregarEmpleado(new Empleado("Karen Diaz", 32, 11277768, 314943886, "Calle 86", Empleado.Rol.VETERINARIO));
-//		sede2.agregarEmpleado(new Empleado("Mario Martinez", 30, 79698181, 300564603, "Carrera 67b", Empleado.Rol.VETERINARIO));
-//						
-//		//SEDE 3 (PELUQUERÍA)
-//		sede3.agregarEmpleado(new Empleado("Natalia Fernandez", 26, 70233557, 318529646, "Calle 63", Empleado.Rol.PELUQUERO));
-//		sede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO));
-//		sede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO));
-//		sede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO));
-//		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO));
-//		
-//		
-//		Cliente cliente1= new Cliente("Oky",18, 1072253440,3106762877L, "Medellín");
-//		
-//		cliente1.agregar_puntos(20);
-//		
-//		CentroAdopcion.getClientes().add(cliente1);
-//	}
+	static {
+		//CREACION DE SEDES
+		sede1 = new CentroAdopcion("SEDE BELLO",25, CentroAdopcion.tipoServicio.GUARDERIA);
+		sedes.add(sede1);
+		sede2 = new CentroAdopcion("SEDE ITAGÜI",20, CentroAdopcion.tipoServicio.VETERINARIA);
+		sedes.add(sede2);
+		sede3 = new CentroAdopcion("SEDE MEDELLÍN",20, CentroAdopcion.tipoServicio.PELUQUERIA);
+		sedes.add(sede3);
+		
+		
+		//AGREGAR ANIMALES A CADA SEDE -------------------------
+		//SEDE1
+		sede1.agregarAnimal(new Animal("Capitán","Canario",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Nala","Canario",3, "Hembra", Animal.EstadoSalud.ENFERMO));
+		sede1.agregarAnimal(new Animal("Rocky","Conejo",2, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Sky","Conejo",3,"Hembra",Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Reina","Gato",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede1.agregarAnimal(new Animal("Rey","Gato",3, "Macho", Animal.EstadoSalud.ENFERMO));
+		sede1.agregarAnimal(new Animal("Rolly","Hámster",1, "Hembra", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Zuma","Hámster",2,"Macho",Animal.EstadoSalud.ENFERMO));
+    	sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
+		
+		//SEDE2	
+		//sede2.agregarAnimal(new Animal("Bolt","Perro",7, "Macho", Animal.EstadoSalud.SANO));
+		//sede2.agregarAnimal(new Animal("Frodo","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Golfo","Conejo",3, "Macho", Animal.EstadoSalud.ENFERMO));
+		sede2.agregarAnimal(new Animal("Luna","Conejo",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede2.agregarAnimal(new Animal("Frapee","Canario",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		//sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Luna","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
+		sede2.agregarAnimal(new Animal("Everest","Gato",4, "Hembra", Animal.EstadoSalud.SANO));
+		sede2.agregarAnimal(new Animal("Junior","Hámster",2, "Macho", Animal.EstadoSalud.SANO)); 
+		sede2.agregarAnimal(new Animal("Puppy","Hámster",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO)); 
+		
+		
+		//SEDE3
+		sede3.agregarAnimal(new Animal("Thor","Perro",6, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Teo","Perro",7, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Mia","Gato",4, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Lola","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
+		sede3.agregarAnimal(new Animal("Sony","Conejo",3, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("River","Conejo",4, "Macho", Animal.EstadoSalud.SANO));
+		sede3.agregarAnimal(new Animal("Kira","Canario",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+		sede3.agregarAnimal(new Animal("Furry","Canario",4, "Macho", Animal.EstadoSalud.ENFERMO));
+		sede3.agregarAnimal(new Animal("Princea","Hámster",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
+			
+		
+		//AGREGAR EMPLEADOS A CADA SEDE ----------------------------
+		//SEDE 1 (GUARDERÍA)
+		sede1.agregarEmpleado(new Empleado("Juan Zapata", 25, 21491118, 313775896, "Carrera 30", Empleado.Rol.CUIDADOR));
+		sede1.agregarEmpleado(new Empleado("Julieta Vanegas", 21, 58941118, 310789651, "Calle 96", Empleado.Rol.CUIDADOR));
+		sede1.agregarEmpleado(new Empleado("Andres Garcia", 34, 10278056, 300845962, "Calle 80", Empleado.Rol.CUIDADOR));
+		sede1.agregarEmpleado(new Empleado("Ana Restrepo", 28, 47889566, 315986487, "Carrera Septima", Empleado.Rol.CUIDADOR));
+		sede1.agregarEmpleado(new Empleado("Wilson Jimenez", 36, 70925845, 313153964, "Carrera 72a", Empleado.Rol.CUIDADOR));
+		sede1.agregarEmpleado(new Empleado("Mateo Munera", 25, 56892347, 311567832, "Carrera 68", Empleado.Rol.CUIDADOR));
+						
+		//SEDE 2 (VETERINARIA)
+		sede2.agregarEmpleado(new Empleado("Carlos Rivera", 23, 12307004, 328748995, "Carrera 30", Empleado.Rol.VETERINARIO));
+		sede2.agregarEmpleado(new Empleado("Marta Puerta", 28, 66973892, 304236021, "Calle 90", Empleado.Rol.VETERINARIO));
+		sede2.agregarEmpleado(new Empleado("Karen Diaz", 32, 11277768, 314943886, "Calle 86", Empleado.Rol.VETERINARIO));
+		sede2.agregarEmpleado(new Empleado("Mario Martinez", 30, 79698181, 300564603, "Carrera 67b", Empleado.Rol.VETERINARIO));
+						
+		//SEDE 3 (PELUQUERÍA)
+		sede3.agregarEmpleado(new Empleado("Natalia Fernandez", 26, 70233557, 318529646, "Calle 63", Empleado.Rol.PELUQUERO));
+		sede3.agregarEmpleado(new Empleado("Jose Bueno", 39, 50270440, 306537090, "Calle 50", Empleado.Rol.PELUQUERO));
+		sede3.agregarEmpleado(new Empleado("Diana Henao", 28, 69620661, 330175882, "Carrera Sexta", Empleado.Rol.PELUQUERO));
+		sede3.agregarEmpleado(new Empleado("Julian Taborda", 36, 37664642, 332773881, "Carrera 72c", Empleado.Rol.PELUQUERO));
+		sede3.agregarEmpleado(new Empleado("Andrea Higuita", 21, 55000283, 332697785, "Carrera 61", Empleado.Rol.PELUQUERO));
+		
+		
+		Cliente cliente1= new Cliente("Oky",18, 1072253440,3106762877L, "Medellín");
+		
+		cliente1.agregar_puntos(20);
+		
+		CentroAdopcion.getClientes().add(cliente1);
+	}
 		
 	public static void main(String[] args) {
 		 //agendar_servicio();
@@ -119,7 +119,7 @@ public class Main {
 		 //tienda();
 		//socializar();
 		
-		Deserializador.deserializarListas();
+		//Deserializador.deserializarListas();
 				
 		while (true) {
 
@@ -237,9 +237,8 @@ public class Main {
 	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
 	static void adoptarAnimal() {
 		
-		println("\n¡Gracias por tu interés en adoptar un animal! 🐾 Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
+		println("\n¡Gracias por tu interés en adoptar un animal! Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
 				+ "Para comenzar el proceso de adopción, por favor, proporciona la siguiente información.\n");
-		readString();
 		
 		//DATOS PERSONALES DEL USUARIO
 		String nombre;
@@ -361,7 +360,7 @@ public class Main {
 				    int opcion_sede=0;
 				   
 				    println("Seleccione en cual sede quiere realizar la adopción.");
-				    println("1. SEDE 1\n2. SEDE 2\n3. SEDE 3 ");
+				    println("1. SEDE BELLO\n2. SEDE ITAGÜI2\n3. SEDE MEDELLÍN");
 				   
 				    do {    	
 				    	try {
@@ -640,8 +639,7 @@ public class Main {
 			}				
 		}	
 	}
-	
-	
+
 	
 	static void agendar_servicio(){
 		
@@ -657,7 +655,7 @@ public class Main {
 		do {
 		int servicio=0;
 		println("\nLe recordamos que cada sede de AdoptaLove ofrece un servicio diferente para las mascotas, seleccione según sea su necesidad. \n¿Qué servicio desea agendar?");
-        println("\n1. SEDE 1 - Servicio: Guarderia \n2. SEDE 2 - Servicio: Veterinaria \n3. SEDE 3 - Servicio: Peluquería\n");
+        println("\n1. SEDE BELLO - Servicio: Guarderia \n2. SEDE ITAGÜI - Servicio: Veterinaria \n3. SEDE MEDELLÍN - Servicio: Peluquería\n");
         do {
             print("Ingrese su elección dentro del rango [1-3]: ");
             try {
@@ -831,8 +829,6 @@ public class Main {
         	    			}
         	    	}while(num_dia<1 || num_dia>6);
         	    
-        	    println("Numero del dia: " + num_dia);//QUITAR
-        	    
         	    //CUPOS QUE TIENE EL EMPLEADO PARA EL DIA SELECCIONADO
         	    ArrayList <Cupo> cupos_disponibles = empleado_seleccionado.cupos_disponibles(num_dia);
         	    
@@ -886,7 +882,6 @@ public class Main {
         	    		//DE LO CONTRARIO, SI SELECCIONA UNI, ENTONCES SE PROCEDE A REOCGER LOS DATOS DEL CLIENTE 
         	    		//Y LA MASCOTA.
         	    		Cupo cupo_seleccionado = cupos_disponibles.get(num_cupo-1);
-        	    	    println(cupo_seleccionado);
         	    	    
         	    	    if (mismoUsuario!=true) {
         	    	    
@@ -937,9 +932,42 @@ public class Main {
 		
 		if (citas_agendadas.size()!=0) {
 			
-			int puntos = cliente.getPuntos();
+			boolean respuest = false;
 			
-			println(puntos);
+			if (cliente.getPuntos()>15) {
+				println("\nSr./Sra. " + cliente.getNombre() + " en estos momentos cuanta con " + cliente.getPuntos() + "\n"
+						+ "¿Desea hacer uso de 15 puntos para obtener un descuento del 10%?");
+				String entrada;
+		    	do {
+		    		print("Responda si / no: ");
+		    	    entrada= readString();
+		    	    
+		    	    if (entrada.equalsIgnoreCase("si")!=true && entrada.equalsIgnoreCase("no")!=true) {
+		    	    	println("Proporcione una respuesta válida.\n");
+		    	    	
+		    	    }
+		    	 }while (entrada.equalsIgnoreCase("si")!=true && entrada.equalsIgnoreCase("no")!=true);
+		    	
+		    	if (entrada.equalsIgnoreCase("si")==true ) {
+		    		respuest=true;
+		    		
+					for (Cita cita: citas_agendadas) {
+						
+						cita.aplicarDescuento();
+						cliente.disminuir_puntos(15);			
+					}
+		    	}    				
+			}
+			
+			println("\nDETALLES CITAS:");
+			
+			for (Cita cita:citas_agendadas) {
+				
+				println(cita);
+				
+				println("-----------------\n");
+			}
+	
 		}	
 	}
 	
