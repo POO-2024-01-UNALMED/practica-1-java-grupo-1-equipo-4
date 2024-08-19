@@ -107,9 +107,9 @@ public class Main {
 	}
 		
 	public static void main(String[] args) {
-		  agendar_servicio();
+		 agendar_servicio();
 		 //adoptarAnimal();
-		
+
 	}
 		
 	//MÉTODOS NECESARIOS	
@@ -1153,12 +1153,8 @@ public class Main {
 		println("¡Buscando nuevos amigos!....\n");
 		socializar.match();
 		
-		if (socializar.getCitas().isEmpty()) {
-			println("No se encontraron coincidencias para socializar en este momento");
-		}else {
 			for (Cita cita:socializar.getCitas()){
 				println("Cita generada entre"+cita.getCliente().getNombre()+"con su mascota"+cita.getAnimal().getNombre()+"y"+cita.getCliente2().getNombre()+"con su mascota"+cita.getAnimal2().getNombre());
-			}
 		}
 		
 		Cita primeraCita=socializar.getCitas().get(0);
