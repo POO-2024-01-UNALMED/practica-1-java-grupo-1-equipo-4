@@ -243,7 +243,8 @@ public class Tienda implements Serializable{
                     
                     if (puntos>=15) {
                     	cliente.disminuir_puntos(puntos);
-                    	 return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*0.1+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
+                    	precio -= precio*0.1;
+                    	 return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
                     }else {
                     	return "-------------------------------------------\n"+"Has comprado una unidad de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"No cuentas con los suficientes puntos como para un descuento\n"+"-------------------------------------------";
                     }
@@ -284,7 +285,8 @@ public class Tienda implements Serializable{
                     
                     if (puntos>=15) {
                     	cliente.disminuir_puntos(puntos);
-                    	 return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*unidades*0.1+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
+                    	precio -= precio*unidades*0.1;
+                    	 return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio+" $"+"\n"+"Han sido utilizados 15 puntos para un 10% de descuento\n"+"Puntos restantes: "+cliente.getPuntos()+"\n-------------------------------------------";
                     }else {
                     	return "-------------------------------------------\n"+"Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo+"\n"+"Total a pagar: "+precio*unidades+" $"+"\n"+"No cuentas con los suficientes puntos como para un descuento\n"+"-------------------------------------------";
                     }
