@@ -36,11 +36,11 @@ public class Main {
 	
 	static {
 		//CREACION DE SEDES
-		sede1 = new CentroAdopcion("SEDE 1",25, CentroAdopcion.tipoServicio.GUARDERIA);
+		sede1 = new CentroAdopcion("SEDE BELLO",25, CentroAdopcion.tipoServicio.GUARDERIA);
 		sedes.add(sede1);
-		sede2 = new CentroAdopcion("SEDE 2",20, CentroAdopcion.tipoServicio.VETERINARIA);
+		sede2 = new CentroAdopcion("SEDE ITAGÜI",20, CentroAdopcion.tipoServicio.VETERINARIA);
 		sedes.add(sede2);
-		sede3 = new CentroAdopcion("SEDE 3",20, CentroAdopcion.tipoServicio.PELUQUERIA);
+		sede3 = new CentroAdopcion("SEDE MEDELLÍN",20, CentroAdopcion.tipoServicio.PELUQUERIA);
 		sedes.add(sede3);
 		
 		
@@ -237,7 +237,7 @@ public class Main {
 	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
 	static void adoptarAnimal() {
 		
-		println("\n¡Gracias por tu interés en adoptar un animal! 🐾 Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
+		println("\n¡Gracias por tu interés en adoptar un animal! Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
 				+ "Para comenzar el proceso de adopción, por favor, proporciona la siguiente información.\n");
 		
 		//DATOS PERSONALES DEL USUARIO
@@ -360,7 +360,7 @@ public class Main {
 				    int opcion_sede=0;
 				   
 				    println("Seleccione en cual sede quiere realizar la adopción.");
-				    println("1. SEDE 1\n2. SEDE 2\n3. SEDE 3 ");
+				    println("1. SEDE BELLO\n2. SEDE ITAGÜI2\n3. SEDE MEDELLÍN");
 				   
 				    do {    	
 				    	try {
@@ -828,8 +828,6 @@ public class Main {
         	    			readString();
         	    			}
         	    	}while(num_dia<1 || num_dia>6);
-        	    
-        	    println("Numero del dia: " + num_dia);//QUITAR
         	    
         	    //CUPOS QUE TIENE EL EMPLEADO PARA EL DIA SELECCIONADO
         	    ArrayList <Cupo> cupos_disponibles = empleado_seleccionado.cupos_disponibles(num_dia);
