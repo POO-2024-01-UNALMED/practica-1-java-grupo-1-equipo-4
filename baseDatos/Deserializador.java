@@ -16,14 +16,14 @@ import java.util.List;
 
 public class Deserializador {
 
-	private static <T> void deserializar(ArrayList<T> lista, String nombre) {
+	private static <T> void deserializar(List<T> lista, String nombre) {
 
-
+		File archivo = new File("");
 		FileInputStream fis;
 		ObjectInputStream ois;
 
 		try {
-			File path = new File("/src/baseDatos/temp/" + nombre + ".txt");
+			File path = new File(archivo.getAbsolutePath()+"/baseDatos/temp/" + nombre + ".txt");
 
 
 			fis = new FileInputStream(path);
