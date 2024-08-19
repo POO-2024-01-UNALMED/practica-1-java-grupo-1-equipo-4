@@ -1,9 +1,13 @@
 package gestorAplicación.servicioAdicional;
 import gestorAplicación.procesoAdopcion.CentroAdopcion;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Tienda {
-        // ATRIBUTOS 
+public class Tienda implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		// ATRIBUTOS 
 		//LISTAS STATIC PARA LA SERIALIZACION 
         public static ArrayList<Producto> productos = new ArrayList<> ();
         public static ArrayList<Empleado> empleados = new ArrayList<> ();

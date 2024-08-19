@@ -123,7 +123,7 @@ public class Main {
 				
 		while (true) {
 
-				println("¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?");
+				println("¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?\n");
 				println("1. Adoptar una mascota");
 				println("2. Agendar un servicio");
 				println("3. Agendar cita para socializar");

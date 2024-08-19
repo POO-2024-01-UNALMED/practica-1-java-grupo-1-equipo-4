@@ -7,11 +7,12 @@ import  gestorAplicación.procesoAdopcion.Persona;
 import gestorAplicación.servicioAdicional.Empleado.Rol;
 import gestorAplicación.servicioAdicional.Cita;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Empleado extends Persona {
+public class Empleado extends Persona implements Serializable{
 	
 	
 	private static final long serialVersionUID = 1L;

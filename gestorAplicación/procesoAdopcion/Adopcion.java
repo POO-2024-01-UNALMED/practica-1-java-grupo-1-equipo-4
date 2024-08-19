@@ -1,12 +1,10 @@
 package gestorAplicación.procesoAdopcion;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Adopcion implements Serializable{
+public class Adopcion {
     
 
-	private static final long serialVersionUID = 1L;
 	private Animal animal;
 	private Cliente cliente;
 	private LocalDate fechaAdopcion;

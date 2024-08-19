@@ -1,10 +1,7 @@
 package gestorAplicación.procesoAdopcion;
 
-import java.io.Serializable;
-
-public class Cliente extends Persona implements Serializable{
+public class Cliente extends Persona {
 	
-	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS	
 	private int puntos;
 	private boolean participar;
