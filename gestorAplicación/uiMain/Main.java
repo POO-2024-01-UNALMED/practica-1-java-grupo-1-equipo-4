@@ -1061,9 +1061,13 @@ public class Main {
 	static void socializar() {
 		
 		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
+		//objetos a serializar
 		Cliente clientePorDefecto = new Cliente("Juan", 30, 1234567890L, 987654321L, true);
         Animal animalPorDefecto = new Animal("Firulais", 4, Arrays.asList("juguetón", "amigable"));
         clientePorDefecto.setMascota(animalPorDefecto);
+        
+        Socializar socializar=new Socializar();
+        socializar.registroC(clientePorDefecto);
 		//Persona
 		String nombre;
 		int edad = 0;
@@ -1150,17 +1154,17 @@ public class Main {
 		
 		nuevoCliente.setMascota(nuevaMascota);
 		
-		Socializar socializar=new Socializar();
-		socializar.registroC(nuevoCliente);
+		Socializar socializar1=new Socializar();
+		socializar1.registroC(nuevoCliente);
 		
 		println("¡Buscando nuevos amigos!....\n");
-		socializar.match();
+		socializar1.match();
 		
-			for (Cita cita:socializar.getCitas()){
+			for (Cita cita:socializar1.getCitas()){
 				println("Cita generada entre"+cita.getCliente().getNombre()+"con su mascota"+cita.getAnimal().getNombre()+"y"+cita.getCliente2().getNombre()+"con su mascota"+cita.getAnimal2().getNombre());
 		}
 		
-		Cita primeraCita=socializar.getCitas().get(0);
+		Cita primeraCita=socializar1.getCitas().get(0);
 		println("¿Que desea hacer con su cita?");
 		println("1. Aceptarla");
 		println("2. Rechazarla");
@@ -1182,15 +1186,15 @@ public class Main {
 			
 		switch (opcion) {
 		case 1:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.ACEPTADA);
+			socializar1.cambiarEstadoCita(primeraCita, EstadoCita.ACEPTADA);
 			println ("Cita aceptada");
 			break;
 		case 2:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
+			socializar1.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
 			println("Cita rechaza");
 			break;
 		case 3:
-			socializar.cambiarEstadoCita(primeraCita, EstadoCita.APLAZADA);
+			socializar1.cambiarEstadoCita(primeraCita, EstadoCita.APLAZADA);
 			println("Cita aplazada");
 		default:
 			println("Opcion invalida");
@@ -1199,11 +1203,11 @@ public class Main {
 	}
 		println("Califica a la mascota de"+primeraCita.getCliente().getNombre()+"de 1 hasta 5");
 		 int calificacion=readInt();
-		 socializar.calificarAnimal(primeraCita.getAnimal(), calificacion);
+		 socializar1.calificarAnimal(primeraCita.getAnimal(), calificacion);
 		 
 		 println("Califica a la mascota de"+primeraCita.getCliente2().getNombre()+"de 1 hasta 5");
 		 int calificacion2=readInt();
-		 socializar.calificarAnimal(primeraCita.getAnimal2(), calificacion2);
+		 socializar1.calificarAnimal(primeraCita.getAnimal2(), calificacion2);
 		 
 		 println("\nPuntaje de " + primeraCita.getAnimal().getNombre() + ": " + primeraCita.getAnimal().getPuntaje());
 		 println("\nPuntaje de " + primeraCita.getAnimal2().getNombre() + ": " + primeraCita.getAnimal2().getPuntaje());
