@@ -77,6 +77,14 @@ public class Funeraria {
     public ArrayList<Muerto> getCenizas(){
     	return cenizas;
     }
+    
+    public void setTumbas(ArrayList<Muerto> tumbas) {
+    	Funeraria.tumbas = tumbas;
+    }
+    
+    public void setCenizas(ArrayList<Muerto> cenizas) {
+    	Funeraria.cenizas = cenizas;
+    }
 	
 	//ESPACIOS
 	public boolean espacioCenizas() {

@@ -105,6 +105,15 @@ public class Tienda {
         public ArrayList<Empleado> getEmpleados(){
         	return empleados;
         }
+        
+        
+        public void setProductos(ArrayList<Producto> productos) {
+        	Tienda.productos = productos;
+        }
+        
+        public void setEmpleados(ArrayList<Empleado> empleados) {
+        	Tienda.empleados = empleados;
+        }
 
         //métodos//
         public void agregarEmpleado(Empleado empleado){

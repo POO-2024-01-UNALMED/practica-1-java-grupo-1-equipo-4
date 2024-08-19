@@ -39,6 +39,10 @@ public class Muerto {
 		return flores;
 	}
 	
+	public void setFlores(ArrayList<String> flores) {
+		this.flores = flores;
+	}
+	
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}

@@ -7,8 +7,8 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 
 public class Socializar{
-	private List<Cliente> clientes;
-	private List<Cita> citas;
+	private ArrayList<Cliente> clientes;
+	private ArrayList<Cita> citas;
 	
 	public Socializar(){
 		this.clientes= new ArrayList<>();
@@ -89,14 +89,21 @@ public class Socializar{
         }
     }
     
-    public List<Cita> getCitas(){
+    public ArrayList<Cita> getCitas(){
     	return citas;
     }
     
-    public List<Cliente> getClientes(){
+    public ArrayList<Cliente> getClientes(){
 		return clientes;
 	}
 	
+    public void setClientes(ArrayList<Cliente> clientes){
+		this.clientes = clientes;
+	}
+    
+    public void setCitas(ArrayList<Cita> citas){
+		this.citas = citas;
+	}
 
 }
 

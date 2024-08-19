@@ -206,6 +206,22 @@ public class CentroAdopcion implements Serializable{
 		return clientes_AdoptaLove;
 	}
 	
+	public void setAdopciones(ArrayList<Adopcion> adopciones) {
+        this.adopciones = adopciones;
+    }
+
+    public void setAnimales(ArrayList<Animal> animales) {
+        this.animales = animales;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        CentroAdopcion.clientes_AdoptaLove = clientes;
+    }
+
+    public void setEmpleados(ArrayList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+	
 		
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
