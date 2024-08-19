@@ -22,6 +22,8 @@ public class Funcionalidad_4 {
 		
 		//TODO: RECORDAR COLOCAR EN CENTRO ADOPCIÓN UN ATRIBUTO FUNERARIA (COMO PARA RELACCIONARLOS)
 		
+		//FUNERARIAS CON SUS CENTROS 
+		
 		Funeraria fune1 = new Funeraria(centro1);
 		Funeraria fune2 = new Funeraria(centro2);
 		Funeraria fune3 = new Funeraria(centro3);
@@ -593,7 +595,7 @@ public class Funcionalidad_4 {
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
+											System.out.print("Ingresa el nombre de las flores que le gustaría poner: ");
 											String flor = entrada.nextLine();
 											
 											System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
