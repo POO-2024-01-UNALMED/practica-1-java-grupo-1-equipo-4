@@ -1,7 +1,11 @@
 package gestorAplicación.servicioAdicional;
 
-public class Producto {
-    //Atributos 
+import java.io.Serializable;
+
+public class Producto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	//Atributos 
     private String nombre;
     private float precio;
     private String tipoAnimal; //tipo de animal al que vá dirigido el producto 

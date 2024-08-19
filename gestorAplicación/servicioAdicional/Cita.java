@@ -1,9 +1,13 @@
 package gestorAplicación.servicioAdicional;
+import java.io.Serializable;
 import java.time.LocalDate;
 import gestorAplicación.procesoAdopcion.Animal;
 import gestorAplicación.procesoAdopcion.Cliente;
 
-public class Cita{
+public class Cita implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	public enum EstadoCita{
 		PENDIENTE,RECHAZADA,ACEPTADA,APLAZADA
 	}
