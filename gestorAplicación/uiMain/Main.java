@@ -37,6 +37,7 @@ public class Main {
 	static CentroAdopcion sede3;
 	static Tienda t1;
 	static 	ArrayList<Funeraria> funerarias;
+	static Socializar socializar;
 	
 	static Funeraria fune1;
 	static Funeraria fune2;
@@ -116,6 +117,13 @@ public class Main {
 		//TIENDA
 		Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO);
 		t1 = new Tienda(empliado, sede1);
+		
+		//socializar
+		Cliente cliente=new Cliente("Pedro",24,311786174,10486739,true);
+		Animal animal=new Animal("Canela",4,Arrays.asList("jugueton", "calmado", "activo"));
+		cliente.setMascota(animal);
+		socializar=new Socializar();
+		socializar.registroC(cliente);
 		
       t1.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
       t1.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
@@ -1213,10 +1221,6 @@ public class Main {
 		Animal animal=new Animal("Canela",4,Arrays.asList("jugueton", "calmado", "activo"));
 		cliente.setMascota(animal);
 		
-		Socializar socializar=new Socializar();
-		socializar.registroC(cliente);
-		
-        
 		//Persona
 		String nombre;
 		int edad = 0;
