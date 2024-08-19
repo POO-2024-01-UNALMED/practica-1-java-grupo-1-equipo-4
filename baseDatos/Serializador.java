@@ -15,7 +15,7 @@ import gestorAplicación.uiMain.Main;
 
 public class Serializador {
 
-	private static void serializar(ArrayList<? extends Object> lista, String nombre) {
+	private static void serializar(List<? extends Object> lista, String nombre) {
 
 		File archivo = new File("");
 
@@ -39,22 +39,43 @@ public class Serializador {
 			System.out.println("Error en el flujo de inicializacion");
 
 		}
-			//--------
-			//----------
-			//--------
 	}
 
 	public static void serializarListas() {
 		
+		//metodos estaticos
+		
 		serializar(Main.sedes, "Sedes");
-		//serializar(CentroAdopcion.getAdopciones(), "Adopciones");
 		serializar(CentroAdopcion.getClientes(), "Clientes");
-		//serializar(CentroAdopcion.getCitas(), "Citas");
-		
-		
 		serializar(Funeraria.getTumbas(), "Tumbas");
+		serializar(Funeraria.getCenizas(), "Cenizas");
+		serializar(Socializar.getClientes(), "Clientes_Socializar");
+		serializar(Tienda.get)
 		
-
+		
+		
+		//metodos no estaticos
+		
+		CentroAdopcion ca = new CentroAdopcion();
+        serializar(ca.getAdopciones(), "Adopciones");
+        serializar(ca.getEmpleados(), "Empleados");
+        serializar(ca.getAnimales(), "Animales");
+        serializar(ca.getCitas(), "Citas");
+        
+        Empleado em = new Empleado();
+        serializar(em.getCupo(), "Agenda");
+		
+        Muerto m = new Muerto();
+        serializar(m.getFlores(), "Flores");
+        
+        //CENTROADOPCION LISTO
+        //EMPLEADO LISTO
+        //FUNERARIA LISTO
+        //MUERTO LISTO
+        
+        
+        
+        
 
 	}
 }

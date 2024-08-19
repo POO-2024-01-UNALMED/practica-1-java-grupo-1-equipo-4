@@ -78,7 +78,7 @@ public class Funeraria implements Serializable{
     	return tumbas;
     }
     
-    public ArrayList<Muerto> getCenizas(){
+    public static ArrayList<Muerto> getCenizas(){
     	return cenizas;
     }
     

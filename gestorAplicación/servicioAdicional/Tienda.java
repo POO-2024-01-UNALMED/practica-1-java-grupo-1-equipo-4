@@ -214,8 +214,8 @@ public class Tienda {
         
         public static boolean isCliente(long cedula) {
         	boolean respuesta = false;
-        	for (int i = 0; i < CentroAdopcion.clientes_AdoptaLove.size(); i ++) {
-        		if (CentroAdopcion.clientes_AdoptaLove.get(i).getCedula()==cedula) {
+        	for (int i = 0; i < CentroAdopcion.getClientes().size(); i ++) {
+        		if (CentroAdopcion.getClientes().get(i).getCedula()==cedula) {
         			respuesta = true; 
         		}
         	}

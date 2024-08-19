@@ -89,11 +89,11 @@ public class Socializar{
         }
     }
     
-    public ArrayList<Cita> getCitas(){
+    public static ArrayList<Cita> getCitas(){
     	return citas;
     }
     
-    public ArrayList<Cliente> getClientes(){
+    public static ArrayList<Cliente> getClientes(){
 		return clientes;
 	}
 	

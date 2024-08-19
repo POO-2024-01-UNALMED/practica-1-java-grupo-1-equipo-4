@@ -31,6 +31,10 @@ public class Persona implements Serializable{
 	
 	//MÉTODOS SETTER Y GETTER
 	
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setNombre(String nombre) {
 		this.nombre= nombre;
 	}

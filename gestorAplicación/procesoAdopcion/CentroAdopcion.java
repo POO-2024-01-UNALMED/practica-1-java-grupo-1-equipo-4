@@ -13,10 +13,11 @@ public class CentroAdopcion implements Serializable{
 	}
 	private ArrayList <Empleado> empleados = new ArrayList<>();
 	private ArrayList < Animal > animales= new ArrayList<Animal>();
-	private static ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
-	public static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
-	public static ArrayList<Cita> citas_agendadas = new ArrayList<>();
+	private ArrayList <Adopcion> adopciones = new ArrayList<Adopcion>();
+	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
+	private ArrayList<Cita> citas_agendadas = new ArrayList<>();
 
+	private static CentroAdopcion instance;
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int espaciosDisponibles;
@@ -190,7 +191,7 @@ public class CentroAdopcion implements Serializable{
 		this.tienda = tienda;
 	}
 	
-	public static ArrayList<Adopcion> getAdopciones(){
+	public ArrayList<Adopcion> getAdopciones(){
 		return adopciones;
 	}
 	
@@ -206,7 +207,7 @@ public class CentroAdopcion implements Serializable{
 		return clientes_AdoptaLove;
 	}
 	
-	public static ArrayList<Cita> getCitas() {
+	public ArrayList<Cita> getCitas() {
 		return citas_agendadas;
 	}
 	
@@ -214,6 +215,13 @@ public class CentroAdopcion implements Serializable{
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
 	}
+	
+	public static CentroAdopcion getInstance() {
+        if (instance == null) {
+            instance = new CentroAdopcion();
+        }
+        return instance;
+    }
 	
 	
 	//OTROS MÉTODOS

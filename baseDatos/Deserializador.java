@@ -50,10 +50,16 @@ public class Deserializador {
 	}
 
 	public static void deserializarListas() {
-		//deserializar(CentroAdopcion.getAdopciones(), "Adopciones");
+		
+		CentroAdopcion ca = new CentroAdopcion();
+        deserializar(ca.getAdopciones(), "Adopciones");
+        
+        Empleado p = new Empleado();
+        deserializar(p.getCupo(), "Agenda");
+        
 		deserializar(Main.sedes, "Sedes");
 		deserializar(CentroAdopcion.getClientes(), "Clientes");
-		deserializar(Funeraria.getTumbas(), "Tumbas");
+		//deserializar(Funeraria.getTumbas(), "Tumbas");
 
 	}
 }

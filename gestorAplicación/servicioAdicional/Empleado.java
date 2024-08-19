@@ -1,5 +1,6 @@
 package gestorAplicación.servicioAdicional;
 
+import gestorAplicación.procesoAdopcion.Adopcion;
 import  gestorAplicación.procesoAdopcion.Persona;
 
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class Empleado extends Persona {
 	
 	
+	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS
     private Rol profesion; 
     
@@ -23,6 +25,7 @@ public class Empleado extends Persona {
     ArrayList<ArrayList<Cupo>> agenda_dias = new ArrayList<>();
     
     //CONSTRUCTOR
+    
     
     public Empleado( String nombre,int edad, long cedula,long telefono, String direccion,Rol profesion) {
     	super (nombre,edad,cedula,telefono,direccion);
@@ -38,7 +41,15 @@ public class Empleado extends Persona {
     
     //MÉTODOS
     
-    private void llenar_agenda() {
+    
+
+
+	public Empleado() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	private void llenar_agenda() {
     	
     	//CANTIDAD DE CICLOS, DEPENDIENDO EL DIA.
     	int [] ciclos = {6,5,4,3,2,1};
@@ -232,6 +243,10 @@ public class Empleado extends Persona {
         public Rol getProfesion(){
             return profesion;
         }
+        
+        public ArrayList<ArrayList<Cupo>> getCupo(){
+    		return agenda_dias;
+    	}
 
            
 
