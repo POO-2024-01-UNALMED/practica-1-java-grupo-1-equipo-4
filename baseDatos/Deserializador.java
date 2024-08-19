@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import gestorAplicación.procesoAdopcion.*;
 import gestorAplicación.servicioAdicional.*;
+import gestorAplicación.uiMain.Main;
 
 import java.io.*;
 import java.util.List;
@@ -49,7 +50,10 @@ public class Deserializador {
 	}
 
 	public static void deserializarListas() {
-		deserializar(CentroAdopcion.getAdopciones(), "Adopciones");
+		//deserializar(CentroAdopcion.getAdopciones(), "Adopciones");
+		deserializar(Main.sedes, "Sedes");
+		deserializar(CentroAdopcion.getClientes(), "Clientes");
+		deserializar(Funeraria.getTumbas(), "Tumbas");
 
 	}
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import gestorAplicación.procesoAdopcion.*;
 import gestorAplicación.servicioAdicional.*;
+import gestorAplicación.uiMain.Main;
 
 public class Serializador {
 
@@ -44,8 +45,11 @@ public class Serializador {
 	}
 
 	public static void serializarListas() {
-		serializar(CentroAdopcion.getAdopciones(), "Adopciones");
+		
+		serializar(Main.sedes, "Sedes");
+		//serializar(CentroAdopcion.getAdopciones(), "Adopciones");
 		serializar(CentroAdopcion.getClientes(), "Clientes");
+		//serializar(CentroAdopcion.getCitas(), "Citas");
 		
 		
 		serializar(Funeraria.getTumbas(), "Tumbas");

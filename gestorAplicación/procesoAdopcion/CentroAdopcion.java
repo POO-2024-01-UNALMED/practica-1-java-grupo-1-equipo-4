@@ -206,7 +206,9 @@ public class CentroAdopcion implements Serializable{
 		return clientes_AdoptaLove;
 	}
 	
-
+	public static ArrayList<Cita> getCitas() {
+		return citas_agendadas;
+	}
 	
 		
 	public void agregarEmpleado(Empleado empleado) {
