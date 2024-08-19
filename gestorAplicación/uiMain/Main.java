@@ -1333,10 +1333,14 @@ public class Main {
 	
 	public static void funeraria() {
 		
+		 Funeraria fune1 = new Funeraria(sede1);
+		 Funeraria fune2 = new Funeraria(sede2);
+		 Funeraria fune3 = new Funeraria(sede3);
+		 ArrayList<Funeraria> funerarias = new ArrayList<> ();
+		 
 		funerarias.add(fune1);
 		funerarias.add(fune2);
 		funerarias.add(fune3);
-				
 		//-------------------------------------------------------------------------------------------------------
 		// PROCESO FUNERARIA 
 		
