@@ -1958,10 +1958,10 @@ public class Main {
 		
 		while (true) { 
 		
-			System.out.println("¿Qué deseas hacer?"+"\n");
+			System.out.println("¿Qué deseas hacer?");
 			System.out.println("1. Comprar un producto");
 			System.out.println("2. Salir\n");
-			System.out.println("Ingrese el número de la opción que desea");
+			System.out.println("Ingrese el número de la opción que desea [1-2]: ");
 			
 			int menu = 0;
 			while (menu==0) {
@@ -1989,6 +1989,7 @@ public class Main {
 				System.out.println("\n¿Cómo desea que se le muestren los productos?");
 				System.out.println("1. Mostrar todo");
 				System.out.println("2. Filtrar por tipo");
+				System.out.print("Ingrese el número de la opción que desea [1-2]: ");
 					
 				int menuTienda = 0;
 				while (menuTienda==0) {
@@ -2059,16 +2060,16 @@ public class Main {
 				boolean control = true;
 				while (control) {
 					try {
-							System.out.println("Coloque el índice del producto que va a comprar: ");
+							System.out.print("Coloque el índice del producto que va a comprar: ");
 							int indice = entrada.nextInt();
 			
-							System.out.println("Indique cuantas unidades quiere del producto: ");
+							System.out.print("Indique cuantas unidades quiere del producto: ");
 							int unidades = entrada.nextInt();
 							
 							//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
 							
 							if (unidades==1) {
-								System.out.println("Sus datos serán tomados para registrar la compra.");
+								System.out.println("\nSus datos serán tomados para registrar la compra.");
 								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
 								System.out.print("Ingrese su edad: ");
@@ -2080,7 +2081,7 @@ public class Main {
 								System.out.println("\n"+t1.compra(indice, cliente));
 							}
 							else {
-								System.out.println("Sus datos serán tomados para registrar la compra.");
+								System.out.println("\nSus datos serán tomados para registrar la compra.");
 								System.out.print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
 								System.out.print("Ingrese su edad: ");
@@ -2106,7 +2107,7 @@ public class Main {
 					}
 				}
 				
-				System.out.println("\n¿Desea volver al catálogo? (responda con si/no)");
+				System.out.println("\n¿Desea volver al catálogo? [si/no]");
 				String respuesta = " ";
 				while (true) {//CONTROL CON UN WHILE SOLAMENTE
 					respuesta = entrada.nextLine();
@@ -2114,7 +2115,7 @@ public class Main {
 					if (respuesta.equals("si")||respuesta.equals("no")) {
 						break;
 					}else {
-						System.out.println("Por favor, ingrese una respuesta válida (si/no)");
+						System.out.println("Por favor, ingrese una respuesta válida [si/no]");
 						continue;
 					}
 				}
