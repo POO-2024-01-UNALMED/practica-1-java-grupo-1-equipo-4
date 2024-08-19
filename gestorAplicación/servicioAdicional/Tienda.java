@@ -12,6 +12,7 @@ public class Tienda {
         //constructores//
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
             Tienda.empleados.add(empleado); //Tienda con un empleado 
+            centroAdopcion.setTienda(this);
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
