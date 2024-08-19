@@ -51,15 +51,31 @@ public class Deserializador {
 
 	public static void deserializarListas() {
 		
-		CentroAdopcion ca = new CentroAdopcion();
-        deserializar(ca.getAdopciones(), "Adopciones");
-        
-        Empleado p = new Empleado();
-        deserializar(p.getCupo(), "Agenda");
-        
+		//metodos estaticos
+		
 		deserializar(Main.sedes, "Sedes");
 		deserializar(CentroAdopcion.getClientes(), "Clientes");
-		//deserializar(Funeraria.getTumbas(), "Tumbas");
+		deserializar(Funeraria.getTumbas(), "Tumbas");
+		deserializar(Funeraria.getCenizas(), "Cenizas");
+		deserializar(Socializar.getClientes(), "Clientes_Socializar");
+		deserializar(Tienda.getProductos(), "Productos");
+		deserializar(Tienda.getEmpleados(), "Empleados_Tienda");
+				
+				
+				
+		//metodos no estaticos
+				
+		CentroAdopcion ca = new CentroAdopcion();
+		deserializar(ca.getAdopciones(), "Adopciones");
+		deserializar(ca.getEmpleados(), "Empleados");
+		deserializar(ca.getAnimales(), "Animales");
+		deserializar(ca.getCitas(), "Citas");
+		        
+		Empleado em = new Empleado();
+		deserializar(em.getCupo(), "Agenda");
+				
+		Muerto m = new Muerto();
+		deserializar(m.getFlores(), "Flores");
 
 	}
 }

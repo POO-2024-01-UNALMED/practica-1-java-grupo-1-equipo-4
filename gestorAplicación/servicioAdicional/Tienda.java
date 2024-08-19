@@ -99,11 +99,11 @@ public class Tienda {
             return this.centroAdopcion;
         }
         
-        public ArrayList<Producto> getProductos(){
+        public static ArrayList<Producto> getProductos(){
         	return productos;
         }
         
-        public ArrayList<Empleado> getEmpleados(){
+        public static ArrayList<Empleado> getEmpleados(){
         	return empleados;
         }
         

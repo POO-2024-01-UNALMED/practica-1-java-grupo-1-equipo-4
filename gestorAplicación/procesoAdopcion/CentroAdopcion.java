@@ -17,7 +17,6 @@ public class CentroAdopcion implements Serializable{
 	private static ArrayList <Cliente> clientes_AdoptaLove= new ArrayList<Cliente>();
 	private ArrayList<Cita> citas_agendadas = new ArrayList<>();
 
-	private static CentroAdopcion instance;
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int espaciosDisponibles;
@@ -215,14 +214,6 @@ public class CentroAdopcion implements Serializable{
 	public void agregarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
 	}
-	
-	public static CentroAdopcion getInstance() {
-        if (instance == null) {
-            instance = new CentroAdopcion();
-        }
-        return instance;
-    }
-	
 	
 	//OTROS MÉTODOS
 
