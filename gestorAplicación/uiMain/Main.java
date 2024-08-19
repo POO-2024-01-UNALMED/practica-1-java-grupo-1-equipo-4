@@ -35,7 +35,6 @@ public class Main {
 	static CentroAdopcion sede1;
 	static CentroAdopcion sede2;
 	static CentroAdopcion sede3;
-	static Tienda t1;
 
 	static Socializar socializar;
 	
@@ -1946,13 +1945,14 @@ public class Main {
 	
 	public static void tienda() {
 		
+
 		
 		//CREAMOS UN EMPLEADO PARA QUE ATIENDA LA TIENDA
 		Empleado empliado = new Empleado("Albert", 22, 555, 1323, "West Elm", Empleado.Rol.TENDERO);
 		
 		// CREACIÓN DE TIENDA
 		//t1 = new Tienda(empliado, sede1);
-		
+		Tienda t1 = new Tienda(empliado,sede1);
 		
 		//OPERACION DE LA TIENDA
 		boolean bucle = true;
