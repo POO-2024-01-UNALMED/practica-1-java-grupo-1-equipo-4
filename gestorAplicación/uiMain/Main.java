@@ -135,7 +135,7 @@ public class Main {
 	}
 	
 	static boolean readBoolean() {
-		return false;
+		return entrada.equals(entrada);
 	}
 	
 	static double nextDouble() {
@@ -1073,7 +1073,7 @@ public class Main {
 		int edad = 0;
 		long cedula = 0 ;
 		long celular = 0;
-		boolean participar=false;
+		boolean participar;
 		//Mascota
 		String nombreM;
 		int edadM=0;
