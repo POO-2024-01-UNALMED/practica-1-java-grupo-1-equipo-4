@@ -140,11 +140,29 @@ public class Main {
   	  fune2 = new Funeraria(sede2);
   	  fune3 = new Funeraria(sede3);
 	  funerarias = new ArrayList<> ();
+
+	    t1.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
+	    t1.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
+	    t1.agregarProducto(new Producto("Correas", 25000, 10));
+	    t1.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
+	    t1.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
+	    t1.agregarProducto(new Producto("Comederos de acero", 20000, 25));
+	    t1.agregarProducto(new Producto("Comederos con formas", 30000, 10));
+	    t1.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
+	    t1.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
+	    t1.agregarProducto(new Producto("Pienso generico", 30000,"Perros", 30));
+	    t1.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20));
+	    t1.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
+	    t1.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
+	    t1.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
+	    t1.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
+	    t1.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
+	    t1.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
+	    t1.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
+	    t1.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));  
 		
 		
-		
-		
-		
+
 		Cliente cliente1= new Cliente("Oky",18, 1072253440,3106762877L, "Medellín");
 		
 		cliente1.agregar_puntos(20);

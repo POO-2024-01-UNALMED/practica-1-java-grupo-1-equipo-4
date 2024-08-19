@@ -61,7 +61,7 @@ public class Deserializador {
 		deserializar(CentroAdopcion.getClientes(), "Clientes");
 		deserializar(Funeraria.getTumbas(), "Tumbas");
 		deserializar(Funeraria.getCenizas(), "Cenizas");
-		//deserializar(Socializar.getClientes(), "Clientes_Socializar");
+		deserializar(Socializar.getClientes(), "Clientes_Socializar");
 		deserializar(Tienda.getProductos(), "Productos");
 		deserializar(Tienda.getEmpleados(), "Empleados_Tienda");
 				
