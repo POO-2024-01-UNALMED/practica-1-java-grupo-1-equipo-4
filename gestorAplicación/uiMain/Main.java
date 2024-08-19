@@ -214,6 +214,7 @@ public class Main {
 		
 		println("\n¡Gracias por tu interés en adoptar un animal! 🐾 Estamos emocionados de ayudarte a encontrar a tu nuevo amigo.\n"
 				+ "Para comenzar el proceso de adopción, por favor, proporciona la siguiente información.\n");
+		readString();
 		
 		//DATOS PERSONALES DEL USUARIO
 		String nombre;
