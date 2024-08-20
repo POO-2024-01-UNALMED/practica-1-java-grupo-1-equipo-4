@@ -1,8 +1,7 @@
-package gestorAplicacion.servicioAdicional;
+package gestorAplicacion.componentes;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import gestorAplicacion.administracion.*;
 
 public class Muerto implements Serializable{
 	

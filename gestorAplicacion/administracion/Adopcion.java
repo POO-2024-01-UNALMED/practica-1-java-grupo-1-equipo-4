@@ -3,8 +3,8 @@ package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import gestorAplicacion.servicioAdicional.Animal;
-import gestorAplicacion.servicioAdicional.Cliente;
+import gestorAplicacion.componentes.Animal;
+import gestorAplicacion.componentes.Cliente;
 
 
 public class Adopcion implements Serializable {

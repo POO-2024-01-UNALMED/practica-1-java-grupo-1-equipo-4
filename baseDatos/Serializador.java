@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 import gestorAplicacion.administracion.*;
-import gestorAplicacion.servicioAdicional.*;
+import gestorAplicacion.componentes.*;
 import gestorAplicacion.uiMain.Main;
 
 public class Serializador {

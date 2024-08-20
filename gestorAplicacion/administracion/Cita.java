@@ -1,11 +1,11 @@
 package gestorAplicacion.administracion;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import gestorAplicacion.servicioAdicional.Animal;
-import gestorAplicacion.servicioAdicional.Cliente;
-import gestorAplicacion.servicioAdicional.Cupo;
-import gestorAplicacion.servicioAdicional.Empleado;
+
+import gestorAplicacion.componentes.Animal;
+import gestorAplicacion.componentes.Cliente;
+import gestorAplicacion.componentes.Cupo;
+import gestorAplicacion.componentes.Empleado;
 
 public class Cita implements Serializable{
 	

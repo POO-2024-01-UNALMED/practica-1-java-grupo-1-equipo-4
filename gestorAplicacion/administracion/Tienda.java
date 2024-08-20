@@ -2,9 +2,9 @@ package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import gestorAplicacion.servicioAdicional.Cliente;
-import gestorAplicacion.servicioAdicional.Empleado;
-import gestorAplicacion.servicioAdicional.Producto;
+import gestorAplicacion.componentes.Cliente;
+import gestorAplicacion.componentes.Empleado;
+import gestorAplicacion.componentes.Producto;
 
 public class Tienda implements Serializable{
 	

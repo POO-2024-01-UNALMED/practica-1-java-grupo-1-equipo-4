@@ -1,8 +1,6 @@
-package gestorAplicacion.servicioAdicional;
+package gestorAplicacion.componentes;
 
-import java.util.List;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Animal implements Serializable{
 
@@ -34,10 +32,7 @@ public class Animal implements Serializable{
 	}
 	
 	public Animal(String nombre, String tipo, int edad, String sexo) {
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.edad = edad;
-		this.sexo = sexo;
+		this(nombre, tipo, edad, sexo, null);
 	}
 	
 
