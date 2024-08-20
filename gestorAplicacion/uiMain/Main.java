@@ -1865,14 +1865,14 @@ public class Main {
 				while (control) {
 					try {
 							print("Digite el índice del producto a comprar: ");
-							int indice = readInt();
+							int indice = readInt(); //INDICE PARA LOCALIZAR EL PRODUCTO QUE QUIERE EL USUARIO 
 			
 							print("Indique cuantas unidades necesita del producto: ");
-							int unidades = readInt();
+							int unidades = readInt(); //CANTIDAD DE UNIDADES QUE EL USUARIO VA A COMPRAR
 							
-							//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
+							//  REGISTRO DEL USUARIO PARA REALIZAR LA COMPRA-------------------------------------
 							
-							if (unidades==1) {
+							if (unidades==1) { //SI SOLO VA A COMPRAR UNA UNIDAD
 								println("\nSus datos serán tomados para registrar la compra.");
 								print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
@@ -1882,8 +1882,10 @@ public class Main {
 								entrada.nextLine();
 								String nombre = readString();
 								
+								//SE REGISTA EL USUARIO, CREANDO UN OBJETO DEL TIPO CLIENTE Y PASANDOLO AL MÉTODO COMPRA DE TIENDA 
 								Cliente cliente = new Cliente(nombre, edad, cedula);
-								println("\n"+t1.compra(indice, cliente));
+								println("\n"+t1.compra(indice, cliente)); 
+								//ESTE FILTRO DE: UNIDADES == 1, ES PORQUE EL MÉTODO COMPRA QUE RECIBE DOS PARÁMETROS RETORNA ALGO MÁS ADECUADO PARA ESTE CASO 
 							}
 							else {
 								println("\nSus datos serán tomados para registrar la compra.");
@@ -1899,7 +1901,7 @@ public class Main {
 								println("\n"+t1.compra(indice, unidades, cliente));
 							}
 							
-							// ENCERRADO EN ESTAS LINEAS --------------------------------------------------------------------------------
+							// --------------------------------------------------------------------------------
 							
 							control = false;
 						

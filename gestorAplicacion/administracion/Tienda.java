@@ -25,7 +25,7 @@ public class Tienda implements Serializable{
             Tienda.empleados.add(empleado); //TIENDA CON UN EMPLEADO
             this.centroAdopcion = centroAdopcion;
             
-            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
+//            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
 //            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
 //            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
 //            this.agregarProducto(new Producto("Correas", 25000, 10));
@@ -45,8 +45,8 @@ public class Tienda implements Serializable{
 //            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10)); 
 //            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
 //            this.agregarProducto(new Producto("Corral metálico", 30000,"conejos", 10));    
-            
-        }
+//            
+//        }
 
         public Tienda(Empleado empleado){
             Tienda.empleados.add(empleado);

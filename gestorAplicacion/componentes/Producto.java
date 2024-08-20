@@ -25,6 +25,14 @@ public class Producto implements Serializable{
         this.tipoAnimal = tipoAnimal;
         this.cantidadUnidades = cantidadUnidades;
     }
+    
+    public Producto(String nombre, float precio,  int cantidadUnidades){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.tipoAnimal = "Uso general";
+        this.cantidadUnidades = cantidadUnidades;
+    }
+
 
 
     //Métodos setter and getter 
