@@ -7,12 +7,16 @@ import gestorAplicacion.componentes.Cliente;
 import gestorAplicacion.componentes.Cupo;
 import gestorAplicacion.componentes.Empleado;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+//Almacena información sobre las citas agendadas para servicios como veterinaria, guardería o peluquería, incluyendo el animal, cliente, empleado y costo.
+
+
 public class Cita implements Serializable{
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
 
 	private static final long serialVersionUID = 1L;
 

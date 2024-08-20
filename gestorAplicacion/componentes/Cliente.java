@@ -7,6 +7,10 @@ import java.io.Serializable;
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
 
+//DESCRIPCIÓN DE LA CLASE:
+//Representa a los usuarios que buscan adoptar animales y que pueden utilizar otros servicios del centro, como la tienda y citas.
+
+
 public class Cliente extends Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;

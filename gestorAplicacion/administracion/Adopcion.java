@@ -6,14 +6,15 @@ import java.time.LocalDate;
 import gestorAplicacion.componentes.Animal;
 import gestorAplicacion.componentes.Cliente;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+// Registra información sobre el proceso de adopción, incluyendo el animal adoptado, el adoptante y la fecha de adopción.
 
 public class Adopcion implements Serializable {
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
-
     
 	private static final long serialVersionUID = 1L;
 	private Animal animal;
