@@ -127,9 +127,9 @@ public class Main {
 				
 		while (true) {
 
-				println("¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?\n");
+				println("\n¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?\n");
 				println("1. Adoptar una mascota");
-				println("2. Agendar un servicio");
+				println("2. Agendar un servicio para tu mascota");
 				println("3. Agendar cita para socializar");
 				println("4. Comprar en la tienda para mascotas");
 				println("5. Ingresar a servicios funerarios");
@@ -138,12 +138,13 @@ public class Main {
 				int menu = 0;
 				while (menu==0) {
 					try {
-						menu = entrada.nextInt();
+						print("\nElige una opcion: ");
+						menu = readInt();
 						if (menu>0 && menu<=6) {
 							break;
 						}
 						else {
-							System.out.println("Ingrese un número válido por favor");
+							println("Ingrese un número válido por favor");
 							menu = 0;
 							continue;
 						}
@@ -207,37 +208,7 @@ public class Main {
 		System.out.print(obj);
 	}
 	
-
-	   
-	   //MÉTODOS PARA LA SELECCION DE LA MASCOTA  
-	   public static int escogerSede() {
-		   int sede=0;
-		   int respuesta=0;
-		   println("Seleccione en cual sede quiere realizar la adopción.");
-		   println("1. SEDE 1");
-		   println("2. SEDE 2");
-		   println("3. SEDE 3");
-		   
-		   do {
-			   try {
-			   print("Ingrese su elección dentro del rango [1-3]: ");
-			   respuesta = readInt();
-			   sede = respuesta - 1;
-			   
-			   if (respuesta<1 || respuesta>3) {
-				   println("Opción fuera de rango.");
-			   }
-			   }catch(RuntimeException e) {
-				   println("Se ha ingresado un tipo de dato incorrecto.");
-			   }finally {
-				   readString();
-			   }
-			  
-		   }while(respuesta<1 || respuesta>3);   
-		   return sede;
-	   }   
-
-		   
+   
 	//MÉTODO ESTÁTICO FUNCIONALIDAD ADOPTAR ANIMAL
 	static void adoptarAnimal() {
 		
@@ -364,7 +335,7 @@ public class Main {
 				    int opcion_sede=0;
 				   
 				    println("Seleccione en cual sede quiere realizar la adopción.");
-				    println("1. SEDE BELLO\n2. SEDE ITAGÜI2\n3. SEDE MEDELLÍN");
+				    println("1. SEDE BELLO\n2. SEDE ITAGÜI\n3. SEDE MEDELLÍN");
 				   
 				    do {    	
 				    	try {
@@ -649,7 +620,7 @@ public class Main {
 		
 		ArrayList<Cita> citas_agendadas= new ArrayList<>();
 		
-		println("mensaje de bienvenida");
+		println("¡Gracias por elegirnos para atender a tu peludito! Por favor, sigue las instrucciones a continuación para que podamos atenderlo de la mejor manera.🐾");
 	
 		//SELECCIÓN DE SEDE Y SERVICIO
 		boolean repetir = false;
