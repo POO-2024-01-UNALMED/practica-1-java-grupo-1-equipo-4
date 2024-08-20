@@ -88,7 +88,7 @@ public class Funeraria implements Serializable{
     
 	
 	//ESPACIOS
-	public boolean espacioCenizas() {
+	public boolean espacioCenizas() { //REVISA SI EN LA LISTA DE CENIZAS HAY ESPACIO PARA COLOCAR MÁS
 		if (cenizas.size()<=25) {
 			return true;
 		}
@@ -97,7 +97,7 @@ public class Funeraria implements Serializable{
 		}
 	}
 	
-	public boolean espacioTumbas() {
+	public boolean espacioTumbas() { //REVISA SI EN LA LISTA DE TUMBAS HAY ESPACIO PARA COLOCAR MÁS
 		if (tumbas.size()<=15) {
 			return true;
 		}
@@ -107,27 +107,28 @@ public class Funeraria implements Serializable{
 	}
 	
 	//AÑADIR TUMBA/CENIZAS
-	public void añadirTumba(Muerto tumba) {
+	public void añadirTumba(Muerto tumba) { //RESIVE UN OBJETO DE TIPO MUERTO, AL CUAL LE ESTABLECE EL TIPO COMO "TUMBA" Y LO AÑADE A SU RESPECTIVA LISTA 
 		tumba.setTipo("Tumba");
 		tumbas.add(tumba);
 	}
 	
-	public void añadirCenizas(Muerto ceniza) {
+	public void añadirCenizas(Muerto ceniza) { //RESIVE UN OBJETO DE TIPO MUERTO, AL CUAL LE ESTABLECE EL TIPO COMO "CENIZAS" Y LO AÑADE A SU RESPECTIVA LISTA 
 		ceniza.setTipo("Cenizas");
 		cenizas.add(ceniza);
 	}
 	
-    public String visita(String tipo){ //FILTRAR
-    	String resultado = "";
+    public String visita(String tipo){ // RECIBE UN TIPO PARA ESCOGER LA LISTA A RECORRER
+    	
+    	String resultado = ""; // ACOMULADOR QUE VA A GUARDAR LOS INDICES Y OBJETOS MUERTE EN STRING 
 
-    	if (tipo.equals("tumbas")) {
+    	if (tipo.equals("tumbas")) { //SI EL TIPO ES IGUAL A "TUMBAS" SE RECORRE LA LISTA DE TUMBAS Y SE CONCATENAN LOS OBJETOS MUERTO PARA SU RETORNO 
         	int indice = 0;
         	for (int i = 0; i<tumbas.size();i++) {
         		indice = indice+1;
         		resultado += indice+". "+tumbas.get(i).toString()+"\n";
         	}
     	}
-    	else {
+    	else {//COMO NO HAY NINGÚN OTRO TIPO DE MUERTO, SE RECORRE LA LISTA DE CENIZAS Y SE CONCATENAN LOS OBJETOS MUERTO PARA SU RETORNO 
          	int indice = 0;
         	for (int i = 0; i<cenizas.size();i++) {
         		indice = indice+1;
@@ -137,14 +138,16 @@ public class Funeraria implements Serializable{
             return resultado; 
     }
     
-    public String florCenizas(int indice, String flor){
-            indice -= 1;
-            return cenizas.get(indice).ponerFlor(flor);
+    public String florCenizas(int indice, String flor){ //MÉTODO PARA AGREGAR UNA FLOR (EN CASO DE QUE TOQUE RECORRER LA LISTA DE CENIZAS)
+            indice -= 1; // SE LE RESTA AL ÍNDICE, PORQUE EN LOS RETORNOS, SIEMPRE SE EMPIEZA DESDE 1
+            
+            return cenizas.get(indice).ponerFlor(flor); //SE LLAMA AL OBJETO MUERTO, Y A SU VEZ, SE LLAMA AL MÉTODO PONERFLOR(), DE ÉSTE.
     }    
     
-    public String florTumbas(int indice, String flor) {   
-    	indice -= 1;
-    	return tumbas.get(indice).ponerFlor(flor);
+    public String florTumbas(int indice, String flor) { //MÉTODO PARA AGREGAR UNA FLOR (EN CASO DE QUE TOQUE RECORRER LA LISTA DE TUMBAS) 
+    	indice -= 1; // SE LE RESTA AL ÍNDICE, PORQUE EN LOS RETORNOS, SIEMPRE SE EMPIEZA DESDE 1
+    	
+    	return tumbas.get(indice).ponerFlor(flor);//SE LLAMA AL OBJETO MUERTO, Y A SU VEZ, SE LLAMA AL MÉTODO PONERFLOR(), DE ÉSTE.
        
     }
     

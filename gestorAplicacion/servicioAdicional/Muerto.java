@@ -16,13 +16,13 @@ public class Muerto implements Serializable{
 	private String fecha;
 	private String mensaje;
 	private Cliente dueño;
-	private String tiempo;
-	private String tipo;
-    private ArrayList<String> flores = new ArrayList<> ();
+	private String tiempo; // TIEMPO DE ALQUILER O SI ES PROPIO, SALDRÁ COMO PERMANENTE
+	private String tipo; // SI ES OSARIO O TUMBA 
+    private ArrayList<String> flores = new ArrayList<> (); // LISTA DE FLORES (SON STRINGS)
     
     // CONSTRUCTOR //
     public Muerto() {
-		flores.add("No hay flores aquí.");
+		flores.add("No hay flores aquí."); //EMPIEZAN SIN FLORES
     }
     
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
@@ -32,7 +32,7 @@ public class Muerto implements Serializable{
 		this.mensaje = mensaje;
 		this.tiempo = tiempo;
 		this.tipo = tipo;
-		flores.add("No hay flores aquí.");
+		flores.add("No hay flores aquí."); // EMPIEZAN SIN FLORES
 	}
 	
 	//SETTER AND GETTER //
@@ -89,34 +89,37 @@ public class Muerto implements Serializable{
 	
 	// MÉTODOS //
 	public String ponerFlor(String flor) {
-		if (flores.get(0).equals("No hay flores aquí.")) {
-			flores.clear();
+		
+		if (flores.get(0).equals("No hay flores aquí.")) { //VERIFICA SI VA A SER LA PRIMERA FLOR QUE SE COLOQUE
+			
+			flores.clear(); // ELIMINA LO DE "NO HAY FLORES AQUÍ" PARA REEMPLAZARLO CON LA FLOR INGRESADA EN EL PARÁMETRO
 			flores.add(flor);
+			return "Pronto, un jardinero pondrá las flores: "+flor+"."; // RETORNO 
+		}
+		else if(flores.size()<=5) { // SI YA TENÍA FLORES DE ANTES, SE REVISA QUE NO TENGA EL MAXIMO DE 5
+			flores.add(flor); // SE AÑADE LA FLOR SIN MÁS 
 			return "Pronto, un jardinero pondrá las flores: "+flor+".";
 		}
-		else if(flores.size()<=5) {
-			flores.add(flor);
-			return "Pronto, un jardinero pondrá las flores: "+flor+".";
-		}
-		else {
+		else {// SI NO CUMPLE EL MAXIMO DE 5 FLORES
 			return "Hay un límite de 5 tipos de flores.";
 		}	
 	}
 	
-	public String mostrarFlores() {
-		if (flores.get(0).equals("No hay flores aquí.")) {
-			return flores.get(0);
+	public String mostrarFlores() { 
+		
+		if (flores.get(0).equals("No hay flores aquí.")) { //SE PREGUNTA SI EL PRIMER ELEMENTO, ES "NO HAY FLORES AQUÍ"
+			return flores.get(0); // ESTE CONTROL ES NECESARIO PARA PODER AJUSTAR EL RETORNO EN CASO DE QUE HAYAN FLORES
 		}
-		else if(flores.size()==1) {
+		else if(flores.size()==1) { // SI SOLO HAY UNA, SE IMPRIME SIN MÁS
 			return "Hay: "+flores.get(0);
 		}
-		else {
+		else { // SI HAY MÁS DE UNA, SE CREA EL ACOMULADOR PARA RECORRER LA LISTA Y CONCATENAR 
 			String acomulador = "Flores que hay: ";
 		
 			for(int i = 0; i<flores.size();i++) {	
-				acomulador += flores.get(i)+" ";
+				acomulador += flores.get(i)+" "; // SE AÑADEN LAS FLORES AL ACOMULADOR 
 			}
-			return acomulador;
+			return acomulador;// SE RETORNA EL ACOMULADOR CON LAS FLORES
 		}
 	}
 	
