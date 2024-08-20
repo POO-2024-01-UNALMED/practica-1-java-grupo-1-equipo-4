@@ -4,15 +4,11 @@ import java.io.Serializable;
 
 public class Cliente extends Persona implements Serializable{
 	
-<<<<<<< Updated upstream
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
-	
 
-=======
->>>>>>> Stashed changes
 	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS	
 	private int puntos;

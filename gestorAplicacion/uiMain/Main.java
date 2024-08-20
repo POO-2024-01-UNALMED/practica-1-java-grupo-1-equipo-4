@@ -613,7 +613,7 @@ public class Main {
 		
 		ArrayList<Cita> citas_agendadas= new ArrayList<>();
 		
-		println("¡Gracias por elegirnos para atender a tu peludito! Por favor, sigue las instrucciones a continuación para que podamos atenderlo de la mejor manera.🐾");
+		println("\n¡Gracias por elegirnos para cuidar de tu peludito!\nPor favor, sigue las instrucciones a continuación para que podamos atenderlo de la mejor manera.🐾");
 	
 		//SELECCIÓN DE SEDE Y SERVICIO
 		boolean repetir = false;
@@ -1266,7 +1266,7 @@ public class Main {
 										boolean control33 = true;
 										while(control33==true)
 										try {
-											println("Por favor, ingrese sus datos para realizar la compra:\n ");
+											println("Por favor, ingrese sus datos para realizar la compra: ");
 											print("Nombre : ");
 											String name = readString();
 											print("Dirección : ");
@@ -1275,7 +1275,7 @@ public class Main {
 											int edad = readInt();
 											print("Cédula : ");
 											long cedu = readLong();
-											print("Número : ");
+											print("Número de celular : ");
 											long numero = readLong();
 											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
@@ -1306,7 +1306,7 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											println("Digitación de los datos de la mascota:\n");
+											println("Ingrese los datos de la mascota: ");
 											print("Nombre : ");
 											String namePet = readString();
 											print("Tipo : ");
@@ -1330,20 +1330,20 @@ public class Main {
 											println("Error con algún dato.\n");
 										}
 										
-										println("Para finalizar, escribe el mensaje para el Osario: ");
+										print("Para finalizar, escribe el mensaje para el Osario: ");
 										String mensaje = readString();
 										//SE REGISTRA EL MENSAJE 
 										cenizas.setMensaje(mensaje);
 										//FINALIZA EL PROCESO DE REGISTRO
-										println("Se ha realizado el proceso de registro.\n");
+										println("\nSe ha realizado el proceso de registro.\n");
 										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
 										funerarias.get(menu).añadirCenizas(cenizas);
 										
 										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA A LOS OSARIOS -----------------------
-										println("Comienza la visita a las cenizas:\n");
+										println("Visitando a tu ser querido...\n");
 										println(funerarias.get(menu).visita("Cenizas"));
 										
-										println("¿Deseas colocarle flores a algún osario (si/no)?: ");
+										print("¿Deseas obsequiar flores a algún osario (si/no)?: ");
 										
 										while(true) {
 										
@@ -1353,10 +1353,10 @@ public class Main {
 												break;
 											}
 											else if(si_no.equals("si")||si_no.equals("SI")) {
-												print("Ingresa el nombre de la flor que te gustaría poner: ");
+												print("\nIngresa el tipo de flores que te gustaría ofrendar: ");
 												String flor = readString();
 												
-												print("¿A cuál osario? (digite el número de osario): ");
+												print("¿Cuál osario escoges? digita su número: ");
 												
 												int control53 = 0;
 												while (control53==0) {
@@ -1385,7 +1385,7 @@ public class Main {
 												break;
 											}
 											else {
-												println("Escoja una opción válida (si/no)");
+												println("Digite una opción válida (si/no)");
 												continue;
 											}
 										}
@@ -1408,7 +1408,7 @@ public class Main {
 								
 								if(funerarias.get(menu).espacioTumbas()==true) {
 									
-									println("¡Si hay espacio disponible!\n");
+									println("¡Si hay espacio disponible!");
 									println("Escoja entre las siguientes opciones: \n");
 									println("1. Comprar Terreno.");
 									println("2. Alquilar Terreno.");
@@ -1428,7 +1428,7 @@ public class Main {
 											}
 										}
 										catch(InputMismatchException e) {
-											println("Por favor ingrese un número entre uno y tres!!!");
+											println("Por favor ingrese un número entre 1 y 3");
 										}
 										finally {
 												entrada.nextLine();//SALTO DE LINEA
@@ -1442,7 +1442,7 @@ public class Main {
 										Muerto tumba = new Muerto();
 										
 										if (menu3==2) {
-											println("\nConsigne el número de años que va a alquilar el terreno:");
+											println("\nDigite el número de años a alquilar el terreno:");
 											println("(Ejemplo: 3, 4, etc..)");
 										
 											while(alquiler==0) {
@@ -1471,7 +1471,7 @@ public class Main {
 											int edad = readInt();
 											print("Cédula : ");
 											long cedu = readLong();
-											print("Número : ");
+											print("Número de celular : ");
 											long numero = readLong();
 											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
@@ -1502,7 +1502,7 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											println("Digitación de los datos de la mascota:\n");
+											println("Ingrese los datos de la mascota:");
 											print("Nombre : ");
 											String namePet = readString();
 											print("Tipo : ");
@@ -1526,7 +1526,7 @@ public class Main {
 											println("Error con algún dato.\n");
 										}
 										
-										println("Para finalizar, escribe el mensaje para la tumba: ");
+										print("Para finalizar, escribe el mensaje para la tumba: ");
 										String mensaje = readString();
 										//SE REGISTRA EL MENSAJE 
 										tumba.setMensaje(mensaje);
@@ -1536,10 +1536,10 @@ public class Main {
 										funerarias.get(menu).añadirTumba(tumba);
 										
 										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA AL CEMENTERIO-----------------------
-										println("Comienza la visita a las tumbas:\n");
+										println("Visitando a tu ser querido...\n");
 										println(funerarias.get(menu).visita("tumbas"));
 										
-										println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+										print("¿Deseas obsequiar flores a algúna tumba (si/no)?: ");
 										
 										while(true) {
 										
@@ -1549,10 +1549,10 @@ public class Main {
 												break;
 											}
 											else if(si_no.equals("si")||si_no.equals("SI")) {
-												print("Ingresa el nombre de la flor que te gustaría poner: ");
+												print("\nIngresa el tipo de flores que te gustaría ofrendar: ");
 												String flor = readString();
 												
-												print("¿A cuál tumba? (digite el número de la tumba): ");
+												print("¿Cuál tumba escoges? digita su número: ");
 												
 												int control53 = 0;
 												while (control53==0) {
@@ -1597,11 +1597,11 @@ public class Main {
 							
 							else if (menu2==3) {
 								// VISITA--------------------------------------------------------------------------------------------
-								println("\n ¿Qué te gustaría visitar?\n");
+								println("\n¿Qué te gustaría visitar?");
 								println("1. Los osarios.");
 								println("2. Las tumbas.");
 								println("3. Salir.\n");
-								println("Ingrese el número de la opción que desea");
+								print("Ingrese el número de la opción que desea: ");
 								
 								int menu5 = 0;
 								while (menu5==0) {
@@ -1617,7 +1617,7 @@ public class Main {
 										}
 									}
 									catch(InputMismatchException e) {
-										println("Por favor ingrese un número entre uno y tres!!!");
+										println("Por favor ingrese un número entre 1 y 3");
 									}
 									finally {
 											entrada.nextLine();//SALTO DE LINEA
@@ -1626,10 +1626,10 @@ public class Main {
 								
 								if (menu5==1) {
 									// VISITA OSARIOS ---------------------------------------------------------------------------------
-									println("Comienza la visita a las cenizas:\n");
+									println("Visitando los osarios...\n");
 									println(funerarias.get(menu).visita("Cenizas"));
 									
-									println("¿Deseas colocarle flores a algún osario (si/no)?: ");
+									print("¿Deseas obsequiar flores a algún osario (si/no)?: ");
 									
 									while(true) {
 									
@@ -1639,10 +1639,10 @@ public class Main {
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											print("Ingresa el nombre de la flor que te gustaría poner: ");
+											print("\nIngresa el tipo de flores que te gustaría ofrendar: ");
 											String flor = readString();
 											
-											print("¿A cuál osario? (digite el número de osario): ");
+											print("¿Cuál osario escoges? digita su número: ");
 											
 											int control53 = 0;
 											while (control53==0) {
@@ -1678,10 +1678,10 @@ public class Main {
 								}
 								else if (menu5==2) {
 									// VISITA CEMENTERIO -------------------------------------------------------------------------------
-									println("Comienza la visita a las tumbas:\n");
+									println("Visitando las tumbas...\n");
 									println(funerarias.get(menu).visita("tumbas"));
 									
-									println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+									print("¿Deseas obsequiar flores a algúna tumba (si/no)?: ");
 									
 									while(true) {
 									
@@ -1691,10 +1691,10 @@ public class Main {
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											print("Ingresa el nombre de las flores que le gustaría poner: ");
+											print("\nIngresa el tipo de flores que te gustaría ofrendar: ");
 											String flor = readString();
 											
-											print("¿A cuál tumba? (digite el número de la tumba): ");
+											print("¿Cuál tumba escoges? digita su número: ");
 											
 											int control53 = 0;
 											while (control53==0) {
@@ -1903,7 +1903,7 @@ public class Main {
 					
 				}
 				
-				println("\n¿Desea volver al catálogo? [si/no]: ");
+				print("\n¿Desea volver al catálogo? [si/no]: ");
 				String respuesta = " ";
 				while (true) {//CONTROL CON UN WHILE SOLAMENTE
 					respuesta = entrada.nextLine();

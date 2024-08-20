@@ -7,14 +7,11 @@ import java.util.ArrayList;
 
 public class Empleado extends Persona implements Serializable{
 	
-<<<<<<< Updated upstream
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
-	
-=======
->>>>>>> Stashed changes
+
 	private static final long serialVersionUID = 1L;
     public static enum Rol {
         VETERINARIO,PELUQUERO,CUIDADOR,TENDERO;

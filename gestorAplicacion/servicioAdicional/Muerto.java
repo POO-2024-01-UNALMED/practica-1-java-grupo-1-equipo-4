@@ -22,7 +22,7 @@ public class Muerto implements Serializable{
     
     // CONSTRUCTOR //
     public Muerto() {
-		flores.add("No hay flores colocadas aquí.");
+		flores.add("No hay flores aquí.");
     }
     
 	public Muerto (Animal animal, String fecha, String mensaje, Cliente dueño, String tiempo, String tipo) {
@@ -32,7 +32,7 @@ public class Muerto implements Serializable{
 		this.mensaje = mensaje;
 		this.tiempo = tiempo;
 		this.tipo = tipo;
-		flores.add("No hay flores colocadas aquí.");
+		flores.add("No hay flores aquí.");
 	}
 	
 	//SETTER AND GETTER //
@@ -89,14 +89,14 @@ public class Muerto implements Serializable{
 	
 	// MÉTODOS //
 	public String ponerFlor(String flor) {
-		if (flores.get(0).equals("No hay flores colocadas aquí.")) {
+		if (flores.get(0).equals("No hay flores aquí.")) {
 			flores.clear();
 			flores.add(flor);
-			return "Se ha mandado un jardinero a colocar las flores: "+flor+".";
+			return "Pronto, un jardinero pondrá las flores: "+flor+".";
 		}
 		else if(flores.size()<=5) {
 			flores.add(flor);
-			return "Se ha mandado un jardinero a colocar las flores: "+flor+".";
+			return "Pronto, un jardinero pondrá las flores: "+flor+".";
 		}
 		else {
 			return "Hay un límite de 5 tipos de flores.";
@@ -104,14 +104,14 @@ public class Muerto implements Serializable{
 	}
 	
 	public String mostrarFlores() {
-		if (flores.get(0).equals("No hay flores colocadas aquí.")) {
+		if (flores.get(0).equals("No hay flores aquí.")) {
 			return flores.get(0);
 		}
 		else if(flores.size()==1) {
 			return "Hay: "+flores.get(0);
 		}
 		else {
-			String acomulador = "Flores que hay puestas: ";
+			String acomulador = "Flores que hay: ";
 		
 			for(int i = 0; i<flores.size();i++) {	
 				acomulador += flores.get(i)+" ";

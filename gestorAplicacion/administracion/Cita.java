@@ -59,10 +59,6 @@ public class Cita implements Serializable{
     }
     
     
-    public void setFecha(LocalDate fecha) {
-    	this.fecha=fecha;
-    }
-    
     public String toString() {
     	
     	String profesion="";

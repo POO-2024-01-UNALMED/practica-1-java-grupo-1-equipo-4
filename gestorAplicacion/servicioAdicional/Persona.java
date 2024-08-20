@@ -3,16 +3,14 @@ package gestorAplicacion.servicioAdicional;
 import java.io.Serializable;
 
 public abstract class Persona implements Serializable{
-<<<<<<< Updated upstream
+
 	
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
 	
-=======
 
->>>>>>> Stashed changes
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int edad;
