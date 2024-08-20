@@ -14,10 +14,17 @@ public class Socializar implements Serializable{
 	public static Animal animalPorDefecto;
 
 	static {
-		
-        animalPorDefecto =new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
-        clientePorDefecto =new Cliente("Juan", 30, 1234567890L, 987654321L, true);
-        clientePorDefecto.setMascota(animalPorDefecto);
+		inicializarCamposPorDefecto();
+		}
+	
+	private static void inicializarCamposPorDefecto() {
+		 if (animalPorDefecto == null) {
+	            animalPorDefecto = new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
+	        }
+	        if (clientePorDefecto == null) {
+	            clientePorDefecto = new Cliente("Juan", 30, 1234567890L, 987654321L, true);
+	            clientePorDefecto.setMascota(animalPorDefecto);
+	        }
 	}
 	private static final long serialVersionUID = 1L;
 	private  ArrayList<Cliente> clientes = new ArrayList<> ();
