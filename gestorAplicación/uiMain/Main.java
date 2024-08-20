@@ -1343,9 +1343,9 @@ public class Main {
 		while (true) { 
 		
 			System.out.println("Por favor, seleccione el centro de adopción más cercano: "+"\n");
-			System.out.println("1. "+fune1.getCentro().getNombre()+".");
-			System.out.println("2. "+fune2.getCentro().getNombre()+".");
-			System.out.println("3. "+fune3.getCentro().getNombre()+".");
+			System.out.println("1. SEDE MEDELLÍN.");
+			System.out.println("2. SEDE BELLO.");
+			System.out.println("3. SEDE ITAGÜI.");
 			System.out.println("4. Salir.\n");
 			System.out.println("Ingrese el número de la opción que desea: ");
 			
@@ -1413,7 +1413,7 @@ public class Main {
 							else if(menu2==1) {
 								//CREMACIÓN---------------------------------------------------------------------------------------
 								
-								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio...\n");
+								System.out.println("Verificando si la funeraria de la sede escogida tiene espacio tiene espacio...\n");
 								
 								if(funerarias.get(menu).espacioCenizas()==true) {
 									
