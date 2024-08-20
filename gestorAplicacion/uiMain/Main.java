@@ -695,7 +695,6 @@ public class Main {
         	
 	    	do {
 	    		println("¿Su mascota pertenece a alguna de estas especies?");
-	    		println("¿Desea realizar otra adopción?");
 	    		print("Responda si / no: ");
 	    	    respuesta3= readString();
 	    	    
