@@ -10,6 +10,9 @@ public class Muerto implements Serializable{
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
 	
+	//DESCRIPCIÓN DE LA CLASE:
+	//Representa a los animales que han fallecido, almacenando información sobre el dueño, fecha de fallecimiento y mensajes de recuerdo.
+	
 	private static final long serialVersionUID = 1L;
 	private Animal animal;
 	private String fecha;

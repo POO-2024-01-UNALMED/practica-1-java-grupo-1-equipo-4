@@ -2,15 +2,18 @@ package gestorAplicacion.componentes;
 
 import java.io.Serializable;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+//Representa a los animales disponibles para adopción, incluye atributos como nombre, tipo, edad, sexo y estado de salud, 
+//de igual forma representa a las mascotas que un usuario registre para recibir un servicio o agendar una cita.
+
 public class Animal implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
-
 	public static enum EstadoSalud {
 		SANO, ENFERMO, ENTRATAMIENTO
 	}

@@ -6,12 +6,16 @@ import gestorAplicacion.componentes.Animal;
 import gestorAplicacion.componentes.Cliente;
 import gestorAplicacion.componentes.Empleado;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+// La clase CentroAdopcion hace referencia a las sedes, gestiona la operación del centro de adopción, incluyendo clientes, empleados, animales, citas y adopciones. 
+//Facilita el proceso de adopción y la prestación de servicios relacionados.
+
 public class CentroAdopcion implements Serializable{
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
 	
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA

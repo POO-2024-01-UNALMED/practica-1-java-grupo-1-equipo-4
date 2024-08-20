@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE
+//Representa al personal del centro, que puede ser veterinario, peluquero, cuidador o tendero, y gestiona la atención a los clientes y animales.
 
 public class Empleado extends Persona implements Serializable{
 	

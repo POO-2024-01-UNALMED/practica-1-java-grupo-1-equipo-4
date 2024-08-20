@@ -2,12 +2,15 @@ package gestorAplicacion.componentes;
 
 import java.io.Serializable;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+//Representa los artículos en venta en la tienda, incluyendo nombre, precio, tipo de animal y cantidad disponible. 
+
 public class Producto implements Serializable{
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
 
 	private static final long serialVersionUID = 1L;
 	//Atributos 

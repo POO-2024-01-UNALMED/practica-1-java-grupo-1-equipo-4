@@ -2,13 +2,16 @@ package gestorAplicacion.componentes;
 
 import java.io.Serializable;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN DE LA CLASE:
+//Representa a las personas relacionadas con el centro de adopción, ya sean clientes o empleados. Almacena información personal básica.
+
 public abstract class Persona implements Serializable{
 
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
-	
 	private static final long serialVersionUID = 1L;
 	protected String nombre;
 	protected int edad;

@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+//DANIEL ALBERTO ZAPATA CASTAÑO
+//OKY RUIZ DE LA ROSA
+//SALOMÉ MURILLO GAVIRIA
+//NICOLAS DAVID ZAMBRANO MURCIA
+
+//DESCRIPCIÓN FUNCIONALIDAD:
+//Representa un bloque de tiempo disponible para citas por cada empleado.. Incluye información sobre el día, la hora de inicio y fin, y si está disponible.
+
 public class Cupo implements Serializable{
-	
-	//DANIEL ALBERTO ZAPATA CASTAÑO
-	//OKY RUIZ DE LA ROSA
-	//SALOMÉ MURILLO GAVIRIA
-	//NICOLAS DAVID ZAMBRANO MURCIA
 	
 	private static final long serialVersionUID = 1L;
 	private LocalDate dia;
