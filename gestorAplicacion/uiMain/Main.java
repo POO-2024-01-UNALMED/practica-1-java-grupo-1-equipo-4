@@ -1131,6 +1131,7 @@ public class Main {
 		
 		println("Bienvenido al servicio de Funeraria"+"\n");
 		
+		//PRIMER CICLO PARA MANTENER AL USUARIO DENTRO DE LA FUNCIONALIDAD, HASTA QUE NO ESCOJA LA OPCIÓN 4
 		while (true) { 
 		
 			println("Por favor, seleccione el centro de adopción más cercano: "+"\n");
@@ -1140,12 +1141,14 @@ public class Main {
 			println("4. Salir.\n");
 			print("Ingrese el número de la opción que desea: ");
 			
+			//MENU, ES LA VARIABLE QUE VA A RECIBIR LA ENTRADA
 			int menu = 0;
-			while (menu==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+			while (menu==0) { // SI ES 0, ES PORQUE NO SE HA MODIFICADO DE FORMA VÁLIDA
 				try {
 					menu = readInt(); //RECIBIENDO ENTRADA
-					if (menu>0 && menu<=4) {
-						break;
+					
+					if (menu>0 && menu<=4) { //LIMITANDO LOS VALORES QUE PUEDE TOMAR
+						break; // CASO EN EL QUE EL USUARIO INGRESÓ BIEN 
 					}
 					else {
 						print("Ingrese un número válido por favor: ");
@@ -1160,28 +1163,33 @@ public class Main {
 				finally {
 						entrada.nextLine();//SALTO DE LINEA
 					}		
-				}//BUCLE CONTROL
-				
-				if (menu==4) {
+				}//CIERRE DEL BUCLE CONTROL
+			
+				//------------------------- COMIENZAN LAS DECISIONES DEPENDIENDO DEL MENÚ -------------------------------------------------------------------------
+			
+				if (menu==4) {// CASO DE QUE QUIERA SALIR DE LA FUNCIONALIDAD 
 					println("Gracias por tu visita. Si en algún momento necesitas algo más, no dudes en regresar.");
 					break;
 				}
 				else {
-					menu-=1;
-					while (true) {
+					menu-=1; // SE LE RESTA AL MENÚ INICIAL, PORQUE ESTE VA A SER UN ÍNDICE EN LA LISTA DE FUNERARIAS 
+					
+					while (true) { // SE INICIA OTRO MENÚ PIDIENDOLE AL USUARIO LO QUE QUIERE HACER 
 						println("\n¿Qué desea hacer?");
 						println("1. Cremación.");
 						println("2. Entierro.");
 						println("3. Visitar cementerio");
 						println("4. Salir.\n");
 						
-						int menu2 = 0;
-						while (menu2==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+						int menu2 = 0; //MENU2, VARIABLE QUE VA A COMBIAR PARA RECIBIR EL MENÚ 
+						
+						while (menu2==0) { // SI ES 0, ES PORQUE TODAVÍA NO SE HA CAMBIADO CORRECTAMENTE
+							
 							try {
 								print("Escoja entre las opciones dadas [1-4]: ");
 								menu2 = readInt(); //RECIBIENDO ENTRADA
-								if (menu2>0 && menu2<=4) {
-									break;
+								if (menu2>0 && menu2<=4) { // SE LIMITAN LOS VALORES DE LA ENTRADA
+									break; //SOLO SI SE CUMPLE ÉSTO, ROMPE EL CICLO 
 								}
 								else {
 									println("Ingrese un número válido por favor");
@@ -1198,30 +1206,34 @@ public class Main {
 								}
 							}// BUCLE CONTROL
 						
-							if (menu2==4) {
-								println(" ");
+							
+							if (menu2==4) { // SI ESCOGIÓ SALIR DE ESE MENÚ 
+								println(" ");// SALTO DE LINEA
 								break;
 							}
-							else if(menu2==1) {
+							
+							else if(menu2==1) { 
 								//CREMACIÓN---------------------------------------------------------------------------------------
 								
 								println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
 								
-								if(funerarias.get(menu).espacioCenizas()==true) {
+								//EN LA LISTA DE NUESTRAS FUNERARIAS, CON EL GET MENÚ SE GARANTIZA QUE EL PROCESO LO HAGA LA SEDE ESCOGIDA AL PRINCIPIO 
+								if(funerarias.get(menu).espacioCenizas()==true) { // SE REVISA QUE SI HAYA ESPACIO EN LA LISTA
 									
-									println("¡Si hay espacio disponible!\n");
+									//SI SI HUBO ESPACIO, SE LE PERMITE CONTINUAR CON EL SIGUIENTE MENÚ 
+									println("¡Si hay espacio disponible!\n"); 
 									println("Escoja entre las siguientes opciones:");
 									println("1. Comprar Osario.");
 									println("2. Alquilar Osario.");
 									println("3. Salir.\n");
 									
-									int menu3 = 0;
-									while (menu3==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
+									int menu3 = 0; // MENU3, VARIABLE QUE CAMBIA AHORA PARA RESIBIR LA ENTRADA
+									while (menu3==0) { // MIENTRAS NO SE HAYA CAMBIADO CORRECTAMENTE
 										try {
 											print("Escoja entre las opciones dadas [1-3]: ");
 											menu3 = readInt(); //RECIBIENDO ENTRADA
-											if (menu3>0 && menu3<=3) {
-												break;
+											if (menu3>0 && menu3<=3) { //LIMITANDO LOS VALORES 
+												break; // SALIENDO DEL CICLO PORQUE MENÚ CAMBIÓ BIEN 
 											}
 											else {
 												println("Ingrese un número válido por favor");
@@ -1235,18 +1247,22 @@ public class Main {
 										finally {
 												entrada.nextLine();//SALTO DE LINEA
 											}
-										}// BUCLE CONTROL
+										}//CIERRE BUCLE CONTROL
 									
+									//SI ESCOGIÓ ALQUILAR O COMPRAR
 									if (menu3==1 || menu3==2) {
-										String tiempo = "de por vida"; 
-										int  alquiler = 0;
-										// OBJETO DE TIPO MUERTO
+										
+										String tiempo = "de por vida"; //ATRIBUTO QUE IRÁ EN CASO DE QUE HAYA ESCOGIDO COMPRAR 
+										int  alquiler = 0; // ATRIBUTO QUE SE MULTIPLICARÁ PARA SACAR PRECIO, Y QUE SE ANEXARÁ PARA EL ATRIBUTO TIEMPO
+										
+										//SE CREA DE UNA VEZ EL OBJETO DE TIPO MUERTO, PARA HACER EL REGISTRO
 										Muerto cenizas = new Muerto();
 										
-										if (menu3==2) {
+										if (menu3==2) { //SI PIDIÓ ALQUILAR EL OSARIO 
 											println("\nConsigne el número de años que va a alquilar el osario:");
 											println("(Ejemplo: 3, 4, etc..)");
-										
+											
+											//CONTROL VARIABLE ALQUILER
 											while(alquiler==0) {
 												try {
 													print("Ingresa tu respuesta: ");
@@ -1261,9 +1277,9 @@ public class Main {
 											}
 										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
 										
-										//DATOS DUEÑO
+										// REGISTRO DE CLIENTE PARA INCLUIRLO EN EL OBJETO MUERTO
 										boolean control33 = true;
-										while(control33==true)
+										while(control33==true) //BUCLE DE CONTROL PARA LOS DATOS 
 										try {
 											println("Por favor, ingrese sus datos para realizar la compra: ");
 											print("Nombre : ");
@@ -1277,11 +1293,13 @@ public class Main {
 											print("Número de celular : ");
 											long numero = readLong();
 											print("\n");
+											
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
 											Cliente cliente = new Cliente(name, edad, cedu, numero, direc);
-											// SE LE AÑADE EL DUEÑO A LAS CENIZAS
+											
+											// SE LE AÑADE EL CLIENTE A LAS CENIZAS
 											cenizas.setDueño(cliente);
-											control33 = false;
+											control33 = false; // TERMINA EL CONTROL 
 										}
 										catch(InputMismatchException e) {
 											println("Error con algún dato.\n");
@@ -1289,28 +1307,28 @@ public class Main {
 											entrada.nextLine();
 										}
 										
-										if (menu3==2) {
+										if (menu3==2) {// SE ENSEÑA LA FACTURA DEL TOTAL A PAGAR, QUE EN ESTE CASO EL PRECIO SE CALCULA SEGÚN LOS AÑOS DE ALQUILER
 											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
 											println("Total a pagar por los "+alquiler+" años son: "+alquiler*200000+" $.\n");
 											cenizas.setTiempo(alquiler+" años");
 										}
-										else {
+										else {// CASO DE COMPRA PERMANENTE, YA EXISTE UNA TARIFA FIJA 
 											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
 											println("Total a pagar por el osario "+tiempo+" es igual a: 2000000 $\n");
 											cenizas.setTiempo(tiempo);
 										}
 										
 
-										//DATOS MASCOTA
+										//SE RECOGEN LOS DATOS MASCOTA, PARA AÑADIRLE AL OBJETO DE TIPO MUERTO
 										boolean control43 = true;
 										while(control43==true)
 										try {
 											println("Ingrese los datos de la mascota: ");
-											print("Nombre : ");
+											print("Nombre que tenía: ");
 											String namePet = readString();
-											print("Tipo : ");
+											print("Tipo de animal: ");
 											String tipo = readString();
-											print("Edad : ");
+											print("Edad con la que murió: ");
 											int edad = readInt();
 											entrada.nextLine();
 											print("Sexo : ");
@@ -1318,9 +1336,10 @@ public class Main {
 											print("Fecha de fallecimiento (dia/mes/año): ");
 											String fecha = readString();
 											print("\n");
-											// CREAMOS EL OBJETO DE TIPO CLIENTE
+											
+											// CREAMOS EL OBJETO DE TIPO ANIMAL
 											Animal animal = new Animal(namePet, tipo, edad, sex);
-											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA
+											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA DE FALLECIMIENTO
 											cenizas.setAnimal(animal);
 											cenizas.setFecha(fecha);
 											control43 = false;
@@ -1329,6 +1348,7 @@ public class Main {
 											println("Error con algún dato.\n");
 										}
 										
+										// SE LE PIDE PARA FINALIZAR, EL MENSAJE QUE SE VA A ENSEÑAR EN SU OSARIO
 										print("Para finalizar, escribe el mensaje para el Osario: ");
 										String mensaje = readString();
 										//SE REGISTRA EL MENSAJE 
@@ -1340,29 +1360,32 @@ public class Main {
 										
 										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA A LOS OSARIOS -----------------------
 										println("Visitando a tu ser querido...\n");
+										// LA FUNERARIA ENCARGADO LLAMA A SU MÉTODO VISITA PARA COMENZAR EL RECORRIDO
 										println(funerarias.get(menu).visita("Cenizas"));
 										
 										print("¿Deseas obsequiar flores a algún osario (si/no)?: ");
 										
-										while(true) {
+										while(true) {//CONTROL DE COLOCAR FLORES 
 										
 											String si_no = readString();// SI / NO ------------------------- FLORES-----------------
 											if (si_no.equals("no")||si_no.equals("NO")) {
 												println("\nUna muerte bella, honra toda vida...\n");
-												break;
+												break; //CASO EN EL QUE SOLO SE QUIERA IR 
 											}
 											else if(si_no.equals("si")||si_no.equals("SI")) {
+												//CASO EN EL QUE QUIERA DEJAR FLORES 
 												print("\nIngresa el tipo de flores que te gustaría ofrendar: ");
 												String flor = readString();
+												// EL PROGRAMA DEJA QUE SE LEA EL STRING 
 												
 												print("¿Cuál osario escoges? digita su número: ");
-												
+												//EMPIEZA EL CONTROL DEL ÍNDICE, PARA COMPROBAR QUE NO SE PASE DEL RANGO 
 												int control53 = 0;
 												while (control53==0) {
 													try {
 														control53 = readInt();
 														if (control53>0 && control53<=Funeraria.cenizas.size()) {
-															break;
+															break;//CASO EN QUE EL ÍNDICE SALIÓ BIEN 
 														}
 														else {
 															println("Ingrese un número válido por favor");
@@ -1378,9 +1401,10 @@ public class Main {
 														}
 												}
 												
+												// YA PARA FINALIZAR, LA FUNERARIA ENCARGADA MANDA A PONER LA FLOR, EN LA POSICIÓN INDICADA
 												println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
 												
-												
+												//TERMINA EL CICLO 
 												break;
 											}
 											else {
@@ -1394,14 +1418,15 @@ public class Main {
 									
 									break;
 								}
-								else {
+								else { // CASO EN EL QUE NO FUE POSIBLE ENCONTRAR ESPACIO EN EL CEMENTERIO.
 									println("No hay espacio disponible, por favor seleccione otro centro.");
 									break;
 								}
-							}//ELSE CASO CREMACIÓN
+							}//CIERRE DEL ELSE CASO CREMACIÓN
 							
 							else if(menu2==2) {
 								// ENTIERRO ----------------------------------------------------------------------------------------
+								//NO SE EXPLICARÁ ESTO, PORQUE ES MUY SIMILAR AL PROCESO DE CENIZAS
 								
 								println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
 								
@@ -1592,9 +1617,10 @@ public class Main {
 									break;
 								}
 								
-							}//ELSE CASO ENTIERRO
+							}//CIERRE DEL ELSE CASO ENTIERRO
 							
-							else if (menu2==3) {
+							else if (menu2==3) {// CASO DE VISITA CEMENTERIO
+								
 								// VISITA--------------------------------------------------------------------------------------------
 								println("\n¿Qué te gustaría visitar?");
 								println("1. Los osarios.");
@@ -1602,12 +1628,13 @@ public class Main {
 								println("3. Salir.\n");
 								print("Ingrese el número de la opción que desea: ");
 								
-								int menu5 = 0;
+								//CONTROL DE RESPUESTA 
+								int menu5 = 0; // MENU5 VARIABLE QUE CAMBIA PARA RECIBIR LA ENTRADA 
 								while (menu5==0) {
 									try {
-										menu5 = readInt();
+										menu5 = readInt(); //PIDIENDO ENTRADA 
 										if (menu5>0 && menu5<=3) {
-											break;
+											break;//CASO EN QUE LA ENTRADA ESTÁ BIEN 
 										}
 										else {
 											println("Ingrese un número válido por favor");
