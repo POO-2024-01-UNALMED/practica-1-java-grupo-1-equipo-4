@@ -4,14 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
-public class Empleado extends Persona implements Serializable{
-	
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
 
+public class Empleado extends Persona implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
     public static enum Rol {
         VETERINARIO,PELUQUERO,CUIDADOR,TENDERO;
@@ -31,9 +30,6 @@ public class Empleado extends Persona implements Serializable{
         	this.llenar_agenda();
         }  
     }
-    
-    
-
     
 	private void llenar_agenda() {
     	
