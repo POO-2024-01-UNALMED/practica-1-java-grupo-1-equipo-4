@@ -1127,8 +1127,8 @@ public class Main {
 		while (true) { 
 		
 			println("Por favor, seleccione el centro de adopción más cercano: "+"\n");
-			println("1. SEDE MEDELLÍN.");
-			println("2. SEDE BELLO.");
+			println("1. SEDE BELLO.");
+			println("2. SEDE MEDELLIN.");
 			println("3. SEDE ITAGÜI.");
 			println("4. Salir.\n");
 			print("Ingrese el número de la opción que desea: ");
