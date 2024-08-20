@@ -1,4 +1,4 @@
-package baseDatos;
+package src.baseDatos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-import gestorAplicacion.administracion.*;
-import gestorAplicacion.componentes.*;
-import gestorAplicacion.uiMain.Main;
+import src.gestorAplicacion.administracion.CentroAdopcion;
+import src.gestorAplicacion.administracion.Funeraria;
+import src.gestorAplicacion.administracion.Tienda;
+import src.gestorAplicacion.componentes.Muerto;
+import src.gestorAplicacion.uiMain.Main;
 
 public class Serializador {
 
@@ -18,7 +20,7 @@ public class Serializador {
 		File archivo = new File("");
 
 		try {
-			File path = new File(archivo.getAbsolutePath() + "/baseDatos/temp/" + nombre + ".txt");
+			File path = new File(archivo.getAbsolutePath() + "/src/baseDatos/temp/" + nombre + ".txt");
 
 			FileOutputStream fos = new FileOutputStream(path);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);

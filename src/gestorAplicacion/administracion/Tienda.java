@@ -1,10 +1,10 @@
-package gestorAplicacion.administracion;
+package src.gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import gestorAplicacion.componentes.Cliente;
-import gestorAplicacion.componentes.Empleado;
-import gestorAplicacion.componentes.Producto;
+import src.gestorAplicacion.componentes.Cliente;
+import src.gestorAplicacion.componentes.Empleado;
+import src.gestorAplicacion.componentes.Producto;
 
 public class Tienda implements Serializable{
 	
@@ -27,13 +27,13 @@ public class Tienda implements Serializable{
         //CONSTRUCTORES//
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
             Tienda.empleados.add(empleado); //TIENDA CON UN EMPLEADO
-            this.centroAdopcion = centroAdopcion;
+            this.centroAdopcion = centroAdopcion; 
                      
         }
 
         public Tienda(Empleado empleado){
             Tienda.empleados.add(empleado);
-            //tienda definida solo con su centro de adopcion;    
+            //tienda definida solo con su centro de adopcion;     
             
         }
 

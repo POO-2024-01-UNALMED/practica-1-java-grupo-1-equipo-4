@@ -1,4 +1,4 @@
-package gestorAplicacion.componentes;
+package src.gestorAplicacion.componentes;
 
 import java.io.Serializable;
 import java.time.LocalDate;

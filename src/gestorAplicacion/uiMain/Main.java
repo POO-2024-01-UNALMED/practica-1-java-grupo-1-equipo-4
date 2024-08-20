@@ -1,21 +1,21 @@
-package gestorAplicacion.uiMain;
+package src.gestorAplicacion.uiMain;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import baseDatos.Deserializador;
-import baseDatos.Serializador;
-import gestorAplicacion.administracion.Adopcion;
-import gestorAplicacion.administracion.CentroAdopcion;
-import gestorAplicacion.administracion.Cita;
-import gestorAplicacion.administracion.Funeraria;
-import gestorAplicacion.administracion.Tienda;
-import gestorAplicacion.componentes.Animal;
-import gestorAplicacion.componentes.Cliente;
-import gestorAplicacion.componentes.Cupo;
-import gestorAplicacion.componentes.Empleado;
-import gestorAplicacion.componentes.Muerto;
+import src.baseDatos.Deserializador;
+import src.baseDatos.Serializador;
+import src.gestorAplicacion.administracion.Adopcion;
+import src.gestorAplicacion.administracion.CentroAdopcion;
+import src.gestorAplicacion.administracion.Cita;
+import src.gestorAplicacion.administracion.Funeraria;
+import src.gestorAplicacion.administracion.Tienda;
+import src.gestorAplicacion.componentes.Animal;
+import src.gestorAplicacion.componentes.Cliente;
+import src.gestorAplicacion.componentes.Cupo;
+import src.gestorAplicacion.componentes.Empleado;
+import src.gestorAplicacion.componentes.Muerto;
 
 public class Main {
 	
@@ -27,7 +27,6 @@ public class Main {
 	static CentroAdopcion sede1;
 	static CentroAdopcion sede2;
 	static CentroAdopcion sede3;
-
 		
 	public static void main(String[] args) {
 		

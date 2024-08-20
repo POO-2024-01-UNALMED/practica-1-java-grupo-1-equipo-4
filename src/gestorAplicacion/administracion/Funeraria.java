@@ -1,10 +1,10 @@
-package gestorAplicacion.administracion;
+package src.gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import gestorAplicacion.componentes.Animal;
-import gestorAplicacion.componentes.Cliente;
-import gestorAplicacion.componentes.Muerto;
+import src.gestorAplicacion.componentes.Animal;
+import src.gestorAplicacion.componentes.Cliente;
+import src.gestorAplicacion.componentes.Muerto;
 
 public class Funeraria implements Serializable{
 	
@@ -21,6 +21,7 @@ public class Funeraria implements Serializable{
 	private CentroAdopcion centro;
 	public static ArrayList<Muerto> tumbas = new ArrayList<> ();
 	public static ArrayList<Muerto> cenizas = new ArrayList<> ();
+	
 	
 	//CONSTRUCTOR//
 

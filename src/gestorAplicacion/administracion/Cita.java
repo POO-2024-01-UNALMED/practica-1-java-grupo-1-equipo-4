@@ -1,11 +1,11 @@
-package gestorAplicacion.administracion;
+package src.gestorAplicacion.administracion;
 
 import java.io.Serializable;
 
-import gestorAplicacion.componentes.Animal;
-import gestorAplicacion.componentes.Cliente;
-import gestorAplicacion.componentes.Cupo;
-import gestorAplicacion.componentes.Empleado;
+import src.gestorAplicacion.componentes.Animal;
+import src.gestorAplicacion.componentes.Cliente;
+import src.gestorAplicacion.componentes.Cupo;
+import src.gestorAplicacion.componentes.Empleado;
 
 //DANIEL ALBERTO ZAPATA CASTAÑO
 //OKY RUIZ DE LA ROSA

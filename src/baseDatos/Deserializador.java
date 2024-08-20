@@ -1,12 +1,18 @@
-package baseDatos;
+package src.baseDatos;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.io.*;
 import java.util.List;
 
-import gestorAplicacion.administracion.*;
-import gestorAplicacion.componentes.*;
-import gestorAplicacion.uiMain.Main;
+import src.gestorAplicacion.administracion.CentroAdopcion;
+import src.gestorAplicacion.administracion.Funeraria;
+import src.gestorAplicacion.administracion.Tienda;
+import src.gestorAplicacion.componentes.Muerto;
+import src.gestorAplicacion.uiMain.Main;
 
 public class Deserializador {
 
@@ -21,7 +27,7 @@ public class Deserializador {
 	    }
 
 		try {
-			File path = new File(archivo.getAbsolutePath()+"/baseDatos/temp/" + nombre + ".txt");
+			File path = new File(archivo.getAbsolutePath()+"/src/baseDatos/temp/" + nombre + ".txt");
 
 
 			fis = new FileInputStream(path);

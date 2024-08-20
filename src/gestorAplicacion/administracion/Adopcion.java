@@ -1,10 +1,10 @@
-package gestorAplicacion.administracion;
+package src.gestorAplicacion.administracion;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import gestorAplicacion.componentes.Animal;
-import gestorAplicacion.componentes.Cliente;
+import src.gestorAplicacion.componentes.Animal;
+import src.gestorAplicacion.componentes.Cliente;
 
 //DANIEL ALBERTO ZAPATA CASTAÑO
 //OKY RUIZ DE LA ROSA
