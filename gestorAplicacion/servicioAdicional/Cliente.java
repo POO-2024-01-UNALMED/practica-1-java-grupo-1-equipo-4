@@ -4,11 +4,15 @@ import java.io.Serializable;
 
 public class Cliente extends Persona implements Serializable{
 	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
+	
 
 	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS	
 	private int puntos;
-	private boolean participar;
 	private Animal mascota;
 	
 	//CONSTRUCTOR
@@ -20,10 +24,6 @@ public class Cliente extends Persona implements Serializable{
 	
 	public Cliente(String nombre, int edad, long cedula) {
 		super(nombre, edad, cedula);
-	}
-	
-	public Cliente(String nombre,int edad,long telefono, long cedula,boolean participar) {
-		super(nombre,edad,telefono,cedula);
 	}
 	
 	//-------------
@@ -49,9 +49,6 @@ public class Cliente extends Persona implements Serializable{
 		return this.puntos;
 	}
 	
-	public boolean isParticipar() {
-		return participar;
-	}
 	
 	public void setMascota(Animal mascota){
 		this.mascota=mascota;

@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public abstract class Persona implements Serializable{
 	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
+	
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int edad;
@@ -21,19 +26,13 @@ public abstract class Persona implements Serializable{
 		this.direccion= direccion;
 	}
 	
-	public Persona(String nombre, int edad, long cedula) {
-		this(nombre,edad,cedula,0,null);
-		}
-	
-	public Persona(String nombre, int edad,long telefono,long cedula) {
-		this(nombre,edad,telefono,cedula,null);
-		}
+	public Persona(String nombre,int edad, long cedula) {
+		this.nombre= nombre;
+		this.edad= edad;
+		this.cedula= cedula;
+	}
 	
 	//MÉTODOS SETTER Y GETTER
-	
-	public Persona() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public void setNombre(String nombre) {
 		this.nombre= nombre;

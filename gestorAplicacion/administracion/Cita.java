@@ -8,33 +8,20 @@ import gestorAplicacion.servicioAdicional.Cupo;
 import gestorAplicacion.servicioAdicional.Empleado;
 
 public class Cita implements Serializable{
+	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
 
 	private static final long serialVersionUID = 1L;
 
-	public enum EstadoCita{
-		PENDIENTE,RECHAZADA,ACEPTADA,APLAZADA
-	}
-    private Cliente cliente1;
     private Animal animal;
-    private Cliente cliente2;
-    private Animal animal2;
-    private LocalDate fecha;
-    private EstadoCita Estado;
-    private String estado;
     private Cupo cupo;
     private Empleado empleado;
     private Cliente cliente;
     private double costo;
     
-    
-    public Cita(Cliente cliente1, Cliente cliente2, Animal animal, Animal animal2, LocalDate fecha) {
-    	this.cliente1=cliente1;
-    	this.cliente2=cliente2;
-    	this.animal=animal;
-    	this.animal2=animal2;
-    	this.fecha=fecha;
-    	}
-
     public Cita(Cliente cliente, Animal animal,Empleado empleado, Cupo cupo, int servicio ) {
     	
     	this.cliente=cliente;
@@ -66,33 +53,11 @@ public class Cita implements Serializable{
     	this.costo -= (this.costo *0.1);
     }
     
-	public Cliente getCliente() {
-        return cliente1;
-    }
-	
-	public Cliente getCliente2(){
-		return cliente2;
-	}
 
     public Animal getAnimal() {
         return animal;
     }
     
-    public Animal getAnimal2() {
-        return animal2;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public EstadoCita getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(EstadoCita estado) {
-        this.Estado = estado;
-    }
     
     public void setFecha(LocalDate fecha) {
     	this.fecha=fecha;
@@ -111,15 +76,13 @@ public class Cita implements Serializable{
       	if (this.empleado.getProfesion()== Empleado.Rol.PELUQUERO) {
     		profesion = "Veterinario";
     	}
-    	
-    	
+    		
     	return "Cliente: " + this.cliente.getNombre() +"\n"
     			+ "Mascota: " + this.animal.getNombre()+ "\n"
     			+ profesion +": " + this.empleado.getNombre() + "\n"
     			+ "Costo cita: " + this.costo + " pesos \n"
     			+ "Fecha de la cita: " + this.cupo.fechaFormateada() +"\n"
-    			+ "Hora: " + this.cupo.getHoraInicio() + " - "+ this.cupo.getHoraFin();
-    			
+    			+ "Hora: " + this.cupo.getHoraInicio() + " - "+ this.cupo.getHoraFin(); 			
     }
     
 }

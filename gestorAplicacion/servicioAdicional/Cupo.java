@@ -7,6 +7,11 @@ import java.time.format.DateTimeFormatter;
 
 public class Cupo implements Serializable{
 	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
+	
 	private static final long serialVersionUID = 1L;
 	private LocalDate dia;
     private String horaInicio;

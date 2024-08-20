@@ -8,6 +8,11 @@ import gestorAplicacion.servicioAdicional.Empleado;
 
 public class CentroAdopcion implements Serializable{
 	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
+	
 	public static enum tipoServicio{
 		VETERINARIA, GUARDERIA, PELUQUERIA
 	}
@@ -33,10 +38,6 @@ public class CentroAdopcion implements Serializable{
 	
 	public CentroAdopcion(String nombre, int espacios, tipoServicio servicio) {
 		this(nombre, espacios,servicio, null );
-	}
-	
-	public CentroAdopcion(String nombre, tipoServicio servicio) {
-		this(nombre, 0, servicio, null);
 	}
 	
 	//-----------------------------------------------------------------

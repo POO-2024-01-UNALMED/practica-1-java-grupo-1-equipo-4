@@ -3,6 +3,11 @@ package gestorAplicacion.servicioAdicional;
 import java.io.Serializable;
 
 public class Producto implements Serializable{
+	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
 
 	private static final long serialVersionUID = 1L;
 	//Atributos 
@@ -21,13 +26,6 @@ public class Producto implements Serializable{
         this.cantidadUnidades = cantidadUnidades;
     }
 
-    //Si no se especifica el tipoAnimal al que va dirigido el producto, se toma como:
-    public Producto(String nombre, float precio, int cantidadUnidades){
-        this(nombre, precio, "Uso general", cantidadUnidades);
-    }
-
-    //constructor vacío (just for fun)
-    public Producto(){}
 
     //Métodos setter and getter 
     public void setNombre(String nombre){

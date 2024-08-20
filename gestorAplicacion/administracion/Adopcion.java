@@ -7,6 +7,11 @@ import gestorAplicacion.servicioAdicional.Animal;
 import gestorAplicacion.servicioAdicional.Cliente;
 
 public class Adopcion implements Serializable {
+	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
     
 	private static final long serialVersionUID = 1L;
 	private Animal animal;

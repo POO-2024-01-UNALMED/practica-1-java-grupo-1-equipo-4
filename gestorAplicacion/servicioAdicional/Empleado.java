@@ -11,42 +11,34 @@ import gestorAplicacion.servicioAdicional.Empleado.Rol;
 
 public class Empleado extends Persona implements Serializable{
 	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
 	
 	private static final long serialVersionUID = 1L;
-	//ATRIBUTOS
-    private Rol profesion; 
-    
     public static enum Rol {
         VETERINARIO,PELUQUERO,CUIDADOR,TENDERO;
     }
-    
+	
+	//ATRIBUTOS
+    private Rol profesion; 
     ArrayList<ArrayList<Cupo>> agenda_dias = new ArrayList<>();
     
     //CONSTRUCTOR
-    
-    
+  
     public Empleado( String nombre,int edad, long cedula,long telefono, String direccion,Rol profesion) {
     	super (nombre,edad,cedula,telefono,direccion);
         this.profesion = profesion;
         
         if (profesion!= Rol.TENDERO) { //EL TENDERO NO OFRCE CITAS.
         	this.llenar_agenda();
-        }
-        	
-        
+        }  
     }
     
     
-    //MÉTODOS
+
     
-    
-
-
-	public Empleado() {
-		// TODO Auto-generated constructor stub
-	}
-
-
 	private void llenar_agenda() {
     	
     	//CANTIDAD DE CICLOS, DEPENDIENDO EL DIA.
@@ -231,12 +223,6 @@ public class Empleado extends Persona implements Serializable{
     	return cupos_disponibles;
     }
     
-    
-    
-    
-    
-    
- 
 
         public Rol getProfesion(){
             return profesion;
@@ -246,17 +232,6 @@ public class Empleado extends Persona implements Serializable{
     		return agenda_dias;
     	}
 
-           
-
-      
-        
-        
-
-    @Override
-  //  public String toString()
-    //{
-    //    return "Nombre: "+ getNombre() + ", Cedula: "+ getCedula() + ", Profesión: "+ getProfesion();
-    //}
     public String toString() {
     	return "Nombre: "+ getNombre() + ", Edad: " + getEdad() + " años.";
     }

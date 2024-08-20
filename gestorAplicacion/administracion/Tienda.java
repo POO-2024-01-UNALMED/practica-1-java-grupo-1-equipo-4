@@ -7,6 +7,11 @@ import gestorAplicacion.servicioAdicional.Empleado;
 import gestorAplicacion.servicioAdicional.Producto;
 
 public class Tienda implements Serializable{
+	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
 
 		private static final long serialVersionUID = 1L;
 		// ATRIBUTOS 
@@ -15,9 +20,9 @@ public class Tienda implements Serializable{
         public static ArrayList<Empleado> empleados = new ArrayList<> ();
         private CentroAdopcion centroAdopcion;
         
-        //constructores//
+        //CONSTRUCTORES//
         public Tienda(Empleado empleado, CentroAdopcion centroAdopcion){
-            Tienda.empleados.add(empleado); //Tienda con un empleado 
+            Tienda.empleados.add(empleado); //TIENDA CON UN EMPLEADO
             this.centroAdopcion = centroAdopcion;
             
             //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
@@ -70,31 +75,6 @@ public class Tienda implements Serializable{
             
         }
 
-        public Tienda(){
-            //constructor vacío
-        	
-            //PRODUCTOS INICIALES CON LOS QUE EMPIEZA LA TIENDA
-//            this.agregarProducto(new Producto("Pack juguetes", 14000,"perros", 15));
-//            this.agregarProducto(new Producto("Huesos", 6000,"perros", 20));
-//            this.agregarProducto(new Producto("Correas", 25000, 10));
-//            this.agregarProducto(new Producto("Pack juguetes", 18000,"gatos", 10));
-//            this.agregarProducto(new Producto("Rascadores", 40000,"gatos", 5));
-//            this.agregarProducto(new Producto("Comederos de acero", 20000, 25));
-//            this.agregarProducto(new Producto("Comederos con formas", 30000, 10));
-//            this.agregarProducto(new Producto("Shampoo", 60000,"perros", 20));
-//            this.agregarProducto(new Producto("Shampoo", 65000,"gatos", 20));
-//            this.agregarProducto(new Producto("Pienso generico", 30000,"perros", 30));
-//            this.agregarProducto(new Producto("Pienso generico", 35000,"gatos", 20)); 
-//            this.agregarProducto(new Producto("Alpiste", 12000,"aves", 20));
-//            this.agregarProducto(new Producto("Jaula", 50000,"aves", 6)); 
-//            this.agregarProducto(new Producto("Casa de madera", 100000,"aves", 2)); 
-//            this.agregarProducto(new Producto("Semillas y cereales", 15000,"hamsters", 20));
-//            this.agregarProducto(new Producto("Jaula", 30000,"hamsters", 10));   
-//            this.agregarProducto(new Producto("Ruedas", 22000,"hamsters", 10));   
-//            this.agregarProducto(new Producto("Heno", 23000,"conejos", 20));
-//            this.agregarProducto(new Producto("Corral metálico", 60000,"conejos", 10));    
-            
-        }
 
         //setter y getter//
         public void setCentroAdopcion(CentroAdopcion centroAdopcion){
@@ -250,16 +230,6 @@ public class Tienda implements Serializable{
         }
         
         //-----------------------------------------------------------------------------------------------------------------------------
-        
-        public static boolean isCliente(long cedula) {
-        	boolean respuesta = false;
-        	for (int i = 0; i < CentroAdopcion.getClientes().size(); i ++) {
-        		if (CentroAdopcion.getClientes().get(i).getCedula()==cedula) {
-        			respuesta = true; 
-        		}
-        	}
-    		return respuesta;
-        }
 
 
         public String toString(){

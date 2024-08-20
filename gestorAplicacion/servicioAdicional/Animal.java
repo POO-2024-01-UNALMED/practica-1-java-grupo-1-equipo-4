@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Animal implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
 
 	public static enum EstadoSalud {
 		SANO, ENFERMO, ENTRATAMIENTO
@@ -14,10 +19,8 @@ public class Animal implements Serializable{
 	private String tipo;
 	private int edad;
 	private String sexo;
-	private List<String> caracteristicas;
 	private EstadoSalud estadoSalud;
-	private int puntaje;
-	
+
 	//CONSTRUCTOR
 	
 	public Animal(String nombre, String tipo, int edad, String sexo, EstadoSalud estadoSalud) {
@@ -35,12 +38,7 @@ public class Animal implements Serializable{
 		this.sexo = sexo;
 	}
 	
-	public Animal(String nombre, int edad,List<String> caracteristicas) {
-		this.nombre = nombre;
-		this.edad = edad;
-		this.caracteristicas=new ArrayList<>(caracteristicas);
-		this.puntaje=100;
-	}
+
 	
 	//MÉTODOS SETTER Y GETTER
 	
@@ -76,9 +74,6 @@ public class Animal implements Serializable{
 		return sexo;
 	}
 	
-	public List<String> getCaracteristicas(){
-		return caracteristicas;
-	}
 	
 	public void setEstadoSalud(EstadoSalud estadoSalud) {
 		this.estadoSalud = estadoSalud;
@@ -88,9 +83,6 @@ public class Animal implements Serializable{
 		return estadoSalud;
 	}
 	
-	public int getPuntaje() {
-		return puntaje;
-	}
 	
 	//OTROS MÉTODOS
 	
@@ -102,35 +94,5 @@ public class Animal implements Serializable{
 			return "Nombre: " + getNombre() + ", Especie: " + getEspecie() + ", Edad (meses): " + getEdad() + ", Sexo: " + getSexo();
 			
 		}
-	}
-	
-	 public void ajustarPuntos(int calificacion) {
-	        switch (calificacion) {
-	            case 1:
-	                puntaje -= 10;
-	                break;
-	            case 2:
-	                puntaje -= 8;
-	                break;
-	            case 3:
-	                puntaje -= 6;
-	                break;
-	            case 4:
-	                puntaje -= 4;
-	                break;
-	            case 5:
-	                puntaje += 0;
-	                break;
-	        }
-
-	        if (puntaje < 0) {
-	            puntaje = 0;
-	        } else if (puntaje > 100) {
-	            puntaje = 100;
-	        }
-	    }
-	
-	public boolean elegible() {
-		return this.puntaje>=40;
 	}
 }

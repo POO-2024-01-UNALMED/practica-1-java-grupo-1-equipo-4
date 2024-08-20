@@ -8,7 +8,11 @@ import gestorAplicacion.servicioAdicional.Muerto;
 
 public class Funeraria implements Serializable{
 	
-
+	//DANIEL ALBERTO ZAPATA CASTAÑO
+	//OKY RUIZ DE LA ROSA
+	//SALOMÉ MURILLO GAVIRIA
+	//NICOLAS DAVID ZAMBRANO MURCIA
+	
 	private static final long serialVersionUID = 1L;
 	// ARRAYLIST LISTOS PARA LA SERIALIZACIÓN
 	private CentroAdopcion centro;
@@ -54,10 +58,8 @@ public class Funeraria implements Serializable{
 //		Funeraria.tumbas.add(a1);
 //	}
 	
-	//CONSTRUCTORES//
-	public Funeraria () {
-		//CONSTRUCTOR VACÍO
-	}
+	//CONSTRUCTOR//
+
 	public Funeraria (CentroAdopcion centro) {
 		this.centro = centro;
 	}
