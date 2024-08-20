@@ -4,19 +4,17 @@ import java.io.Serializable;
 
 public abstract class Persona implements Serializable{
 
-	
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
 	
-
 	private static final long serialVersionUID = 1L;
-	private String nombre;
-	private int edad;
-	private long cedula;
-	private long telefono;
-	private String direccion;
+	protected String nombre;
+	protected int edad;
+	protected long cedula;
+	protected long telefono;
+	protected String direccion;
 
 	
 	//CONSTRUCTOR

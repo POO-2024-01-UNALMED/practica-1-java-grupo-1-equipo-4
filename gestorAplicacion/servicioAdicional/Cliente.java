@@ -2,12 +2,12 @@ package gestorAplicacion.servicioAdicional;
 
 import java.io.Serializable;
 
-public class Cliente extends Persona implements Serializable{
-	
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
+
+public class Cliente extends Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS	
