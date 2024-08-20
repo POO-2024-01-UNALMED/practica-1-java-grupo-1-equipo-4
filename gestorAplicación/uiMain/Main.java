@@ -1609,7 +1609,7 @@ public class Main {
 							else if(menu2==2) {
 								// ENTIERRO ----------------------------------------------------------------------------------------
 								
-								System.out.println("Verificando si la funeraria de "+funerarias.get(menu).getNombre()+" tiene espacio...\n");
+								System.out.println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
 								
 								if(funerarias.get(menu).espacioTumbas()==true) {
 									
