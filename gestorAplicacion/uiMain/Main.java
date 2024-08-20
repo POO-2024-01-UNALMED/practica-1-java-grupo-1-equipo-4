@@ -1879,7 +1879,7 @@ public class Main {
 								println("\n"+t1.compra(indice, cliente)); 
 								//ESTE FILTRO DE: UNIDADES == 1, ES PORQUE EL MÉTODO COMPRA QUE RECIBE DOS PARÁMETROS RETORNA ALGO MÁS ADECUADO PARA ESTE CASO 
 							}
-							else {
+							else { // CUANDO EL USUARIO VA A COMPRAR MÁS DE UNA UNIDAD 
 								println("\nSus datos serán tomados para registrar la compra.");
 								print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
@@ -1889,13 +1889,15 @@ public class Main {
 								entrada.nextLine();
 								String nombre = readString();
 								
+								//SE REGISTA EL USUARIO, CREANDO UN OBJETO DEL TIPO CLIENTE Y PASANDOLO AL MÉTODO COMPRA DE TIENDA
+								// SE LE AGREGA TAMBIEN, LA CANTIDAD DE UNIDADES AL MÉTODO COMPRA 
 								Cliente cliente = new Cliente(nombre, edad, cedula);
 								println("\n"+t1.compra(indice, unidades, cliente));
 							}
 							
 							// --------------------------------------------------------------------------------
 							
-							control = false;
+							control = false; //SI SE COMPLETÓ EL BLOQUE TRY, SE CAMBIA EL ESTADO A FALSO PARA ROMPER EL CICLO 
 						
 					}
 					catch(InputMismatchException e) {
@@ -1904,24 +1906,25 @@ public class Main {
 					
 				}
 				
+				// SE LE PIDE SI DESEA VOLVER A REINICIAR EL CICLO DESDE EL MENÚ DE COMPRA 
 				print("\n¿Desea volver al catálogo? [si/no]: ");
 				String respuesta = " ";
-				while (true) {//CONTROL CON UN WHILE SOLAMENTE
+				while (true) {//CONTROL CON UN WHILE SOLAMENTE, HASTA QUE NO RECIBA UNA RESPUESTA VÁLIDA.
 					respuesta = entrada.nextLine();
 					respuesta.toLowerCase();
 					if (respuesta.equals("si")||respuesta.equals("no")) {
-						break;
+						break; 
 					}else {
 						println("Por favor, ingrese una respuesta válida [si/no]");
 						continue;
 					}
 				}
 					if (respuesta.equals("si")) {
-						continue;
+						continue; //VOLVER A INICIAR CICLO DE COMPRA
 					}
 					else {
-						println("Vuelva pronto :)\n");
-						break;
+						println("Esperamos verlo por aquí pronto.\n");
+						break; // SALIR DE LA TIENDA 
 					}
 				}//BUCLE COMPRAR
 		}//CONDICINAL MENU INGRESAR TIENDA
