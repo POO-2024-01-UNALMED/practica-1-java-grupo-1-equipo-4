@@ -1,9 +1,10 @@
-package gestorAplicación.servicioAdicional;
-import gestorAplicación.procesoAdopcion.CentroAdopcion;
-import gestorAplicación.procesoAdopcion.Cliente;
-
+package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import gestorAplicacion.servicioAdicional.Cliente;
+import gestorAplicacion.servicioAdicional.Empleado;
+import gestorAplicacion.servicioAdicional.Producto;
 
 public class Tienda implements Serializable{
 

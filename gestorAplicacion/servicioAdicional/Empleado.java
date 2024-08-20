@@ -1,16 +1,13 @@
-package gestorAplicación.servicioAdicional;
-
-import gestorAplicación.procesoAdopcion.Adopcion;
-import  gestorAplicación.procesoAdopcion.Persona;
-
-
-import gestorAplicación.servicioAdicional.Empleado.Rol;
-import gestorAplicación.servicioAdicional.Cita;
+package gestorAplicacion.servicioAdicional;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import gestorAplicacion.administracion.Adopcion;
+import gestorAplicacion.administracion.Cita;
+import gestorAplicacion.servicioAdicional.Empleado.Rol;
 
 public class Empleado extends Persona implements Serializable{
 	

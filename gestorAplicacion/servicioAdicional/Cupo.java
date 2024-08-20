@@ -1,4 +1,4 @@
-package gestorAplicación.servicioAdicional;
+package gestorAplicacion.servicioAdicional;
 
 import java.io.Serializable;
 import java.time.LocalDate;

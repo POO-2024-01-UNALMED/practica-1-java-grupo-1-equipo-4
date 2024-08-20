@@ -1,4 +1,4 @@
-package gestorAplicación.procesoAdopcion;
+package gestorAplicacion.servicioAdicional;
 
 import java.io.Serializable;
 

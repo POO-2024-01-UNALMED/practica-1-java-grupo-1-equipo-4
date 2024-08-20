@@ -9,9 +9,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import gestorAplicación.procesoAdopcion.*;
-import gestorAplicación.servicioAdicional.*;
-import gestorAplicación.uiMain.Main;
+import gestorAplicacion.administracion.*;
+import gestorAplicacion.servicioAdicional.*;
+import gestorAplicacion.uiMain.Main;
 
 public class Serializador {
 

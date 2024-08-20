@@ -1,12 +1,12 @@
-package gestorAplicación.servicioAdicional;
+package gestorAplicacion.servicioAdicional;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import gestorAplicación.procesoAdopcion.Animal;
-import gestorAplicación.procesoAdopcion.Cliente;
+
+import gestorAplicacion.administracion.Cita;
 
 
 public class Socializar implements Serializable{

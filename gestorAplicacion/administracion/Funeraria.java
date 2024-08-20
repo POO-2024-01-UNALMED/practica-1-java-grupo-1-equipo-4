@@ -1,8 +1,8 @@
-package gestorAplicación.servicioAdicional;
-import gestorAplicación.procesoAdopcion.*;
-
+package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import gestorAplicacion.servicioAdicional.Muerto;
 
 public class Funeraria implements Serializable{
 	

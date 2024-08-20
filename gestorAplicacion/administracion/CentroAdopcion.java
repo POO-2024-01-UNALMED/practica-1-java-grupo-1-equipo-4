@@ -1,10 +1,10 @@
-package gestorAplicación.procesoAdopcion;
+package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import gestorAplicación.servicioAdicional.Cita;
-import gestorAplicación.servicioAdicional.Empleado;
-import gestorAplicación.servicioAdicional.Tienda;
+import gestorAplicacion.servicioAdicional.Animal;
+import gestorAplicacion.servicioAdicional.Cliente;
+import gestorAplicacion.servicioAdicional.Empleado;
 
 public class CentroAdopcion implements Serializable{
 	

@@ -1,4 +1,4 @@
-package gestorAplicación.uiMain;
+package gestorAplicacion.uiMain;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,23 +6,23 @@ import java.util.Scanner;
 
 import baseDatos.Deserializador;
 import baseDatos.Serializador;
-import gestorAplicación.procesoAdopcion.Adopcion;
-import gestorAplicación.procesoAdopcion.Animal;
-import gestorAplicación.procesoAdopcion.Animal.EstadoSalud;
-import gestorAplicación.procesoAdopcion.CentroAdopcion;
-import gestorAplicación.procesoAdopcion.Cliente;
-import gestorAplicación.servicioAdicional.Cita;
-import gestorAplicación.servicioAdicional.Cita.EstadoCita;
-import gestorAplicación.servicioAdicional.Cupo;
-import gestorAplicación.servicioAdicional.Empleado;
-import gestorAplicación.servicioAdicional.Funeraria;
-import gestorAplicación.servicioAdicional.Muerto;
-import gestorAplicación.servicioAdicional.Producto;
+import gestorAplicacion.administracion.Adopcion;
+import gestorAplicacion.administracion.CentroAdopcion;
+import gestorAplicacion.administracion.Cita;
+import gestorAplicacion.administracion.Funeraria;
+import gestorAplicacion.administracion.Tienda;
+import gestorAplicacion.administracion.Cita.EstadoCita;
+import gestorAplicacion.servicioAdicional.Animal;
+import gestorAplicacion.servicioAdicional.Cliente;
+import gestorAplicacion.servicioAdicional.Cupo;
+import gestorAplicacion.servicioAdicional.Empleado;
+import gestorAplicacion.servicioAdicional.Muerto;
+import gestorAplicacion.servicioAdicional.Producto;
+import gestorAplicacion.servicioAdicional.Socializar;
+import gestorAplicacion.servicioAdicional.Animal.EstadoSalud;
 
 import java.util.List;
 import java.util.Arrays;
-import gestorAplicación.servicioAdicional.Socializar;
-import gestorAplicación.servicioAdicional.Tienda;
 
 
 public class Main {

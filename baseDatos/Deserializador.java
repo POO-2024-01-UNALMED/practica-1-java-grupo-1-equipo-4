@@ -6,13 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
-import gestorAplicación.procesoAdopcion.*;
-import gestorAplicación.servicioAdicional.*;
-import gestorAplicación.uiMain.Main;
-
 import java.io.*;
 import java.util.List;
+
+import gestorAplicacion.administracion.*;
+import gestorAplicacion.servicioAdicional.*;
+import gestorAplicacion.uiMain.Main;
 
 public class Deserializador {
 
