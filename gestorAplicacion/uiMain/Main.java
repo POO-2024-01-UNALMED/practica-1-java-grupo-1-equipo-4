@@ -1747,8 +1747,9 @@ public class Main {
 		//t1 = new Tienda(empliado, sede1);
 		Tienda t1 = new Tienda(empliado,sede1);
 		
-		//OPERACION DE LA TIENDA
-		boolean bucle = true;
+		// BUCLE QUE MANTIENE LA OPERACION DE LA TIENDA, DE ROMPERSE, SE TERMINA LA FUNCIONALIDAD
+		
+		boolean bucle = true; // VARIABLE PARA EL SEGUNDO MENÚ
 		
 		println("\n¡Bienvenido a la tienda de mascotas!"+"\n Aquí encontrarás los mejores productos para el cuidado y la diversión de tu compañero peludo."+"\n");
 		
@@ -1759,11 +1760,11 @@ public class Main {
 			println("2. Salir\n");
 			println("Ingrese el número de la opción que desea [1-2]: ");
 			
-			int menu = 0;
-			while (menu==0) {
-				try {
-					menu = readInt();
-					if (menu>0 && menu<=2) {
+			int menu = 0; // ENTERO QUE EL USUARIO VA A INGREASAR, PARA ESCOGER OPCION 
+			while (menu==0) { //MIENTRAS EL ENTERO SEA CERO (PARA CONTROLAR QUE EL USUARIO LE DÉ UN VALOR)
+				try {//CONTROL DE ERRORES 
+					menu = readInt(); //SE LEE EL ENTERO 
+					if (menu>0 && menu<=2) { //SI ESTÁ ENTRE 1 Y 2 TERMINA 
 						break;
 					}
 					else {
@@ -1780,18 +1781,19 @@ public class Main {
 					}
 			}
 			
-		if (menu==1) {			
-			while (bucle==true) {
+		if (menu==1) {	// OPCION 1 DEL PRIMER MENÚ, ADQUIRIR PRODCUTO.		
+			while (bucle==true) { //UTILIZAMOS LA VARIABLE BUCLE INICIADA ANTES DEL PRIMER WHILE
+				
 				println("\n¿Cómo desea que se le muestren los productos?");
 				println("1. Mostrar todo");
 				println("2. Filtrar por tipo\n");
 				print("Ingrese el número de la opción que desea [1-2]: ");
 					
-				int menuTienda = 0;
+				int menuTienda = 0; // VOLVEMOS A RECIBIR UNA ENTRADA, ESTA VEZ PARA DECIDIR COMO FILTRAR LOS PRODUCTOS
 				while (menuTienda==0) {
 					try {
 						menuTienda = readInt();
-						if (menuTienda>0 && menuTienda<=2) {
+						if (menuTienda>0 && menuTienda<=2) { // SE CONTROLA QUE ESTÉ DENTRO DEL RANGO 
 							break;
 						}
 						else {
@@ -1808,39 +1810,42 @@ public class Main {
 					}
 				}
 				
-				if (menuTienda==1) {	
+				if (menuTienda==1) { //EN CASO DE QUE SE QUIERA VISUALIZAR TODOO	
 					println("\nProductos disponibles:");
-					println(t1.inventario());
+					println(t1.inventario()); // SE LLAMA AL MÉTODO INVENTARIO DE TIENDA, PARA QUE DEVULVA TODOS LOS PRODUCTOS SIN MÁS
 				}
-				else {
+				else { // DE LO CONTRARIO, SE LE VOLVERÁ A PEDIR UNA ENTRADA PARA QUE INDIQUE POR QUE TIPO DE ANIMAL QUIERE VER 
 					print("\n¿Por qué tipo de animal te gustaría ver? [Perros, gatos, aves, hamsters o conejos]: ");
-					while (true) {
+					while (true) { //BUCLE PARA CONTROLAR ÉSTE NUEVO MENÚ
 						try {
-							String tipo = readString();
-							tipo.toLowerCase();
-							if (tipo.equals("perros") || tipo.equals("perro")) {
+							String tipo = readString(); // SE LEE EL STRING 
+							tipo.toLowerCase(); // SE PONE EL TEXTO EN MINÚSCULAS
+							
+							//LUEGO LO COMPARAMOS EN ESTE GRUPO DE CONDICIONALES SIMPLES 
+							
+							if (tipo.equals("perros") || tipo.equals("perro")) { 
 								println("\nProductos disponibles:\n");
-								println(t1.filtrar("perros"));
+								println(t1.filtrar("perros")); //DEPENDIENDO DEL TIPO QUE INGRESÓ EL USUARIO, SE FILTRA DE UNA FORMA U OTRA
 								break;
 							}
 							else if (tipo.equals("gatos") || tipo.equals("gato")) {
 								println("\nProductos disponibles:\n");
-								println(t1.filtrar("gatos"));
+								println(t1.filtrar("gatos")); //DEPENDIENDO DEL TIPO QUE INGRESÓ EL USUARIO, SE FILTRA DE UNA FORMA U OTRA 
 								break;
 							}
 							else if (tipo.equals("aves") || tipo.equals("ave")) {
 								println("\nProductos disponibles:\n");
-								println(t1.filtrar("aves"));
+								println(t1.filtrar("aves"));//DEPENDIENDO DEL TIPO QUE INGRESÓ EL USUARIO, SE FILTRA DE UNA FORMA U OTRA
 								break;
 							}	
 							else if (tipo.equals("hamsters") || tipo.equals("hamster")) {
 								println("\nProductos disponibles:\n");
-								println(t1.filtrar("hamsters"));
+								println(t1.filtrar("hamsters"));//DEPENDIENDO DEL TIPO QUE INGRESÓ EL USUARIO, SE FILTRA DE UNA FORMA U OTRA
 								break;
 							}
 							else if (tipo.equals("conejos") || tipo.equals("conejo")) {
 								println("\nProductos disponibles:\n");
-								println(t1.filtrar("conejos"));
+								println(t1.filtrar("conejos"));//DEPENDIENDO DEL TIPO QUE INGRESÓ EL USUARIO, SE FILTRA DE UNA FORMA U OTRA
 								break;
 							}
 							else {
@@ -1853,6 +1858,9 @@ public class Main {
 						}
 					}
 				}
+				
+				// UNA VEZ QUE AL USUARIO SE LE IMPRIMIÓ LOS PRODUCTOS, VENIMOS ACÁ A CONTROLAR LA COMPRA
+				
 				boolean control = true;
 				while (control) {
 					try {
