@@ -18,7 +18,6 @@ import gestorAplicacion.servicioAdicional.Cupo;
 import gestorAplicacion.servicioAdicional.Empleado;
 import gestorAplicacion.servicioAdicional.Muerto;
 import gestorAplicacion.servicioAdicional.Producto;
-import gestorAplicacion.servicioAdicional.Socializar;
 import gestorAplicacion.servicioAdicional.Animal.EstadoSalud;
 
 import java.util.List;
@@ -130,17 +129,16 @@ public class Main {
 				println("\n¡Bienvenido a AdoptaLove!\n¿Qué quieres hacer hoy?\n");
 				println("1. Adoptar una mascota");
 				println("2. Agendar un servicio para tu mascota");
-				println("3. Agendar cita para socializar");
-				println("4. Comprar en la tienda para mascotas");
-				println("5. Ingresar a servicios funerarios");
-				println("6. Salir del programa");
+				println("3. Comprar en la tienda para mascotas");
+				println("4. Ingresar a servicios funerarios");
+				println("5. Salir del programa");
 				
 				int menu = 0;
 				while (menu==0) {
 					try {
 						print("\nElige una opcion: ");
 						menu = readInt();
-						if (menu>0 && menu<=6) {
+						if (menu>0 && menu<=5) {
 							break;
 						}
 						else {
@@ -160,10 +158,9 @@ public class Main {
 				switch (menu) {
 					case 1: adoptarAnimal(); break;
 					case 2: agendar_servicio(); break;
-					case 3: socializar(); break;
-					case 4: tienda(); break;
-					case 5: funeraria(); break;
-					case 6: salirDelSistema(); break;
+					case 3: tienda(); break;
+					case 4: funeraria(); break;
+					case 5: salirDelSistema(); break;
 				}
 				
 		}
@@ -1123,178 +1120,6 @@ public class Main {
 		return mascota;	
 	}
 	
-	static void socializar() {
-		println("Te damos la bienvenida a socializar, podras conocer muchos amigos acá");
-		Socializar socializar=new Socializar();
-		socializar.registroC(socializar.clientePorDefecto);
-
-		//Persona
-		String nombre;
-		int edad = 0;
-		long cedula = 0 ;
-		long celular = 0;
-		boolean participar;
-		//Mascota
-		String nombreM;
-		int edadM=0;
-		List<String> caracteristicas;
-		int opcion=0;
-
-		println("¿Deseas participar en socializar? (true/false)");
-		participar=readBoolean();
-		if (participar==true) {
-		println("Ingresa el nombre del cliente");
-		readString();
-		nombre=readString();
-		while(edad <= 0) {		
-		    try {
-				print("Ingrese su edad: ");
-				edad = readInt();
-				if (edad <= 0) {
-					println("Proporcione una respuesta válida.\n");
-					edad=0;
-				}
-		    }catch(RuntimeException e) {
-		    	println("Proporcione una respuesta válida.\n");
-		    }finally {
-		    	readString();
-		    	}
-		}
-		while(celular<=0) {
-			try {
-				print("Ingrese su celular");
-				celular=readLong();
-				if (celular<=0) {
-					println("Proporcione una respuesta válida.\n");
-					celular=0;
-				}
-			}catch(RuntimeException e) {
-				println("Proporcione una respuesta válida. \n");
-			}finally {
-				readString();
-			}
-		}
-		while(cedula<=0) {
-			try {
-				print("Ingrese su cedula🪪");
-				cedula=readLong();
-				if (cedula<=0) {
-					println("Proporcione una respuesta válida.\n");
-					cedula=0;
-				}
-			}catch(RuntimeException e) {
-				println("Proporcione una respuesta válida. \n");
-			}finally {
-				readString();
-			}
-		}		
-		Cliente nuevoCliente= new Cliente(nombre,edad,cedula,celular,participar);
-		
-		println("Ingrese el nombre de su mascota🐾");
-		nombreM=readString();
-		while(edadM <= 0) {		
-		    try {
-				print("Ingrese la edad de la mascota: ");
-				edadM = readInt();
-				if (edadM <= 0) {
-					println("Proporcione una respuesta válida.\n");
-					edadM=0;
-				}
-		    }catch(RuntimeException e) {
-		    	println("Proporcione una respuesta válida.\n");
-		    }finally {
-		    	readString();
-		    	}
-		}
-		println("Indica que caracteristicas tiene tu mascota separadas por coma (jugueton, calmado, activo, pasivo)");
-		caracteristicas= Arrays.asList(readString().split("\\s*,\\s*"));
-		
-		Animal nuevaMascota=new Animal(nombreM,edadM,caracteristicas);
-		
-		nuevoCliente.setMascota(nuevaMascota);
-		socializar.registroC(nuevoCliente);
-		
-		println("¡Buscando nuevos amigos!....\n");
-		socializar.match();
-		
-		 if (socializar.getCitas().isEmpty()) {
-	            println("No se encontraron coincidencias para socializar en este momento. :( ");
-	        } else {
-	            println("Elija el número del match con el que desea interactuar:");
-	            for (int i = 0; i < socializar.getCitas().size(); i++) {
-	                Cita cita = socializar.getCitas().get(i);
-	                println((i + 1) + ". Cita generada entre " + cita.getCliente().getNombre() + " con su mascota " + cita.getAnimal().getNombre() +
-	                        " y " + cita.getCliente2().getNombre() + " con su mascota " + cita.getAnimal2().getNombre());
-	            }
-
-	            int citaSeleccionada = 0;
-	            while (citaSeleccionada < 1 || citaSeleccionada > socializar.getCitas().size()) {
-	                try {
-	                    print("Ingrese el número de la cita que desea seleccionar: ");
-	                    citaSeleccionada = readInt();
-	                    if (citaSeleccionada < 1 || citaSeleccionada > socializar.getCitas().size()) {
-	                        println("Proporcione una respuesta válida.\n");
-	                    }
-	                } catch (RuntimeException e) {
-	                    println("Proporcione una respuesta válida.\n");
-	                } finally {
-	                    readString();
-	                }
-	            }
-	    if(!socializar.getCitas().isEmpty()) {
-	    Cita primeraCita=socializar.getCitas().get(citaSeleccionada-1);
-		println("¿Que desea hacer con su cita?");
-		println("1. Aceptarla");
-		println("2. Rechazarla");
-		println("3. Aplazarla");
-		
-		while(opcion<=0) {
-			try {
-				println("Ingrese el numero que contenga su respuesta");
-				opcion=readInt();
-				if (opcion<=0) {
-					println("Proporcione una respuesta válida.\n");
-					opcion=0;
-				}
-			}catch(RuntimeException e) {
-				println("Proporcione una respuesta válida. \n");
-			}finally {
-				readString();
-			}
-			
-			switch (opcion) {
-			case 1:
-				socializar.cambiarEstadoCita(primeraCita, EstadoCita.ACEPTADA);
-				println("Califica a la mascota de"+primeraCita.getCliente().getNombre()+"de 1 hasta 5");
-				int calificacion=readInt();
-				socializar.calificarAnimal(primeraCita.getAnimal(), calificacion);
-			 
-				println("Califica a la mascota de"+primeraCita.getCliente2().getNombre()+"de 1 hasta 5");
-				int calificacion2=readInt();
-				socializar.calificarAnimal(primeraCita.getAnimal2(), calificacion2);
-			 
-				println("\nPuntaje de " + primeraCita.getAnimal().getNombre() + ": " + primeraCita.getAnimal().getPuntaje());
-				println("\nPuntaje de " + primeraCita.getAnimal2().getNombre() + ": " + primeraCita.getAnimal2().getPuntaje());
-				println("Muchas gracias por participar en socializar 😊");
-				break;
-			case 2:
-				socializar.cambiarEstadoCita(primeraCita, EstadoCita.RECHAZADA);
-				println("Cita rechazada");
-				break;
-			case 3:
-				socializar.cambiarEstadoCita(primeraCita, EstadoCita.APLAZADA);
-				println("Cita aplazada");
-			default:
-				println("Opcion invalida");
-				break;
-		}	
-	}
-	    }
-	}
-		 }else {
-			println("Esperamos que pronto quieras ser parte de Socializar, Te esperamos! \n");
-		}
-	}
 	
 	public static void funeraria() {
 		

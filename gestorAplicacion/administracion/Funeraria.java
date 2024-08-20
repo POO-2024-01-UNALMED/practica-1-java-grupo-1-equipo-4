@@ -2,6 +2,8 @@ package gestorAplicacion.administracion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import gestorAplicacion.servicioAdicional.Animal;
+import gestorAplicacion.servicioAdicional.Cliente;
 import gestorAplicacion.servicioAdicional.Muerto;
 
 public class Funeraria implements Serializable{
