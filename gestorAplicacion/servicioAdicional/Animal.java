@@ -1,7 +1,9 @@
 package gestorAplicacion.servicioAdicional;
+
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 public class Animal implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -6,12 +6,16 @@ import java.time.LocalDate;
 import gestorAplicacion.servicioAdicional.Animal;
 import gestorAplicacion.servicioAdicional.Cliente;
 
+<<<<<<< Updated upstream
 public class Adopcion implements Serializable {
 	
 	//DANIEL ALBERTO ZAPATA CASTAÑO
 	//OKY RUIZ DE LA ROSA
 	//SALOMÉ MURILLO GAVIRIA
 	//NICOLAS DAVID ZAMBRANO MURCIA
+=======
+public class Adopcion implements Serializable{
+>>>>>>> Stashed changes
     
 	private static final long serialVersionUID = 1L;
 	private Animal animal;

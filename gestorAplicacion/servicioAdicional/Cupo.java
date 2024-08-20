@@ -3,7 +3,6 @@ package gestorAplicacion.servicioAdicional;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatter;
 
 public class Cupo implements Serializable{
 	

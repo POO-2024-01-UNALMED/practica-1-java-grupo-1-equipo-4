@@ -1,7 +1,7 @@
 package gestorAplicacion.administracion;
+
 import java.io.Serializable;
 import java.time.LocalDate;
-
 import gestorAplicacion.servicioAdicional.Animal;
 import gestorAplicacion.servicioAdicional.Cliente;
 import gestorAplicacion.servicioAdicional.Cupo;

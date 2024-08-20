@@ -11,7 +11,6 @@ import gestorAplicacion.administracion.CentroAdopcion;
 import gestorAplicacion.administracion.Cita;
 import gestorAplicacion.administracion.Funeraria;
 import gestorAplicacion.administracion.Tienda;
-import gestorAplicacion.administracion.Cita.EstadoCita;
 import gestorAplicacion.servicioAdicional.Animal;
 import gestorAplicacion.servicioAdicional.Cliente;
 import gestorAplicacion.servicioAdicional.Cupo;
@@ -60,13 +59,10 @@ public class Main {
 //    	sede1.agregarAnimal(new Animal("Tobi","Perro",5, "Macho", Animal.EstadoSalud.SANO));
 //		sede1.agregarAnimal(new Animal("Dino","Perro",4, "Macho", Animal.EstadoSalud.ENTRATAMIENTO));
 //		
-//		//SEDE2	
-//		//sede2.agregarAnimal(new Animal("Bolt","Perro",7, "Macho", Animal.EstadoSalud.SANO));
-//		//sede2.agregarAnimal(new Animal("Frodo","Perro",5, "Macho", Animal.EstadoSalud.SANO));
+//		//SEDE2	;
 //		sede2.agregarAnimal(new Animal("Golfo","Conejo",3, "Macho", Animal.EstadoSalud.ENFERMO));
 //		sede2.agregarAnimal(new Animal("Luna","Conejo",3, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
 //		sede2.agregarAnimal(new Animal("Frapee","Canario",2, "Hembra", Animal.EstadoSalud.ENTRATAMIENTO));
-//		//sede2.agregarAnimal(new Animal("Max","Canario",3, "Macho", Animal.EstadoSalud.SANO));
 //		sede2.agregarAnimal(new Animal("Luna","Gato",6, "Hembra", Animal.EstadoSalud.ENFERMO));
 //		sede2.agregarAnimal(new Animal("Everest","Gato",4, "Hembra", Animal.EstadoSalud.SANO));
 //		sede2.agregarAnimal(new Animal("Junior","Hámster",2, "Macho", Animal.EstadoSalud.SANO)); 
@@ -871,10 +867,10 @@ public class Main {
         	    	    citas_agendadas.add(nueva_cita);//AGREGAR LA CITA AL ARRAY DE CITAS QUE EL USUARIO ESTÁ AGENDANDO
         	    	    
         	    	    
-        	    	    println("¡Cita agendada exitosamente!");
+        	    	    println("\n¡Cita agendada exitosamente!");
         	    	    
         	    	    
-        	    	    println("\n¿Desea agendar cita otra cita?");
+        	    	    println("\n¿Desea agendar otra cita?");
         	    	    String respues;
         	    	    readString(); //CONSUMIR SALTO DE LÍNEA
         		    	do {
@@ -1134,33 +1130,33 @@ public class Main {
 		//-------------------------------------------------------------------------------------------------------
 		// PROCESO FUNERARIA 
 		
-		System.out.println("Bienvenido al servicio de Funeraria"+"\n");
+		println("Bienvenido al servicio de Funeraria"+"\n");
 		
 		while (true) { 
 		
-			System.out.println("Por favor, seleccione el centro de adopción más cercano: "+"\n");
-			System.out.println("1. SEDE MEDELLÍN.");
-			System.out.println("2. SEDE BELLO.");
-			System.out.println("3. SEDE ITAGÜI.");
-			System.out.println("4. Salir.\n");
-			System.out.println("Ingrese el número de la opción que desea: ");
+			println("Por favor, seleccione el centro de adopción más cercano: "+"\n");
+			println("1. SEDE MEDELLÍN.");
+			println("2. SEDE BELLO.");
+			println("3. SEDE ITAGÜI.");
+			println("4. Salir.\n");
+			print("Ingrese el número de la opción que desea: ");
 			
 			int menu = 0;
 			while (menu==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
 				try {
-					menu = entrada.nextInt(); //RECIBIENDO ENTRADA
+					menu = readInt(); //RECIBIENDO ENTRADA
 					if (menu>0 && menu<=4) {
 						break;
 					}
 					else {
-						System.out.println("Ingrese un número válido por favor");
+						print("Ingrese un número válido por favor: ");
 						menu = 0;
 						continue;
 					}
 				}
 				
 				catch(InputMismatchException e) {
-					System.out.println("Por favor ingrese un número entre uno y cuatro!!!");
+					println("Por favor ingrese un número entre 1 y 4");
 				}
 				finally {
 						entrada.nextLine();//SALTO DE LINEA
@@ -1168,34 +1164,35 @@ public class Main {
 				}//BUCLE CONTROL
 				
 				if (menu==4) {
-					System.out.println("Hasta luego, esperamos que no tenga que volver pronto.");
+					println("Gracias por tu visita. Si en algún momento necesitas algo más, no dudes en regresar.");
 					break;
 				}
 				else {
 					menu-=1;
 					while (true) {
-						System.out.println("¿Qué desea hacer?\n");
-						System.out.println("1. Cremación.");
-						System.out.println("2. Entierro.");
-						System.out.println("3. Visitar cementerio");
-						System.out.println("4. Salir.\n");
+						println("\n¿Qué desea hacer?");
+						println("1. Cremación.");
+						println("2. Entierro.");
+						println("3. Visitar cementerio");
+						println("4. Salir.\n");
 						
 						int menu2 = 0;
 						while (menu2==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
 							try {
-								menu2 = entrada.nextInt(); //RECIBIENDO ENTRADA
+								print("Escoja entre las opciones dadas [1-4]: ");
+								menu2 = readInt(); //RECIBIENDO ENTRADA
 								if (menu2>0 && menu2<=4) {
 									break;
 								}
 								else {
-									System.out.println("Ingrese un número válido por favor");
+									println("Ingrese un número válido por favor");
 									menu2 = 0;
 									continue;
 								}
 							}
 							
 							catch(InputMismatchException e) {
-								System.out.println("Por favor ingrese un número entre uno y cuatro!!!");
+								println("Por favor ingrese un número entre 1 y 4");
 							}
 							finally {
 									entrada.nextLine();//SALTO DE LINEA
@@ -1203,37 +1200,38 @@ public class Main {
 							}// BUCLE CONTROL
 						
 							if (menu2==4) {
-								System.out.println(" ");
+								println(" ");
 								break;
 							}
 							else if(menu2==1) {
 								//CREMACIÓN---------------------------------------------------------------------------------------
 								
-								System.out.println("Verificando si la funeraria de la sede escogida tiene espacio tiene espacio...\n");
+								println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
 								
 								if(funerarias.get(menu).espacioCenizas()==true) {
 									
-									System.out.println("¡Si hay espacio disponible!\n");
-									System.out.println("Escoja entre las siguientes opciones: \n");
-									System.out.println("1. Comprar Osario.");
-									System.out.println("2. Alquilar Osario.");
-									System.out.println("3. Salir.\n");
+									println("¡Si hay espacio disponible!\n");
+									println("Escoja entre las siguientes opciones:");
+									println("1. Comprar Osario.");
+									println("2. Alquilar Osario.");
+									println("3. Salir.\n");
 									
 									int menu3 = 0;
 									while (menu3==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
 										try {
-											menu3 = entrada.nextInt(); //RECIBIENDO ENTRADA
+											print("Escoja entre las opciones dadas [1-3]: ");
+											menu3 = readInt(); //RECIBIENDO ENTRADA
 											if (menu3>0 && menu3<=3) {
 												break;
 											}
 											else {
-												System.out.println("Ingrese un número válido por favor");
+												println("Ingrese un número válido por favor");
 												menu2 = 0;
 												continue;
 											}
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Por favor ingrese un número entre uno y tres!!!");
+											println("Por favor ingrese un número entre 1 y 3");
 										}
 										finally {
 												entrada.nextLine();//SALTO DE LINEA
@@ -1247,19 +1245,20 @@ public class Main {
 										Muerto cenizas = new Muerto();
 										
 										if (menu3==2) {
-											System.out.println("\nConsigne el número de años que va a alquilar el osario:");
-											System.out.println("(Ejemplo: 3, 4, etc..)");
+											println("\nConsigne el número de años que va a alquilar el osario:");
+											println("(Ejemplo: 3, 4, etc..)");
 										
 											while(alquiler==0) {
 												try {
-													alquiler = entrada.nextInt();
+													print("Ingresa tu respuesta: ");
+													alquiler = readInt();
 												}
 												catch(InputMismatchException e){
-													System.out.println("Ingrese únicamente un número");
+													println("Ingrese únicamente un número");
 												}finally {
 													entrada.nextLine();
 												}
-												System.out.print("\n");
+												print("\n");
 											}
 										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
 										
@@ -1267,18 +1266,18 @@ public class Main {
 										boolean control33 = true;
 										while(control33==true)
 										try {
-											System.out.println("Por favor, ingrese sus datos para realizar la compra:\n ");
-											System.out.print("Nombre : ");
-											String name = entrada.nextLine();
-											System.out.print("Dirección : ");
-											String direc = entrada.nextLine();
-											System.out.print("Edad : ");
-											int edad = entrada.nextInt();
-											System.out.print("Cédula : ");
-											long cedu = entrada.nextLong();
-											System.out.print("Número : ");
-											long numero = entrada.nextLong();
-											System.out.print("\n");
+											println("Por favor, ingrese sus datos para realizar la compra:\n ");
+											print("Nombre : ");
+											String name = readString();
+											print("Dirección : ");
+											String direc = readString();
+											print("Edad : ");
+											int edad = readInt();
+											print("Cédula : ");
+											long cedu = readLong();
+											print("Número : ");
+											long numero = readLong();
+											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
 											Cliente cliente = new Cliente(name, edad, cedu, numero, direc);
 											// SE LE AÑADE EL DUEÑO A LAS CENIZAS
@@ -1286,19 +1285,19 @@ public class Main {
 											control33 = false;
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Error con algún dato.\n");
+											println("Error con algún dato.\n");
 										}finally {
 											entrada.nextLine();
 										}
 										
 										if (menu3==2) {
-											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
-											System.out.println("Total a pagar por los "+alquiler+" años son: "+alquiler*200000+" $.\n");
+											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											println("Total a pagar por los "+alquiler+" años son: "+alquiler*200000+" $.\n");
 											cenizas.setTiempo(alquiler+" años");
 										}
 										else {
-											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
-											System.out.println("Total a pagar por el osario "+tiempo+" es igual a: 2000000 $\n");
+											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											println("Total a pagar por el osario "+tiempo+" es igual a: 2000000 $\n");
 											cenizas.setTiempo(tiempo);
 										}
 										
@@ -1307,19 +1306,19 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											System.out.println("Digitación de los datos de la mascota:\n");
-											System.out.print("Nombre : ");
-											String namePet = entrada.nextLine();
-											System.out.print("Tipo : ");
-											String tipo = entrada.nextLine();
-											System.out.print("Edad : ");
-											int edad = entrada.nextInt();
+											println("Digitación de los datos de la mascota:\n");
+											print("Nombre : ");
+											String namePet = readString();
+											print("Tipo : ");
+											String tipo = readString();
+											print("Edad : ");
+											int edad = readInt();
 											entrada.nextLine();
-											System.out.print("Sexo : ");
-											String sex = entrada.nextLine();
-											System.out.print("Fecha de fallecimiento (dia/mes/año): ");
-											String fecha = entrada.nextLine();
-											System.out.print("\n");
+											print("Sexo : ");
+											String sex = readString();
+											print("Fecha de fallecimiento (dia/mes/año): ");
+											String fecha = readString();
+											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
 											Animal animal = new Animal(namePet, tipo, edad, sex);
 											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA
@@ -1328,65 +1327,65 @@ public class Main {
 											control43 = false;
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Error con algún dato.\n");
+											println("Error con algún dato.\n");
 										}
 										
-										System.out.println("Para finalizar, escribe el mensaje para el Osario: ");
-										String mensaje = entrada.nextLine();
+										println("Para finalizar, escribe el mensaje para el Osario: ");
+										String mensaje = readString();
 										//SE REGISTRA EL MENSAJE 
 										cenizas.setMensaje(mensaje);
 										//FINALIZA EL PROCESO DE REGISTRO
-										System.out.println("Se ha realizado el proceso de registro.\n");
+										println("Se ha realizado el proceso de registro.\n");
 										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
 										funerarias.get(menu).añadirCenizas(cenizas);
 										
 										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA A LOS OSARIOS -----------------------
-										System.out.println("Comienza la visita a las cenizas:\n");
-										System.out.println(funerarias.get(menu).visita("Cenizas"));
+										println("Comienza la visita a las cenizas:\n");
+										println(funerarias.get(menu).visita("Cenizas"));
 										
-										System.out.println("¿Deseas colocarle flores a algún osario (si/no)?: ");
+										println("¿Deseas colocarle flores a algún osario (si/no)?: ");
 										
 										while(true) {
 										
-											String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+											String si_no = readString();// SI / NO ------------------------- FLORES-----------------
 											if (si_no.equals("no")||si_no.equals("NO")) {
-												System.out.println("\nUna muerte bella, honra toda vida...\n");
+												println("\nUna muerte bella, honra toda vida...\n");
 												break;
 											}
 											else if(si_no.equals("si")||si_no.equals("SI")) {
-												System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
-												String flor = entrada.nextLine();
+												print("Ingresa el nombre de la flor que te gustaría poner: ");
+												String flor = readString();
 												
-												System.out.print("¿A cuál osario? (digite el número de osario): ");
+												print("¿A cuál osario? (digite el número de osario): ");
 												
 												int control53 = 0;
 												while (control53==0) {
 													try {
-														control53 = entrada.nextInt();
+														control53 = readInt();
 														if (control53>0 && control53<=Funeraria.cenizas.size()) {
 															break;
 														}
 														else {
-															System.out.println("Ingrese un número válido por favor");
+															println("Ingrese un número válido por favor");
 															control53 = 0;
 															continue;
 														}
 													}
 													catch(InputMismatchException e) {
-														System.out.println("Por favor ingrese solo números.");
+														println("Por favor ingrese solo números.");
 													}
 													finally {
 															entrada.nextLine();//SALTO DE LINEA
 														}
 												}
 												
-												System.out.println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
+												println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
 												
 												
 												break;
 											}
 											else {
-												System.out.println("Escoja una opción válida (si/no)");
+												println("Escoja una opción válida (si/no)");
 												continue;
 											}
 										}
@@ -1397,7 +1396,7 @@ public class Main {
 									break;
 								}
 								else {
-									System.out.println("No hay espacio disponible, por favor seleccione otro centro.");
+									println("No hay espacio disponible, por favor seleccione otro centro.");
 									break;
 								}
 							}//ELSE CASO CREMACIÓN
@@ -1405,31 +1404,31 @@ public class Main {
 							else if(menu2==2) {
 								// ENTIERRO ----------------------------------------------------------------------------------------
 								
-								System.out.println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
+								println("Verificando si la funeraria de la sede escogida tiene espacio...\n");
 								
 								if(funerarias.get(menu).espacioTumbas()==true) {
 									
-									System.out.println("¡Si hay espacio disponible!\n");
-									System.out.println("Escoja entre las siguientes opciones: \n");
-									System.out.println("1. Comprar Terreno.");
-									System.out.println("2. Alquilar Terreno.");
-									System.out.println("3. Salir.\n");
+									println("¡Si hay espacio disponible!\n");
+									println("Escoja entre las siguientes opciones: \n");
+									println("1. Comprar Terreno.");
+									println("2. Alquilar Terreno.");
+									println("3. Salir.\n");
 									
 									int menu3 = 0;
 									while (menu3==0) { // COMPROBANDO SI EL NÚMERO ES VALIDO
 										try {
-											menu3 = entrada.nextInt(); //RECIBIENDO ENTRADA
+											menu3 = readInt(); //RECIBIENDO ENTRADA
 											if (menu3>0 && menu3<=3) {
 												break;
 											}
 											else {
-												System.out.println("Ingrese un número válido por favor");
+												println("Ingrese un número válido por favor");
 												menu2 = 0;
 												continue;
 											}
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Por favor ingrese un número entre uno y tres!!!");
+											println("Por favor ingrese un número entre uno y tres!!!");
 										}
 										finally {
 												entrada.nextLine();//SALTO DE LINEA
@@ -1443,19 +1442,19 @@ public class Main {
 										Muerto tumba = new Muerto();
 										
 										if (menu3==2) {
-											System.out.println("\nConsigne el número de años que va a alquilar el terreno:");
-											System.out.println("(Ejemplo: 3, 4, etc..)");
+											println("\nConsigne el número de años que va a alquilar el terreno:");
+											println("(Ejemplo: 3, 4, etc..)");
 										
 											while(alquiler==0) {
 												try {
-													alquiler = entrada.nextInt();
+													alquiler = readInt();
 												}
 												catch(InputMismatchException e){
-													System.out.println("Ingrese únicamente un número");
+													println("Ingrese únicamente un número");
 												}finally {
 													entrada.nextLine();
 												}
-												System.out.print("\n");
+												print("\n");
 											}
 										}// SE CONSIGUE EL TIEMPO DEL ALQUILER
 										
@@ -1463,18 +1462,18 @@ public class Main {
 										boolean control33 = true;
 										while(control33==true)
 										try {
-											System.out.println("Por favor, ingrese sus datos para realizar la compra:\n ");
-											System.out.print("Nombre : ");
-											String name = entrada.nextLine();
-											System.out.print("Dirección : ");
-											String direc = entrada.nextLine();
-											System.out.print("Edad : ");
-											int edad = entrada.nextInt();
-											System.out.print("Cédula : ");
-											long cedu = entrada.nextLong();
-											System.out.print("Número : ");
-											long numero = entrada.nextLong();
-											System.out.print("\n");
+											println("Por favor, ingrese sus datos para realizar la compra:\n ");
+											print("Nombre : ");
+											String name = readString();
+											print("Dirección : ");
+											String direc = readString();
+											print("Edad : ");
+											int edad = readInt();
+											print("Cédula : ");
+											long cedu = readLong();
+											print("Número : ");
+											long numero = readLong();
+											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
 											Cliente cliente = new Cliente(name, edad, cedu, numero, direc);
 											// SE LE AÑADE EL DUEÑO A LAS CENIZAS
@@ -1482,19 +1481,19 @@ public class Main {
 											control33 = false;
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Error con algún dato.\n");
+											println("Error con algún dato.\n");
 										}finally {
 											entrada.nextLine();
 										}
 										
 										if (menu3==2) {
-											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
-											System.out.println("Total a pagar por los "+alquiler+" años son: "+alquiler*500000+" $.\n");
+											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											println("Total a pagar por los "+alquiler+" años son: "+alquiler*500000+" $.\n");
 											tumba.setTiempo(alquiler+" años");
 										}
 										else {
-											System.out.println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
-											System.out.println("Total a pagar por el terreno "+tiempo+" es igual a: 4000000 $\n");
+											println("A su dirección se le enviará la factura, y se le estará contactando por telefono.");
+											println("Total a pagar por el terreno "+tiempo+" es igual a: 4000000 $\n");
 											tumba.setTiempo(tiempo);
 										}
 										
@@ -1503,19 +1502,19 @@ public class Main {
 										boolean control43 = true;
 										while(control43==true)
 										try {
-											System.out.println("Digitación de los datos de la mascota:\n");
-											System.out.print("Nombre : ");
-											String namePet = entrada.nextLine();
-											System.out.print("Tipo : ");
-											String tipo = entrada.nextLine();
-											System.out.print("Edad : ");
+											println("Digitación de los datos de la mascota:\n");
+											print("Nombre : ");
+											String namePet = readString();
+											print("Tipo : ");
+											String tipo = readString();
+											print("Edad : ");
 											int edad = entrada.nextInt();
 											entrada.nextLine();
-											System.out.print("Sexo : ");
-											String sex = entrada.nextLine();
-											System.out.print("Fecha de fallecimiento (dia/mes/año): ");
-											String fecha = entrada.nextLine();
-											System.out.print("\n");
+											print("Sexo : ");
+											String sex = readString();
+											print("Fecha de fallecimiento (dia/mes/año): ");
+											String fecha = readString();
+											print("\n");
 											// CREAMOS EL OBJETO DE TIPO CLIENTE
 											Animal animal = new Animal(namePet, tipo, edad, sex);
 											// AÑADIMOS EL ANIMAL A MUERTO, Y LA FECHA
@@ -1524,65 +1523,65 @@ public class Main {
 											control43 = false;
 										}
 										catch(InputMismatchException e) {
-											System.out.println("Error con algún dato.\n");
+											println("Error con algún dato.\n");
 										}
 										
-										System.out.println("Para finalizar, escribe el mensaje para la tumba: ");
-										String mensaje = entrada.nextLine();
+										println("Para finalizar, escribe el mensaje para la tumba: ");
+										String mensaje = readString();
 										//SE REGISTRA EL MENSAJE 
 										tumba.setMensaje(mensaje);
 										//FINALIZA EL PROCESO DE REGISTRO
-										System.out.println("Se ha realizado el proceso de registro.\n");
+										println("Se ha realizado el proceso de registro.\n");
 										//SE AGREGAN LAS CENIZAS A LA FUNERARIA 
 										funerarias.get(menu).añadirTumba(tumba);
 										
 										//----------- EMPIEZA AUTOMATICAMENTE LA PRIMERA VISITA AL CEMENTERIO-----------------------
-										System.out.println("Comienza la visita a las tumbas:\n");
-										System.out.println(funerarias.get(menu).visita("tumbas"));
+										println("Comienza la visita a las tumbas:\n");
+										println(funerarias.get(menu).visita("tumbas"));
 										
-										System.out.println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+										println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
 										
 										while(true) {
 										
-											String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+											String si_no = readString();// SI / NO ------------------------- FLORES-----------------
 											if (si_no.equals("no")||si_no.equals("NO")) {
-												System.out.println("\nUna muerte bella, honra toda vida...\n");
+												println("\nUna muerte bella, honra toda vida...\n");
 												break;
 											}
 											else if(si_no.equals("si")||si_no.equals("SI")) {
-												System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
-												String flor = entrada.nextLine();
+												print("Ingresa el nombre de la flor que te gustaría poner: ");
+												String flor = readString();
 												
-												System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
+												print("¿A cuál tumba? (digite el número de la tumba): ");
 												
 												int control53 = 0;
 												while (control53==0) {
 													try {
-														control53 = entrada.nextInt();
+														control53 = readInt();
 														if (control53>0 && control53<=Funeraria.tumbas.size()) {
 															break;
 														}
 														else {
-															System.out.println("Ingrese un número válido por favor");
+															println("Ingrese un número válido por favor");
 															control53 = 0;
 															continue;
 														}
 													}
 													catch(InputMismatchException e) {
-														System.out.println("Por favor ingrese solo números.");
+														println("Por favor ingrese solo números.");
 													}
 													finally {
 															entrada.nextLine();//SALTO DE LINEA
 														}
 												}
 												
-												System.out.println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
+												println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
 												
 												
 												break;
 											}
 											else {
-												System.out.println("Escoja una opción válida (si/no)");
+												println("Escoja una opción válida (si/no)");
 												continue;
 											}
 										}	
@@ -1590,7 +1589,7 @@ public class Main {
 									break;
 								}
 								else {
-									System.out.println("No hay espacio disponible, por favor seleccione otro centro.");
+									println("No hay espacio disponible, por favor seleccione otro centro.");
 									break;
 								}
 								
@@ -1598,27 +1597,27 @@ public class Main {
 							
 							else if (menu2==3) {
 								// VISITA--------------------------------------------------------------------------------------------
-								System.out.println("\n ¿Qué te gustaría visitar?\n");
-								System.out.println("1. Los osarios.");
-								System.out.println("2. Las tumbas.");
-								System.out.println("3. Salir.\n");
-								System.out.println("Ingrese el número de la opción que desea");
+								println("\n ¿Qué te gustaría visitar?\n");
+								println("1. Los osarios.");
+								println("2. Las tumbas.");
+								println("3. Salir.\n");
+								println("Ingrese el número de la opción que desea");
 								
 								int menu5 = 0;
 								while (menu5==0) {
 									try {
-										menu5 = entrada.nextInt();
+										menu5 = readInt();
 										if (menu5>0 && menu5<=3) {
 											break;
 										}
 										else {
-											System.out.println("Ingrese un número válido por favor");
+											println("Ingrese un número válido por favor");
 											menu5 = 0;
 											continue;
 										}
 									}
 									catch(InputMismatchException e) {
-										System.out.println("Por favor ingrese un número entre uno y tres!!!");
+										println("Por favor ingrese un número entre uno y tres!!!");
 									}
 									finally {
 											entrada.nextLine();//SALTO DE LINEA
@@ -1627,104 +1626,104 @@ public class Main {
 								
 								if (menu5==1) {
 									// VISITA OSARIOS ---------------------------------------------------------------------------------
-									System.out.println("Comienza la visita a las cenizas:\n");
-									System.out.println(funerarias.get(menu).visita("Cenizas"));
+									println("Comienza la visita a las cenizas:\n");
+									println(funerarias.get(menu).visita("Cenizas"));
 									
-									System.out.println("¿Deseas colocarle flores a algún osario (si/no)?: ");
+									println("¿Deseas colocarle flores a algún osario (si/no)?: ");
 									
 									while(true) {
 									
-										String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+										String si_no = readString();// SI / NO ------------------------- FLORES-----------------
 										if (si_no.equals("no")||si_no.equals("NO")) {
-											System.out.println("\nUna muerte bella, honra toda vida...\n");
+											println("\nUna muerte bella, honra toda vida...\n");
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											System.out.print("Ingresa el nombre de la flor que te gustaría poner: ");
-											String flor = entrada.nextLine();
+											print("Ingresa el nombre de la flor que te gustaría poner: ");
+											String flor = readString();
 											
-											System.out.print("¿A cuál osario? (digite el número de osario): ");
+											print("¿A cuál osario? (digite el número de osario): ");
 											
 											int control53 = 0;
 											while (control53==0) {
 												try {
-													control53 = entrada.nextInt();
+													control53 = readInt();
 													if (control53>0 && control53<=Funeraria.cenizas.size()) {
 														break;
 													}
 													else {
-														System.out.println("Ingrese un número válido por favor");
+														println("Ingrese un número válido por favor");
 														control53 = 0;
 														continue;
 													}
 												}
 												catch(InputMismatchException e) {
-													System.out.println("Por favor ingrese solo números.");
+													println("Por favor ingrese solo números.");
 												}
 												finally {
 														entrada.nextLine();//SALTO DE LINEA
 													}
 											}
 											
-											System.out.println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
+											println("\n"+funerarias.get(menu).florCenizas(control53, flor)+"\n");
 											
 											
 											break;
 										}
 										else {
-											System.out.println("Escoja una opción válida (si/no)");
+											println("Escoja una opción válida (si/no)");
 											continue;
 										}
 									}
 								}
 								else if (menu5==2) {
 									// VISITA CEMENTERIO -------------------------------------------------------------------------------
-									System.out.println("Comienza la visita a las tumbas:\n");
-									System.out.println(funerarias.get(menu).visita("tumbas"));
+									println("Comienza la visita a las tumbas:\n");
+									println(funerarias.get(menu).visita("tumbas"));
 									
-									System.out.println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
+									println("¿Deseas colocarle flores a alguna tumba (si/no)?: ");
 									
 									while(true) {
 									
-										String si_no = entrada.nextLine();// SI / NO ------------------------- FLORES-----------------
+										String si_no = readString();// SI / NO ------------------------- FLORES-----------------
 										if (si_no.equals("no")||si_no.equals("NO")) {
-											System.out.println("\nUna muerte bella, honra toda vida...\n");
+											println("\nUna muerte bella, honra toda vida...\n");
 											break;
 										}
 										else if(si_no.equals("si")||si_no.equals("SI")) {
-											System.out.print("Ingresa el nombre de las flores que le gustaría poner: ");
-											String flor = entrada.nextLine();
+											print("Ingresa el nombre de las flores que le gustaría poner: ");
+											String flor = readString();
 											
-											System.out.print("¿A cuál tumba? (digite el número de la tumba): ");
+											print("¿A cuál tumba? (digite el número de la tumba): ");
 											
 											int control53 = 0;
 											while (control53==0) {
 												try {
-													control53 = entrada.nextInt();
+													control53 = readInt();
 													if (control53>0 && control53<=Funeraria.tumbas.size()) {
 														break;
 													}
 													else {
-														System.out.println("Ingrese un número válido por favor");
+														println("Ingrese un número válido por favor");
 														control53 = 0;
 														continue;
 													}
 												}
 												catch(InputMismatchException e) {
-													System.out.println("Por favor ingrese solo números.");
+													println("Por favor ingrese solo números.");
 												}
 												finally {
 														entrada.nextLine();//SALTO DE LINEA
 													}
 											}
 											
-											System.out.println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
+											println("\n"+funerarias.get(menu).florTumbas(control53, flor)+"\n");
 											
 											
 											break;
 										}
 										else {
-											System.out.println("Escoja una opción válida (si/no)");
+											println("Escoja una opción válida (si/no)");
 											continue;
 										}
 									}	
@@ -1752,30 +1751,30 @@ public class Main {
 		//OPERACION DE LA TIENDA
 		boolean bucle = true;
 		
-		System.out.println("\nBienvenido a la tienda"+"\n");
+		println("\n¡Bienvenido a la tienda de mascotas!"+"\n Aquí encontrarás los mejores productos para el cuidado y la diversión de tu compañero peludo."+"\n");
 		
 		while (true) { 
 		
-			System.out.println("¿Qué deseas hacer?");
-			System.out.println("1. Comprar un producto");
-			System.out.println("2. Salir\n");
-			System.out.println("Ingrese el número de la opción que desea [1-2]: ");
+			println("¿Qué deseas hacer?");
+			println("1. Ir de compras");
+			println("2. Salir\n");
+			println("Ingrese el número de la opción que desea [1-2]: ");
 			
 			int menu = 0;
 			while (menu==0) {
 				try {
-					menu = entrada.nextInt();
+					menu = readInt();
 					if (menu>0 && menu<=2) {
 						break;
 					}
 					else {
-						System.out.println("Ingrese un número válido por favor");
+						println("Ingrese un número válido por favor");
 						menu = 0;
 						continue;
 					}
 				}
 				catch(InputMismatchException e) {
-					System.out.println("Por favor ingrese un número entre uno y dos!!!");
+					println("Por favor ingrese un número entre 1 y 2");
 				}
 				finally {
 						entrada.nextLine();//SALTO DE LINEA
@@ -1784,26 +1783,26 @@ public class Main {
 			
 		if (menu==1) {			
 			while (bucle==true) {
-				System.out.println("\n¿Cómo desea que se le muestren los productos?");
-				System.out.println("1. Mostrar todo");
-				System.out.println("2. Filtrar por tipo\n");
-				System.out.print("Ingrese el número de la opción que desea [1-2]: ");
+				println("\n¿Cómo desea que se le muestren los productos?");
+				println("1. Mostrar todo");
+				println("2. Filtrar por tipo\n");
+				print("Ingrese el número de la opción que desea [1-2]: ");
 					
 				int menuTienda = 0;
 				while (menuTienda==0) {
 					try {
-						menuTienda = entrada.nextInt();
+						menuTienda = readInt();
 						if (menuTienda>0 && menuTienda<=2) {
 							break;
 						}
 						else {
-							System.out.println("Ingrese un número válido por favor");
+							println("Ingrese un número válido por favor");
 							menuTienda = 0;
 							continue;
 						}
 					}
 					catch(InputMismatchException e) {
-						System.out.println("Por favor ingrese el numero uno o dos!!");
+						println("Por favor ingrese el numero 1 o 2");
 					}
 					finally {
 						entrada.nextLine();//SALTO DE LINEA
@@ -1811,86 +1810,86 @@ public class Main {
 				}
 				
 				if (menuTienda==1) {	
-					System.out.println("\nProductos disponibles:");
-					System.out.println(t1.inventario());
+					println("\nProductos disponibles:");
+					println(t1.inventario());
 				}
 				else {
-					System.out.print("\n¿Por qué tipo de animal te gustaría ver? [Perros, gatos, aves, hamsters o conejos]: ");
+					print("\n¿Por qué tipo de animal te gustaría ver? [Perros, gatos, aves, hamsters o conejos]: ");
 					while (true) {
 						try {
-							String tipo = entrada.nextLine();
+							String tipo = readString();
 							tipo.toLowerCase();
 							if (tipo.equals("perros") || tipo.equals("perro")) {
-								System.out.println("\nProductos disponibles:\n");
-								System.out.println(t1.filtrar("perros"));
+								println("\nProductos disponibles:\n");
+								println(t1.filtrar("perros"));
 								break;
 							}
 							else if (tipo.equals("gatos") || tipo.equals("gato")) {
-								System.out.println("\nProductos disponibles:\n");
-								System.out.println(t1.filtrar("gatos"));
+								println("\nProductos disponibles:\n");
+								println(t1.filtrar("gatos"));
 								break;
 							}
 							else if (tipo.equals("aves") || tipo.equals("ave")) {
-								System.out.println("\nProductos disponibles:\n");
-								System.out.println(t1.filtrar("aves"));
+								println("\nProductos disponibles:\n");
+								println(t1.filtrar("aves"));
 								break;
 							}	
 							else if (tipo.equals("hamsters") || tipo.equals("hamster")) {
-								System.out.println("\nProductos disponibles:\n");
-								System.out.println(t1.filtrar("hamsters"));
+								println("\nProductos disponibles:\n");
+								println(t1.filtrar("hamsters"));
 								break;
 							}
 							else if (tipo.equals("conejos") || tipo.equals("conejo")) {
-								System.out.println("\nProductos disponibles:\n");
-								System.out.println(t1.filtrar("conejos"));
+								println("\nProductos disponibles:\n");
+								println(t1.filtrar("conejos"));
 								break;
 							}
 							else {
-								System.out.println("Por favor, ingrese el tipo del animal en minúsculas [Perros, gatos, aves o hamsters]");
+								println("Por favor, ingrese el tipo del animal en minúsculas [Perros, gatos, aves o hamsters]");
 								continue;
 							}
 						}
 						catch(InputMismatchException e) {
-							System.out.println("Por favor, coloque un tipo valido de animal");
+							println("Por favor, coloque un tipo valido de animal");
 						}
 					}
 				}
 				boolean control = true;
 				while (control) {
 					try {
-							System.out.print("Coloque el índice del producto que va a comprar: ");
-							int indice = entrada.nextInt();
+							print("Digite el índice del producto a comprar: ");
+							int indice = readInt();
 			
-							System.out.print("Indique cuantas unidades quiere del producto: ");
-							int unidades = entrada.nextInt();
+							print("Indique cuantas unidades necesita del producto: ");
+							int unidades = readInt();
 							
 							//TODO: INGRESAR SISTEMA DE PUNTOS ---------------------------------------------------------------------
 							
 							if (unidades==1) {
-								System.out.println("\nSus datos serán tomados para registrar la compra.");
-								System.out.print("Ingrese su cédula: ");
+								println("\nSus datos serán tomados para registrar la compra.");
+								print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								System.out.print("Ingrese su edad: ");
+								print("Ingrese su edad: ");
 								int edad = entrada.nextInt();
-								System.out.print("Ingrese su nombre: ");
+								print("Ingrese su nombre: ");
 								entrada.nextLine();
-								String nombre = entrada.nextLine();
+								String nombre = readString();
 								
 								Cliente cliente = new Cliente(nombre, edad, cedula);
-								System.out.println("\n"+t1.compra(indice, cliente));
+								println("\n"+t1.compra(indice, cliente));
 							}
 							else {
-								System.out.println("\nSus datos serán tomados para registrar la compra.");
-								System.out.print("Ingrese su cédula: ");
+								println("\nSus datos serán tomados para registrar la compra.");
+								print("Ingrese su cédula: ");
 								long cedula = entrada.nextLong();
-								System.out.print("Ingrese su edad: ");
+								print("Ingrese su edad: ");
 								int edad = entrada.nextInt();
-								System.out.print("Ingrese su nombre: ");
+								print("Ingrese su nombre: ");
 								entrada.nextLine();
-								String nombre = entrada.nextLine();
+								String nombre = readString();
 								
 								Cliente cliente = new Cliente(nombre, edad, cedula);
-								System.out.println("\n"+t1.compra(indice, unidades, cliente));
+								println("\n"+t1.compra(indice, unidades, cliente));
 							}
 							
 							// ENCERRADO EN ESTAS LINEAS --------------------------------------------------------------------------------
@@ -1899,12 +1898,12 @@ public class Main {
 						
 					}
 					catch(InputMismatchException e) {
-						System.out.println("Por favor lea e ingrese correctamente los datos\n");
+						println("Por favor lea e ingrese correctamente los datos\n");
 					}
 					
 				}
 				
-				System.out.println("\n¿Desea volver al catálogo? [si/no]");
+				println("\n¿Desea volver al catálogo? [si/no]: ");
 				String respuesta = " ";
 				while (true) {//CONTROL CON UN WHILE SOLAMENTE
 					respuesta = entrada.nextLine();
@@ -1912,7 +1911,7 @@ public class Main {
 					if (respuesta.equals("si")||respuesta.equals("no")) {
 						break;
 					}else {
-						System.out.println("Por favor, ingrese una respuesta válida [si/no]");
+						println("Por favor, ingrese una respuesta válida [si/no]");
 						continue;
 					}
 				}
@@ -1920,7 +1919,7 @@ public class Main {
 						continue;
 					}
 					else {
-						System.out.println("Vuelva pronto :)\n");
+						println("Vuelva pronto :)\n");
 						break;
 					}
 				}//BUCLE COMPRAR
