@@ -61,26 +61,28 @@ public class Deserializador {
 		deserializar(CentroAdopcion.getClientes(), "Clientes");
 		deserializar(Funeraria.getTumbas(), "Tumbas");
 		deserializar(Funeraria.getCenizas(), "Cenizas");
-		deserializar(Socializar.getClientes(), "Clientes_Socializar");
 		deserializar(Tienda.getProductos(), "Productos");
 		deserializar(Tienda.getEmpleados(), "Empleados_Tienda");
 				
 		//metodos no estaticos
 				
-		CentroAdopcion ca = new CentroAdopcion();
-		deserializar(ca.getAdopciones(), "Adopciones");
-		CentroAdopcion ca2 = new CentroAdopcion();
-		deserializar(ca2.getEmpleados(), "Empleados");
-		CentroAdopcion ca3 = new CentroAdopcion();
-		deserializar(ca3.getAnimales(), "Animales");
-		CentroAdopcion ca4 = new CentroAdopcion();
-		deserializar(ca4.getCitas(), "Citas");
+//		CentroAdopcion ca = new CentroAdopcion();
+//		deserializar(ca.getAdopciones(), "Adopciones");
+//		CentroAdopcion ca2 = new CentroAdopcion();
+//		deserializar(ca2.getEmpleados(), "Empleados");
+//		CentroAdopcion ca3 = new CentroAdopcion();
+//		deserializar(ca3.getAnimales(), "Animales");
+//		CentroAdopcion ca4 = new CentroAdopcion();
+//		deserializar(ca4.getCitas(), "Citas");
 		        
 		Empleado em = new Empleado();
 		deserializar(em.getCupo(), "Agenda");
 				
 		Muerto m = new Muerto();
 		deserializar(m.getFlores(), "Flores");
+		
+		Socializar s = new Socializar();
+		deserializar(s.getClientes(), "Clientes_Socializar");
 
 	}
 }
