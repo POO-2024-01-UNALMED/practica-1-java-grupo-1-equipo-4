@@ -13,9 +13,9 @@ public class Socializar implements Serializable{
 	public static Cliente clientePorDefecto;
 	public static Animal animalPorDefecto;
 
-	static {
-		inicializarCamposPorDefecto();
-		}
+//	static {
+//		inicializarCamposPorDefecto();
+//		}
 	
 	private static void inicializarCamposPorDefecto() {
 		 if (animalPorDefecto == null) {

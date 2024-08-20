@@ -40,10 +40,6 @@ public class CentroAdopcion implements Serializable{
 	}
 	
 	//-----------------------------------------------------------------
-	
-	public CentroAdopcion() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public boolean tieneMascotas() {
 		boolean boleano = false;

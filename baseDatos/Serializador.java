@@ -63,14 +63,14 @@ public class Serializador {
 //        CentroAdopcion ca4 = new CentroAdopcion();
 //        serializar(ca4.getCitas(), "Citas");
         
-        Empleado em = new Empleado();
-        serializar(em.getCupo(), "Agenda");
+//        Empleado em = new Empleado();
+//        serializar(em.getCupo(), "Agenda");
 		
         Muerto m = new Muerto();
         serializar(m.getFlores(), "Flores");
         
-        Socializar s = new Socializar();
-        serializar(s.getClientes(), "Clientes_Socializar");
+//        Socializar s = new Socializar();
+//        serializar(s.getClientes(), "Clientes_Socializar");
 
 	}
 }

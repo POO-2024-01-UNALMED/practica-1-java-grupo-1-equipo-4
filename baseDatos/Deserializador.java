@@ -75,14 +75,14 @@ public class Deserializador {
 //		CentroAdopcion ca4 = new CentroAdopcion();
 //		deserializar(ca4.getCitas(), "Citas");
 		        
-		Empleado em = new Empleado();
-		deserializar(em.getCupo(), "Agenda");
+//		Empleado em = new Empleado();
+//		deserializar(em.getCupo(), "Agenda");
 				
 		Muerto m = new Muerto();
 		deserializar(m.getFlores(), "Flores");
 		
-		Socializar s = new Socializar();
-		deserializar(s.getClientes(), "Clientes_Socializar");
+//		Socializar s = new Socializar();
+//		deserializar(s.getClientes(), "Clientes_Socializar");
 
 	}
 }
