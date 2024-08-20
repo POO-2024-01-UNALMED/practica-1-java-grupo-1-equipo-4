@@ -166,57 +166,6 @@ public class Tienda implements Serializable{
             }
         }
 
-
-        public String compra(int indice){
-            if (empleados!=null){
-                indice -= 1;
-                int cantidad = productos.get(indice).getCantidadUnidades();
-
-                if (cantidad!=0){// si la cantidad unidades es diferente de 0, hace la compra
-                    cantidad-=1;
-                    productos.get(indice).setCantidadUnidades(cantidad);
-                    String nombre = productos.get(indice).getNombre();
-                    String tipo =  productos.get(indice).getTipoAnimal();
-                    if (productos.get(indice).getCantidadUnidades()==0) {
-                    	productos.remove(indice);
-                    }
-                    return "Se compró una unidad de: "+nombre+" para "+tipo;
-                }
-                else{
-                    return "No hay unidades suficientes.";
-                }
-            }else{
-                return "No hay un empleado para atenderlo.";
-            }
-        }
-
-        public String compra(int indice, int unidades){
-            if (empleados!=null){
-                indice -= 1;
-                if (indice>=productos.size() || indice<0) {
-                	return "No pudimos realizar la compra, el índice es incorrecto.";
-                }
-                int cantidad = productos.get(indice).getCantidadUnidades();
-
-                if (cantidad!=0 && cantidad>=unidades){// si la cantidad unidades es diferente de 0 
-                    // y mayor o igual a las unidades que se van a comprar
-                    cantidad-=unidades;
-                    productos.get(indice).setCantidadUnidades(cantidad);
-                    String nombre = productos.get(indice).getNombre();
-                    String tipo = productos.get(indice).getTipoAnimal(); 
-                    if (productos.get(indice).getCantidadUnidades()==0) {
-                    	productos.remove(indice);
-                    }
-                    return "Has comprado "+unidades+" unidades de: "+nombre+" para "+tipo;
-                }
-                else{
-                    return "No pudimos realizar la compra, no hay unidades suficientes.";
-                }
-            }else{
-                return "No hay un empleado para atenderlo.";
-            }
-        }
-        
         //TODO: MÉTODOS DE PRUEBA-------------------------------------------------------------------------------------------- 
         public String compra(int indice, Cliente cliente){
             if (empleados!=null){
