@@ -1,3 +1,3 @@
-java -jar proyecto.jar
+java -jar ejecutable.jar
 @echo off
 pause

@@ -60,23 +60,9 @@ public class Deserializador {
 				
 		//metodos no estaticos
 				
-//		CentroAdopcion ca = new CentroAdopcion();
-//		deserializar(ca.getAdopciones(), "Adopciones");
-//		CentroAdopcion ca2 = new CentroAdopcion();
-//		deserializar(ca2.getEmpleados(), "Empleados");
-//		CentroAdopcion ca3 = new CentroAdopcion();
-//		deserializar(ca3.getAnimales(), "Animales");
-//		CentroAdopcion ca4 = new CentroAdopcion();
-//		deserializar(ca4.getCitas(), "Citas");
-		        
-//		Empleado em = new Empleado();
-//		deserializar(em.getCupo(), "Agenda");
-				
 		Muerto m = new Muerto();
 		deserializar(m.getFlores(), "Flores");
 		
-//		Socializar s = new Socializar();
-//		deserializar(s.getClientes(), "Clientes_Socializar");
 
 	}
 }
