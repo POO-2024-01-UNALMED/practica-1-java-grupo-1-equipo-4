@@ -10,20 +10,20 @@ import gestorAplicación.procesoAdopcion.Cliente;
 
 
 public class Socializar implements Serializable{
-	public static Cliente clientePorDefecto = null;
-	public static Animal animalPorDefecto = null;
+	public static Cliente clientePorDefecto;
+	public static Animal animalPorDefecto;
 //	static {
 //        animalPorDefecto =new Animal("Firulais", 4, Arrays.asList("juguetón", "calmado", "activo", "pasivo"));
 //        clientePorDefecto =new Cliente("Juan", 30, 1234567890L, 987654321L, true);
 //        clientePorDefecto.setMascota(animalPorDefecto);
 //	}
 	private static final long serialVersionUID = 1L;
-	private static ArrayList<Cliente> clientes = new ArrayList<> ();
-	private static ArrayList<Cita> citas = new ArrayList<> ();
+	private  ArrayList<Cliente> clientes = new ArrayList<> ();
+	private ArrayList<Cita> citas = new ArrayList<> ();
 	
 	public Socializar(){
-		Socializar.clientes= new ArrayList<>();
-		Socializar.citas= new ArrayList<>();
+		this.clientes= new ArrayList<>();
+		this.citas= new ArrayList<>();
 		}
 	
 	public void registroC (Cliente cliente) {
@@ -100,20 +100,20 @@ public class Socializar implements Serializable{
         }
     }
     
-    public static ArrayList<Cita> getCitas(){
+    public ArrayList<Cita> getCitas(){
     	return citas;
     }
     
-    public static ArrayList<Cliente> getClientes(){
+    public ArrayList<Cliente> getClientes(){
 		return clientes;
 	}
 	
     public void setClientes(ArrayList<Cliente> clientes){
-		Socializar.clientes = clientes;
+		this.clientes = clientes;
 	}
     
     public void setCitas(ArrayList<Cita> citas){
-		Socializar.citas = citas;
+		this.citas = citas;
 	}
 }
 

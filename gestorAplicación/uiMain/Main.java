@@ -1246,22 +1246,22 @@ public class Main {
 		println("¡Buscando nuevos amigos!....\n");
 		socializar.match();
 		
-		 if (Socializar.getCitas().isEmpty()) {
+		 if (socializar.getCitas().isEmpty()) {
 	            println("No se encontraron coincidencias para socializar en este momento. :( ");
 	        } else {
 	            println("Elija el número del match con el que desea interactuar:");
-	            for (int i = 0; i < Socializar.getCitas().size(); i++) {
-	                Cita cita = Socializar.getCitas().get(i);
+	            for (int i = 0; i < socializar.getCitas().size(); i++) {
+	                Cita cita = socializar.getCitas().get(i);
 	                println((i + 1) + ". Cita generada entre " + cita.getCliente().getNombre() + " con su mascota " + cita.getAnimal().getNombre() +
 	                        " y " + cita.getCliente2().getNombre() + " con su mascota " + cita.getAnimal2().getNombre());
 	            }
 
 	            int citaSeleccionada = 0;
-	            while (citaSeleccionada < 1 || citaSeleccionada > Socializar.getCitas().size()) {
+	            while (citaSeleccionada < 1 || citaSeleccionada > socializar.getCitas().size()) {
 	                try {
 	                    print("Ingrese el número de la cita que desea seleccionar: ");
 	                    citaSeleccionada = readInt();
-	                    if (citaSeleccionada < 1 || citaSeleccionada > Socializar.getCitas().size()) {
+	                    if (citaSeleccionada < 1 || citaSeleccionada > socializar.getCitas().size()) {
 	                        println("Proporcione una respuesta válida.\n");
 	                    }
 	                } catch (RuntimeException e) {
@@ -1270,8 +1270,8 @@ public class Main {
 	                    readString();
 	                }
 	            }
-	    if(!Socializar.getCitas().isEmpty()) {
-	    Cita primeraCita=Socializar.getCitas().get(citaSeleccionada-1);
+	    if(!socializar.getCitas().isEmpty()) {
+	    Cita primeraCita=socializar.getCitas().get(citaSeleccionada-1);
 		println("¿Que desea hacer con su cita?");
 		println("1. Aceptarla");
 		println("2. Rechazarla");
